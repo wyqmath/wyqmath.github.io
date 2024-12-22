@@ -2,4 +2,4 @@
 
 **My howepage:** https://wyqmath.github.io/
 
-欢迎交流
+欢迎交流!
