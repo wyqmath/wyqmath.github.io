@@ -21,24 +21,26 @@
   .menu-category {
     cursor: pointer;
     user-select: none; /* Prevent text selection on click */
-    /* Add some styling similar to menu-item if needed */
     padding-top: 0.5em; /* Example spacing */
     font-weight: bold; /* Example styling */
   }
-  /* Style for non-clickable category title */
+  /* Style for non-clickable category title within the collapsible menu */
   .menu-category-title {
     padding-top: 0.7em;
     padding-bottom: 0.1em;
     display: block;
     color: #000000; /* Or your preferred color */
     font-weight: bold;
+    /* Removed padding-left to align with menu-category */
     /* Adjust other styles as needed */
   }
   /* Ensure menu items below the title are styled correctly */
   #layout-menu .menu-item {
-      padding: 0.2em 0 0.2em 1em; /* Adjust padding as needed */
+      padding: 0.2em 0 0.2em 1em; /* Standard padding for all menu items */
       display: block;
   }
+  /* Removed specific co-author item styling */
+
 </style>
 </head>
 <body>
@@ -52,7 +54,7 @@
 <td id="layout-menu">
 <!-- Modified menu category to be clickable -->
 <div class="menu-category" onclick="toggleMenu()">Menu &#9662;</div>
-<!-- Added a wrapper div for menu items -->
+<!-- Added a wrapper div for menu items, now including co-authors -->
 <div id="menu-items">
     <div class="menu-item"><a href="index.html" class="current">Home</a></div>
     <div class="menu-item"><a href="https://www.xju.edu.cn/">新疆大学</a></div>
@@ -63,12 +65,12 @@
     <div class="menu-item"><a href="https://openreview.net/profile?id=~YiquanWang1">openreview</a></div>
     <div class="menu-item"><a href="https://arxiv.org/a/wang_y_44.html">arxiv</a></div>
     <div class="menu-item"><a href="https://www.researchgate.net/profile/Yiquan-Wang-10">ResearchGate</a></div>
+    <!-- Co-author section moved inside menu-items -->
+    <div class="menu-category-title">Co-author</div> <!-- Title aligned left -->
+    <div class="menu-item"><a href="https://huangty5121.github.io">Tin-Yeh Huang</a></div> <!-- Removed co-author-item class -->
+    <div class="menu-item"><a href="https://jlu-wangxu.github.io/">Xu Wang</a></div> <!-- Removed co-author-item class -->
+    <div class="menu-item"><a href="https://sky.xju.edu.cn/info/1152/3017.htm/">Kai Wei</a></div> <!-- Removed co-author-item class -->
 </div>
-<!-- New Co-author section -->
-<div class="menu-category-title">Co-author</div> <!-- Added category title -->
-<div class="menu-item"><a href="https://huangty5121.github.io">Tin-Yeh Huang</a></div>
-<div class="menu-item"><a href="https://jlu-wangxu.github.io/">Xu Wang</a></div>
-<div class="menu-item"><a href="https://sky.xju.edu.cn/info/1152/3017.htm/">Kai Wei</a></div>
 </td>
 <td id="layout-content">
 <div id="toptitle">
