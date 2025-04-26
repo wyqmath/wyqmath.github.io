@@ -9,21 +9,67 @@
 <link rel="shortcut icon" href="favicon.ico" />
 <link rel="bookmark" href="favicon.ico" type="image/x-icon"　/>
 <title>Yiquan Wang(王一权)</title>
+<style>
+  /* Add style for the language switch link */
+  .language-switch {
+    position: absolute;
+    top: 10px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+    z-index: 1000; /* Ensure it's above other content */
+  }
+  /* Style for clickable menu category */
+  .menu-category {
+    cursor: pointer;
+    user-select: none; /* Prevent text selection on click */
+    /* Add some styling similar to menu-item if needed */
+    padding-top: 0.5em; /* Example spacing */
+    font-weight: bold; /* Example styling */
+  }
+  /* Style for non-clickable category title */
+  .menu-category-title {
+    padding-top: 0.7em;
+    padding-bottom: 0.1em;
+    display: block;
+    color: #000000; /* Or your preferred color */
+    font-weight: bold;
+    /* Adjust other styles as needed */
+  }
+  /* Ensure menu items below the title are styled correctly */
+  #layout-menu .menu-item {
+      padding: 0.2em 0 0.2em 1em; /* Adjust padding as needed */
+      display: block;
+  }
+</style>
 </head>
 <body>
+<!-- Add the language switch link here -->
+<div class="language-switch">
+  <a href="index.html">中文</a>
+</div>
+
 <table summary="Table for page layout." id="tlayout">
 <tr valign="top">
 <td id="layout-menu">
-<div class="menu-category">Menu</div>
-<div class="menu-item"><a href="index.html" class="current">Home</a></div>
-<div class="menu-item"><a href="https://www.xju.edu.cn/">Xinjiang University</a></div>
-<div class="menu-item"><a href="https://www.x-institute.edu.cn/">Tsinghua University Tsien Excellence in Engineering Program - X-Institute</a></div>  
-<div class="menu-item"><a href="https://github.com/wyqmath">GitHub</a></div>
-<div class="menu-item"><a href="https://scholar.google.com/citations?user=ULP3e1cAAAAJ">Google Scholar</a></div>
-<div class="menu-item"><a href="https://orcid.org/0000-0003-1417-5752">ORCID</a></div>
-<div class="menu-item"><a href="https://openreview.net/profile?id=~YiquanWang1">openreview</a></div>
-<div class="menu-item"><a href="https://arxiv.org/a/wang_y_44.html">arxiv</a></div>
-<div class="menu-item"><a href="https://www.researchgate.net/profile/Yiquan-Wang-10">ResearchGate</a></div>
+<!-- Modified menu category to be clickable -->
+<div class="menu-category" onclick="toggleMenu()">Menu &#9662;</div>
+<!-- Added a wrapper div for menu items -->
+<div id="menu-items">
+    <div class="menu-item"><a href="index_en.html" class="current">Home</a></div> <!-- Assuming this is the English page, link should reflect that if needed -->
+    <div class="menu-item"><a href="https://www.xju.edu.cn/">Xinjiang University</a></div>
+    <!-- Modified menu item text to be three lines -->
+    <div class="menu-item"><a href="https://www.x-institute.edu.cn/">Tsinghua University<br>Tsien Excellence in<br>Engineering Program<br> - X-Institute</a></div>
+    <div class="menu-item"><a href="https://github.com/wyqmath">GitHub</a></div>
+    <div class="menu-item"><a href="https://scholar.google.com/citations?user=ULP3e1cAAAAJ">Google Scholar</a></div>
+    <div class="menu-item"><a href="https://orcid.org/0000-0003-1417-5752">ORCID</a></div>
+    <div class="menu-item"><a href="https://openreview.net/profile?id=~YiquanWang1">openreview</a></div>
+    <div class="menu-item"><a href="https://arxiv.org/a/wang_y_44.html">arxiv</a></div>
+    <div class="menu-item"><a href="https://www.researchgate.net/profile/Yiquan-Wang-10">ResearchGate</a></div>
+</div>
+<!-- Co-author section added here -->
+<div class="menu-category-title">Co-author</div>
+<div class="menu-item"><a href="https://huangty5121.github.io">Tin-Yeh Huang</a></div>
+<div class="menu-item"><a href="https://jlu-wangxu.github.io/">Xu Wang</a></div>
+<div class="menu-item"><a href="https://sky.xju.edu.cn/info/1152/3017.htm/">Kai Wei</a></div>
 </td>
 <td id="layout-content">
 <div id="toptitle">
@@ -36,10 +82,10 @@
 National Base for Research and Teaching Talents in Basic Sciences "Mathematics"<br />
 Major in Mathematics and Applied Mathematics<br />
 Tsinghua University Tsien Excellence in Engineering Program - Shenzhen X-Institute (Shenzhen, Guangdong)<br />
-Zero One Scholar<br /> 
-IEEE Biometrics Council, membership<br /> 
-E-mail: <a href="mailto:wyqmath@gmail.com">wyqmath@gmail.com</a><br /> 
-E-mail: <a href="mailto:ethan@stu.xju.edu.cn">ethan@stu.xju.edu.cn</a><br /> 
+Zero One Scholar<br />
+IEEE Biometrics Council, membership<br />
+E-mail: <a href="mailto:wyqmath@gmail.com">wyqmath@gmail.com</a><br />
+E-mail: <a href="mailto:ethan@stu.xju.edu.cn">ethan@stu.xju.edu.cn</a><br />
 E-mail: <a href="mailto:wangyiquan@mails.x-institute.edu.cn">wangyiquan@mails.x-institute.edu.cn</a><br />
 Contact/WeChat: 19537838515</p>
 </td></tr></table>
@@ -49,7 +95,7 @@ Contact/WeChat: 19537838515</p>
 <p> <b>Undergraduate</b>：<img src="photos/xju-logo.jpg" alt="Xinjiang University Logo" height="30"></a>    <a href="https://www.xju.edu.cn/">Xinjiang University</a>  School of Mathematics and System Sciences--National Base for Research and Teaching Talents in Basic Sciences "Mathematics"--Major in Mathematics and Applied Mathematics , 2023.09-2027.06</p>
 <ul>
 <li><p>Main Courses: Mathematical Analysis, Advanced Algebra, Analytical Geometry, Partial Differential Equations, Functional Analysis, etc.  <a href="http://welcome.xju.edu.cn/Web/Home/InfoShow?AaP7zMNCgZE2QkOfBDKz_no3HWvvRp2HNSh1yGyhBXc=.shtml">See Mathematics Base Introduction</a></p>
-</li> 
+</li>
 </ul>
 <p> <b>Joint Training</b>：<img src="photos/thu-logo.jpg" alt="Tsinghua University Logo" height="30"></a>  <a href="https://www.x-institute.edu.cn/">Tsinghua University Tsien Excellence in Engineering Program - Shenzhen X-Institute</a>  ,  2024.06-2027.06</p>
 <ul>
@@ -59,36 +105,32 @@ Contact/WeChat: 19537838515</p>
 <p>My research interests include but are not limited to ai4science: </p>
 <ul>
 <li><p>Deep Learning and Whole Genome Sequencing</p></li>
-</li>
 <li><p>Natural Disaster Prediction and Machine Learning</p></li>
-</li>
-<li><p>Bioinformatics and Mathematical Modeling</p>
-</li>
-<li><p>Antibody Protein Design and Large Language Models</p>
+<li><p>Bioinformatics and Mathematical Modeling</p></li>
+<li><p>Antibody Protein Design and Large Language Models</p></li>
 </ul>
 <h3>Published Papers</h3>
 <ul>
-<li><p> Xu Wang., <b>Yiquan Wang</b>., Tin-Yeh Huang. Kai Wei.* Crypto-ncRNA: Non-coding RNA (ncRNA) Based Encryption Algorithm. <i>ICLR 2025 </i><b> (Co-first author)</b>[<a href="https://openreview.net/forum?id=j6ODUDw4vN">pdf</a>]</p>
-<li><p> Xu Wang., <b>Yiquan Wang</b>.*, Jiazhuo Pan. Digital Art Creation and Copyright Protection in Pollock Style Using GANs, Fractal Analysis, and NFT Generation. <i>ICLR 2025 </i><b>(Co-first author) </b>[<a href="https://openreview.net/forum?id=ZiLEUaf8ZC">pdf</a>]</p>  
-<li><p> Xu Wang., Fengzhou Wang., <b>Yiquan Wang</b>.* Dialogues between adam and eve: exploration of unknown civilization language by llm. <i>ICLR 2025 </i><b>(Co-first and corresponding author) </b>[<a href="https://openreview.net/forum?id=ca1Q9AGJD0">pdf</a>]</p>
-<li><p> <b>Yiquan Wang</b>.*, Jiaying Wang., Tin-Yeh Huang., et.al. STGCN-LSTM for Olympic Medal Prediction: Dynamic Power Modeling and Causal Policy Optimization. <i>arXiv:2501.17711 </i><b> (under review)</b>[<a href="https://arxiv.org/abs/2501.17711">pdf</a>]</p>
-<li><p> <b>Yiquan Wang</b>.*, Jialin Zhang., Yuhan Chang. A probability prediction model for flood disasters based on Multi-layer Perceptron. <i>2024 International Conference on Computational Modeling and Applied Mathematics (CMAM 2024) JPCS</i>[<a href="https://wyqmath.github.io/pub/EI_1.pdf">pdf</a>]</p>
-<li><p> Xu Wang., <b>Yiquan Wang</b>. Yuhua Dong., et.al. Symphony of Fate: Weaving Life through the Music of Amino Acids. <i></i><b> (Co-first author, under review)</b>[<a href="#">pdf</a>]</p>
-<li><p> Xu Wang.*, <b>Yiquan Wang</b>. et.al. A Personalized MOOC Learning Group and Course Recommendation Method Based on Graph Neural Network and Social Network Analysis. <i>arXiv preprint arXiv:2410.10658 </i><b> (co-first author)</b>[<a href="https://arxiv.org/abs/2410.10658">pdf</a>]</p>
-<li><p> Xu Wang., Longji Xu., <b>Yiquan Wang</b>.* et.al. Octopus Inspired Optimization Algorithm: Multi-Level Structures and Parallel Computing Strategies. <i>arXiv preprint arXiv:2410.07968 </i>[<a href="https://arxiv.org/abs/2410.07968">pdf</a>]</p>
-<li><p> Xu Wang., … <b>Yiquan Wang</b>.* Prediction of the evolution of neo-coronavirus spike proteins based on AlphaFold reconstruction. <i> </i><b> (under review)</b>[<a href="#">pdf</a>]</p>
-<li><p> Jiaying Wang., <b>Yiquan Wang</b>.* Multi-stage Crop Planting Strategy Optimisation Model Based on PSO Algorithm. <i>The 3rd International Conference on Electronic Information Technology (EIT 2024) IEEE</i>[<a href="https://wyqmath.github.io/pub/EI_3.pdf">pdf</a>] </p>
-<li><p> Guanjie Wang., <b>Yiquan Wang</b>., Wei Li*. Research on Travel Route Planing Problem Based on Greedy Algorithm. <i>2024 4th International Conference on Electronic Information Engineering and Computer Science (EIECS 2024) IEEE</i>[<a href="https://wyqmath.github.io/pub/EI_2.pdf">pdf</a>] </p>
+<li><p> Xu Wang., <b>Yiquan Wang</b>., Tin-Yeh Huang. Kai Wei.* Crypto-ncRNA: Non-coding RNA (ncRNA) Based Encryption Algorithm. <i>ICLR 2025 </i><b> (Co-first author)</b>[<a href="https://openreview.net/forum?id=j6ODUDw4vN">pdf</a>]</p></li>
+<li><p> Xu Wang., <b>Yiquan Wang</b>.*, Jiazhuo Pan. Digital Art Creation and Copyright Protection in Pollock Style Using GANs, Fractal Analysis, and NFT Generation. <i>ICLR 2025 </i><b>(Co-first author) </b>[<a href="https://openreview.net/forum?id=ZiLEUaf8ZC">pdf</a>]</p></li>
+<li><p> Xu Wang., Fengzhou Wang., <b>Yiquan Wang</b>.* Dialogues between adam and eve: exploration of unknown civilization language by llm. <i>ICLR 2025 </i><b>(Co-first and corresponding author) </b>[<a href="https://openreview.net/forum?id=ca1Q9AGJD0">pdf</a>]</p></li>
+<li><p> <b>Yiquan Wang</b>.*, Jiaying Wang., Tin-Yeh Huang., et.al. STGCN-LSTM for Olympic Medal Prediction: Dynamic Power Modeling and Causal Policy Optimization. <i>arXiv:2501.17711 </i><b> (under review)</b>[<a href="https://arxiv.org/abs/2501.17711">pdf</a>]</p></li>
+<li><p> <b>Yiquan Wang</b>.*, Jialin Zhang., Yuhan Chang. A probability prediction model for flood disasters based on Multi-layer Perceptron. <i>2024 International Conference on Computational Modeling and Applied Mathematics (CMAM 2024) JPCS</i>[<a href="https://wyqmath.github.io/pub/EI_1.pdf">pdf</a>]</p></li>
+<li><p> Xu Wang., <b>Yiquan Wang</b>. Yuhua Dong., et.al. Symphony of Fate: Weaving Life through the Music of Amino Acids. <i></i><b> (Co-first author, under review)</b>[<a href="#">pdf</a>]</p></li>
+<li><p> Xu Wang.*, <b>Yiquan Wang</b>. et.al. A Personalized MOOC Learning Group and Course Recommendation Method Based on Graph Neural Network and Social Network Analysis. <i>arXiv preprint arXiv:2410.10658 </i><b> (co-first author)</b>[<a href="https://arxiv.org/abs/2410.10658">pdf</a>]</p></li>
+<li><p> Xu Wang., Longji Xu., <b>Yiquan Wang</b>.* et.al. Octopus Inspired Optimization Algorithm: Multi-Level Structures and Parallel Computing Strategies. <i>arXiv preprint arXiv:2410.07968 </i>[<a href="https://arxiv.org/abs/2410.07968">pdf</a>]</p></li>
+<li><p> Xu Wang., … <b>Yiquan Wang</b>.* Prediction of the evolution of neo-coronavirus spike proteins based on AlphaFold reconstruction. <i> </i><b> (under review)</b>[<a href="#">pdf</a>]</p></li>
+<li><p> Jiaying Wang., <b>Yiquan Wang</b>.* Multi-stage Crop Planting Strategy Optimisation Model Based on PSO Algorithm. <i>The 3rd International Conference on Electronic Information Technology (EIT 2024) IEEE</i>[<a href="https://wyqmath.github.io/pub/EI_3.pdf">pdf</a>] </p></li>
+<li><p> Guanjie Wang., <b>Yiquan Wang</b>., Wei Li*. Research on Travel Route Planing Problem Based on Greedy Algorithm. <i>2024 4th International Conference on Electronic Information Engineering and Computer Science (EIECS 2024) IEEE</i>[<a href="https://wyqmath.github.io/pub/EI_2.pdf">pdf</a>] </p></li>
 </ul>
 <p><b>Note</b>: *Corresponding author</p>
 <p><a href="https://scholar.google.com/citations?user=ULP3e1cAAAAJ">All articles on Google Scholar</a>.</p>
 <h3>Academic Participation</h3>
 <p><b>Reviewer</b></p>
 <ul>
-<li><p>ICLR 2025 Workshop on AI for Nucleic Acids</p>
-<li><p>ICLR 2025 Workshop: The 1st Workshop on GenAI Watermarking</p>
-<li><p>F1000 Research</p><a href="https://f1000research.com/articles/14-245/v1">link</a>
-</li>  
+<li><p>ICLR 2025 Workshop on AI for Nucleic Acids</p></li>
+<li><p>ICLR 2025 Workshop: The 1st Workshop on GenAI Watermarking</p></li>
+<li><p>F1000 Research</p><a href="https://f1000research.com/articles/14-245/v1">link</a></li>
 </ul>
 <h2>Research Projects</h2>
 <ol>
@@ -97,13 +139,13 @@ Contact/WeChat: 19537838515</p>
 <li><p>Main Content: This project aims to integrate copy number variation (CNV) features from whole-genome sequencing data with multi-dimensional clinical data such as metabolic indicators. Leveraging the success of diffusion models in processing high-dimensional simulation data and protein phenotype prediction, we will construct a comprehensive framework consisting of CNV feature encoding, genomic region attention, and conditional U-Net diffusion modules. This will simulate CNV distribution changes and evolutionary processes in the genome, analyze the specific role of CNV in regulating Alzheimer's disease pathways, and ultimately improve disease risk assessment and early intervention accuracy.   Supervisor: Associate Professor Kai Wei (Xinjiang University, Thousand Talents Program)</p>
 </li>
 <li><p>Keywords: Diffusion; Copy Number Variation; WGS; Alzheimer's disease</p>
-</ul> 
+</ul>
 <li><p> <b>2024 Chinese Academy of Sciences Undergraduate Innovation Practice Training Program (National Level Project; First Responsible Person): Extraction and Analysis of Global Heatwave Disaster Adaptation Elements Based on Multimodal BERT Model</b>, 2024.11-2025.9</p></li>
 <ul>
 <li><p>Main Content: This research uses a multimodal BERT model to integrate text, images, and structured data to precisely identify key factors affecting heatwave adaptation. The research results will provide solid theoretical and data support for formulating scientific global heatwave response strategies and enhance society's overall disaster adaptation capabilities.   Supervisor: Researcher Yong Ge (Institute of Geographic Sciences and Natural Resources Research, CAS, Distinguished Young Scholar)</p>
 </li>
 <li><p>Keywords: Large Language Model; Spatial Analysis; BERT</p>
-</ul> 
+</ul>
 <li><p> <b>2024 College Student Innovation Training Project (Autonomous Region Level Project; First Responsible Person): Research on the Generation Cyclability of Cartesian Product Graphs and Related Problems</b>, 2024.03-2025.6</p></li>
 <ul>
 <li><p>Main Content: This project mainly focuses on studying the generation cyclability of the n-th Cartesian product graphs of complete graphs. Currently, there are research results on the generation cyclability of n-th Cartesian product graphs of complete graphs with two vertices and three vertices. I mainly study the generation cyclability of n-th Cartesian product graphs of complete graphs with at least 4 vertices. Supervisor: Associate Professor Yimingjiang Shabier</p>
@@ -114,15 +156,15 @@ Contact/WeChat: 19537838515</p>
 <ul>
 <li><p>Main Content: We transform protein sequence and structure information into musical encoding, exploring multidimensional functional relationships through spectral analysis. In our experiments, we analyzed the musical spectra mapped from over 2,000 proteins using machine learning models such as multi-layer perceptron and XGBoost, achieving a classification accuracy of 91.04% and a cross-validation score rate of up to 99.68%. Additionally, the proposed musical encoding harmony index significantly correlates with protein functions (such as enzyme activity). This research provides new theoretical insights for directed evolution and protein design. Supervisor: Associate Professor Yanhong Qin</p>
 </li>
-<li><p>Keywords: Machine Learning, Music Encoding, Protein Design, Function Prediction</p>
-<li><p>Project Address:<a href="https://github.com/wyqmath/Symphony_of_Fate">GitHub/Symphony_of_Fate</a></p>
+<li><p>Keywords: Machine Learning, Music Encoding, Protein Design, Function Prediction</p></li>
+<li><p>Project Address:<a href="https://github.com/wyqmath/Symphony_of_Fate">GitHub/Symphony_of_Fate</a></p></li>
 </ul>
-</ul> 
 <li><p> <b>Research on Elderly Companionship Solutions Based on Artificial Intelligence Digital Twin Technology</b>, 2024.12-2026.9</p></li>
 <ul>
 <li><p>Main Content: This project, centered on artificial intelligence digital twin technology, aims to alleviate the lack of family companionship for the elderly in China's aging society, bridge the digital divide for older adults, and enhance primary and secondary school students' artificial intelligence practical capabilities. Implemented by Shenzhen X - Institute in collaboration with ByteDance and other organizations, the project is divided into preparation, implementation, and promotion phases. It plans to facilitate students in customizing personalized digital twins for the elderly, enhancing intergenerational communication, and exploring application scenarios of AI large models in social welfare. The project not only provides companionship and psychological support for the elderly at a spiritual level but also opens up a new path for Chinese-style elderly care while promoting artificial intelligence education and social innovation development. Through multi-party collaboration, risk management, and media promotion, the project will achieve the goal of progressing from pilot programs to nationwide promotion, with significant social, educational, and technological implications. Supervisor: Min Tang (Former Counselor of the State Council)</p>
 </li>
-<li><p>Keywords: Artificial Intelligence; Social Innovation</p>
+<li><p>Keywords: Artificial Intelligence; Social Innovation</p></li>
+</ul>
 </ol>
 <h3>Learning Experience</h3>
 <ol>
@@ -136,13 +178,13 @@ Contact/WeChat: 19537838515</p>
 </ol>
 <h2>Internship Experience</h2>
 <ol>
-<li><p><b>Huawei Mindspore Community & Chinese Academy of Sciences Institute of Software Open Source Internship 2024.09-2025.3</b>: I utilized machine learning, artificial intelligence, and other technologies to implement VGG19-based Pollock style transfer paintings with fractal and turbulence feature extraction and NFT tag generation. Currently reported by <a href="https://mp.weixin.qq.com/s/_N5oLsa0etJTxEOKRTt_4w">Huawei Official Account</a></p>
-<li><p><b>Bose Quantum "Spark People" Community Intern 2024.09-present</b></p>
+<li><p><b>Huawei Mindspore Community & Chinese Academy of Sciences Institute of Software Open Source Internship 2024.09-2025.3</b>: I utilized machine learning, artificial intelligence, and other technologies to implement VGG19-based Pollock style transfer paintings with fractal and turbulence feature extraction and NFT tag generation. Currently reported by <a href="https://mp.weixin.qq.com/s/_N5oLsa0etJTxEOKRTt_4w">Huawei Official Account</a></p></li>
+<li><p><b>Bose Quantum "Spark People" Community Intern 2024.09-present</b></p></li>
 </ol>
 <h2>Competition Honors</h2>
 <ol>
 <li><p>2024 Alibaba Cloud Tianchi University Student Competition National Finals 17th Place, 2024.10<a href="https://tianchi.aliyun.com/specials/university/student_competition_2024">See Link</a></p>
-</li> 
+</li>
 <li><p>2024 14th APMCM Asia-Pacific Mathematical Modeling Competition National Third Prize, 2024.08</p>
 </li>
 <li><p>"Alpha Egg Cup" 2024 National Amateur Go King Championship and "Commercial Travel Grand Canal Cup" City Go Competition 15th Place, 2024.07</p>
@@ -150,23 +192,48 @@ Contact/WeChat: 19537838515</p>
 <li><p>Xinjiang Youth Amateur Go Dan Level Competition 53rd Place</b>, 2024.05</p>
 </li>
 <li><p>Hunan Province Spring Cup Go Competition 7th Place, 2024.02</p>
-</li>                                                           
+</li>
 <li><p>National Youth Intellectual Sports Meeting Go Competition 9th Place, 2024.02</p>
 </li>
 <li><p>Xinjiang University Vulnerability Reporting Honor, 2023.10</p>
 </li>
-<li><p>2023 Xinjiang "Tianshan Fixed Network Cup" Network Security Skills Competition 7th Place, 2023.10</p>
+<li><p>2023 Xinjiang "Tianshan Fixed Network Cup" Network Security Skills Competition 7th Place, 2023.10</p></li>
 </ol>
 <li><p>In addition, I developed a <a href="https://polypeptide.wyqmath.cn/">Polypeptide Structure Database</a> for Academician Shi Yigong's research lab at Tsinghua University, and a <a href="https://lingyi.wyqmath.cn/">Course Website</a> for Shenzhen X - Institute</p></li>
-</p><b>About Tsinghua University Tsien Excellence in Engineering Program - Shenzhen X-Institute:</b></p>
-</p>Shenzhen X-Institute originated from the Tsinghua University "Xuetang Plan" Qian Xuesen Mechanics Class (abbreviated as "Tsinghua Qian Class"). Founded in 2009, Tsinghua Qian Class is one of the 66 pilot projects of the National "Outstanding Student Training Experimental Program for Basic Disciplines" and the "Tsinghua Xuetang Talent Training Plan". It is the only experimental class not positioned in a single discipline, but focused on engineering foundations (or interdisciplinary innovation across mechanics and all engineering technology disciplines). Its mission is to discover and cultivate innovative talents who aspire to change the world and benefit humanity through technology, explore future innovative talent training models, and answer "Qian Xuesen's Question".</p>
+<p><b>About Tsinghua University Tsien Excellence in Engineering Program - Shenzhen X-Institute:</b></p>
+<p>Shenzhen X-Institute originated from the Tsinghua University "Xuetang Plan" Qian Xuesen Mechanics Class (abbreviated as "Tsinghua Qian Class"). Founded in 2009, Tsinghua Qian Class is one of the 66 pilot projects of the National "Outstanding Student Training Experimental Program for Basic Disciplines" and the "Tsinghua Xuetang Talent Training Plan". It is the only experimental class not positioned in a single discipline, but focused on engineering foundations (or interdisciplinary innovation across mechanics and all engineering technology disciplines). Its mission is to discover and cultivate innovative talents who aspire to change the world and benefit humanity through technology, explore future innovative talent training models, and answer "Qian Xuesen's Question".</p>
 <p><br/>
 <a href="cv/cv.pdf">Chinese Resume Download</a>.<br />
 <a href="cv/cv_en.pdf">English Curriculum Vitae Download</a>.<br />
 </p>
 </td>
-</ol>
 </tr>
 </table>
+
+<!-- Added JavaScript for toggling the menu -->
+<script>
+  function toggleMenu() {
+    var menuItems = document.getElementById('menu-items');
+    var menuTitle = document.querySelector('.menu-category'); // Get the clickable title element
+    if (menuItems.style.display === 'none' || menuItems.style.display === '') { // Check if hidden or unset
+      menuItems.style.display = 'block';
+      menuTitle.innerHTML = 'Menu &#9662;'; // Down arrow when open
+    } else {
+      menuItems.style.display = 'none';
+      menuTitle.innerHTML = 'Menu &#9656;'; // Right arrow when closed
+    }
+  }
+  // Ensure menu is initially open on page load
+  document.addEventListener('DOMContentLoaded', function() {
+      var menuItems = document.getElementById('menu-items');
+      var menuTitle = document.querySelector('.menu-category'); // Get the clickable title element
+      if (menuItems && menuTitle) { // Check if elements exist
+          // Set initial state based on preference (e.g., open)
+          menuItems.style.display = 'block'; // Explicitly set to block (open)
+          menuTitle.innerHTML = 'Menu &#9662;'; // Set initial arrow to down
+      }
+  });
+</script>
+
 </body>
 </html>
