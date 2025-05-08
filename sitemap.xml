@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<url>
+  <loc>https://wyqmath.cn/</loc>
+  <lastmod>2025-05-08T18:58:03+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://wyqmath.cn/en.html</loc>
+  <lastmod>2025-05-08T18:58:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://wyqmath.cn/index.html</loc>
+  <lastmod>2025-05-08T18:58:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://wyqmath.cn/cv/cv.pdf</loc>
+  <lastmod>2025-05-08T18:58:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://wyqmath.cn/cv/cv_en.pdf</loc>
+  <lastmod>2025-05-08T18:58:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://polypeptide.wyqmath.cn/</loc>
+  <lastmod>2025-05-09T08:00:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+</urlset>
