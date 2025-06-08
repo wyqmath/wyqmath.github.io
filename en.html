@@ -19,39 +19,240 @@
 <link rel="shortcut icon" href="favicon.ico" />
 <link rel="bookmark" href="favicon.ico" type="image/x-icon"　/>
 <title>Yiquan Wang(王一权)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  /* Add style for the language switch link */
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f9fa; /* Lighter grey background */
+    color: #343a40; /* Darker text for readability */
+    line-height: 1.6;
+  }
+  #layout-content {
+    background-color: #ffffff;
+    padding: 2.5rem 3rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    border: 1px solid #e9ecef;
+  }
+  #toptitle h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #212529;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e9ecef;
+  }
+  h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #343a40;
+    border-bottom: 2px solid #dee2e6;
+    padding-bottom: 0.6em;
+    margin-top: 2.5em;
+    margin-bottom: 1.5em;
+  }
+  a {
+    color: #007bff;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+  }
+  a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+  #layout-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 260px;
+    background-color: #fff;
+    z-index: 1001;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    padding: 1.5rem;
+    overflow-y: auto;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  }
+  #tlayout {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  #layout-content {
+    background-color: #ffffff;
+    padding: 2.5rem 3rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    border: 1px solid #e9ecef;
+    transition: margin-left 0.3s ease-in-out;
+  }
+  /* Language switch styling */
   .language-switch {
     position: absolute;
-    top: 10px; /* Adjust as needed */
-    right: 20px; /* Adjust as needed */
-    z-index: 1000; /* Ensure it's above other content */
+    top: 20px;
+    right: 30px;
+    z-index: 1000;
+    background-color: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border: 1px solid #e9ecef;
   }
-  /* Style for clickable menu category */
+  .language-switch a {
+    font-weight: 500;
+  }
+  /* Menu styles */
   .menu-category {
-    cursor: pointer;
-    user-select: none; /* Prevent text selection on click */
-    padding-top: 0.5em; /* Example spacing */
-    font-weight: bold; /* Example styling */
-  }
-  /* Style for non-clickable category title within the collapsible menu */
-  .menu-category-title {
-    padding-top: 0.7em;
-    padding-bottom: 0.1em;
-    display: block;
-    color: #000000; /* Or your preferred color */
+    user-select: none;
     font-weight: bold;
-    /* Removed padding-left to align with menu-category */
-    /* Adjust other styles as needed */
+    font-size: 1.2em;
+    color: #212529;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-  /* Ensure menu items below the title are styled correctly */
-  #layout-menu .menu-item {
-      padding: 0.2em 0 0.2em 1em; /* Standard padding for all menu items */
-      display: block;
+  #menu-close-btn {
+    font-size: 1.8rem;
+    font-weight: 300;
+    line-height: 1;
+    cursor: pointer;
+    color: #6c757d;
+    transition: color 0.2s;
+  }
+  #menu-close-btn:hover {
+    color: #212529;
+  }
+  #menu-items .menu-item a {
+    display: block;
+    padding: 0.6em 1em;
+    border-radius: 6px;
+    color: #495057;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  #menu-items .menu-item a:hover {
+    background-color: #e9ecef;
+    color: #0056b3;
+    text-decoration: none;
+  }
+  #menu-items .menu-item a.current {
+    background-color: #007bff;
+    color: white;
+  }
+   #menu-items .menu-item a.current:hover {
+    background-color: #0069d9;
+    color: white;
+  }
+  .menu-category-title {
+    padding: 0.7em 1em 0.2em;
+    display: block;
+    color: #6c757d;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    letter-spacing: 0.5px;
+  }
+  /* Personal info and keywords styling */
+  .personal-info-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  .personal-info-wrapper > p {
+    margin: 0;
+  }
+  .keywords-container {
+    flex-shrink: 0; /* Prevent keywords from shrinking */
+    width: 220px; /* Give it a fixed width */
+  }
+  .keyword-pill {
+    display: inline-block;
+    background-color: #e7f3ff;
+    color: #005a9e;
+    padding: 6px 12px;
+    border-radius: 16px;
+    margin: 4px 2px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    border: 1px solid #bde0ff;
+  }
+  .keyword-pill:hover {
+      background-color: #d0e7ff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  }
+  ul, ol {
+    padding-left: 20px;
+  }
+  li p {
+    margin-bottom: 0.5em;
+  }
+  #menu-toggle-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    cursor: pointer;
+    background: #fff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: all 0.2s ease-in-out;
+  }
+  #menu-toggle-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  }
+  #menu-toggle-btn span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: #343a40;
+  }
+  #page-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0s 0.3s;
+  }
+  body.menu-open #layout-menu {
+    transform: translateX(0);
+  }
+  body.menu-open #page-overlay {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s;
   }
 </style>
 </head>
 <body>
+<div id="menu-toggle-btn">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+<div id="page-overlay"></div>
 <!-- Add the language switch link here -->
 <div class="language-switch">
   <a href="index.html">中文</a>
@@ -60,24 +261,26 @@
 <table summary="Table for page layout." id="tlayout">
 <tr valign="top">
 <td id="layout-menu">
-<!-- Modified menu category to be clickable -->
-<div class="menu-category" onclick="toggleMenu()">Menu &#9662;</div>
-<!-- Added a wrapper div for menu items, now including co-authors -->
+<div class="menu-category">
+  <span>Menu</span>
+  <span id="menu-close-btn">&times;</span>
+</div>
 <div id="menu-items">
-    <div class="menu-item"><a href="index_en.html" class="current">Home</a></div> <!-- Assuming this is the English page, link should reflect that if needed -->
+    <div class="menu-item"><a href="en.html" class="current">Home</a></div>
     <div class="menu-item"><a href="https://github.com/wyqmath">GitHub</a></div>
     <div class="menu-item"><a href="https://scholar.google.com/citations?user=ULP3e1cAAAAJ">Google Scholar</a></div>
     <div class="menu-item"><a href="https://orcid.org/0000-0003-1417-5752">ORCID</a></div>
     <div class="menu-item"><a href="https://openreview.net/profile?id=~YiquanWang1">openreview</a></div>
     <div class="menu-item"><a href="https://arxiv.org/a/wang_y_44.html">arxiv</a></div>
     <div class="menu-item"><a href="https://www.researchgate.net/profile/Yiquan-Wang-10">ResearchGate</a></div>
-    <div class="menu-category-title">Co-author</div> <!-- Title aligned left -->
+    <div class="menu-category-title">Co-author</div>
     <div class="menu-item"><a href="https://tyhuang.hk/">Tin-Yeh Huang</a></div>
     <div class="menu-item"><a href="https://jlu-wangxu.github.io/">Xu Wang</a></div>
     <div class="menu-item"><a href="https://sky.xju.edu.cn/info/1152/3017.htm">Kai Wei</a></div>
     <div class="menu-category-title">Organizations</div>
     <div class="menu-item"><a href="https://www.xju.edu.cn/">Xinjiang University</a></div>
     <div class="menu-item"><a href="https://www.x-institute.edu.cn/">Tsinghua University<br>Tsien Excellence in<br>Engineering Program<br> - X-Institute</a></div>
+    <div class="menu-item"><a href="https://www.szbl.ac.cn/">Shenzhen Bay Laboratory</a></div>
 </div>
 </td>
 <td id="layout-content">
@@ -87,19 +290,29 @@
 <table class="imgtable"><tr><td>
   <img src="photos/wyq.png" alt="alt text" width="143px" height="209px" />
   </td>
-<td align="left"><p>School of Mathematics and System Sciences, Xinjiang University (Urumqi, Xinjiang)<br />
-National Base for Research and Teaching Talents in Basic Sciences "Mathematics"<br />
-Major in Mathematics and Applied Mathematics<br />
-Tsinghua University Tsien Excellence in Engineering Program - Shenzhen X-Institute (Shenzhen, Guangdong)<br />
-Zero One Scholar<br />
-IEEE Biometrics Council, membership<br />
-E-mail: <a href="mailto:wyqmath@gmail.com">wyqmath@gmail.com</a><br />
-E-mail: <a href="mailto:ethan@stu.xju.edu.cn">ethan@stu.xju.edu.cn</a><br />
-E-mail: <a href="mailto:wangyiquan@mails.x-institute.edu.cn">wangyiquan@mails.x-institute.edu.cn</a><br />
-Contact/WeChat: 19537838515</p>
+<td>
+  <div class="personal-info-wrapper">
+    <p>School of Mathematics and System Sciences, Xinjiang University (Urumqi, Xinjiang)<br />
+    National Base for Research and Teaching Talents in Basic Sciences "Mathematics"<br />
+    Major in Mathematics and Applied Mathematics<br />
+    Tsinghua University Tsien Excellence in Engineering Program - Shenzhen X-Institute (Shenzhen, Guangdong)<br />
+    Zero One Scholar<br />
+    IEEE Biometrics Council, membership<br />
+    E-mail: <a href="mailto:wyqmath@gmail.com">wyqmath@gmail.com</a><br />
+    E-mail: <a href="mailto:ethan@stu.xju.edu.cn">ethan@stu.xju.edu.cn</a><br />
+    E-mail: <a href="mailto:wangyiquan@mails.x-institute.edu.cn">wangyiquan@mails.x-institute.edu.cn</a><br />
+    Contact/WeChat: 19537838515</p>
+    <div class="keywords-container">
+        <span class="keyword-pill">CS.AI</span>
+        <span class="keyword-pill">Mathematics</span>
+        <span class="keyword-pill">Neuroscience</span>
+        <span class="keyword-pill">Computational Biology</span>
+        <span class="keyword-pill">Bioinformatics</span>
+    </div>
+  </div>
 </td></tr></table>
 <h2>Personal Profile</h2>
-<p>In my undergraduate study, I plan to progress in three phases and along two main lines. The three phases during holidays include: summer schools at top domestic universities, internships at leading domestic enterprises, and summer research at overseas universities, all aimed at enriching my social insights and developing my cognitive abilities. The two main lines during term time include: undergraduate courses at Xinjiang University and scientific research training (ESRT, ORIC) at Tsinghua Qian Class, aiming for deep integration of learning and application.</p>
+<p>At present, more than 10 SCI/EI papers have been published, and 3 papers have been presented at the top AI conference ICLR. In my undergraduate studies, I plan to advance through three stages and two main themes. The promotion of three stages of vacation: summer school at top domestic universities, internship at top domestic enterprises, and summer study at overseas universities, striving to enrich one's social insights and exercise personal cognitive abilities. During the semester, there will be two main themes: achieving a deep integration of learning and application in undergraduate courses at Xinjiang University and research training at Tsinghua University Tsien Excellence in Engineering Program (ESRT, ORIC).</p>
 <h2>Education</h2>
 <p> <b>Undergraduate</b>：<img src="photos/xju-logo.jpg" alt="Xinjiang University Logo" height="30"></a>    <a href="https://www.xju.edu.cn/">Xinjiang University</a>  School of Mathematics and System Sciences--National Base for Research and Teaching Talents in Basic Sciences "Mathematics"--Major in Mathematics and Applied Mathematics , 2023.09-2027.06</p>
 <ul>
@@ -116,13 +329,7 @@ Contact/WeChat: 19537838515</p>
 </li>
 </ul>
 <h2>Research Experience</h2>
-<p>My research interests include but are not limited to ai4science: </p>
-<ul>
-<li><p>Deep Learning and Whole Genome Sequencing</p></li>
-<li><p>Natural Disaster Prediction and Machine Learning</p></li>
-<li><p>Bioinformatics and Mathematical Modeling</p></li>
-<li><p>Antibody Protein Design and Large Language Models</p></li>
-</ul>
+<p>My research direction is AI for Science, focusing on the cross fusion of deep learning, bioinformatics, and mathematical modeling, with the aim of using artificial intelligence technology to study the mechanisms of diseases. I am committed to using advanced deep learning algorithms to deeply analyze complex patterns in biological data, and combining them with insights from bioinformatics and rigorous mathematical models to develop efficient and accurate biological mathematical models, ultimately achieving earlier and more accurate analysis of disease mechanisms and risk assessment and prediction.</p>
 <h3>Published Papers</h3>
 <ul>
   <li><p> <b>Yiquan Wang</b>.*, Minnuo Cai., Tin-Yeh Huang. AI for disease prediction: Performance insights and key limitations. <i>Journal of Clinical Neuroscience</i> 2025. [<a href="#">pdf</a>]</p>
@@ -231,26 +438,23 @@ Contact/WeChat: 19537838515</p>
 
 <!-- Added JavaScript for toggling the menu -->
 <script>
-  function toggleMenu() {
-    var menuItems = document.getElementById('menu-items');
-    var menuTitle = document.querySelector('.menu-category'); // Get the clickable title element
-    if (menuItems.style.display === 'none' || menuItems.style.display === '') { // Check if hidden or unset
-      menuItems.style.display = 'block';
-      menuTitle.innerHTML = 'Menu &#9662;'; // Down arrow when open
-    } else {
-      menuItems.style.display = 'none';
-      menuTitle.innerHTML = 'Menu &#9656;'; // Right arrow when closed
-    }
-  }
-  // Ensure menu is initially open on page load
   document.addEventListener('DOMContentLoaded', function() {
-      var menuItems = document.getElementById('menu-items');
-      var menuTitle = document.querySelector('.menu-category'); // Get the clickable title element
-      if (menuItems && menuTitle) { // Check if elements exist
-          // Set initial state based on preference (e.g., open)
-          menuItems.style.display = 'block'; // Explicitly set to block (open)
-          menuTitle.innerHTML = 'Menu &#9662;'; // Set initial arrow to down
-      }
+    const toggleBtn = document.getElementById('menu-toggle-btn');
+    const closeBtn = document.getElementById('menu-close-btn');
+    const overlay = document.getElementById('page-overlay');
+
+    const openMenu = () => document.body.classList.add('menu-open');
+    const closeMenu = () => document.body.classList.remove('menu-open');
+
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', openMenu);
+    }
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeMenu);
+    }
+    if (overlay) {
+      overlay.addEventListener('click', closeMenu);
+    }
   });
 </script>
 
