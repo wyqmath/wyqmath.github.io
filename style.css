@@ -105,24 +105,29 @@ a:hover {
 #menu-close-btn:hover {
   color: #212529;
 }
+#menu-items .menu-item {
+  padding-left: 0;
+  text-indent: 0;
+}
 #menu-items .menu-item a {
-  display: block;
-  padding: 0.6em 1em;
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
   border-radius: 6px;
   color: #495057;
   font-weight: 500;
   margin-bottom: 4px;
 }
 #menu-items .menu-item a:hover {
-  background-color: #e9ecef;
-  color: #0056b3;
+  background-color: #007bff;
+  color: white;
   text-decoration: none;
 }
 #menu-items .menu-item a.current {
   background-color: #007bff;
   color: white;
 }
- #menu-items .menu-item a.current:hover {
+#menu-items .menu-item a.current:hover {
   background-color: #0069d9;
   color: white;
 }
@@ -134,6 +139,13 @@ a:hover {
   text-transform: uppercase;
   font-size: 0.8em;
   letter-spacing: 0.5px;
+}
+/* Menu icon styles */
+.menu-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 12px;
+  flex-shrink: 0;
 }
 /* Personal info and keywords styling */
 .personal-info-wrapper {
