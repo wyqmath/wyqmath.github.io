@@ -6,3 +6,51 @@
     vertical-align: middle;
     margin-right: 8px;
 } 
+
+@media (max-width: 768px) {
+    body {
+        -webkit-text-size-adjust: 100%; /* 防止在某些移动浏览器上字体自动缩放 */
+    }
+
+    #layout-content {
+        padding: 2rem 1.5rem; /* 调整移动设备上的内边距 */
+    }
+
+    #toptitle h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem; /* 调整二级标题在移动设备上的字体大小 */
+    }
+    
+    .imgtable tr {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .imgtable td {
+        padding: 0;
+        text-align: center;
+    }
+
+    .imgtable img {
+        margin-bottom: 1rem;
+    }
+    
+    .personal-info-wrapper {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .personal-info-wrapper > p {
+        text-align: left; /* 个人信息部分保持左对齐 */
+    }
+    
+    ul, ol {
+        padding-left: 24px; /* 调整列表的左内边距以改善缩进 */
+        text-align: left;
+    }
+} 
