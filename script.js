@@ -35,4 +35,36 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     }
+
+    let gaLoaded = false;
+    const userInteractionEvents = ['scroll', 'mousemove', 'click', 'touchstart'];
+
+    const loadGoogleAnalytics = () => {
+        if (gaLoaded) {
+            return;
+        }
+        gaLoaded = true;
+
+        const gtagScript = document.createElement('script');
+        gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-V3NDD3YDYH';
+        gtagScript.async = true;
+        document.head.appendChild(gtagScript);
+
+        gtagScript.onload = () => {
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', 'G-V3NDD3YDYH');
+        };
+
+        userInteractionEvents.forEach(event => {
+            window.removeEventListener(event, loadGoogleAnalytics, { passive: true });
+        });
+    };
+
+    userInteractionEvents.forEach(event => {
+        window.addEventListener(event, loadGoogleAnalytics, { passive: true });
+    });
   }); 
