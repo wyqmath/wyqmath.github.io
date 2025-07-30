@@ -73,18 +73,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const zhElements = document.querySelectorAll('.lang-zh');
     const enElements = document.querySelectorAll('.lang-en');
 
-    let currentLang = 'zh'; // Default language is Chinese
+    let currentLang = 'en'; // Default language is English
+
+    // Initialize page with English content
+    function initializeLanguage() {
+        zhElements.forEach(el => el.style.display = 'none');
+        enElements.forEach(el => el.style.display = '');
+        langToggle.textContent = '中文';
+        document.documentElement.lang = 'en';
+        document.title = 'Yiquan Wang (王一权) | AI for Science Researcher';
+    }
 
     function switchLanguage() {
-        if (currentLang === 'zh') {
-            // Switch to English
-            zhElements.forEach(el => el.style.display = 'none');
-            enElements.forEach(el => el.style.display = '');
-            langToggle.textContent = '中文';
-            document.documentElement.lang = 'en';
-            document.title = 'Yiquan Wang (王一权) | AI for Science Researcher';
-            currentLang = 'en';
-        } else {
+        if (currentLang === 'en') {
             // Switch to Chinese
             zhElements.forEach(el => el.style.display = '');
             enElements.forEach(el => el.style.display = 'none');
@@ -92,8 +93,19 @@ document.addEventListener('DOMContentLoaded', function() {
             document.documentElement.lang = 'zh-CN';
             document.title = '王一权 (Yiquan Wang) | AI for Science 研究者';
             currentLang = 'zh';
+        } else {
+            // Switch to English
+            zhElements.forEach(el => el.style.display = 'none');
+            enElements.forEach(el => el.style.display = '');
+            langToggle.textContent = '中文';
+            document.documentElement.lang = 'en';
+            document.title = 'Yiquan Wang (王一权) | AI for Science Researcher';
+            currentLang = 'en';
         }
     }
+
+    // Initialize the page with English content
+    initializeLanguage();
 
     if (langToggle) {
         langToggle.addEventListener('click', function(e) {
