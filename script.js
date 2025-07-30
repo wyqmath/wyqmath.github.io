@@ -67,4 +67,38 @@ document.addEventListener('DOMContentLoaded', function() {
     userInteractionEvents.forEach(event => {
         window.addEventListener(event, loadGoogleAnalytics, { passive: true });
     });
-  }); 
+
+    // Language switching functionality
+    const langToggle = document.getElementById('lang-toggle');
+    const zhElements = document.querySelectorAll('.lang-zh');
+    const enElements = document.querySelectorAll('.lang-en');
+
+    let currentLang = 'zh'; // Default language is Chinese
+
+    function switchLanguage() {
+        if (currentLang === 'zh') {
+            // Switch to English
+            zhElements.forEach(el => el.style.display = 'none');
+            enElements.forEach(el => el.style.display = '');
+            langToggle.textContent = '中文';
+            document.documentElement.lang = 'en';
+            document.title = 'Yiquan Wang (王一权) | AI for Science Researcher';
+            currentLang = 'en';
+        } else {
+            // Switch to Chinese
+            zhElements.forEach(el => el.style.display = '');
+            enElements.forEach(el => el.style.display = 'none');
+            langToggle.textContent = 'English';
+            document.documentElement.lang = 'zh-CN';
+            document.title = '王一权 (Yiquan Wang) | AI for Science 研究者';
+            currentLang = 'zh';
+        }
+    }
+
+    if (langToggle) {
+        langToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            switchLanguage();
+        });
+    }
+  });
