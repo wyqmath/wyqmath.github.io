@@ -113,4 +113,18 @@ document.addEventListener('DOMContentLoaded', function() {
             switchLanguage();
         });
     }
+
+    // PhD floating box functionality
+    const phdFloatingBox = document.getElementById('phd-floating-box');
+    const phdBoxClose = document.getElementById('phd-box-close');
+
+    if (phdBoxClose) {
+        phdBoxClose.addEventListener('click', function() {
+            phdFloatingBox.classList.add('hidden');
+            // Remove the element after animation completes
+            setTimeout(() => {
+                phdFloatingBox.style.display = 'none';
+            }, 400);
+        });
+    }
   });
