@@ -56,39 +56,42 @@
 	\begin{center}
 		\textbf{\large Research Projects}
 	\end{center}
+	\textbf{Tsinghua University Tsien Excellence in Engineering Program ESRT} \hfill 2024.08-2025.10
+	\begin{itemize}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*]
+		\item \textbf{Project:} From Signal to Symphony: Exploring 2D Sequence Representations for Protein Function Prediction.
+		\item {\small Predicting protein function from its primary sequence is a fundamental challenge in computational biology. While deep learning has excelled, the optimal representation of sequence data remains an open question. This study explores protein sonification---the conversion of amino acid sequences into 2D spectrograms---as a representation for this task. To facilitate this investigation, we developed a benchmark dataset of 18,000 sequences spanning 12 functionally diverse protein classes. Our systematic evaluation suggests that the structural transformation from a 1D sequence to a 2D spectrogram may be a key contributor to the model's predictive performance. This observation is supported by ablation studies where models using either purely visual or acoustic features from the spectrogram demonstrated effective standalone performance, suggesting that the representation itself is a key source of this capability. For instance, a model using a sonification map without explicit biophysical meaning achieved 81.08\% accuracy, while our biophysically-informed model reached 84.00\%, indicating that such domain knowledge may offer a modest performance benefit. When trained from scratch on our dataset, our fusion model achieved performance comparable to or slightly exceeding that of standard transformer architectures like ESM-2 and ProtBERT, suggesting its potential for data efficiency in this specific context. The model's potential for generalizability was further supported by its performance on the external CARE enzyme classification benchmark, where it achieved 90.44\% accuracy. Finally, as a proof-of-concept, we explore the utility of our encoding to guide a diffusion model in generating novel GFP variants, which were assessed for structural viability using computational methods. Our work provides evidence suggesting that the utility of sonification in this context may stem largely from its representational structure, offering a perspective on feature engineering for biological sequences.}
+		\item \href{https://github.com/wyqmath/Symphony_of_Fate}{Project Repository}. Supervised by Prof. \href{https://scholar.google.com/citations?user=LLj__mMAAAAJ}{Kai Wei}.
+	\end{itemize}
+
+	\vspace{10pt}
+
 	\textbf{National Undergraduate Innovation Training Program} \hfill 2025.04 – 2026.04
 	\begin{itemize}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*]
 		\item \textbf{Project:} Copy Number Variation Conditional Diffusion Model: For Alzheimer's Disease Risk Assessment.
-		\item This project aims to integrate copy number variation (CNV) features from whole-genome sequencing data with multi-dimensional clinical data such as metabolic indicators. Leveraging the success of diffusion models in processing high-dimensional simulation data and protein phenotype prediction, we will construct a comprehensive framework consisting of CNV feature encoding, genomic region attention, and conditional U-Net diffusion modules. This will simulate CNV distribution changes and evolutionary processes in the genome, analyze the specific role of CNV in regulating Alzheimer's disease pathways, and ultimately improve disease risk assessment and early intervention accuracy. Supervised by Prof. Kai Wei.
+		\item {\small This project aims to integrate copy number variation (CNV) features from whole-genome sequencing data with multi-dimensional clinical data such as metabolic indicators. Leveraging the success of diffusion models in processing high-dimensional simulation data and protein phenotype prediction, we will construct a comprehensive framework consisting of CNV feature encoding, genomic region attention, and conditional U-Net diffusion modules. This will simulate CNV distribution changes and evolutionary processes in the genome, analyze the specific role of CNV in regulating Alzheimer's disease pathways, and ultimately improve disease risk assessment and early intervention accuracy.}
+		\item Supervised by Prof. \href{https://scholar.google.com/citations?user=LLj__mMAAAAJ}{Kai Wei}.
 	\end{itemize}
-	
+
 	\vspace{10pt}
-	
+
 	\textbf{Chinese Academy of Sciences (CAS) Innovation Practice Training Program} \hfill 2024.11 – 2025.09
 	\begin{itemize}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*]
 		\item \textbf{Project:} A Knowledge Graph-based Q\&A System for Heatwave Disaster Adaptation.
-		\item To address the urgent global challenge of increasingly severe heatwaves, this project details an automated pipeline for constructing a domain-specific knowledge graph from academic literature. The system leverages a Large Language Model to extract relational triples from unstructured text. A novel workflow then standardizes entities by using SentenceTransformer embeddings and a FAISS index for semantic clustering, followed by LLM-based canonical name generation. The resulting knowledge graph powers a hybrid KG-RAG query engine that retrieves factual subgraphs to provide context for an LLM, enabling the generation of precise, source-grounded answers for complex queries on heatwave adaptation. Supervised by Researcher Yong Ge.
+		\item {\small To address the urgent global challenge of increasingly severe heatwaves, this project details an automated pipeline for constructing a domain-specific knowledge graph from academic literature. The system leverages a Large Language Model to extract relational triples from unstructured text. A novel workflow then standardizes entities by using SentenceTransformer embeddings and a FAISS index for semantic clustering, followed by LLM-based canonical name generation. The resulting knowledge graph powers a hybrid KG-RAG query engine that retrieves factual subgraphs to provide context for an LLM, enabling the generation of precise, source-grounded answers for complex queries on heatwave adaptation.}
+		\item Supervised by Researcher \href{https://scholar.google.com/citations?user=OQDwnVUAAAAJ}{Yong Ge}.
 	\end{itemize}
-	
+
 	\vspace{10pt}
-	
-	\textbf{Tsinghua University Tsien Excellence in Engineering Program ESRT} \hfill 2024.08-2025.10
-	\begin{itemize}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*]
-		\item \textbf{Project:} From Signal to Symphony: Predicting Protein Function with a Deep Learning Fusion Model on Sonified Sequences.
-		\item This research introduces a novel computational framework that translates protein sequence and structural information into musical encodings to predict function and guide protein design. The study systematically demonstrates the value of co-evolving both data representation and model complexity through a three-stage comparative analysis, achieving 90.44\% accuracy. The framework was also integrated into a conditional diffusion model to guide the generative design of novel, structurally viable Green Fluorescent Protein (GFP) variants. Supervised by Prof. Kai Wei.
-	\end{itemize}
-	
-	\vspace{10pt}
-	
+
 	\textbf{Provincial Undergraduate Innovation Training Program} \hfill 2024.03 – 2025.06
 	\begin{itemize}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*]
 		\item \textbf{Project:} Research on the Generation Cyclability of Cartesian Product Graphs and Related Problems.
-		\item This project mainly focuses on studying the generation cyclability of the n-th Cartesian product graphs of complete graphs. Currently, there are research results on the generation cyclability of n-th Cartesian product graphs of complete graphs with two vertices and three vertices. I mainly study the generation cyclability of n-th Cartesian product graphs of complete graphs with at least 4 vertices. Supervised by Prof. Eminjan Sabir.
+		\item {\small The $k$-ary $n$-cube ($Q_n^k$) is a critical topology for large-scale computing systems powering modern AI and HPC workloads, where fault tolerance is paramount. Traditional fault models, which assume faults are independent and random, yield unrealistic resilience estimates because real-world failures are spatially correlated, manifesting as topological clusters. This paper introduces the Region-Based Fault (RBF) model, a new paradigm that addresses this gap by directly modeling this spatial correlation. Our primary contribution is a proof that for odd $k \geq 3$ and $n \geq 2$, the $Q_n^k$ remains Hamiltonian-connected—a property vital for deadlock-free routing and efficient task scheduling—under a sufficient set of RBF conditions. We present a constructive algorithm that finds a Hamiltonian path by leveraging an adaptive decomposition strategy. Experimental analysis demonstrates that our approach significantly enhances fault tolerance and remains robust far beyond its conservative theoretical guarantees. This work provides a practical, high-performance solution for maintaining connectivity in systems where fault clustering is prevalent.}
+		\item \href{https://github.com/wyqmath/Hamiltonian_Path}{Project Repository}. Supervised by Prof. \href{https://orcid.org/0000-0003-1456-4539}{Eminjan Sabir}.
 	\end{itemize}
 	
 	\vspace{12pt}
 	
-	\clearpage
 	\begin{center}
 		\textbf{\large Professional Experience}
 	\end{center}
@@ -96,7 +99,7 @@
 	
 	\textit{Intern} \hfill 2025.07 – Present
 	\begin{itemize}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*]
-		\item Developed the \href{https://www.frcbs.tsinghua.edu.cn/cpdb/}{Polypeptide Structure Database} and engaged in protein and polypeptide design research.
+		\item Developed the \href{https://www.fbs.frcbs.tsinghua.edu.cn/competition/2025Peptide/}{Peptide Design Competition Website}, the \href{https://www.frcbs.tsinghua.edu.cn/cpdb/}{Polypeptide Structure Database} and engaged in protein and polypeptide design research.
 	\end{itemize}
 	
 	\vspace{10pt}
@@ -116,16 +119,17 @@
 		\textbf{\large Selected Publications}
 	\end{center}
 	\begin{enumerate}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*, label={[\arabic*]}]
-		\item \textbf{Wang, Y.}, Cai, M., Dong, Y., et al. (2025). From Signal to Symphony: Predicting Protein Function with a Deep Learning Fusion Model on Sonified Sequences. \textit{Journal of Chemical Information and Modeling} (Accepted, JCR Q1, CAS Q2 Top).
+		\item \textbf{Wang, Y.}, Cai, M., Dong, Y., et al. (2025). From Signal to Symphony: Exploring 2D Sequence Representations for Protein Function Prediction. \textit{Journal of Chemical Information and Modeling} (JCR Q1, CAS Q2 Top).
 		\item \textbf{Wang, Y.*}, Cai, M., \& Huang, T. Y. (2025). AI for disease prediction: Performance insights and key limitations. \textit{Journal of Clinical Neuroscience, 138}, 111360.
+		\item \textbf{Wang, Y.*}, Huang, T. Y., Gao, Q., \& Zhang, J. (2025). HeDA: An Intelligent Agent System for Heatwave Risk Discovery through Automated Knowledge Graph Construction and Multi-layer Risk Propagation Analysis. \textit{arXiv preprint arXiv:2509.25112}.
 		\item Wang, X., \textbf{Wang, Y.}, \& Huang, T. Y. (2025). Crypto-ncRNA: Non-coding RNA (ncRNA) Based Encryption Algorithm. \textit{ICLR 2025 Workshop}. (Co-first author).
 		\item Wang, X., \textbf{Wang, Y.*}, \& Pan, J. (2025). Digital Art Creation and Copyright Protection in Pollock Style Using GANs, Fractal Analysis, and NFT Generation. \textit{ICLR 2025 Workshop}. (Co-first author).
-		\item Wang, X., \textbf{Wang, Y.*}, Xu, L., et al. (2024). Octopus Inspired Optimization Algorithm: Multi-Level Structures and Parallel Computing Strategies. \textit{arXiv preprint arXiv:2410.07968}. (Co-first author).
-		\item Zhao. H., Shi. W., Liu Chang., \textbf{Wang, Y.}. (2025). Boundary Box-Guided Targeted Adversarial Attacks with Semantic Perturbation. \textit{In 2025 IEEE international conference on systems, man, and cybernetics.} IEEE.  (Accepted, CCF-C).
+		\item Wang, X., \textbf{Wang, Y.*}, Xu, L., et al. (2024). Octopus Inspired Optimization (OIO): A Hierarchical Framework for Navigating Protein Fitness Landscapes. \textit{arXiv preprint arXiv:2410.07968}. (Co-first author).
+		\item Zhao. H., Shi. W., Liu Chang., \textbf{Wang, Y.}. (2025). Boundary Box-Guided Targeted Adversarial Attacks with Semantic Perturbation. \textit{In 2025 IEEE international conference on systems, man, and cybernetics.} IEEE.  (CCF-C).
 		\item \textbf{Wang, Y.*}, Zhang, J., \& Chang, Y. (2024, November). A probability prediction model for flood disasters based on Multi-layer Perceptron. In \textit{Journal of Physics: Conference Series} (Vol. 2905, No. 1, p. 012003). IOP Publishing.
 		\item Wang, J., \& \textbf{Wang, Y.*} (2024, September). Multi-stage Crop Planting Strategy optimization Model Based on PSO Algorithm. In \textit{2024 3rd International Conference on Electronics and Information Technology (EIT)} (pp. 915-919). IEEE.
 		\item \textbf{Wang, Y.}, Zai, J., Liu, Z., et al. (2025). Hamiltonian Connectivity in $k$-Ary $n$-Cubes under a Region-Based Fault Model. (under review).
-		\item \textbf{Wang, Y.}, Zhang, J., Chang, Y., et al. (2025). Boosting MOOCs Engagement through Graph Neural Network-Driven Social-Academic Recommendations. (under review).
+		\item \textbf{Wang, Y.*}, Zuo, J.*, Zheng, T. (2025). Boosting MOOC Engagement: A Social-Constructivist Approach using Graph Neural Networks. (under review).
 	\end{enumerate}
 	
 	\vspace{12pt}
@@ -134,7 +138,7 @@
 		\textbf{\large Awards \& Honors}
 	\end{center}
 	\begin{itemize}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*]
-		\item \textbf{SynBio Challenges}: Silver Award \hfill 2025
+		\item \textbf{SynBio Challenges}: Silver Award $\times$ 2 \hfill 2025
 		\item \textbf{2025 X-Fusion "Global Innovator Fusion Conference"}: Best Poster Award \hfill 2025
 		\item \textbf{The Mathematical Contest in Modeling (MCM)}: Honorable Mention \hfill 2025
 		\item \textbf{Alibaba Cloud Tianchi University Student Competition}: National Finals, 17th Place \hfill 2024
@@ -147,7 +151,6 @@
 		\item \textbf{“Tianshan Fixed Network Cup” Cybersecurity Skills Competition}: 7th Place, Xinjiang Region \hfill 2023
 	\end{itemize}
 
-	\clearpage
 	\begin{center}
 		\textbf{\large Academic Activities}
 	\end{center}
@@ -183,9 +186,9 @@
 		\textbf{\large Website Development}
 	\end{center}
 	\begin{itemize}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*]
-		\item \textbf{Polypeptide Structure Database}: \href{https://www.frcbs.tsinghua.edu.cn/cpdb/}{https://www.frcbs.tsinghua.edu.cn/cpdb/}
-		\item \textbf{Tong Wang Research Group}: \href{https://tongwang.vercel.app/}{https://tongwang.vercel.app/}
-		\item \textbf{Shenzhen X-Institute Course Website}: \href{https://lingyi.wyqmath.cn/}{https://lingyi.wyqmath.cn/}
+		\item \textbf{Peptide Design Competition, Tsinghua University}: \href{https://www.fbs.frcbs.tsinghua.edu.cn/competition/2025Peptide/}{https://www.fbs.frcbs.tsinghua.edu.cn/competition/2025Peptide/}
+		\item \textbf{Polypeptide Structure Database, Tsinghua University}: \href{https://www.frcbs.tsinghua.edu.cn/cpdb/}{https://www.frcbs.tsinghua.edu.cn/cpdb/}
+		\item \textbf{Tong Wang (Tsinghua University) Research Group}: \href{https://tongwang.vercel.app/}{https://tongwang.vercel.app/}
 	\end{itemize}
 
 	\vspace{12pt}
