@@ -331,6 +331,11 @@
     transform: translateY(0);
 }
 
+/* 语言切换 - 默认隐藏中文内容以防止闪烁 */
+.lang-zh {
+    display: none !important;
+}
+
 /* 悬浮框隐藏状态 */
 .phd-floating-box.hidden {
     animation: slideOutDown 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;

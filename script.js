@@ -87,16 +87,24 @@ document.addEventListener('DOMContentLoaded', function() {
     function switchLanguage() {
         if (currentLang === 'en') {
             // Switch to Chinese
-            zhElements.forEach(el => el.style.display = '');
-            enElements.forEach(el => el.style.display = 'none');
+            zhElements.forEach(el => {
+                el.style.setProperty('display', 'block', 'important');
+            });
+            enElements.forEach(el => {
+                el.style.setProperty('display', 'none', 'important');
+            });
             langToggle.textContent = 'English';
             document.documentElement.lang = 'zh-CN';
             document.title = '王一权 (Yiquan Wang) | AI for Science 研究者';
             currentLang = 'zh';
         } else {
             // Switch to English
-            zhElements.forEach(el => el.style.display = 'none');
-            enElements.forEach(el => el.style.display = '');
+            zhElements.forEach(el => {
+                el.style.setProperty('display', 'none', 'important');
+            });
+            enElements.forEach(el => {
+                el.style.setProperty('display', 'block', 'important');
+            });
             langToggle.textContent = '中文';
             document.documentElement.lang = 'en';
             document.title = 'Yiquan Wang (王一权) | AI for Science Researcher';
