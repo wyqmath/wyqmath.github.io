@@ -68,57 +68,60 @@ document.addEventListener('DOMContentLoaded', function() {
         window.addEventListener(event, loadGoogleAnalytics, { passive: true });
     });
 
-    // Language switching functionality
+    // Language dropdown functionality
     const langToggle = document.getElementById('lang-toggle');
+    const langDropdownMenu = document.getElementById('lang-dropdown-menu');
+    const langOptions = document.querySelectorAll('.lang-option');
     const zhElements = document.querySelectorAll('.lang-zh');
     const enElements = document.querySelectorAll('.lang-en');
 
-    let currentLang = 'en'; // Default language is English
+    let currentLang = 'en';
 
-    // Initialize page with English content
     function initializeLanguage() {
         zhElements.forEach(el => el.style.display = 'none');
         enElements.forEach(el => el.style.display = '');
-        langToggle.textContent = '中文';
         document.documentElement.lang = 'en';
         document.title = 'Yiquan Wang (王一权) | AI for Science Researcher';
     }
 
-    function switchLanguage() {
-        if (currentLang === 'en') {
-            // Switch to Chinese
-            zhElements.forEach(el => {
-                el.style.setProperty('display', 'block', 'important');
-            });
-            enElements.forEach(el => {
-                el.style.setProperty('display', 'none', 'important');
-            });
-            langToggle.textContent = 'English';
+    function setLanguage(lang) {
+        if (lang === 'zh') {
+            zhElements.forEach(el => el.style.setProperty('display', 'block', 'important'));
+            enElements.forEach(el => el.style.setProperty('display', 'none', 'important'));
             document.documentElement.lang = 'zh-CN';
             document.title = '王一权 (Yiquan Wang) | AI for Science 研究者';
-            currentLang = 'zh';
         } else {
-            // Switch to English
-            zhElements.forEach(el => {
-                el.style.setProperty('display', 'none', 'important');
-            });
-            enElements.forEach(el => {
-                el.style.setProperty('display', 'block', 'important');
-            });
-            langToggle.textContent = '中文';
+            zhElements.forEach(el => el.style.setProperty('display', 'none', 'important'));
+            enElements.forEach(el => el.style.setProperty('display', 'block', 'important'));
             document.documentElement.lang = 'en';
             document.title = 'Yiquan Wang (王一权) | AI for Science Researcher';
-            currentLang = 'en';
         }
+        currentLang = lang;
+        langOptions.forEach(opt => {
+            opt.classList.toggle('active', opt.dataset.lang === lang);
+        });
+        if (langDropdownMenu) langDropdownMenu.classList.remove('show');
     }
 
-    // Initialize the page with English content
     initializeLanguage();
 
-    if (langToggle) {
+    if (langToggle && langDropdownMenu) {
         langToggle.addEventListener('click', function(e) {
             e.preventDefault();
-            switchLanguage();
+            e.stopPropagation();
+            langDropdownMenu.classList.toggle('show');
+        });
+
+        langOptions.forEach(opt => {
+            opt.addEventListener('click', function(e) {
+                e.preventDefault();
+                setLanguage(this.dataset.lang);
+            });
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function() {
+            langDropdownMenu.classList.remove('show');
         });
     }
 

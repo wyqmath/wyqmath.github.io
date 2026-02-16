@@ -56,8 +56,18 @@
   <span></span>
 </div>
 <div id="page-overlay"></div>
-<div class="language-switch">
-  <a href="#" id="lang-toggle">中文</a>
+<div class="top-nav-bar">
+  <a href="/" class="top-nav-link">Home</a>
+  <span class="top-nav-divider">|</span>
+  <a href="publications.html" class="top-nav-link">Publications</a>
+  <span class="top-nav-divider">|</span>
+  <div class="lang-dropdown">
+    <a href="#" id="lang-toggle" class="top-nav-link">Languages ▾</a>
+    <div class="lang-dropdown-menu" id="lang-dropdown-menu">
+      <a href="#" data-lang="en" class="lang-option active">English</a>
+      <a href="#" data-lang="zh" class="lang-option">中文</a>
+    </div>
+  </div>
 </div>
 
 <!-- 博士申请浮动悬浮框 -->
@@ -106,6 +116,7 @@
 </div>
 <div id="menu-items">
     <div class="menu-item"><a href="/" class="current"><img src="favicon.ico" alt="home icon" class="menu-icon" width="18" height="18"><span class="lang-zh">主页</span><span class="lang-en" style="display:none;">Home</span></a></div>
+    <div class="menu-item"><a href="publications.html"><svg class="icon menu-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" fill="currentColor"/></svg><span class="lang-zh">论文发表</span><span class="lang-en" style="display:none;">Publications</span></a></div>
     <div class="menu-item"><a href="https://github.com/wyqmath"><svg t="1749451911580" class="icon menu-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9423"><path d="M512 85.333333C276.266667 85.333333 85.333333 276.266667 85.333333 512a426.410667 426.410667 0 0 0 291.754667 404.821333c21.333333 3.712 29.312-9.088 29.312-20.309333 0-10.112-0.554667-43.690667-0.554667-79.445333-107.178667 19.754667-134.912-26.112-143.445333-50.133334-4.821333-12.288-25.6-50.133333-43.733333-60.288-14.933333-7.978667-36.266667-27.733333-0.554667-28.245333 33.621333-0.554667 57.6 30.933333 65.621333 43.733333 38.4 64.512 99.754667 46.378667 124.245334 35.2 3.754667-27.733333 14.933333-46.378667 27.221333-57.045333-94.933333-10.666667-194.133333-47.488-194.133333-210.688 0-46.421333 16.512-84.778667 43.733333-114.688-4.266667-10.666667-19.2-54.4 4.266667-113.066667 0 0 35.712-11.178667 117.333333 43.776a395.946667 395.946667 0 0 1 106.666667-14.421333c36.266667 0 72.533333 4.778667 106.666666 14.378667 81.578667-55.466667 117.333333-43.690667 117.333334-43.690667 23.466667 58.666667 8.533333 102.4 4.266666 113.066667 27.178667 29.866667 43.733333 67.712 43.733334 114.645333 0 163.754667-99.712 200.021333-194.645334 210.688 15.445333 13.312 28.8 38.912 28.8 78.933333 0 57.045333-0.554667 102.912-0.554666 117.333334 0 11.178667 8.021333 24.490667 29.354666 20.224A427.349333 427.349333 0 0 0 938.666667 512c0-235.733333-190.933333-426.666667-426.666667-426.666667z" fill="#000000" p-id="9424"></path></svg>GitHub</a></div>
     <div class="menu-item"><a href="https://scholar.google.com/citations?user=ULP3e1cAAAAJ"><svg t="1749452075490" class="icon menu-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11407"><path d="M512 822.24L0 405.334 512 0z" fill="#4285F4" p-id="11408"></path><path d="M512 822.24l512-416.906L512 0z" fill="#356AC3" p-id="11409"></path><path d="M512 725.334m-298.666 0a298.666 298.666 0 1 0 597.332 0 298.666 298.666 0 1 0-597.332 0Z" fill="#A0C3FF" p-id="11410"></path><path d="M242.074 597.334c47.936-100.906 150.784-170.668 269.926-170.668s221.99 69.762 269.926 170.668H242.074z" fill="#76A7FA" p-id="11411"></path></svg>Google Scholar</a></div>
     <div class="menu-item"><a href="https://orcid.org/0000-0003-1417-5752"><svg t="1749452117253" class="icon menu-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2342"><path d="M575.7 373.2h-65.9v277.6h65.9c48.1 0 83.2-11.3 105.3-33.5 21.6-22.7 32.4-57.8 32.4-105.3 0-48.6-10.8-84.2-32.4-105.8-22.1-22.2-57.2-33-105.3-33z" fill="#A1C837" p-id="2343"></path><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zM371.1 704.8h-63.2V319.2h63.2v385.6z m358.5-51.9c-32.4 34.6-79.4 51.8-142 51.8H446.7V319.2h140.9c62.6 0 109.6 17.3 142 51.8 30.8 32.4 46.4 79.4 46.4 140.9 0.1 61.1-15.6 108.1-46.4 141z" fill="#A1C837" p-id="2344"></path></svg>ORCID</a></div>
@@ -144,7 +155,7 @@
       联系方式/微信：+86-19537838515</p>
     </div>
     <div class="lang-en" style="display:none;">
-      <p>School of Mathematics and System Sciences, Xinjiang University (Urumqi, Xinjiang)<br />
+      <p>College of Mathematics and System Sciences, Xinjiang University (Urumqi, Xinjiang)<br />
       National Base for Research and Teaching Talents in Basic Sciences "Mathematics"<br />
       Major in Mathematics and Applied Mathematics<br />
       Tsinghua University Tsien Excellence in Engineering Program - Shenzhen X-Institute (Shenzhen, Guangdong)<br />
@@ -169,7 +180,9 @@
 
 <div class="lang-zh">
 <h2>个人简介</h2>
-<p>王一权是新疆大学的本科生，同时也是清华大学钱学森班与深圳零一学院的联合培养学者。他的研究方向为科学智能（AI for Science），致力于融合深度学习、计算生物学与生物信息学等交叉学科方法，以探究复杂的生命系统。其研究工作涵盖蛋白质功能预测、生物序列表征学习、蛋白质设计优化以及蛋白质动力学等领域。研究成果已发表于《Journal of Chemical Information and Modeling》等国际期刊，并被ICLR、ICML、AAAI、BIBM等人工智能或生物信息学领域的顶级会议及其研讨会（Workshop）录用。</p>
+<p>王一权是<a href="https://www.xju.edu.cn/">新疆大学</a>数学与应用数学专业的本科生，同时也是<a href="https://www.x-institute.edu.cn/">清华大学钱学森班与深圳零一学院</a>的联合培养学者。他的研究方向为科学智能（AI for Science），致力于利用人工智能与数学工具理解生命系统的复杂性。</p>
+<p>他以数学为基底，从表征学习出发切入计算生物学，逐步向数学物理的第一性原理方向深入——试图超越数据驱动的近似，寻找生物系统的解析真理。与此同时，他保持着广泛的跨学科好奇心，在密码学、语言学、运筹学等领域均有合作成果。</p>
+<p>研究成果已发表于《Journal of Chemical Information and Modeling》等国际期刊，并被ICLR、ICML、AAAI、BIBM等人工智能与生物信息学领域的顶级会议及其研讨会录用。</p>
 <h2>教育经历</h2>
 <p> <b>本科</b>：<img src="photos/xju-logo.webp" alt="新疆大学 Logo" class="education-logo" width="30" height="30"></a>    <a href="https://www.xju.edu.cn/">新疆大学</a>  数学与系统科学学院--国家理科基础学科研究和教学人才培养"数学"基地--数学与应用数学专业 , 2023.09-2027.06</p>
 <ul>
@@ -180,27 +193,35 @@
 <ul>
 <li><p>主要研究：ESRT,ORIC,SURF  <a href="https://www.x-institute.edu.cn/accompany">参见钱班阶梯式培养方案</a></p>
 </ul>
-<p> <b>访问学生</b>：<img src="photos/szbl-logo.svg" alt="深圳湾实验室 Logo" class="education-logo" width="155" height="30" /> <a href="https://www.szbl.ac.cn/">深圳湾实验室</a>-<a href="https://www.szbl.ac.cn/kxyj/zsyjjg/sjjbyjs.htm">神经疾病研究所</a>-<a href="https://www.szbl.ac.cn/research/group/Wen-Yuan.htm">袁文课题组</a>, 2025.07-2025.09</p>
+<p> <b>访问学生</b>：<img src="photos/szbl-logo.svg" alt="深圳湾实验室 Logo" class="education-logo" width="155" height="30" /> <a href="https://www.szbl.ac.cn/">深圳湾实验室</a>-<a href="https://szbl.ac.cn/research/institutes/INPD.htm">神经疾病研究所</a>-<a href="https://www.szbl.ac.cn/research/group/Wen-Yuan.htm">袁文课题组</a>, 2025.07-2025.09</p>
 <ul>
 <li><p>研究方向：神经科学、生物化学、计算生物学</p>
 </li>
 </ul>
 <h2>研究经历</h2>
-<h3>精选论文</h3>
-<ol>
-<li><p><b>Wang, Y.</b>, Cai, M., Dong, Y., et al. (2025). From Signal to Symphony: Exploring 2D Sequence Representations for Protein Function Prediction. <i>Journal of Chemical Information and Modeling</i> (JCR Q1, CAS Q2 Top).</p></li>
-<li><p><b>Wang, Y.</b>, Ma, Y., Chang, Y., et al. (2025). Diffusion Models at the Drug Discovery Frontier: A Review on Generating Small Molecules versus Therapeutic Peptides. <i>biology</i> (JCR Q1, CAS Q2).</p></li>
-<li><p>Wang, X., <b>Wang, Y.*</b>, Huang, T. Y., et al. (2025). Octopus Inspired Optimization (OIO): A Hierarchical Framework for Navigating Protein Fitness Landscapes. <i>In 2025 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)</i>. IEEE. (CCF-B, Co-first author).</p></li>
-<li><p><b>Wang, Y.</b>, Zai, J., Liu, Z., et al. (2025). Resilient AI Infrastructure by Design: A Spatially-Aware Framework for Tolerating Clustered Failures. <i>In 4th Annual AAAI Workshop on AI to Accelerate Science and Engineering (AI2ASE)</i>.</p></li>
-<li><p><b>Wang, Y.</b>, Cai, M., Zhang, J., et al. (2025). Adaptive Decision-Making in Multi-Stage Production: A Framework for Cost Optimization under Sampling Uncertainty. <i>Applied Operations and Analytics</i>.</p></li>
-<li><p><b>Wang, Y.*</b>, Cai, M., &amp; Huang, T. Y. (2025). AI for disease prediction: Performance insights and key limitations. <i>Journal of Clinical Neuroscience, 138</i>, 111360. (letter, JCR Q3, CAS Q4)</p></li>
-<li><p><b>Wang, Y.*</b>, Huang, T. Y., Gao, Q., &amp; Zhang, J. (2025). AI Driven Discovery of Bio Ecological Mediation in Cascading Heatwave Risks. <i>arXiv preprint arXiv:2509.25112</i>.</p></li>
-<li><p>Wang, X., <b>Wang, Y.</b>, &amp; Huang, T. Y. (2025). Crypto-ncRNA: Non-coding RNA (ncRNA) Based Encryption Algorithm. <i>ICLR 2025 Workshop</i>. (Co-first author).</p></li>
-<li><p>Wang, X., <b>Wang, Y.*</b>, &amp; Pan, J. (2025). Digital Art Creation and Copyright Protection in Pollock Style Using GANs, Fractal Analysis, and NFT Generation. <i>ICLR 2025 Workshop</i>. (Co-first author).</p></li>
-<li><p><b>Wang, Y.*</b>, Zhang, J., &amp; Chang, Y. (2024, November). A probability prediction model for flood disasters based on Multi-layer Perceptron. In <i>Journal of Physics: Conference Series</i> (Vol. 2905, No. 1, p. 012003). IOP Publishing.</p></li>
-</ol>
-<p><b>Note</b>: *通讯作者</p>
-<p><a href="https://scholar.google.com/citations?user=ULP3e1cAAAAJ">在Google Scholar的全部文章</a>.</p>
+<h3>代表性论文 (Featured Papers)</h3>
+
+<p><b>方向一：表征学习与生物分子机制 (Representation Learning &amp; Biomolecular Mechanisms)</b></p>
+<p style="font-size:0.92em;color:#555;">我目前的研究利用最前沿的深度学习技术来解析复杂的生物系统。我专注于通过引入新颖的归纳偏置和表征策略来突破传统生物信息学的局限。我的工作涵盖蛋白质结构预测、蛋白质设计和分子动力学，旨在为生命科学提供稳健、高通量的工具。</p>
+<ul>
+<li><p><b>Wang, Y.</b>, Cai, M., Dong, Y., Ma, Y., &amp; Wei, K. (2025). From Signal to Symphony: Exploring 2D Sequence Representations for Protein Function Prediction. <i>Journal of Chemical Information and Modeling</i> (JCR Q1, CAS Q2 Top). [<a href="pub/journal_of_chemical_information_and_modeling.pdf">PDF</a>]</p></li>
+<li><p><b>Wang, Y.*</b>, Cai, M., Ma, Y., &amp; Wei, K. (2025). Sequence-context-aware decoding enables robust reconstruction of protein dynamics from crystallographic B-factors. <i>bioRxiv</i>. </p></li>
+</ul>
+
+<p><b>方向二：基于数学物理的生物复杂性第一性原理 (First-Principles of Biological Complexity)</b></p>
+<p style="font-size:0.92em;color:#555;">虽然深度学习提供了强大的近似能力，但我的终极目标是找到生物系统的解析基本真理。我正在从纯数据驱动方法转向物理启发理论，旨在利用凝聚态物理、拓扑学、流形学习和微分几何来描述蛋白质的能量景观和生命的热力学本质。</p>
+<ul>
+<li><p><b>Wang, Y.</b> (2026). Structural barriers of the discrete Hasimoto map applied to protein backbone geometry. <i>arXiv preprint arXiv:2602.13160</i>. [<a href="https://arxiv.org/abs/2602.13160">arXiv</a>]</p></li>
+</ul>
+
+<p><b>方向三：跨学科探索与协同效应 (Interdisciplinary Explorations &amp; Collaborative Synergies)</b></p>
+<p style="font-size:0.92em;color:#555;">我的研究之旅源于广泛的好奇心。我与语言学、计算机视觉、密码学和运筹学等领域的专家合作。这些多元化的经历赋予了我独特的工具箱——使我能够跨领域迁移方法论，并从正交视角解决问题。</p>
+<ul>
+<li><p><b>Wang, Y.*</b>, Chang, Y., Zhang, J., Cai, M., Yan, J., Zhao, H., &amp; ADNI. (2026). Geometric Fragility in Alzheimer's Disease: Probing the Loss of Hippocampal Hierarchical Abstraction via Contrastive Point Cloud Modeling. <i>bioRxiv</i>. </p></li>
+<li><p>Wang, X.†, <b>Wang, Y.†</b>, &amp; Huang, T. Y.† (2025). Crypto-ncRNA: Non-coding RNA (ncRNA) Based Encryption Algorithm. <i>ICLR 2025 Workshop on AI for Nucleic Acids</i>. [<a href="pub/ICLR2025_AI4NA.pdf">PDF</a>]</p></li>
+</ul>
+
+<p><a href="publications.html">查看全部论文列表</a> | <a href="https://scholar.google.com/citations?user=ULP3e1cAAAAJ">Google Scholar主页</a></p>
 <h3>学术参与</h3>
 <p><b>Reviewer</b></p>
 <ul>
@@ -354,9 +375,11 @@
 
 <div class="lang-en" style="display:none;">
 <h2>Personal Profile</h2>
-<p>Yiquan Wang is an undergraduate student at Xinjiang University and a joint-training scholar in the Tsien Excellence in Engineering Program at Tsinghua University & X-Institute. His research focuses on AI for Science, at the intersection of deep learning, computational biology, and bioinformatics. He is dedicated to developing advanced computational models to investigate complex biological systems, with research topics spanning protein function prediction, biological sequence representation, protein design optimization, and protein dynamics. His work has been published in journals like the Journal of Chemical Information and Modeling and at top-tier conferences in artificial intelligence and bioinformatics, including ICLR, ICML, AAAI, and BIBM.</p>
+<p>Yiquan Wang is an undergraduate student in Mathematics and Applied Mathematics at <a href="https://www.xju.edu.cn/">Xinjiang University</a>, and a joint-training scholar in the <a href="https://www.x-institute.edu.cn/">Tsien Excellence in Engineering Program at Tsinghua University &amp; X-Institute</a>. His research focuses on AI for Science, dedicated to understanding the complexity of living systems through artificial intelligence and mathematical tools.</p>
+<p>Grounded in mathematics, he entered computational biology through representation learning and is progressively moving toward first-principles approaches rooted in mathematical physics — seeking to go beyond data-driven approximations and uncover the analytical truths of biological systems. Meanwhile, he maintains broad interdisciplinary curiosity, with collaborative work spanning cryptography, linguistics, and operations research.</p>
+<p>His work has been published in journals such as the <i>Journal of Chemical Information and Modeling</i>, and accepted at top-tier conferences and workshops in AI and bioinformatics, including ICLR, ICML, AAAI, and BIBM.</p>
 <h2>Education</h2>
-<p> <b>Undergraduate</b>：<img src="photos/xju-logo.webp" alt="Xinjiang University Logo" class="education-logo" width="30" height="30"></a>    <a href="https://www.xju.edu.cn/">Xinjiang University</a>  School of Mathematics and System Sciences--National Base for Research and Teaching Talents in Basic Sciences "Mathematics"--Major in Mathematics and Applied Mathematics , 2023.09-2027.06</p>
+<p> <b>Undergraduate</b>：<img src="photos/xju-logo.webp" alt="Xinjiang University Logo" class="education-logo" width="30" height="30"></a>    <a href="https://www.xju.edu.cn/">Xinjiang University</a>  College of Mathematics and System Sciences--National Base for Research and Teaching Talents in Basic Sciences "Mathematics"--Major in Mathematics and Applied Mathematics , 2023.09-2027.06</p>
 <ul>
 <li><p>Main Courses: Mathematical Analysis, Advanced Algebra, Analytical Geometry, Partial Differential Equations, Functional Analysis, etc.  <a href="http://welcome.xju.edu.cn/Web/Home/InfoShow?AaP7zMNCgZE2QkOfBDKz_no3HWvvRp2HNSh1yGyhBXc=.shtml">See Mathematics Base Introduction</a></p>
 </li>
@@ -365,27 +388,35 @@
 <ul>
 <li><p>Main Research: ESRT, ORIC, SURF  <a href="https://www.x-institute.edu.cn/accompany">See Qian Class Step-by-Step Training Program</a></p>
 </ul>
-<p> <b>Visiting Student</b>：<img src="photos/szbl-logo.svg" alt="Shenzhen Bay Laboratory Logo" class="education-logo" width="155" height="30" /> <a href="https://www.szbl.ac.cn/">Shenzhen Bay Laboratory</a>-<a href="https://www.szbl.ac.cn/kxyj/zsyjjg/sjjbyjs.htm">Institute of Neurological and Psychiatric Disorders</a>-<a href="https://www.szbl.ac.cn/research/group/Wen-Yuan.htm">Wen Yuan Research Group</a>, 2025.07-2025.09</p>
+<p> <b>Visiting Student</b>：<img src="photos/szbl-logo.svg" alt="Shenzhen Bay Laboratory Logo" class="education-logo" width="155" height="30" /> <a href="https://www.szbl.ac.cn/">Shenzhen Bay Laboratory</a>-<a href="https://szbl.ac.cn/research/institutes/INPD.htm">Institute of Neurological and Psychiatric Disorders</a>-<a href="https://www.szbl.ac.cn/research/group/Wen-Yuan.htm">Wen Yuan Research Group</a>, 2025.07-2025.09</p>
 <ul>
 <li><p>Research Interests: Neuroscience, Biochemistry, Computational Biology</p>
 </li>
 </ul>
 <h2>Research Experience</h2>
-<h3>Selected Papers</h3>
-<ol>
-<li><p><b>Wang, Y.</b>, Cai, M., Dong, Y., et al. (2025). From Signal to Symphony: Exploring 2D Sequence Representations for Protein Function Prediction. <i>Journal of Chemical Information and Modeling</i> (JCR Q1, CAS Q2 Top).</p></li>
-<li><p><b>Wang, Y.</b>, Ma, Y., Chang, Y., et al. (2025). Diffusion Models at the Drug Discovery Frontier: A Review on Generating Small Molecules versus Therapeutic Peptides. <i>biology</i> (JCR Q1, CAS Q2).</p></li>
-<li><p>Wang, X., <b>Wang, Y.*</b>, Huang, T. Y., et al. (2025). Octopus Inspired Optimization (OIO): A Hierarchical Framework for Navigating Protein Fitness Landscapes. <i>In 2025 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)</i>. IEEE. (CCF-B, Co-first author).</p></li>
-<li><p><b>Wang, Y.</b>, Zai, J., Liu, Z., et al. (2025). Resilient AI Infrastructure by Design: A Spatially-Aware Framework for Tolerating Clustered Failures. <i>In 4th Annual AAAI Workshop on AI to Accelerate Science and Engineering (AI2ASE)</i>.</p></li>
-<li><p><b>Wang, Y.</b>, Cai, M., Zhang, J., et al. (2025). Adaptive Decision-Making in Multi-Stage Production: A Framework for Cost Optimization under Sampling Uncertainty. <i>Applied Operations and Analytics</i>.</p></li>
-<li><p><b>Wang, Y.*</b>, Cai, M., &amp; Huang, T. Y. (2025). AI for disease prediction: Performance insights and key limitations. <i>Journal of Clinical Neuroscience, 138</i>, 111360. (letter, JCR Q3, CAS Q4)</p></li>
-<li><p><b>Wang, Y.*</b>, Huang, T. Y., Gao, Q., &amp; Zhang, J. (2025). AI Driven Discovery of Bio Ecological Mediation in Cascading Heatwave Risks. <i>arXiv preprint arXiv:2509.25112</i>.</p></li>
-<li><p>Wang, X., <b>Wang, Y.</b>, &amp; Huang, T. Y. (2025). Crypto-ncRNA: Non-coding RNA (ncRNA) Based Encryption Algorithm. <i>ICLR 2025 Workshop</i>. (Co-first author).</p></li>
-<li><p>Wang, X., <b>Wang, Y.*</b>, &amp; Pan, J. (2025). Digital Art Creation and Copyright Protection in Pollock Style Using GANs, Fractal Analysis, and NFT Generation. <i>ICLR 2025 Workshop</i>. (Co-first author).</p></li>
-<li><p><b>Wang, Y.*</b>, Zhang, J., &amp; Chang, Y. (2024, November). A probability prediction model for flood disasters based on Multi-layer Perceptron. In <i>Journal of Physics: Conference Series</i> (Vol. 2905, No. 1, p. 012003). IOP Publishing.</p></li>
-</ol>
-<p><b>Note</b>: *Corresponding author</p>
-<p><a href="https://scholar.google.com/citations?user=ULP3e1cAAAAJ">All articles on Google Scholar</a>.</p>
+<h3>Featured Papers</h3>
+
+<p><b>Direction 1: Representation Learning &amp; Biomolecular Mechanisms</b></p>
+<p style="font-size:0.92em;color:#555;">My current research leverages state-of-the-art Deep Learning techniques to decipher complex biological systems. I focus on overcoming the limitations of traditional bioinformatics by introducing novel inductive biases and representation strategies. My work spans protein structure prediction, protein design, and molecular dynamics, aiming to provide robust, high-throughput tools for the life sciences.</p>
+<ul>
+<li><p><b>Wang, Y.</b>, Cai, M., Dong, Y., Ma, Y., &amp; Wei, K. (2025). From Signal to Symphony: Exploring 2D Sequence Representations for Protein Function Prediction. <i>Journal of Chemical Information and Modeling</i> (JCR Q1, CAS Q2 Top). [<a href="pub/journal_of_chemical_information_and_modeling.pdf">PDF</a>]</p></li>
+<li><p><b>Wang, Y.*</b>, Cai, M., Ma, Y., &amp; Wei, K. (2025). Sequence-context-aware decoding enables robust reconstruction of protein dynamics from crystallographic B-factors. <i>bioRxiv</i>. </p></li>
+</ul>
+
+<p><b>Direction 2: First-Principles of Biological Complexity Based on Mathematical Physics</b></p>
+<p style="font-size:0.92em;color:#555;">While Deep Learning provides powerful approximations, my ultimate goal is to find the analytical ground truths of biological systems. I am transitioning from purely data-driven approaches to physics-informed theories. I aim to use Condensed Matter Physics, Topology, Manifold Learning, and Differential Geometry to describe the energy landscapes of proteins and the thermodynamic essence of life.</p>
+<ul>
+<li><p><b>Wang, Y.</b> (2026). Structural barriers of the discrete Hasimoto map applied to protein backbone geometry. <i>arXiv preprint arXiv:2602.13160</i>. [<a href="https://arxiv.org/abs/2602.13160">arXiv</a>]</p></li>
+</ul>
+
+<p><b>Direction 3: Interdisciplinary Explorations &amp; Collaborative Synergies</b></p>
+<p style="font-size:0.92em;color:#555;">My research journey is fueled by broad curiosity. I have collaborated with experts in linguistics, computer vision, cryptography, and operations research. These diverse experiences have equipped me with a unique toolkit—allowing me to transfer methodologies and tackle problems from orthogonal perspectives.</p>
+<ul>
+<li><p><b>Wang, Y.*</b>, Chang, Y., Zhang, J., Cai, M., Yan, J., Zhao, H., &amp; ADNI. (2026). Geometric Fragility in Alzheimer's Disease: Probing the Loss of Hippocampal Hierarchical Abstraction via Contrastive Point Cloud Modeling. <i>bioRxiv</i>. </p></li>
+<li><p>Wang, X.†, <b>Wang, Y.†</b>, &amp; Huang, T. Y.† (2025). Crypto-ncRNA: Non-coding RNA (ncRNA) Based Encryption Algorithm. <i>ICLR 2025 Workshop on AI for Nucleic Acids</i>. [<a href="pub/ICLR2025_AI4NA.pdf">PDF</a>]</p></li>
+</ul>
+
+<p><a href="publications.html">View full publication list</a> | <a href="https://scholar.google.com/citations?user=ULP3e1cAAAAJ">Google Scholar Profile</a></p>
 <h3>Academic Participation</h3>
 <p><b>Reviewer</b></p>
 <ul>
