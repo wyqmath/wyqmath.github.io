@@ -452,6 +452,10 @@ const controlPanels = {
       <input type="range" id="ls-angle" min="5" max="90" value="25">
     </div>
     <div class="control-group">
+      <label>Plant Size <span class="control-value" id="ls-size-v">0.5</span></label>
+      <input type="range" id="ls-size" min="0.1" max="2.0" step="0.1" value="0.5">
+    </div>
+    <div class="control-group">
       <label>Color Scheme</label>
       <select id="ls-color">
         <option value="green">Nature</option>
@@ -1129,6 +1133,7 @@ function clamp(v, lo, hi) {
   let drawMode = false;
   let userSeeds = []; // User-placed seed positions
   let isDrawing = false;
+  let plantSize = 0.5; // Plant size scale
 
   const presetSel = document.getElementById('ls-preset');
   const iterSlider = document.getElementById('ls-iter');
@@ -1203,7 +1208,7 @@ function clamp(v, lo, hi) {
     // If we have user seeds, draw L-system at each seed
     if (userSeeds.length > 0) {
       for (let seed of userSeeds) {
-        drawLSystemAt(str, angleDeg, startAngle, baseHue, seed.x, seed.y, 0.3);
+        drawLSystemAt(str, angleDeg, startAngle, baseHue, seed.x, seed.y, plantSize);
       }
       return;
     }
@@ -1313,6 +1318,8 @@ function clamp(v, lo, hi) {
     const iterVal = document.getElementById('ls-iter-v');
     const angleSlider = document.getElementById('ls-angle');
     const angleVal = document.getElementById('ls-angle-v');
+    const sizeSlider = document.getElementById('ls-size');
+    const sizeVal = document.getElementById('ls-size-v');
     const colorSel = document.getElementById('ls-color');
     const drawModeBtn = document.getElementById('ls-draw-mode');
 
@@ -1321,6 +1328,7 @@ function clamp(v, lo, hi) {
     presetSel.addEventListener('change', () => loadPreset(presetSel.value));
     iterSlider.addEventListener('input', () => { iterations = +iterSlider.value; iterVal.textContent = iterations; renderLS(); });
     angleSlider.addEventListener('input', () => { angleDeg = +angleSlider.value; angleVal.textContent = angleDeg + '°'; renderLS(); });
+    sizeSlider.addEventListener('input', () => { plantSize = +sizeSlider.value; sizeVal.textContent = plantSize.toFixed(1); renderLS(); });
     colorSel.addEventListener('change', () => { colorScheme = colorSel.value; renderLS(); });
 
     drawModeBtn.addEventListener('click', () => {
