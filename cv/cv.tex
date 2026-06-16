@@ -1,4 +1,4 @@
-\documentclass[11pt]{article}
+\documentclass[10pt]{article}
 \usepackage{graphicx}
 \usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
@@ -9,7 +9,7 @@
 \usepackage[utf8]{inputenc} 
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
-\usepackage[left=1.06cm,top=1.7cm,right=1.06cm,bottom=0.49cm]{geometry}
+\usepackage[left=1.06cm,top=1.1cm,right=1.06cm,bottom=0.49cm]{geometry}
 
 \usepackage{multicol}
 \usepackage{xcolor}
@@ -22,75 +22,76 @@
 	citecolor=mylinkcolor,
 }
 
+\setlength{\parskip}{0pt}
+% Tighter centered section-title blocks
+\let\oldcenter\center
+\let\oldendcenter\endcenter
+\renewenvironment{center}{\setlength{\topsep}{1pt}\setlength{\partopsep}{0pt}\oldcenter}{\oldendcenter}
+
 \begin{document}
 	\begin{center}
 		\textbf{\Large Yiquan Wang}\\
-		\textbullet \ +86-19537838515 \textbullet \ \href{mailto:ethan@stu.xju.edu.cn}{ethan@stu.xju.edu.cn}\ \textbullet \ \href{https://wyqmath.cn/}{Personal Homepage} \\
-		\textbullet \ \href{https://github.com/wyqmath}{GitHub} \textbullet \ \href{https://scholar.google.com/citations?user=ULP3e1cAAAAJ}{Google Scholar} \textbullet \ \href{https://orcid.org/0000-0003-1417-5752}{ORCID} \textbullet \ \href{https://openreview.net/profile?id=~Yiquan_Wang3}{OpenReview} \textbullet \ IEEE Biometrics Council Member \\
+		\textbullet \ +86-19537838515 \textbullet \ \href{mailto:ethan@stu.xju.edu.cn}{ethan@stu.xju.edu.cn} \textbullet \ \href{https://wyqmath.cn/}{Homepage} \textbullet \ \href{https://github.com/wyqmath}{GitHub} \textbullet \ \href{https://scholar.google.com/citations?user=ULP3e1cAAAAJ}{Google Scholar} \textbullet \ \href{https://orcid.org/0000-0003-1417-5752}{ORCID} \textbullet \ \href{https://openreview.net/profile?id=~Yiquan_Wang3}{OpenReview} \\
+		\textbullet \ Member of IEEE Biometrics Council, Chinese Chemical Society \& Biophysical Society of China \\
 		\hrulefill
 	\end{center}
 	
-	\vspace{2pt}
+	\vspace{1pt}
 	
 	\begin{center}
 		\textbf{\large Education}
 	\end{center}
-	\textbf{National Base for Mathematical Research and Teaching Talents, Xinjiang University} \hfill Urumqi, Xinjiang
-	
+	\textbf{National Base for Mathematical Research and Teaching Talents, Xinjiang University} \hfill Urumqi, Xinjiang \\
 	\textit{B.S. in Mathematics and Applied Mathematics} \hfill 2023.09 – 2027.06
-	
-	\vspace{10pt}
-	
-	\textbf{Tsien Excellence in Engineering Program, Tsinghua University \& X-Institute} \hfill Shenzhen, Guangdong
-	
+
+	\vspace{4pt}
+
+	\textbf{Tsien Excellence in Engineering Program, Tsinghua University \& X-Institute} \hfill Shenzhen, Guangdong \\
 	\textit{Joint Program, X Scholar} \hfill 2024.06 – 2027.06
-	
-	\vspace{10pt}
-	
-	\textbf{Institute of Neurological and Psychiatric Disorders, Shenzhen Bay Laboratory} \hfill Shenzhen, Guangdong
-	
+
+	\vspace{4pt}
+
+	\textbf{Institute of Neurological and Psychiatric Disorders, Shenzhen Bay Laboratory} \hfill Shenzhen, Guangdong \\
 	\textit{Visiting Student, Wen Yuan's Research Group} \hfill 2025.07 – 2025.09
 	
-	\vspace{12pt}
+	\vspace{5pt}
 
 	\begin{center}
 		\textbf{\large Selected Publications}
 	\end{center}
+	{\small \textit{Name in bold; $\dagger$ co-first author; * corresponding author.}}
 
 	\textbf{Direction 1: Representation Learning \& Biomolecular Mechanisms}
 	\begin{enumerate}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*, label={[\arabic*]}]
-		\item \textbf{Wang, Y.}, Cai, M., Dong, Y., et al. (2025). From Signal to Symphony: Exploring 2D Sequence Representations for Protein Function Prediction. \textit{Journal of Chemical Information and Modeling} (JCR Q1, CAS Q2 Top).
-		\item \textbf{Wang, Y.*}, Cai, M., Ma, Y., \& Wei, K. (2026). Sequence-context-aware decoding enables robust reconstruction of protein dynamics from crystallographic B-factors. \textit{Learning Meaningful Representations of Life (LMRL) Workshop at ICLR 2026}.
-		\item \textbf{Wang, Y.}, Ma, Y., Chang, Y., et al. (2025). Diffusion Models at the Drug Discovery Frontier: A Review on Generating Small Molecules versus Therapeutic Peptides. \textit{Biology} (JCR Q1, CAS Q2).
-		\item Wang, X.†*, \textbf{Wang, Y.†*}, Huang, T. Y., et al. (2025). Octopus Inspired Optimization (OIO): A Hierarchical Framework for Navigating Protein Fitness Landscapes. \textit{In 2025 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)}. IEEE. (CCF-B, Co-first \& co-corresponding author).
-		\item \textbf{Wang, Y.*}, \& Huang, T. Y.* (2026). Comment on: "GLM7 – A Novel Composite Glycolipid Index Derived from Routine Health Indicators for Enhanced Diagnosis and Prediction of Multimorbidity". \textit{Advanced Science}. (correspondence, JCR Q1, CAS Q1, First \& corresponding author).
-		\item \textbf{Wang, Y.*}, Cai, M., \& Huang, T. Y. (2025). AI for disease prediction: Performance insights and key limitations. \textit{Journal of Clinical Neuroscience, 138}, 111360. (correspondence, JCR Q3, CAS Q4, First \& corresponding author)
+		\item \textbf{Wang, Y.}, et al. (2025). From Signal to Symphony: Exploring 2D Sequence Representations for Protein Function Prediction. \textit{Journal of Chemical Information and Modeling}.
+		\item \textbf{Wang, Y.*}, et al. (2026). Sequence-context-aware decoding enables robust reconstruction of protein dynamics from crystallographic B-factors. \textit{Learning Meaningful Representations of Life (LMRL) Workshop at ICLR 2026}.
+		\item \textbf{Wang, Y.}, et al. (2025). Diffusion Models at the Drug Discovery Frontier: A Review on Generating Small Molecules versus Therapeutic Peptides. \textit{Biology}.
+		\item Wang, X.†*, \textbf{Wang, Y.†*}, et al. (2025). Octopus Inspired Optimization (OIO): A Hierarchical Framework for Navigating Protein Fitness Landscapes. \textit{In 2025 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)}. IEEE.
+		\item \textbf{Wang, Y.*}, \& Huang, T. Y.* (2026). Comment on: "GLM7 – A Novel Composite Glycolipid Index Derived from Routine Health Indicators for Enhanced Diagnosis and Prediction of Multimorbidity". \textit{Advanced Science}. (correspondence).
+		\item \textbf{Wang, Y.*}, Cai, M., \& Huang, T. Y. (2025). AI for disease prediction: Performance insights and key limitations. \textit{Journal of Clinical Neuroscience}. (correspondence).
 	\end{enumerate}
 
-	\vspace{6pt}
+	\vspace{3pt}
 
 	\textbf{Direction 2: First-Principles of Biological Complexity Based on Mathematical Physics}
 	\begin{enumerate}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*, label={[\arabic*]}, resume]
-		\item \textbf{Wang, Y.*} (2026). Spectral entropy of the discrete Hasimoto effective potential exposes sub-residue geometric transitions in protein secondary structure. \textit{arXiv preprint arXiv:2602.21787}. (Sole \& corresponding author).
-		\item \textbf{Wang, Y.*} (2026). Piecewise integrability of the discrete Hasimoto map for analytic prediction and design of helical peptides. \textit{arXiv preprint arXiv:2602.16255}. (Sole \& corresponding author).
-		\item \textbf{Wang, Y.*} (2026). Structural barriers of the discrete Hasimoto map applied to protein backbone geometry. \textit{arXiv preprint arXiv:2602.13160}. (Sole \& corresponding author).
+		\item \textbf{Wang, Y.*} (2026). Sub-residue sharpness of protein helix-coil transitions reveals a spatial-spectral uncertainty limit. \textit{arXiv preprint arXiv:2602.21787}.
+		\item \textbf{Wang, Y.*} (2026). Piecewise integrability of the discrete Hasimoto map for analytic prediction and design of helical peptides. \textit{arXiv preprint arXiv:2602.16255}.
+		\item \textbf{Wang, Y.*} (2026). Structural barriers of the discrete Hasimoto map applied to protein backbone geometry. \textit{arXiv preprint arXiv:2602.13160}.
 	\end{enumerate}
 
-	\vspace{6pt}
+	\vspace{3pt}
 
 	\textbf{Direction 3: Interdisciplinary Explorations \& Collaborative Synergies}
 	\begin{enumerate}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*, label={[\arabic*]}, resume]
-		\item Wang, X., \textbf{Wang, Y.}, \& Huang, T. Y. (2025). Crypto-ncRNA: Non-coding RNA (ncRNA) Based Encryption Algorithm. \textit{ICLR 2025 Workshop on AI for Nucleic Acids}. (Co-first author).
-		\item \textbf{Wang, Y.*}, Chang, Y., Zhang, J., Cai, M., Yan, J., Zhao, H.*, \& Alzheimer's Disease Neuroimaging Initiative. (2026). Geometric Fragility in Alzheimer's Disease: Probing the Loss of Hippocampal Hierarchical Abstraction via Contrastive Point Cloud Modeling. \textit{Proceedings of the Annual Meeting of the Cognitive Science Society (CogSci 2026)}; also presented at \textit{LMRL Workshop at ICLR 2026}. (First \& corresponding author).
-		\item \textbf{Wang, Y.}, Liu, Z., Zai, J., Chen, J., \& Sabir, E. (2026). Resilient AI Infrastructure by Design: A Spatially-Aware Framework for Tolerating Clustered Failures. \textit{In 4th Annual AAAI Workshop on AI to Accelerate Science and Engineering (AI2ASE)}.
-		\item \textbf{Wang, Y.*}, Huang, T. Y., Gao, Q., Chang, Y., \& Zhang, J. (2026). AI Driven Discovery of Bio Ecological Mediation in Cascading Heatwave Risks. \textit{ICLR 2026 Workshop on Foundation Models for Science: Real-World Impact and Science-First Design (FM4Science)}. (First \& corresponding author).
-		\item \textbf{Wang, Y.*}, Cai, M., Zhang, J., Chang, Y., \& Yan, J. (2026). Adaptive Decision-Making in Multi-Stage Production: A Framework for Cost Optimization under Sampling Uncertainty. \textit{Applied Operations and Analytics}.
-		\item Zhao, H., Shi, W., Liu, C., \& \textbf{Wang, Y.} (2025). Boundary Box-Guided Targeted Adversarial Attacks with Semantic Perturbation. \textit{In 2025 IEEE International Conference on Systems, Man, and Cybernetics (SMC)} (pp. 1604-1609). IEEE. (CCF-C, EI).
-		\item Zuo, J., \textbf{Wang, Y.}, \& Yibulayin, X. (2026). Relative-to-human Benchmark Cognitive Divergence and Semantic Comprehensibility in Chinese–Uyghur LLM Translation. \textit{Frontiers in Psychology}.
-		\item \textbf{Wang, Y.*}, Zhang, J., \& Chang, Y. (2024). A probability prediction model for flood disasters based on Multi-layer Perceptron. \textit{Journal of Physics: Conference Series} (Vol. 2905, No. 1, p. 012003). IOP Publishing.
+		\item \textbf{Wang, Y.*}, et al. (2026). Geometric Fragility in Alzheimer's Disease: Probing the Loss of Hippocampal Hierarchical Abstraction via Contrastive Point Cloud Modeling. \textit{Proceedings of the Annual Meeting of the Cognitive Science Society (CogSci 2026)}.
+		\item \textbf{Wang, Y.}, Liu, Z., et al. (2026). Resilient AI Infrastructure by Design: A Spatially-Aware Framework for Tolerating Clustered Failures. \textit{In 4th Annual AAAI Workshop on AI to Accelerate Science and Engineering (AI2ASE)}.
+		\item \textbf{Wang, Y.*}, Huang, T. Y., et al. (2026). AI Driven Discovery of Bio Ecological Mediation in Cascading Heatwave Risks. \textit{Physics and Chemistry of the Earth}.
+		\item Cai, M., \ldots, \textbf{Wang, Y.*}, \& Wei, K.* (2025). APOE $\varepsilon$4-Associated Hippocampal Atrophy Trajectories Across the Alzheimer's Disease Continuum: A Systematic Review, Meta-Analysis, and Longitudinal Validation. \textit{Frontiers in Aging Neuroscience}.
+		\item Wang, X., \textbf{Wang, Y.}, \& Huang, T. Y. (2025). Crypto-ncRNA: Non-coding RNA (ncRNA) Based Encryption Algorithm. \textit{ICLR 2025 Workshop on AI for Nucleic Acids}.
 	\end{enumerate}
 
-	\vspace{12pt}
+	\vspace{5pt}
 
 	\begin{center}
 		\textbf{\large Research Projects}
@@ -98,59 +99,37 @@
 	\textbf{Tsinghua University Tsien Excellence in Engineering Program ESRT} \hfill 2024.08-2025.10
 	\begin{itemize}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*]
 		\item \textbf{Project:} From Signal to Symphony: Exploring 2D Sequence Representations for Protein Function Prediction.
-		\item {\small Predicting protein function from its primary sequence is a fundamental challenge in computational biology. While deep learning has excelled, the optimal representation of sequence data remains an open question. This study explores protein sonification---the conversion of amino acid sequences into 2D spectrograms---as a representation for this task. To facilitate this investigation, we developed a benchmark dataset of 18,000 sequences spanning 12 functionally diverse protein classes. Our systematic evaluation suggests that the structural transformation from a 1D sequence to a 2D spectrogram may be a key contributor to the model's predictive performance. This observation is supported by ablation studies where models using either purely visual or acoustic features from the spectrogram demonstrated effective standalone performance, suggesting that the representation itself is a key source of this capability. For instance, a model using a sonification map without explicit biophysical meaning achieved 81.08\% accuracy, while our biophysically-informed model reached 84.00\%, indicating that such domain knowledge may offer a modest performance benefit. When trained from scratch on our dataset, our fusion model achieved performance comparable to or slightly exceeding that of standard transformer architectures like ESM-2 and ProtBERT, suggesting its potential for data efficiency in this specific context. The model's potential for generalizability was further supported by its performance on the external CARE enzyme classification benchmark, where it achieved 90.44\% accuracy. Finally, as a proof-of-concept, we explore the utility of our encoding to guide a diffusion model in generating novel GFP variants, which were assessed for structural viability using computational methods. Our work provides evidence suggesting that the utility of sonification in this context may stem largely from its representational structure, offering a perspective on feature engineering for biological sequences.}
+		\item {\small Motivated by an intuition that protein structure mirrors music---catalytic sites resembling melodic climaxes and $\beta$-sheets resembling calmer passages---I encoded amino acid sequences as 2D spectrograms (protein sonification) for function prediction. Ablations across an 18{,}000-sequence/12-class benchmark showed the 1D$\to$2D representational structure itself, rather than explicit biophysical priors, was the key driver of performance, matching ESM-2 and ProtBERT and reaching 90.44\% on the external CARE benchmark.}
 		\item \href{https://github.com/wyqmath/Symphony_of_Fate}{Project Repository}. Supervised by Prof. \href{https://scholar.google.com/citations?user=LLj__mMAAAAJ}{Kai Wei}.
 	\end{itemize}
 
-	\vspace{10pt}
+	\vspace{4pt}
 
-	\textbf{National Undergraduate Innovation Training Program} \hfill 2025.04 – 2026.04
+	\textbf{Chinese Academy of Sciences (CAS) Innovation Practice Training Program} \hfill 2024.11 -- 2025.09
 	\begin{itemize}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*]
-		\item \textbf{Project:} Copy Number Variation Conditional Diffusion Model: For Alzheimer's Disease Risk Assessment.
-		\item {\small This project aims to integrate copy number variation (CNV) features from whole-genome sequencing data with multi-dimensional clinical data such as metabolic indicators. Leveraging the success of diffusion models in processing high-dimensional simulation data and protein phenotype prediction, we will construct a comprehensive framework consisting of CNV feature encoding, genomic region attention, and conditional U-Net diffusion modules. This will simulate CNV distribution changes and evolutionary processes in the genome, analyze the specific role of CNV in regulating Alzheimer's disease pathways, and ultimately improve disease risk assessment and early intervention accuracy.}
-		\item Supervised by Prof. \href{https://scholar.google.com/citations?user=LLj__mMAAAAJ}{Kai Wei}.
-	\end{itemize}
-
-	\vspace{10pt}
-
-	\textbf{Chinese Academy of Sciences (CAS) Innovation Practice Training Program} \hfill 2024.11 – 2025.09
-	\begin{itemize}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*]
-		\item \textbf{Project:}A Knowledge Graph-based Q\&A System for Heatwave Disaster Adaptation.
-		\item {\small Compound heatwaves increasingly trigger complex cascading failures that propagate through interconnected physical and human systems, yet the fragmentation of disciplinary knowledge hinders the comprehensive mapping of these systemic risk topologies. This study introduces the Heatwave Discovery Agent HeDA as an autonomous scientific synthesis framework designed to bridge cognitive gaps by constructing a high fidelity knowledge graph from 8,111 academic publications. By structuring 70,297 evidence nodes, the system exhibits enhanced inferential fidelity in capturing long tail risk mechanisms and achieves a significant accuracy margin compared to standard foundation models including GPT 5.2 and Claude Sonnet 4.5 in complex reasoning tasks. The resulting topological analysis reveals a critical bio ecological mediation effect where biological systems function as the primary non linear amplifiers of thermal stress that transform physical meteorological hazards into systemic socioeconomic losses. We further identify latent functional couplings between theoretically distinct sectors such as the heat induced synchronization of power grid failures and emergency medical capacity saturation. These findings elucidate the dynamics of compound climate risks and provide an empirical basis for shifting adaptation strategies from static sectoral defense to dynamic cross system resilience.}
+		\item \textbf{Project:} A Knowledge Graph-based Q\&A System for Heatwave Disaster Adaptation.
+		\item {\small Built HeDA, an autonomous synthesis agent that constructs a knowledge graph (34{,}933 entities, 42{,}890 relations) from 8{,}365 publications to map compound-heatwave cascading risks. On a temporally held-out multi-hop benchmark, graph augmentation improved accuracy by 8.1--9.8\% over standalone foundation models; topological analysis surfaced a bio-ecological mediation effect, where biological systems act as the primary structural mediators transforming physical hazards into systemic socioeconomic losses.}
 		\item \href{https://github.com/wyqmath/heatwave}{Project Repository}. Supervised by Researcher \href{https://scholar.google.com/citations?user=OQDwnVUAAAAJ}{Yong Ge}.
 	\end{itemize}
 
-	\vspace{10pt}
+	\vspace{4pt}
 
-	\textbf{Provincial Undergraduate Innovation Training Program} \hfill 2024.03 – 2025.06
+	\textbf{Provincial Undergraduate Innovation Training Program} \hfill 2024.03 -- 2025.06
 	\begin{itemize}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*]
 		\item \textbf{Project:} Research on the Generation Cyclability of Cartesian Product Graphs and Related Problems.
-		\item {\small The $k$-ary $n$-cube ($Q_n^k$) is a critical topology for large-scale computing systems powering modern AI and HPC workloads, where fault tolerance is paramount. Traditional fault models, which assume faults are independent and random, yield unrealistic resilience estimates because real-world failures are spatially correlated, manifesting as topological clusters. This paper introduces the Region-Based Fault (RBF) model, a new paradigm that addresses this gap by directly modeling this spatial correlation. Our primary contribution is a proof that for odd $k \geq 3$ and $n \geq 2$, the $Q_n^k$ remains Hamiltonian-connected—a property vital for deadlock-free routing and efficient task scheduling—under a sufficient set of RBF conditions. We present a constructive algorithm that finds a Hamiltonian path by leveraging an adaptive decomposition strategy. Experimental analysis demonstrates that our approach significantly enhances fault tolerance and remains robust far beyond its conservative theoretical guarantees. This work provides a practical, high-performance solution for maintaining connectivity in systems where fault clustering is prevalent.}
+		\item {\small Studied Hamiltonicity of the $k$-ary $n$-cube $Q_n^k$, a classical graph-theoretic interconnection topology. Motivated by the fact that real-world faults are spatially clustered rather than independent, I introduced the Region-Based Fault (RBF) model characterizing faults as connected subgraphs, and gave a constructive proof that $Q_n^k$ remains Hamiltonian-connected for odd $k \geq 3$, $n \geq 2$ under RBF conditions, via an adaptive graph-decomposition argument robust well beyond its theoretical guarantees.}
 		\item \href{https://github.com/wyqmath/Hamiltonian_Path}{Project Repository}. Supervised by Prof. \href{https://orcid.org/0000-0003-1456-4539}{Eminjan Sabir}.
 	\end{itemize}
 
-	\vspace{10pt}
+	\vspace{4pt}
 
-	\textbf{Tsinghua University Tsien Excellence in Engineering Program ORIC} \hfill 2025.12 – 2026.12
 	\begin{itemize}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*]
-		\item \textbf{Project:} Application of Artificial Intelligence in Whole Genome Selection Breeding.
+		\item \textbf{Tsinghua ESRT (ORIC):} Application of Artificial Intelligence in Whole Genome Selection Breeding (ongoing).
+		\item \textbf{National Undergraduate Innovation Program:} Conditional Diffusion Model on Copy Number Variation for Alzheimer's Disease Risk Assessment.
+		\item \textbf{CAS Innovation Practice Training Program:} Urban Big Data, Multimodal Fusion and Spatial Intelligence Analysis.
 	\end{itemize}
 
-	\vspace{10pt}
-
-	\textbf{Chinese Academy of Sciences Innovation Practice Training Program} \hfill 2025.11 – 2026.11
-	\begin{itemize}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*]
-		\item \textbf{Project:} Urban Big Data, Multimodal Fusion and Spatial Intelligence Analysis (Second Author).
-	\end{itemize}
-
-	\vspace{10pt}
-
-	\textbf{Urumqi Sandaoban Town Cultural Exhibition Project} \hfill 2026.01 – 2026.06
-	\begin{itemize}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*]
-		\item \textbf{Project:} Forging a Strong Sense of Community for the Chinese Nation Exhibition Project (Participant).
-	\end{itemize}
-
-	\vspace{12pt}
+	\vspace{5pt}
 	
 	\begin{center}
 		\textbf{\large Professional Experience}
@@ -162,7 +141,7 @@
 		\item Developed the \href{https://www.fbs.frcbs.tsinghua.edu.cn/competition/2025Peptide/}{Peptide Design Competition Website}, the \href{https://www.frcbs.tsinghua.edu.cn/cpdb/}{Polypeptide Structure Database} and engaged in protein and polypeptide design research. Supervised by Prof. Yafei Yuan and \href{https://wanggroup.ai/}{Prof. Tong Wang}.
 	\end{itemize}
 	
-	\vspace{10pt}
+	\vspace{4pt}
 	
 	\textbf{Institute of Software, CAS \& Huawei Mindspore Community} \hfill Remote
 	
@@ -171,15 +150,22 @@
 		\item Implemented a VGG19-based model for Pollock-style art generation, focusing on fractal and turbulent feature extraction and the creation of NFT-based digital labels. Featured on \href{https://mp.weixin.qq.com/s/_N5oLsa0etJTxEOKRTt_4w}{Huawei's official Wechat}.
 	\end{itemize}
 	
-	\vspace{10pt}
+	\vspace{4pt}
 
-	\vspace{12pt}
+	\vspace{5pt}
 
 	\begin{center}
 		\textbf{\large Awards \& Honors}
 	\end{center}
 	\begin{itemize}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*]
-		\item \textbf{UN Global Leadership and ESG Programme $\times$ X-Institute Shenzhen "AI for the Young and the Elderly" Challenge}: Best Innovation Award \hfill 2026
+		\item \textbf{China Undergraduate Life Science Contest}: National Second Prize \hfill 2026
+		\item \textbf{``Challenge Cup'' China College Students' Extracurricular Academic Science and Technology Works Competition}:\\
+		Autonomous Region Second Prize \hfill 2026
+		\item \textbf{China College Students' E-Commerce ``Innovation, Creativity and Entrepreneurship'' Challenge}:\\
+		Autonomous Region Second Prize \hfill 2026
+		\item \textbf{China College Student Self-improvement Star} \hfill 2025
+		\item \textbf{UN Global Leadership and ESG Programme $\times$ X-Institute Shenzhen "AI for the Young and the Elderly" Challenge}:\\
+		Best Innovation Award \hfill 2026
 		\item \textbf{Smart Chemical City Challenge (Xinjiang Station)}: Second Prize \hfill 2025
 		\item \textbf{Contemporary Undergraduate Mathematical Contest in Modeling (CUMCM)}: National Second Prize \hfill 2025
 		\item \textbf{SynBio Challenges}: Silver Award $\times$ 2 \hfill 2025
@@ -187,36 +173,14 @@
 		\item \textbf{The Mathematical Contest in Modeling (MCM)}: Honorable Mention \hfill 2025
 		\item \textbf{Alibaba Cloud Tianchi University Student Competition}: National Finals, 17th Place \hfill 2024
 		\item \textbf{APMCM Asia-Pacific Mathematical Modeling Competition}: National Third Prize \hfill 2024
-		\item \textbf{“Alpha Egg Cup” National Go Championship}: 15th Place \hfill 2024
-		\item \textbf{Xinjiang Youth Amateur Go Competition}: 53rd Place \hfill 2024
-		\item \textbf{Hunan Province Spring Cup Go Competition}: 7th Place \hfill 2024
-		\item \textbf{National Youth Intellectual Sports Meeting Go Competition}: 9th Place \hfill 2024
-		\item \textbf{Xinjiang University Vulnerability Reporting Honor} \hfill 2023
-		\item \textbf{“Tianshan Fixed Network Cup” Cybersecurity Skills Competition}: 7th Place, Xinjiang Region \hfill 2023
 	\end{itemize}
 
 	\begin{center}
 		\textbf{\large Academic Activities}
 	\end{center}
-	\textbf{Peer Reviewer:}
-	\begin{multicols}{2}
-		\begin{itemize}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*]
-			\item ICLR 2026 Workshop LMRL
-			\item ICLR 2026 Workshop FM4Science
-			\item ICML 2026 AI4Science Workshop
-			\item NeurIPS 2025 AI for Science Workshop
-			\item NeurIPS 2025 MATH-AI Workshop
-			\item ICLR 2025 Workshop on AI for Nucleic Acids
-			\item ICLR 2025 Workshop on GenAI Watermarking
-			\item ICML 2025 Workshop on AI for Math
-			\item Urban Climate
-			\item Mini-Reviews in Medicinal Chemistry
-			\item Current Science
-			\item F1000 Research
-		\end{itemize}
-	\end{multicols}
-	
-	\textbf{Academic Engagement:}
+		\textbf{Peer Reviewer:} ICLR/ICML/NeurIPS workshops; Urban Climate; Physics and Chemistry of the Earth; Mini-Reviews in Medicinal Chemistry; Current Science; F1000Research.
+
+		\textbf{Academic Engagement:}
 	\begin{itemize}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*]
 		\item Tsinghua University-Peking University Center for Life Sciences Summer Camp \hfill 2025.07
 		\item \begin{tabular}[c]{@{}p{0.8\linewidth}@{}}Shenzhen Bay Laboratory / Shenzhen Medical Academy of Research and Translation Summer Research\end{tabular} \hfill \mbox{2025.07 -- 2025.09}
@@ -224,30 +188,18 @@
 		\item AI Winter School, Brown University Department of Physics \hfill 2025.01
 		\item CAAI Artificial Intelligence and Technology Ethics Training Course \hfill 2024.09 -- 2024.12
 		\item Fudan University Summer School of Mathematical Logic \hfill 2024.08
-		\item Jinan University Guangdong Thousand Villages Survey Project \hfill 2024.08
 		\item Wuhan University National Tianyuan Mathematics Center Discussion Class \hfill 2024.03 -- 2024.06
 	\end{itemize}
 	
-	\vspace{12pt}
+	\vspace{5pt}
 
 	\begin{center}
 		\textbf{\large Website Development}
 	\end{center}
 	\begin{itemize}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*]
-		\item \textbf{Peptide Design Competition, Tsinghua University}: \href{https://www.fbs.frcbs.tsinghua.edu.cn/competition/2025Peptide/}{https://www.fbs.frcbs.tsinghua.edu.cn/competition/2025Peptide/}
-		\item \textbf{Polypeptide Structure Database, Tsinghua University}: \href{https://www.frcbs.tsinghua.edu.cn/cpdb/}{https://www.frcbs.tsinghua.edu.cn/cpdb/}
-		\item \textbf{Tong Wang (Tsinghua University) Research Group}: \href{https://tongwang.vercel.app/}{https://tongwang.vercel.app/}
+		\item \textbf{Peptide Design Competition, Tsinghua University} --- \href{https://www.fbs.frcbs.tsinghua.edu.cn/competition/2025Peptide/}{[Link]}
+		\item \textbf{Polypeptide Structure Database, Tsinghua University} --- \href{https://www.frcbs.tsinghua.edu.cn/cpdb/}{[Link]}
+		\item \textbf{Tong Wang (Tsinghua University) Research Group} --- \href{https://wanggroup.ai/}{[Link]}
 	\end{itemize}
 
-	\vspace{12pt}
-
-	\begin{center}
-		\textbf{\large Skills \& Interests}
-	\end{center}
-	\textbf{Technical Skills:}Python, C/C++, MATLAB, LaTeX, Linux, HTML/CSS/JavaScript, Single-cell Data Analysis, Multi-omics (Genomics, Proteomics, Transcriptomics), Homology Modeling, Molecular Dynamics Simulation
-
-	\textbf{Research Interests:}Artificial Intelligence, Deep Learning, AI for Science, Bioinformatics, Computational Biology, Representation Learning, Protein Folding, Mathematical Physics (Nonlinear Schr\"{o}dinger Equation \& Protein Folding), Mathematical Modeling, Neuroscience
-	
-	\textbf{Languages:} Chinese (Native), English (Professional Working Proficiency)
-	
 \end{document}
