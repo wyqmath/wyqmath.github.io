@@ -124,4 +124,32 @@ document.addEventListener('DOMContentLoaded', function() {
             langDropdownMenu.classList.remove('show');
         });
     }
+
+    // Theme toggle: follows system preference until the user chooses manually
+    const themeToggle = document.getElementById('theme-toggle');
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+    const applyTheme = (theme) => {
+        document.documentElement.dataset.theme = theme;
+        if (themeToggle) themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+        document.querySelectorAll('meta[name="theme-color"]').forEach(function(m) {
+            m.setAttribute('content', theme === 'dark' ? '#14171c' : '#f8f9fa');
+        });
+    };
+
+    applyTheme(localStorage.getItem('theme') || (systemDark.matches ? 'dark' : 'light'));
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+            const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+            localStorage.setItem('theme', next);
+            applyTheme(next);
+        });
+    }
+
+    systemDark.addEventListener('change', function(e) {
+        if (!localStorage.getItem('theme')) {
+            applyTheme(e.matches ? 'dark' : 'light');
+        }
+    });
   });

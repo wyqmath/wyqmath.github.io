@@ -337,55 +337,60 @@ a:focus-visible,button:focus-visible{outline:2px solid #007bff;outline-offset:2p
 #layout-menu::-webkit-scrollbar-track{background:transparent}
 #layout-menu::-webkit-scrollbar-thumb{background:#c4ccd6;border-radius:4px}
 
-/* dark mode - follows system setting */
-@media (prefers-color-scheme: dark){
-    ::selection{background:#2a6fd6;color:#fff}
-    a:focus-visible,button:focus-visible{outline-color:#6ab0ff}
-    #layout-menu::-webkit-scrollbar-thumb{background:#3a404c}
+/* dark mode - applied via <html data-theme="dark"> set by assets/script.js
+   (follows system preference until the user toggles manually) */
+:root[data-theme="dark"] ::selection{background:#2a6fd6;color:#fff}
+    :root[data-theme="dark"] a:focus-visible,:root[data-theme="dark"] button:focus-visible{outline-color:#6ab0ff}
+    :root[data-theme="dark"] #layout-menu::-webkit-scrollbar-thumb{background:#3a404c}
 
-    body{background-color:#14171c;color:#d8dde5}
-    #layout-content{background-color:#1d2129;border-color:#2a2f3a;box-shadow:0 6px 18px rgba(0,0,0,.4)}
-    #layout-menu{background-color:#1d2129;box-shadow:0 0 20px rgba(0,0,0,.5)}
-    .top-nav-bar{background-color:#1d2129;border-color:#2a2f3a;box-shadow:0 2px 8px rgba(0,0,0,.4)}
-    #menu-toggle-btn{background-color:#1d2129;box-shadow:0 4px 12px rgba(0,0,0,.5)}
-    #menu-toggle-btn span{background-color:#d8dde5}
-    #menu-close-btn{color:#8a93a1}
-    #menu-close-btn:hover{color:#e9ecef}
+    :root[data-theme="dark"] body{background-color:#14171c;color:#d8dde5}
+    :root[data-theme="dark"] #layout-content{background-color:#1d2129;border-color:#2a2f3a;box-shadow:0 6px 18px rgba(0,0,0,.4)}
+    :root[data-theme="dark"] #layout-menu{background-color:#1d2129;box-shadow:0 0 20px rgba(0,0,0,.5)}
+    :root[data-theme="dark"] .top-nav-bar{background-color:#1d2129;border-color:#2a2f3a;box-shadow:0 2px 8px rgba(0,0,0,.4)}
+    :root[data-theme="dark"] #menu-toggle-btn{background-color:#1d2129;box-shadow:0 4px 12px rgba(0,0,0,.5)}
+    :root[data-theme="dark"] #menu-toggle-btn span{background-color:#d8dde5}
+    :root[data-theme="dark"] #menu-close-btn{color:#8a93a1}
+    :root[data-theme="dark"] #menu-close-btn:hover{color:#e9ecef}
 
-    .top-nav-link{color:#6ab0ff !important}
-    .top-nav-active{color:#f1f3f5 !important}
-    .top-nav-divider{color:#3a404c}
+    :root[data-theme="dark"] .top-nav-link{color:#6ab0ff !important}
+    :root[data-theme="dark"] .top-nav-active{color:#f1f3f5 !important}
+    :root[data-theme="dark"] .top-nav-divider{color:#3a404c}
 
-    div#toptitle{border-bottom-color:#2a2f3a}
-    h1,h2,h3{color:#a9c7f5;border-bottom-color:#2a2f3a}
-    #toptitle h1{color:#f1f3f5;border-bottom-color:#2a2f3a}
-    a{color:#6ab0ff}
-    a:hover{color:#8ec2ff}
-    tt{background-color:#2a2d1f}
+    :root[data-theme="dark"] div#toptitle{border-bottom-color:#2a2f3a}
+    :root[data-theme="dark"] h1,:root[data-theme="dark"] h2,:root[data-theme="dark"] h3{color:#a9c7f5;border-bottom-color:#2a2f3a}
+    :root[data-theme="dark"] #toptitle h1{color:#f1f3f5;border-bottom-color:#2a2f3a}
+    :root[data-theme="dark"] a{color:#6ab0ff}
+    :root[data-theme="dark"] a:hover{color:#8ec2ff}
+    :root[data-theme="dark"] tt{background-color:#2a2d1f}
 
-    div.menu-category{border-bottom-color:#2a2f3a;color:#e9ecef}
-    #menu-items .menu-item a{color:#c3cad4}
-    #menu-items .menu-item a:hover{background-color:#007bff;color:#fff}
-    #menu-items .menu-item a.current{background-color:#007bff;color:#fff}
-    .menu-category-title{color:#8a93a1}
+    :root[data-theme="dark"] div.menu-category{border-bottom-color:#2a2f3a;color:#e9ecef}
+    :root[data-theme="dark"] #menu-items .menu-item a{color:#c3cad4}
+    :root[data-theme="dark"] #menu-items .menu-item a:hover{background-color:#007bff;color:#fff}
+    :root[data-theme="dark"] #menu-items .menu-item a.current{background-color:#007bff;color:#fff}
+    :root[data-theme="dark"] .menu-category-title{color:#8a93a1}
 
-    .keyword-pill{background-color:#16273e;color:#7cc0ff;border-color:#254a73}
-    .keyword-pill:hover{background-color:#1b3355;box-shadow:0 4px 8px rgba(0,0,0,.3)}
+    :root[data-theme="dark"] .keyword-pill{background-color:#16273e;color:#7cc0ff;border-color:#254a73}
+    :root[data-theme="dark"] .keyword-pill:hover{background-color:#1b3355;box-shadow:0 4px 8px rgba(0,0,0,.3)}
 
-    .lang-dropdown-menu{background-color:#1d2129;border-color:#2a2f3a}
-    .lang-option{color:#c3cad4 !important}
-    .lang-option:hover{background-color:#262c37;color:#e9ecef !important}
-    .lang-option.active{color:#6ab0ff !important;background-color:#16273e}
+    :root[data-theme="dark"] .lang-dropdown-menu{background-color:#1d2129;border-color:#2a2f3a}
+    :root[data-theme="dark"] .lang-option{color:#c3cad4 !important}
+    :root[data-theme="dark"] .lang-option:hover{background-color:#262c37;color:#e9ecef !important}
+    :root[data-theme="dark"] .lang-option.active{color:#6ab0ff !important;background-color:#16273e}
 
-    table{border-color:#3a404c}
-    td{border-color:#3a404c}
-    tr.heading{border-bottom-color:#3a404c}
+    :root[data-theme="dark"] table{border-color:#3a404c}
+    :root[data-theme="dark"] td{border-color:#3a404c}
+    :root[data-theme="dark"] tr.heading{border-bottom-color:#3a404c}
 
     /* inline-styled gray descriptions need a lighter tone in dark mode */
-    p[style*="color:#555"]{color:#9aa4b2 !important}
-    /* dark-on-transparent logo needs a light chip to stay visible */
-    img[src*="szbl-logo"]{background:#e8eaf0;border-radius:4px;padding:2px}
-}
+    :root[data-theme="dark"] p[style*="color:#555"]{color:#9aa4b2 !important}
+    /* dark-on-transparent logo: invert to a light tone instead of a background chip */
+    :root[data-theme="dark"] img[src*="szbl-logo"]{filter:invert(.88) hue-rotate(180deg) saturate(1.1)}
+
+    :root[data-theme="dark"] .theme-toggle{background-color:#262c37;border-color:#2a2f3a}
+
+/* theme toggle button */
+.theme-toggle{margin-left:8px;border:1px solid #e9ecef;background:#fff;border-radius:50%;width:32px;height:32px;padding:0;cursor:pointer;font-size:15px;line-height:1;display:inline-flex;align-items:center;justify-content:center;transition:transform .2s ease,background .2s ease}
+.theme-toggle:hover{transform:scale(1.1)}
 
 /* printing always stays light */
 @media print{
