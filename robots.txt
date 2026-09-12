@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /.mimosa/
+Disallow: /.claude/
+
+Sitemap: https://wyqmath.cn/sitemap.xml
