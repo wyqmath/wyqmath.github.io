@@ -343,7 +343,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #007bff;outline-offset:2p
     :root[data-theme="dark"] a:focus-visible,:root[data-theme="dark"] button:focus-visible{outline-color:#6ab0ff}
     :root[data-theme="dark"] #layout-menu::-webkit-scrollbar-thumb{background:#3a404c}
 
-    :root[data-theme="dark"] body{background-color:#14171c;color:#d8dde5}
+    :root[data-theme="dark"] body{background-color:#1d2129;color:#d8dde5}
     :root[data-theme="dark"] #layout-content{background-color:#1d2129;border-color:#2a2f3a;box-shadow:0 6px 18px rgba(0,0,0,.4)}
     :root[data-theme="dark"] #layout-menu{background-color:#1d2129;box-shadow:0 0 20px rgba(0,0,0,.5)}
     :root[data-theme="dark"] .top-nav-bar{background-color:#1d2129;border-color:#2a2f3a;box-shadow:0 2px 8px rgba(0,0,0,.4)}
@@ -383,14 +383,27 @@ a:focus-visible,button:focus-visible{outline:2px solid #007bff;outline-offset:2p
 
     /* inline-styled gray descriptions need a lighter tone in dark mode */
     :root[data-theme="dark"] p[style*="color:#555"]{color:#9aa4b2 !important}
-    /* dark-on-transparent logo: invert to a light tone instead of a background chip */
-    :root[data-theme="dark"] img[src*="szbl-logo"]{filter:invert(.88) hue-rotate(180deg) saturate(1.1)}
+    /* dark-on-transparent logos: invert to a light tone instead of a background chip */
+    :root[data-theme="dark"] img[src*="szbl-logo"],:root[data-theme="dark"] img[src*="xju-logo"],:root[data-theme="dark"] img[src*="thu-logo"],:root[data-theme="dark"] img[src*="openreview"]{filter:invert(.88) hue-rotate(180deg) saturate(1.1)}
 
     :root[data-theme="dark"] .theme-toggle{background-color:#262c37;border-color:#2a2f3a}
+    :root[data-theme="dark"] img[src*="wyq-small"]{box-shadow:0 4px 14px rgba(0,0,0,.45)}
+    :root[data-theme="dark"] .copy-cite{background:#262c37;border-color:#2a2f3a;color:#c3cad4}
+    :root[data-theme="dark"] .copy-cite:hover{background:#007bff;border-color:#007bff;color:#fff}
 
 /* theme toggle button */
 .theme-toggle{margin-left:8px;border:1px solid #e9ecef;background:#fff;border-radius:50%;width:32px;height:32px;padding:0;cursor:pointer;font-size:15px;line-height:1;display:inline-flex;align-items:center;justify-content:center;transition:transform .2s ease,background .2s ease}
 .theme-toggle:hover{transform:scale(1.1)}
+
+/* rounded profile photo */
+img[src*="wyq-small"]{border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+
+/* hanging indent so wrapped paper entries align after the first line */
+#layout-content li>p{padding-left:1.6em;text-indent:-1.6em}
+
+/* per-entry citation copy button (injected by assets/script.js) */
+.copy-cite{margin-left:8px;border:1px solid #e9ecef;background:#f8f9fa;color:#495057;border-radius:6px;width:26px;height:22px;padding:0;cursor:pointer;font-size:12px;line-height:1;vertical-align:middle;transition:all .15s ease}
+.copy-cite:hover{background:#007bff;border-color:#007bff;color:#fff}
 
 /* printing always stays light */
 @media print{

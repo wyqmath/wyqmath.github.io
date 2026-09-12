@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.documentElement.dataset.theme = theme;
         if (themeToggle) themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
         document.querySelectorAll('meta[name="theme-color"]').forEach(function(m) {
-            m.setAttribute('content', theme === 'dark' ? '#14171c' : '#f8f9fa');
+            m.setAttribute('content', theme === 'dark' ? '#1d2129' : '#f8f9fa');
         });
     };
 
@@ -151,5 +151,50 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!localStorage.getItem('theme')) {
             applyTheme(e.matches ? 'dark' : 'light');
         }
+    });
+
+    // one-click citation copy on paper entries (li > p containing an italic venue)
+    const copyText = (text) => {
+        if (navigator.clipboard && window.isSecureContext) {
+            return navigator.clipboard.writeText(text);
+        }
+        return new Promise((resolve, reject) => {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            try {
+                document.execCommand('copy') ? resolve() : reject(new Error('copy failed'));
+            } catch (e) {
+                reject(e);
+            } finally {
+                ta.remove();
+            }
+        });
+    };
+
+    document.querySelectorAll('#layout-content li > p').forEach(function(p) {
+        if (!p.querySelector('i') || p.querySelector('.copy-cite')) return;
+        const btn = document.createElement('button');
+        btn.className = 'copy-cite';
+        btn.type = 'button';
+        btn.title = 'Copy citation';
+        btn.setAttribute('aria-label', 'Copy citation');
+        btn.textContent = '⧉';
+        btn.addEventListener('click', function(ev) {
+            ev.stopPropagation();
+            const clone = p.cloneNode(true);
+            clone.querySelectorAll('.copy-cite').forEach(function(b) { b.remove(); });
+            const text = clone.innerText.replace(/\s+/g, ' ').trim();
+            copyText(text).then(function() {
+                btn.textContent = '✓';
+                setTimeout(function() { btn.textContent = '⧉'; }, 1200);
+            }).catch(function() {
+                btn.textContent = '✗';
+            });
+        });
+        p.appendChild(btn);
     });
   });
