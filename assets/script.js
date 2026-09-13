@@ -101,6 +101,9 @@ document.addEventListener('DOMContentLoaded', function() {
             opt.classList.toggle('active', opt.dataset.lang === lang);
         });
         if (langDropdownMenu) langDropdownMenu.classList.remove('show');
+        document.querySelectorAll('details.abstract-box > summary').forEach(function(s) {
+            s.textContent = lang === 'zh' ? '\u6458\u8981' : 'Abstract';
+        });
     }
 
     initializeLanguage();
@@ -126,31 +129,46 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Theme toggle: follows system preference until the user chooses manually
-    const themeToggle = document.getElementById('theme-toggle');
     const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
 
     const applyTheme = (theme) => {
         document.documentElement.dataset.theme = theme;
-        if (themeToggle) themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+        document.querySelectorAll('.tt-icon').forEach(function(s) {
+            s.textContent = theme === 'dark' ? '☀️' : '🌙';
+        });
         document.querySelectorAll('meta[name="theme-color"]').forEach(function(m) {
             m.setAttribute('content', theme === 'dark' ? '#1d2129' : '#f8f9fa');
         });
     };
 
-    applyTheme(localStorage.getItem('theme') || (systemDark.matches ? 'dark' : 'light'));
+    const toggleTheme = function() {
+        const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem('theme', next);
+        applyTheme(next);
+    };
 
-    if (themeToggle) {
-        themeToggle.addEventListener('click', function() {
-            const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-            localStorage.setItem('theme', next);
-            applyTheme(next);
-        });
-    }
+    applyTheme(localStorage.getItem('theme') || (systemDark.matches ? 'dark' : 'light'));
+    document.querySelectorAll('.theme-toggle').forEach(function(b) {
+        b.addEventListener('click', toggleTheme);
+    });
 
     systemDark.addEventListener('change', function(e) {
         if (!localStorage.getItem('theme')) {
             applyTheme(e.matches ? 'dark' : 'light');
         }
+    });
+
+    // collapse long project abstracts into native <details>
+    document.querySelectorAll('#layout-content li > p').forEach(function(p) {
+        const txt = (p.textContent || '').trim();
+        if (!(txt.startsWith('摘要：') || txt.startsWith('摘要:') || txt.startsWith('Abstract:'))) return;
+        const details = document.createElement('details');
+        details.className = 'abstract-box';
+        const summary = document.createElement('summary');
+        summary.textContent = currentLang === 'zh' ? '\u6458\u8981' : 'Abstract';
+        p.replaceWith(details);
+        details.appendChild(summary);
+        details.appendChild(p);
     });
 
     // footer: last-updated stamp from the page's modification time
