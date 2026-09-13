@@ -420,6 +420,14 @@ div#toptitle{border-bottom:none;margin-bottom:.8em}
 /* kill legacy table-cell borders on the layout cells */
 td#layout-content,td#layout-menu{border:none;background:transparent}
 
+/* typography: justified text, breathing room, accent-bar headings */
+#layout-content p,#layout-content li p{text-align:justify;text-justify:inter-ideograph}
+#layout-content .imgtable p{text-align:start}
+p{line-height:1.7;margin-bottom:.9em}
+h2{font-size:1.45rem;border-left:4px solid #0047ab;padding-left:14px;border-bottom:none;padding-bottom:0;margin-top:2.6em;margin-bottom:1.1em;color:#1a1f27}
+:root[data-theme="dark"] h2{border-left-color:#5b9bff;color:#c9d4e3}
+.keywords-container{align-content:flex-start;justify-content:flex-start}
+
 /* printing always stays light */
 @media print{
     body{background:#fff !important;color:#000 !important}
