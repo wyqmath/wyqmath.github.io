@@ -327,6 +327,7 @@ canvas {
     max-height: 40vh;
   }
 }
+#footer{margin-top:32px;padding-top:16px;border-top:1px solid #dfe6ef;color:#8a93a1;font-size:13px;text-align:center}
 </style>
 </head>
 <body>
@@ -1990,6 +1991,15 @@ function clamp(v, lo, hi) {
 
 // Initialize
 switchTab("rd");
+</script>
+
+<div id="footer">Last updated: <span id="last-updated"></span></div>
+<script>
+(function() {
+  var d = new Date(document.lastModified);
+  var p = function(n) { return (n < 10 ? '0' : '') + n; };
+  document.getElementById('last-updated').textContent = d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate());
+})();
 </script>
 </body>
 </html>

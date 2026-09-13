@@ -390,6 +390,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #007bff;outline-offset:2p
     :root[data-theme="dark"] img[src*="wyq-small"]{box-shadow:0 4px 14px rgba(0,0,0,.45)}
     :root[data-theme="dark"] .copy-cite{background:#262c37;border-color:#2a2f3a;color:#c3cad4}
     :root[data-theme="dark"] .copy-cite:hover{background:#007bff;border-color:#007bff;color:#fff}
+    :root[data-theme="dark"] div#footer{border-top-color:#2a2f3a}
 
 /* theme toggle button */
 .theme-toggle{margin-left:8px;border:1px solid #e9ecef;background:#fff;border-radius:50%;width:32px;height:32px;padding:0;cursor:pointer;font-size:15px;line-height:1;display:inline-flex;align-items:center;justify-content:center;transition:transform .2s ease,background .2s ease}
@@ -404,6 +405,10 @@ img[src*="wyq-small"]{border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.15)}
 /* per-entry citation copy button (injected by assets/script.js) */
 .copy-cite{margin-left:8px;border:1px solid #e9ecef;background:#f8f9fa;color:#495057;border-radius:6px;width:26px;height:22px;padding:0;cursor:pointer;font-size:12px;line-height:1;vertical-align:middle;transition:all .15s ease}
 .copy-cite:hover{background:#007bff;border-color:#007bff;color:#fff}
+
+/* last-updated footer */
+div#footer{border-top:1px solid #e9ecef;margin-top:3em;padding-top:.8em;font-size:.9em;color:#8a93a1;text-align:center}
+div#footer-text{float:none;display:inline}
 
 /* printing always stays light */
 @media print{

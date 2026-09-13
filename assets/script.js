@@ -153,6 +153,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // footer: last-updated stamp from the page's modification time
+    const lastUpdated = document.getElementById('last-updated');
+    if (lastUpdated) {
+        const d = new Date(document.lastModified);
+        const p = function(n) { return (n < 10 ? '0' : '') + n; };
+        lastUpdated.textContent = d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate());
+    }
+
     // one-click citation copy on paper entries — publications page only (homepage opt-out)
     if (/publications\.html$/.test(location.pathname)) {
     const copyText = (text) => {
