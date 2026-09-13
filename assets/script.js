@@ -153,7 +153,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // one-click citation copy on paper entries (li > p containing an italic venue)
+    // one-click citation copy on paper entries — publications page only (homepage opt-out)
+    if (/publications\.html$/.test(location.pathname)) {
     const copyText = (text) => {
         if (navigator.clipboard && window.isSecureContext) {
             return navigator.clipboard.writeText(text);
@@ -197,4 +198,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         p.appendChild(btn);
     });
+    }
   });
