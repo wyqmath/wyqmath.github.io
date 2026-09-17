@@ -383,7 +383,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #007bff;outline-offset:2p
 .theme-toggle:hover{transform:scale(1.1)}
 
 /* rounded profile photo */
-img[src*="wyq-small"]{border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.15);width:240px;height:auto}
+img[src*="wyq-small"]{border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.15);width:200px;height:auto}
 
 /* hanging indent so wrapped paper entries align after the first line */
 #layout-content li>p{padding-left:1.6em;text-indent:-1.6em}
