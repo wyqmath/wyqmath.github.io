@@ -383,7 +383,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #007bff;outline-offset:2p
 .theme-toggle:hover{transform:scale(1.1)}
 
 /* rounded profile photo */
-img[src*="wyq-small"]{border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.15);width:180px;height:auto}
+img[src*="wyq-small"]{border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.15);width:240px;height:auto}
 
 /* hanging indent so wrapped paper entries align after the first line */
 #layout-content li>p{padding-left:1.6em;text-indent:-1.6em}
@@ -441,6 +441,7 @@ td#layout-content{background:transparent}
     /* desktop: sidebar as a classic static left column (drawer stays mobile-only) */
     td#layout-menu,body.menu-open td#layout-menu{position:static;transform:none;width:260px;box-shadow:none;overflow:visible;padding:1.5rem 1rem;background:transparent}
     #menu-close-btn{display:none}
+    .imgtable td:first-child{padding-right:32px}
 }
 
 /* typography: justified text (CJK-friendly); bare URLs opt into char-level breaking so lines fill */
