@@ -5,19 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#f5f7fa" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#1d2129" media="(prefers-color-scheme: dark)">
-<title>🎮 Fun Zone - Interactive Math Playground | Yiquan Wang</title>
+<title>Fun Zone - Interactive Math Playground | Yiquan Wang</title>
 <meta name="description" content="Fun Zone - interactive math and physics playground by Yiquan Wang (王一权): reaction-diffusion patterns, Lorenz attractor, fractals, and other browser-based simulations.">
 <meta property="og:title" content="Fun Zone - Interactive Math Playground | Yiquan Wang">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://wyqmath.cn/funzone.html">
 <meta property="og:image" content="https://wyqmath.cn/assets/og-image.jpg">
+<script>document.documentElement.dataset.theme=localStorage.getItem("theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");</script>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
   background: #f5f7fa;
   color: #2c3e50;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   overflow: hidden;
 }
 
@@ -41,9 +42,7 @@ body {
 .top-bar h1 {
   font-size: 1.3em;
   font-weight: 800;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #1a1f27;
 }
 
 .top-bar-right {
@@ -54,9 +53,9 @@ body {
 .top-btn {
   padding: 6px 16px;
   background: #fff;
-  border: 2px solid #667eea;
+  border: 2px solid #0047ab;
   border-radius: 18px;
-  color: #667eea;
+  color: #0047ab;
   cursor: pointer;
   font-size: 12px;
   font-weight: 600;
@@ -65,17 +64,17 @@ body {
 }
 
 .top-btn:hover {
-  background: #667eea;
+  background: #0047ab;
   color: #fff;
 }
 
 .export-btn {
-  border-color: #764ba2;
-  color: #764ba2;
+  border-color: #2a6fd6;
+  color: #2a6fd6;
 }
 
 .export-btn:hover {
-  background: #764ba2;
+  background: #2a6fd6;
   color: #fff;
 }
 
@@ -124,7 +123,7 @@ body {
 }
 
 .mode-btn.active {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0047ab 0%, #2a6fd6 100%);
   color: #fff;
 }
 
@@ -170,13 +169,13 @@ canvas {
 
 .control-value {
   float: right;
-  color: #667eea;
+  color: #0047ab;
   font-weight: 700;
 }
 
 .control-group input[type="range"] {
   width: 100%;
-  accent-color: #667eea;
+  accent-color: #0047ab;
   height: 4px;
   cursor: pointer;
 }
@@ -193,13 +192,13 @@ canvas {
 }
 
 .control-group select:hover {
-  border-color: #667eea;
+  border-color: #0047ab;
 }
 
 .btn {
   width: 100%;
   padding: 10px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0047ab 0%, #2a6fd6 100%);
   border: none;
   border-radius: 6px;
   color: #fff;
@@ -212,7 +211,7 @@ canvas {
 
 .btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(102,126,234,.3);
+  box-shadow: 0 4px 12px rgba(0,71,171,.3);
 }
 
 .draw-btn {
@@ -222,14 +221,14 @@ canvas {
 }
 
 .draw-btn:hover {
-  border-color: #667eea;
-  color: #667eea;
+  border-color: #0047ab;
+  color: #0047ab;
   background: #fff;
   transform: translateY(-1px);
 }
 
 .draw-btn.active {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0047ab 0%, #2a6fd6 100%);
   color: #fff;
   border: none;
 }
@@ -255,20 +254,20 @@ canvas {
 }
 
 .preset-btn:hover {
-  border-color: #667eea;
-  color: #667eea;
+  border-color: #0047ab;
+  color: #0047ab;
 }
 
 .preset-btn.active {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0047ab 0%, #2a6fd6 100%);
   color: #fff;
   border-color: transparent;
 }
 
 .hint {
   font-size: 11px;
-  color: #667eea;
-  background: rgba(102,126,234,0.1);
+  color: #0047ab;
+  background: rgba(0,71,171,0.08);
   padding: 8px;
   border-radius: 6px;
   margin-bottom: 8px;
@@ -328,11 +327,35 @@ canvas {
   }
 }
 #footer{margin-top:32px;padding-top:16px;border-top:1px solid #dfe6ef;color:#8a93a1;font-size:13px;text-align:center}
+
+/* dark scheme (synced with main site) */
+:root[data-theme="dark"] body{background:#1d2129;color:#d8dde5}
+:root[data-theme="dark"] .top-bar{background:#1d2129;border-bottom-color:#2a2f3a;box-shadow:none}
+:root[data-theme="dark"] .top-bar h1{color:#f1f3f5}
+:root[data-theme="dark"] .top-btn{background:transparent;border-color:#6ab0ff;color:#6ab0ff}
+:root[data-theme="dark"] .top-btn:hover{background:#6ab0ff;color:#14171c}
+:root[data-theme="dark"] .export-btn{border-color:#8ec2ff;color:#8ec2ff}
+:root[data-theme="dark"] .export-btn:hover{background:#8ec2ff;color:#14171c}
+:root[data-theme="dark"] .sidebar,:root[data-theme="dark"] .controls-panel{background:#262c37;border-color:#2a2f3a}
+:root[data-theme="dark"] .sidebar h3{color:#8a93a1}
+:root[data-theme="dark"] .mode-btn{background:#2a3039;color:#c3cad4}
+:root[data-theme="dark"] .mode-btn:hover{background:#323945}
+:root[data-theme="dark"] .mode-btn.active{background:linear-gradient(135deg,#0047ab 0%,#2a6fd6 100%);color:#fff}
+:root[data-theme="dark"] .controls-panel label{color:#8a93a1}
+:root[data-theme="dark"] .control-value{color:#6ab0ff}
+:root[data-theme="dark"] .control-group select{background:#2a3039;border-color:#3a404c;color:#d8dde5}
+:root[data-theme="dark"] .draw-btn{background:#2a3039;border-color:#3a404c;color:#c3cad4}
+:root[data-theme="dark"] .draw-btn:hover{border-color:#6ab0ff;color:#6ab0ff;background:#2a3039}
+:root[data-theme="dark"] .preset-btn{background:#2a3039;border-color:#3a404c;color:#8a93a1}
+:root[data-theme="dark"] .preset-btn:hover{border-color:#6ab0ff;color:#6ab0ff}
+:root[data-theme="dark"] .hint{color:#9cc3ee;background:#16273e}
+:root[data-theme="dark"] .fun-fact{background:#2a3039;color:#8a93a1}
+:root[data-theme="dark"] canvas{box-shadow:0 4px 16px rgba(0,0,0,.4)}
 </style>
 </head>
 <body>
 <div class="top-bar">
-  <h1>🎮 Fun Zone</h1>
+  <h1>Fun Zone</h1>
   <div class="top-bar-right">
     <button class="top-btn export-btn" id="export-btn">📸 Export</button>
     <a href="/" class="top-btn">🏠 Home</a>
@@ -599,6 +622,14 @@ function setupControlListeners(tab) {
 
 modeBtns.forEach(b => b.addEventListener('click', () => switchTab(b.dataset.tab)));
 
+// Pause heavy loops while the tab is hidden, resume on return
+document.addEventListener('visibilitychange', () => {
+  const m = modules[activeTab];
+  if (!m) return;
+  if (document.hidden) { if (m.stop) m.stop(); }
+  else if (m.start && !m.running) m.start();
+});
+
 // Export functionality
 document.getElementById('export-btn').addEventListener('click', () => {
   if (!currentCanvas) return;
@@ -733,8 +764,9 @@ function clamp(v, lo, hi) {
     ctx.putImageData(img, 0, 0);
   }
 
-  function animate() {
+  function animate(t) {
     if (!running) return;
+    if (t - (animate.last||0) < 33) { animId = requestAnimationFrame(animate); return; } animate.last = t;
     for (let i = 0; i < 10; i++) step();
     render();
     animId = requestAnimationFrame(animate);
@@ -787,7 +819,7 @@ function clamp(v, lo, hi) {
   init();
   modules.rd = {
     setupControls: setupControls,
-    start() { running = true; animate(); },
+    start() { if (running) return; running = true; animate(); },
     stop() { running = false; if (animId) cancelAnimationFrame(animId); }
   };
 })();
@@ -912,7 +944,7 @@ function clamp(v, lo, hi) {
 
     // Draw user path if in draw mode
     if (drawMode && userPath.length > 1) {
-      ctx.strokeStyle = '#667eea';
+      ctx.strokeStyle = '#0047ab';
       ctx.lineWidth = 4;
       ctx.lineCap = 'round';
       ctx.lineJoin = 'round';
@@ -924,7 +956,7 @@ function clamp(v, lo, hi) {
       ctx.stroke();
 
       // Draw hint
-      ctx.fillStyle = '#667eea';
+      ctx.fillStyle = '#0047ab';
       ctx.font = '14px sans-serif';
       ctx.fillText('Release to start particles from path', 20, 30);
       return;
@@ -967,7 +999,7 @@ function clamp(v, lo, hi) {
     }
 
     const [cx, cy] = project(x, y, z);
-    ctx.fillStyle = '#667eea';
+    ctx.fillStyle = '#0047ab';
     ctx.beginPath();
     ctx.arc(cx, cy, 4, 0, Math.PI * 2);
     ctx.fill();
@@ -982,8 +1014,9 @@ function clamp(v, lo, hi) {
     }
   }
 
-  function animate() {
+  function animate(t) {
     if (!running) return;
+    if (t - (animate.last||0) < 33) { animId = requestAnimationFrame(animate); return; } animate.last = t;
     if (!drawMode) {
       for (let i = 0; i < stepsPerFrame; i++) stepSim();
     }
@@ -1092,7 +1125,7 @@ function clamp(v, lo, hi) {
   reset();
   modules.attractor = {
     setupControls: setupControls,
-    start() { running = true; animate(); },
+    start() { if (running) return; running = true; animate(); },
     stop() { running = false; if (animId) cancelAnimationFrame(animId); }
   };
 })();
@@ -1188,7 +1221,7 @@ function clamp(v, lo, hi) {
       case 'fire': return `hsl(${t * 60}, ${80 + t * 15}%, ${35 + t * 30}%)`;
       case 'purple': return `hsl(${260 + t * 60}, ${65 + t * 20}%, ${40 + t * 25}%)`;
       case 'white': return `rgba(100,110,130,${0.4 + t * 0.6})`;
-      default: return '#667eea';
+      default: return '#0047ab';
     }
   }
 
@@ -1199,15 +1232,15 @@ function clamp(v, lo, hi) {
     // Draw mode: show seeds
     if (drawMode) {
       for (let seed of userSeeds) {
-        ctx.fillStyle = '#667eea';
+        ctx.fillStyle = '#0047ab';
         ctx.beginPath();
         ctx.arc(seed.x, seed.y, 8, 0, Math.PI * 2);
         ctx.fill();
-        ctx.strokeStyle = '#667eea';
+        ctx.strokeStyle = '#0047ab';
         ctx.lineWidth = 2;
         ctx.stroke();
       }
-      ctx.fillStyle = '#667eea';
+      ctx.fillStyle = '#0047ab';
       ctx.font = '14px sans-serif';
       ctx.fillText('Click to place seeds • Exit draw mode to grow plants', 20, 30);
       return;
@@ -1347,7 +1380,7 @@ function clamp(v, lo, hi) {
         canvas.style.cursor = 'crosshair';
         ctx.fillStyle = '#f5f7fa';
         ctx.fillRect(0, 0, CW, CH);
-        ctx.fillStyle = '#667eea';
+        ctx.fillStyle = '#0047ab';
         ctx.font = '14px sans-serif';
         ctx.fillText('Click to place seeds • Exit draw mode to grow plants', 20, 30);
       } else {
@@ -1368,15 +1401,15 @@ function clamp(v, lo, hi) {
       ctx.fillStyle = '#f5f7fa';
       ctx.fillRect(0, 0, CW, CH);
       for (let seed of userSeeds) {
-        ctx.fillStyle = '#667eea';
+        ctx.fillStyle = '#0047ab';
         ctx.beginPath();
         ctx.arc(seed.x, seed.y, 8, 0, Math.PI * 2);
         ctx.fill();
-        ctx.strokeStyle = '#667eea';
+        ctx.strokeStyle = '#0047ab';
         ctx.lineWidth = 2;
         ctx.stroke();
       }
-      ctx.fillStyle = '#667eea';
+      ctx.fillStyle = '#0047ab';
       ctx.font = '14px sans-serif';
       ctx.fillText('Click to place seeds • Exit draw mode to grow plants', 20, 30);
     }
@@ -1574,8 +1607,9 @@ function clamp(v, lo, hi) {
     pmx = mx; pmy = my;
   }
 
-  function animate() {
+  function animate(t) {
     if (!running) return;
+    if (t - (animate.last||0) < 33) { animId = requestAnimationFrame(animate); return; } animate.last = t;
     const dt = 0.1;
 
     addForce();
@@ -1648,7 +1682,7 @@ function clamp(v, lo, hi) {
 
   modules.fluid = {
     setupControls: setupControls,
-    start() { running = true; animate(); },
+    start() { if (running) return; running = true; animate(); },
     stop() { running = false; if (animId) cancelAnimationFrame(animId); }
   };
 })();
@@ -1899,8 +1933,9 @@ function clamp(v, lo, hi) {
     }
   }
 
-  function animate() {
+  function animate(t) {
     if (!running) return;
+    if (t - (animate.last||0) < 33) { animId = requestAnimationFrame(animate); return; } animate.last = t;
 
     ctx.fillStyle = 'rgba(15, 15, 35, 0.1)';
     ctx.fillRect(0, 0, W, H);
@@ -1980,6 +2015,7 @@ function clamp(v, lo, hi) {
   modules.particles = {
     setupControls: setupControls,
     start() {
+      if (running) return;
       ctx.fillStyle = '#0f0f23';
       ctx.fillRect(0, 0, W, H);
       running = true;
