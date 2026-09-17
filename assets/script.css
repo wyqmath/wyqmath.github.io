@@ -402,6 +402,7 @@ details.collapse-box[open],details.abstract-box[open]{padding-bottom:.2em}
 :root[data-theme="dark"] details.collapse-box summary,:root[data-theme="dark"] details.abstract-box summary{color:#9cc3ee}
 details.abstract-box summary,details.collapse-box summary{display:flex;align-items:center;list-style:none}
 details.abstract-box summary::marker,details.collapse-box summary::marker{content:''}
+li:has(> details.abstract-box){list-style-type:none}
 
 /* sidebar theme toggle row */
 button.theme-toggle-menu{
