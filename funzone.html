@@ -584,7 +584,7 @@ const controlPanels = {
   `,
   fold: `
     <div class="control-group">
-      <label>Temperature <span class="control-value" id="fold-temp-v">0.65</span></label>
+      <label>Final temperature <span class="control-value" id="fold-temp-v">0.65</span></label>
       <input type="range" id="fold-temp" min="0" max="100" value="40">
     </div>
     <div class="control-group">
@@ -593,7 +593,7 @@ const controlPanels = {
     <button class="btn" id="fold-pause">Pause</button>
     <button class="btn" id="fold-reset">New Random Chain</button>
     <div class="hint">🧬 Blue beads are hydrophobic — watch them bury themselves inside to lower the energy</div>
-    <div class="fun-fact">Folding is energy minimization. This 2D HP lattice toy is the idea behind AlphaFold!</div>
+    <div class="fun-fact">🧊 Simulated annealing: the chain starts hot, cools down, and settles into its lowest-energy fold.</div>
   `,
   life: `
     <div class="control-group">
@@ -2100,7 +2100,7 @@ modules.fold = (function() {
   const canvas = document.getElementById('fold-canvas');
   const ctx = canvas.getContext('2d');
   const N = canvas.width, S = 40, GRID = Math.floor(N / S);
-  let chain = [], energy = 0, running = false, animId = null, temp = 0.65, pausedByUser = false;
+  let chain = [], energy = 0, bestEnergy = 0, bestChain = null, effTemp = 1.4, stuck = 0, running = false, animId = null, temp = 0.65, pausedByUser = false;
 
   function occupied(x, y) { return chain.some(m => m.x === x && m.y === y); }
 
@@ -2143,11 +2143,13 @@ modules.fold = (function() {
   function stepFold() {
     const before = computeEnergy();
     const snapshot = chain.map(m => ({ ...m }));
-    if (!tryMove()) return;
+    if (!tryMove()) { stuck++; return; }
     const after = computeEnergy();
     const dE = after - before;
-    if (dE > 0 && Math.random() > Math.exp(-dE / temp)) { chain = snapshot; return; }
+    if (dE > 0 && Math.random() > Math.exp(-dE / effTemp)) { chain = snapshot; stuck++; return; }
+    stuck = 0;
     energy = after;
+    if (energy < bestEnergy) { bestEnergy = energy; bestChain = chain.map(m => ({ ...m })); }
   }
 
   function renderFold() {
@@ -2173,7 +2175,10 @@ modules.fold = (function() {
     }
     ctx.fillStyle = '#0047ab';
     ctx.font = 'bold 30px Inter, Arial, sans-serif';
-    ctx.fillText('E = ' + energy + ' H-H', 18, 46);
+    ctx.fillText('E = ' + energy + ' (best ' + bestEnergy + ')', 18, 46);
+    ctx.font = 'bold 20px Inter, Arial, sans-serif';
+    ctx.fillStyle = '#6c757d';
+    ctx.fillText('T = ' + effTemp.toFixed(2), 20, 74);
     ctx.lineWidth = 1;
   }
 
@@ -2186,6 +2191,12 @@ modules.fold = (function() {
     if (!running) return;
     if (t - (animate.last||0) < 33) { animId = requestAnimationFrame(animate); return; }
     animate.last = t;
+    effTemp = Math.max(Math.max(0.05, temp * 0.3), effTemp * 0.996);  // anneal down to the floor
+    if (stuck > 250) {                                     // trapped in a local minimum: return to the best fold
+      chain = bestChain.map(m => ({ ...m }));
+      energy = bestEnergy;
+      stuck = -4000;                                       // grace period before the next rescue
+    }
     for (let k = 0; k < 12; k++) stepFold();
     renderFold();
     updateLabel();
@@ -2210,6 +2221,9 @@ modules.fold = (function() {
     chain = [];
     for (let i = 0; i < len; i++) chain.push({ x: i, y: y0, h: Math.random() < 0.45 });
     energy = 0;
+    bestEnergy = 0;
+    bestChain = chain.map(m => ({ ...m }));
+    effTemp = 1.4; stuck = 0;
   }
 
   function start() {
