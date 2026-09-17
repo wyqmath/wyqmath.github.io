@@ -468,7 +468,7 @@ a.url-link{word-break:break-all}
 p{line-height:1.7;margin-bottom:.9em}
 h2{font-size:1.3rem;line-height:1.25;padding-top:0;border-left:4px solid #0047ab;padding-left:14px;border-bottom:none;padding-bottom:0;margin-top:2.6em;margin-bottom:1.1em;color:#1a1f27}
 :root[data-theme="dark"] h2{border-left-color:#5b9bff;color:#c9d4e3}
-.keywords-container{flex:1 1 100%;max-width:none;align-content:flex-start;justify-content:flex-start;margin-top:.2rem}
+.keywords-container{display:flex;flex-wrap:wrap;align-content:flex-start;justify-content:flex-start;max-width:none;margin:.1rem 0 1.4rem}
 .keyword-pill{display:inline-block;background:transparent;color:#3f6ea8;border:1px solid #c9d9ec;padding:4px 12px;border-radius:999px;margin:3px 6px 3px 0;font-size:12.5px;font-weight:500;transition:all .15s ease}
 .keyword-pill:hover{background:#eef4fc;border-color:#a9c6e6;transform:none;box-shadow:none}
 :root[data-theme="dark"] .keyword-pill{background:transparent;color:#9cc3ee;border-color:#33507a}
