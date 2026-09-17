@@ -365,13 +365,16 @@ canvas {
 <div class="container">
   <aside class="sidebar">
     <h3>Simulations</h3>
-    <button class="mode-btn active" data-tab="rd">🦠 Reaction-Diffusion</button>
+    <button class="mode-btn active" data-tab="fold">🧬 Protein Folding</button>
+    <button class="mode-btn" data-tab="life">🧫 Game of Life</button>
+    <button class="mode-btn" data-tab="boids">🐦 Boids Flocking</button>
+    <button class="mode-btn" data-tab="pendulum">➰ Double Pendulum</button>
+    <button class="mode-btn" data-tab="rd">🦠 Reaction-Diffusion</button>
     <button class="mode-btn" data-tab="attractor">🌀 Chaotic Attractors</button>
     <button class="mode-btn" data-tab="lsystem">🌿 L-System Fractals</button>
     <button class="mode-btn" data-tab="fluid">💧 Fluid Dynamics</button>
     <button class="mode-btn" data-tab="mandelbrot">🎨 Mandelbrot Set</button>
     <button class="mode-btn" data-tab="particles">✨ Particle System</button>
-    <button class="mode-btn" data-tab="fold">🧬 Protein Folding</button>
   </aside>
 
   <main class="canvas-area">
@@ -395,6 +398,15 @@ canvas {
     </section>
     <section id="tab-fold" class="tab-content">
       <canvas id="fold-canvas" width="680" height="680"></canvas>
+    </section>
+    <section id="tab-life" class="tab-content">
+      <canvas id="life-canvas" width="680" height="680"></canvas>
+    </section>
+    <section id="tab-boids" class="tab-content">
+      <canvas id="boids-canvas" width="680" height="680"></canvas>
+    </section>
+    <section id="tab-pendulum" class="tab-content">
+      <canvas id="pend-canvas" width="680" height="680"></canvas>
     </section>
   </main>
 
@@ -581,6 +593,32 @@ const controlPanels = {
     <button class="btn" id="fold-reset">New Random Chain</button>
     <div class="hint">🧬 Blue beads are hydrophobic — watch them bury themselves inside to lower the energy</div>
     <div class="fun-fact">Folding is energy minimization. This 2D HP lattice toy is the idea behind AlphaFold!</div>
+  `,
+  life: `
+    <div class="control-group">
+      <label>Speed <span class="control-value" id="life-speed-v">10 gen/s</span></label>
+      <input type="range" id="life-speed" min="2" max="30" value="10">
+    </div>
+    <div class="preset-grid">
+      <button class="btn" id="life-random">Random</button>
+      <button class="btn" id="life-clear">Clear</button>
+    </div>
+    <div class="hint">🧫 Draw living cells with your mouse!</div>
+    <div class="fun-fact">🧫 Four rules, zero design — gliders, oscillators and pulsars emerge.</div>
+  `,
+  boids: `
+    <div class="control-group">
+      <label>Separation <span class="control-value" id="boids-sep-v">1.4</span></label>
+      <input type="range" id="boids-sep" min="0" max="100" value="45">
+    </div>
+    <button class="btn" id="boids-reset">Reset Flock</button>
+    <div class="hint">🐦 Move your mouse through the flock — they scatter!</div>
+    <div class="fun-fact">🐦 No leader. Three rules — separate, align, cohere — create the flock.</div>
+  `,
+  pendulum: `
+    <button class="btn" id="pend-reset">Randomize (Twin Pendulums)</button>
+    <div class="hint">➰ Two pendulums start almost identically — chaos pulls them apart.</div>
+    <div class="fun-fact">➰ The gray ghost starts 0.001 rad apart. Chaos makes prediction impossible!</div>
   `
 };
 
@@ -609,7 +647,10 @@ function switchTab(tab) {
     'fluid': 'fluid-canvas',
     'mandelbrot': 'mb-canvas',
     'particles': 'particle-canvas',
-    'fold': 'fold-canvas'
+    'fold': 'fold-canvas',
+    'life': 'life-canvas',
+    'boids': 'boids-canvas',
+    'pendulum': 'pend-canvas'
   };
   currentCanvas = document.getElementById(canvasMap[tab]);
 
@@ -636,6 +677,12 @@ function setupControlListeners(tab) {
     modules.particles.setupControls();
   } else if (tab === 'fold' && modules.fold && modules.fold.setupControls) {
     modules.fold.setupControls();
+  } else if (tab === 'life' && modules.life && modules.life.setupControls) {
+    modules.life.setupControls();
+  } else if (tab === 'boids' && modules.boids && modules.boids.setupControls) {
+    modules.boids.setupControls();
+  } else if (tab === 'pendulum' && modules.pendulum && modules.pendulum.setupControls) {
+    modules.pendulum.setupControls();
   }
 }
 
@@ -2121,6 +2168,9 @@ modules.fold = (function() {
       ctx.fillStyle = m.h ? '#0047ab' : '#f4a83d';
       ctx.fill();
     }
+    ctx.fillStyle = '#0047ab';
+    ctx.font = 'bold 30px Inter, Arial, sans-serif';
+    ctx.fillText('E = ' + energy + ' H-H', 18, 46);
     ctx.lineWidth = 1;
   }
 
@@ -2131,9 +2181,9 @@ modules.fold = (function() {
 
   function animate(t) {
     if (!running) return;
-    if (t - (animate.last||0) < 66) { animId = requestAnimationFrame(animate); return; }
+    if (t - (animate.last||0) < 33) { animId = requestAnimationFrame(animate); return; }
     animate.last = t;
-    for (let k = 0; k < 6; k++) stepFold();
+    for (let k = 0; k < 12; k++) stepFold();
     renderFold();
     updateLabel();
     animId = requestAnimationFrame(animate);
@@ -2170,7 +2220,241 @@ modules.fold = (function() {
   return { setupControls, start, stop };
 })();
 
-switchTab("rd");
+// Game of Life
+modules.life = (function() {
+  const canvas = document.getElementById('life-canvas');
+  const ctx = canvas.getContext('2d');
+  const N = canvas.width, CELL = 10, G = Math.floor(N / CELL);
+  let grid = [], running = false, animId = null, last = 0, genMs = 100, painting = false;
+
+  function blank() { const g = []; for (let y = 0; y < G; y++) { g.push(new Array(G).fill(0)); } return g; }
+  function randomize() { grid = blank(); for (let y = 0; y < G; y++) for (let x = 0; x < G; x++) grid[y][x] = Math.random() < 0.28 ? 1 : 0; }
+
+  function neighbors(x, y) {
+    let n = 0;
+    for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) {
+      if (!dx && !dy) continue;
+      const xx = (x + dx + G) % G, yy = (y + dy + G) % G;
+      n += grid[yy][xx];
+    }
+    return n;
+  }
+
+  function stepLife() {
+    const next = blank();
+    for (let y = 0; y < G; y++) for (let x = 0; x < G; x++) {
+      const n = neighbors(x, y);
+      next[y][x] = grid[y][x] ? (n === 2 || n === 3 ? 1 : 0) : (n === 3 ? 1 : 0);
+    }
+    grid = next;
+  }
+
+  function renderLife() {
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, N, N);
+    ctx.fillStyle = '#0047ab';
+    for (let y = 0; y < G; y++) for (let x = 0; x < G; x++) {
+      if (grid[y][x]) ctx.fillRect(x * CELL, y * CELL, CELL - 1, CELL - 1);
+    }
+  }
+
+  function animate(t) {
+    if (!running) return;
+    if (t - last < genMs) { animId = requestAnimationFrame(animate); return; }
+    last = t;
+    stepLife(); renderLife();
+    animId = requestAnimationFrame(animate);
+  }
+
+  function paint(e) {
+    const r = canvas.getBoundingClientRect();
+    const x = Math.floor((e.clientX - r.left) * N / r.width / CELL);
+    const y = Math.floor((e.clientY - r.top) * N / r.height / CELL);
+    if (x >= 0 && y >= 0 && x < G && y < G) grid[y][x] = 1;
+    renderLife();
+  }
+
+  function setupControls() {
+    const speed = document.getElementById('life-speed');
+    speed.addEventListener('input', () => {
+      genMs = 1050 - speed.value * 35;
+      const v = document.getElementById('life-speed-v');
+      if (v) v.textContent = speed.value + ' gen/s';
+    });
+    document.getElementById('life-random').addEventListener('click', randomize);
+    document.getElementById('life-clear').addEventListener('click', () => { grid = blank(); renderLife(); });
+    canvas.addEventListener('mousedown', e => { painting = true; paint(e); });
+    canvas.addEventListener('mousemove', e => { if (painting) paint(e); });
+    window.addEventListener('mouseup', () => painting = false);
+  }
+
+  function start() { if (running) return; running = true; renderLife(); animId = requestAnimationFrame(animate); }
+  function stop() { running = false; if (animId) cancelAnimationFrame(animId); }
+
+  randomize();
+  return { setupControls, start, stop };
+})();
+
+// Boids flocking
+modules.boids = (function() {
+  const canvas = document.getElementById('boids-canvas');
+  const ctx = canvas.getContext('2d');
+  const N = canvas.width, NUM = 90;
+  let boids = [], running = false, animId = null, last = 0, sep = 1.4, mouse = null;
+
+  function init() {
+    boids = [];
+    for (let i = 0; i < NUM; i++) boids.push({
+      x: Math.random() * N, y: Math.random() * N,
+      vx: (Math.random() - 0.5) * 4, vy: (Math.random() - 0.5) * 4
+    });
+  }
+
+  function step() {
+    for (const b of boids) {
+      let cx = 0, cy = 0, ax = 0, ay = 0, sx = 0, sy = 0, cnt = 0;
+      for (const o of boids) {
+        if (o === b) continue;
+        const dx = o.x - b.x, dy = o.y - b.y, d2 = dx * dx + dy * dy;
+        if (d2 > 8100) continue;
+        cnt++; cx += o.x; cy += o.y; ax += o.vx; ay += o.vy;
+        if (d2 > 0 && d2 < 676) { const d = Math.sqrt(d2); sx -= dx / d * sep; sy -= dy / d * sep; }
+      }
+      if (cnt) {
+        b.vx += (cx / cnt - b.x) * 0.008 + (ax / cnt - b.vx) * 0.05 + sx;
+        b.vy += (cy / cnt - b.y) * 0.008 + (ay / cnt - b.vy) * 0.05 + sy;
+      }
+      if (mouse) {
+        const dx = b.x - mouse.x, dy = b.y - mouse.y, d = Math.hypot(dx, dy);
+        if (d < 100 && d > 0) { b.vx += dx / d * 1.2; b.vy += dy / d * 1.2; }
+      }
+      const sp = Math.hypot(b.vx, b.vy) || 0.01;
+      const lim = Math.min(Math.max(sp, 1.2), 3.6);
+      b.vx = b.vx / sp * lim; b.vy = b.vy / sp * lim;
+      b.x += b.vx; b.y += b.vy;
+      if (b.x < 0) b.x += N; if (b.x > N) b.x -= N;
+      if (b.y < 0) b.y += N; if (b.y > N) b.y -= N;
+    }
+  }
+
+  function render() {
+    ctx.fillStyle = '#0f1420';
+    ctx.fillRect(0, 0, N, N);
+    ctx.fillStyle = '#6ab0ff';
+    for (const b of boids) {
+      const ang = Math.atan2(b.vy, b.vx);
+      ctx.save(); ctx.translate(b.x, b.y); ctx.rotate(ang);
+      ctx.beginPath(); ctx.moveTo(7, 0); ctx.lineTo(-5, 4); ctx.lineTo(-5, -4); ctx.closePath(); ctx.fill();
+      ctx.restore();
+    }
+  }
+
+  function animate(t) {
+    if (!running) return;
+    if (t - last < 33) { animId = requestAnimationFrame(animate); return; }
+    last = t;
+    step(); render();
+    animId = requestAnimationFrame(animate);
+  }
+
+  function setupControls() {
+    const s = document.getElementById('boids-sep');
+    s.addEventListener('input', () => {
+      sep = s.value / 100 * 3;
+      const v = document.getElementById('boids-sep-v');
+      if (v) v.textContent = (s.value / 100 * 3).toFixed(1);
+    });
+    document.getElementById('boids-reset').addEventListener('click', init);
+    canvas.addEventListener('mousemove', e => {
+      const r = canvas.getBoundingClientRect();
+      mouse = { x: (e.clientX - r.left) * N / r.width, y: (e.clientY - r.top) * N / r.height };
+    });
+    canvas.addEventListener('mouseleave', () => mouse = null);
+  }
+
+  function start() { if (running) return; running = true; render(); animId = requestAnimationFrame(animate); }
+  function stop() { running = false; if (animId) cancelAnimationFrame(animId); }
+
+  init();
+  return { setupControls, start, stop };
+})();
+
+// Double pendulum twins (chaos demo)
+modules.pendulum = (function() {
+  const canvas = document.getElementById('pend-canvas');
+  const ctx = canvas.getContext('2d');
+  const N = canvas.width, CX = N / 2, CY = N / 2 - 60;
+  const m1 = 10, m2 = 10, l1 = 110, l2 = 110, g = 1;
+  let a = null, b = null, running = false, animId = null, last = 0;
+
+  function make(dt) {
+    return { t1: Math.PI / 2 + dt, t2: Math.PI / 2 + dt, w1: 0, w2: 0 };
+  }
+
+  function accel(s) {
+    const d = s.t1 - s.t2;
+    const den = 2 * m1 + m2 - m2 * Math.cos(2 * d);
+    const a1 = (-g * (2 * m1 + m2) * Math.sin(s.t1) - m2 * g * Math.sin(s.t1 - 2 * s.t2) - 2 * Math.sin(d) * m2 * (s.w2 * s.w2 * l2 + s.w1 * s.w1 * l1 * Math.cos(d))) / (l1 * den);
+    const a2 = (2 * Math.sin(d) * (s.w1 * s.w1 * l1 * (m1 + m2) + g * (m1 + m2) * Math.cos(s.t1) + s.w2 * s.w2 * l2 * m2 * Math.cos(d))) / (l2 * den);
+    return [a1, a2];
+  }
+
+  function step(s) {
+    for (let k = 0; k < 4; k++) {
+      const pair = accel(s);
+      s.w1 += pair[0] * 0.02; s.w2 += pair[1] * 0.02;
+      s.t1 += s.w1 * 0.02; s.t2 += s.w2 * 0.02;
+    }
+  }
+
+  function drawOne(s, rods, bobFill) {
+    const x1 = CX + l1 * Math.sin(s.t1), y1 = CY + l1 * Math.cos(s.t1);
+    const x2 = x1 + l2 * Math.sin(s.t2), y2 = y1 + l2 * Math.cos(s.t2);
+    ctx.strokeStyle = rods; ctx.lineWidth = 3;
+    ctx.beginPath(); ctx.moveTo(CX, CY); ctx.lineTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
+    ctx.fillStyle = bobFill;
+    ctx.beginPath(); ctx.arc(x1, y1, 9, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.arc(x2, y2, 9, 0, Math.PI * 2); ctx.fill();
+    return [x2, y2];
+  }
+
+  function animate(t) {
+    if (!running) return;
+    if (t - last < 33) { animId = requestAnimationFrame(animate); return; }
+    last = t;
+    ctx.fillStyle = 'rgba(255,255,255,0.07)';
+    ctx.fillRect(0, 0, N, N);
+    step(a); step(b);
+    const tipB = drawOne(b, '#c9d2dd', '#9aa4b2');
+    const tipA = drawOne(a, '#0047ab', '#0047ab');
+    ctx.fillStyle = '#0047ab';
+    ctx.beginPath(); ctx.arc(tipA[0], tipA[1], 4, 0, Math.PI * 2); ctx.fill();
+    animId = requestAnimationFrame(animate);
+  }
+
+  function randomize() {
+    const dt = (Math.random() - 0.5) * 0.02;
+    a = make(dt); b = make(dt + 0.001);
+    ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, N, N);
+  }
+
+  function setupControls() {
+    document.getElementById('pend-reset').addEventListener('click', randomize);
+  }
+
+  function start() {
+    if (running) return;
+    running = true;
+    if (!a) randomize();
+    ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, N, N);
+    animId = requestAnimationFrame(animate);
+  }
+  function stop() { running = false; if (animId) cancelAnimationFrame(animId); }
+
+  return { setupControls, start, stop };
+})();
+
+switchTab("fold");
 </script>
 
 <div id="footer">Last updated: <span id="last-updated"></span></div>
