@@ -590,6 +590,7 @@ const controlPanels = {
     <div class="control-group">
       <label>Energy <span class="control-value" id="fold-energy">—</span></label>
     </div>
+    <button class="btn" id="fold-pause">Pause</button>
     <button class="btn" id="fold-reset">New Random Chain</button>
     <div class="hint">🧬 Blue beads are hydrophobic — watch them bury themselves inside to lower the energy</div>
     <div class="fun-fact">Folding is energy minimization. This 2D HP lattice toy is the idea behind AlphaFold!</div>
@@ -689,11 +690,13 @@ function setupControlListeners(tab) {
 modeBtns.forEach(b => b.addEventListener('click', () => switchTab(b.dataset.tab)));
 
 // Pause heavy loops while the tab is hidden, resume on return
+let wasRunningBeforeHide = false;
 document.addEventListener('visibilitychange', () => {
   const m = modules[activeTab];
   if (!m) return;
-  if (document.hidden) { if (m.stop) m.stop(); }
-  else if (m.start && !m.running) m.start();
+  if (document.hidden) { wasRunningBeforeHide = !!m.running; if (m.stop) m.stop(); }
+  else if (wasRunningBeforeHide && !m.pausedByUser && m.start) m.start();
+  wasRunningBeforeHide = false;
 });
 
 // Export functionality
@@ -2097,7 +2100,7 @@ modules.fold = (function() {
   const canvas = document.getElementById('fold-canvas');
   const ctx = canvas.getContext('2d');
   const N = canvas.width, S = 40, GRID = Math.floor(N / S);
-  let chain = [], energy = 0, running = false, animId = null, temp = 0.65;
+  let chain = [], energy = 0, running = false, animId = null, temp = 0.65, pausedByUser = false;
 
   function occupied(x, y) { return chain.some(m => m.x === x && m.y === y); }
 
@@ -2199,6 +2202,7 @@ modules.fold = (function() {
     document.getElementById('fold-reset').addEventListener('click', () => {
       newChain(); renderFold(); updateLabel();
     });
+    document.getElementById('fold-pause').addEventListener('click', togglePause);
   }
 
   function newChain() {
@@ -2216,8 +2220,16 @@ modules.fold = (function() {
   }
   function stop() { running = false; if (animId) cancelAnimationFrame(animId); }
 
+  function togglePause() {
+    if (running) { pausedByUser = true; stop(); }
+    else { pausedByUser = false; start(); }
+    const b = document.getElementById('fold-pause');
+    if (b) b.textContent = running ? 'Pause' : 'Resume';
+  }
+
   newChain(); renderFold(); updateLabel();
-  return { setupControls, start, stop };
+  return { setupControls, start, stop, togglePause,
+    get pausedByUser() { return pausedByUser; } };
 })();
 
 // Game of Life
