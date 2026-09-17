@@ -446,6 +446,7 @@ td#layout-content{background:transparent}
 /* typography: justified text (CJK-friendly); bare URLs opt into char-level breaking so lines fill */
 #layout-content p,#layout-content li p{text-align:justify;text-justify:inter-ideograph}
 #layout-content .imgtable p{text-align:start}
+table.imgtable{margin-bottom:1.6em}
 ol.link-list>li>p{text-align:start}
 a.url-link{word-break:break-all}
 #layout-content a{overflow-wrap:anywhere}
