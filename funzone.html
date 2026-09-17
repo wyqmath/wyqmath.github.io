@@ -371,6 +371,7 @@ canvas {
     <button class="mode-btn" data-tab="fluid">💧 Fluid Dynamics</button>
     <button class="mode-btn" data-tab="mandelbrot">🎨 Mandelbrot Set</button>
     <button class="mode-btn" data-tab="particles">✨ Particle System</button>
+    <button class="mode-btn" data-tab="fold">🧬 Protein Folding</button>
   </aside>
 
   <main class="canvas-area">
@@ -391,6 +392,9 @@ canvas {
     </section>
     <section id="tab-particles" class="tab-content">
       <canvas id="particle-canvas" width="680" height="680"></canvas>
+    </section>
+    <section id="tab-fold" class="tab-content">
+      <canvas id="fold-canvas" width="680" height="680"></canvas>
     </section>
   </main>
 
@@ -565,6 +569,18 @@ const controlPanels = {
     <button class="btn" id="p-reset">Reset</button>
     <div class="hint">✨ Move mouse to interact</div>
     <div class="fun-fact">⚛️ Models galaxies to social networks!</div>
+  `,
+  fold: `
+    <div class="control-group">
+      <label>Temperature <span class="control-value" id="fold-temp-v">0.65</span></label>
+      <input type="range" id="fold-temp" min="0" max="100" value="40">
+    </div>
+    <div class="control-group">
+      <label>Energy <span class="control-value" id="fold-energy">—</span></label>
+    </div>
+    <button class="btn" id="fold-reset">New Random Chain</button>
+    <div class="hint">🧬 Blue beads are hydrophobic — watch them bury themselves inside to lower the energy</div>
+    <div class="fun-fact">Folding is energy minimization. This 2D HP lattice toy is the idea behind AlphaFold!</div>
   `
 };
 
@@ -592,7 +608,8 @@ function switchTab(tab) {
     'lsystem': 'ls-canvas',
     'fluid': 'fluid-canvas',
     'mandelbrot': 'mb-canvas',
-    'particles': 'particle-canvas'
+    'particles': 'particle-canvas',
+    'fold': 'fold-canvas'
   };
   currentCanvas = document.getElementById(canvasMap[tab]);
 
@@ -617,6 +634,8 @@ function setupControlListeners(tab) {
     modules.mandelbrot.setupControls();
   } else if (tab === 'particles' && modules.particles && modules.particles.setupControls) {
     modules.particles.setupControls();
+  } else if (tab === 'fold' && modules.fold && modules.fold.setupControls) {
+    modules.fold.setupControls();
   }
 }
 
@@ -2026,6 +2045,131 @@ function clamp(v, lo, hi) {
 })();
 
 // Initialize
+// Protein folding — 2D HP lattice model
+modules.fold = (function() {
+  const canvas = document.getElementById('fold-canvas');
+  const ctx = canvas.getContext('2d');
+  const N = canvas.width, S = 40, GRID = Math.floor(N / S);
+  let chain = [], energy = 0, running = false, animId = null, temp = 0.65;
+
+  function occupied(x, y) { return chain.some(m => m.x === x && m.y === y); }
+
+  function computeEnergy() {
+    let e = 0;
+    for (let i = 0; i < chain.length; i++) {
+      if (!chain[i].h) continue;
+      for (let j = i + 2; j < chain.length; j++) {
+        if (!chain[j].h) continue;
+        if (Math.abs(chain[i].x - chain[j].x) + Math.abs(chain[i].y - chain[j].y) === 1) e--;
+      }
+    }
+    return e;
+  }
+
+  function tryMove() {
+    const i = Math.floor(Math.random() * chain.length);
+    if (i === 0 || i === chain.length - 1) {
+      const nb = i === 0 ? chain[1] : chain[chain.length - 2];
+      const dirs = [[1,0],[-1,0],[0,1],[0,-1]].sort(() => Math.random() - 0.5);
+      for (const [dx, dy] of dirs) {
+        const nx = nb.x + dx, ny = nb.y + dy;
+        if (nx < 0 || ny < 0 || nx >= GRID || ny >= GRID) continue;
+        if ((nx === chain[i].x && ny === chain[i].y) || occupied(nx, ny)) continue;
+        chain[i].x = nx; chain[i].y = ny;
+        return true;
+      }
+    } else {
+      const a = chain[i - 1], b = chain[i + 1];
+      if (Math.abs(a.x - b.x) + Math.abs(a.y - b.y) !== 2) return false;
+      const nx = a.x + b.x - chain[i].x, ny = a.y + b.y - chain[i].y;
+      if (nx < 0 || ny < 0 || nx >= GRID || ny >= GRID || occupied(nx, ny)) return false;
+      if (Math.abs(nx - a.x) + Math.abs(ny - a.y) !== 1) return false;
+      chain[i].x = nx; chain[i].y = ny;
+      return true;
+    }
+    return false;
+  }
+
+  function stepFold() {
+    const before = computeEnergy();
+    const snapshot = chain.map(m => ({ ...m }));
+    if (!tryMove()) return;
+    const after = computeEnergy();
+    const dE = after - before;
+    if (dE > 0 && Math.random() > Math.exp(-dE / temp)) { chain = snapshot; return; }
+    energy = after;
+  }
+
+  function renderFold() {
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, N, N);
+    ctx.strokeStyle = '#eef1f6';
+    for (let k = 0; k <= GRID; k++) {
+      ctx.beginPath(); ctx.moveTo(k * S, 0); ctx.lineTo(k * S, N); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(0, k * S); ctx.lineTo(N, k * S); ctx.stroke();
+    }
+    ctx.strokeStyle = '#8a93a1'; ctx.lineWidth = 5;
+    ctx.beginPath();
+    for (let i = 0; i < chain.length - 1; i++) {
+      ctx.moveTo(chain[i].x * S + S/2, chain[i].y * S + S/2);
+      ctx.lineTo(chain[i+1].x * S + S/2, chain[i+1].y * S + S/2);
+    }
+    ctx.stroke();
+    for (const m of chain) {
+      ctx.beginPath();
+      ctx.arc(m.x * S + S/2, m.y * S + S/2, S * 0.33, 0, Math.PI * 2);
+      ctx.fillStyle = m.h ? '#0047ab' : '#f4a83d';
+      ctx.fill();
+    }
+    ctx.lineWidth = 1;
+  }
+
+  function updateLabel() {
+    const el = document.getElementById('fold-energy');
+    if (el) el.textContent = energy + ' H-H contacts';
+  }
+
+  function animate(t) {
+    if (!running) return;
+    if (t - (animate.last||0) < 66) { animId = requestAnimationFrame(animate); return; }
+    animate.last = t;
+    for (let k = 0; k < 6; k++) stepFold();
+    renderFold();
+    updateLabel();
+    animId = requestAnimationFrame(animate);
+  }
+
+  function setupControls() {
+    const slider = document.getElementById('fold-temp');
+    slider.addEventListener('input', () => {
+      temp = slider.value / 100 * 1.5 + 0.05;
+      const v = document.getElementById('fold-temp-v');
+      if (v) v.textContent = temp.toFixed(2);
+    });
+    document.getElementById('fold-reset').addEventListener('click', () => {
+      newChain(); renderFold(); updateLabel();
+    });
+  }
+
+  function newChain() {
+    const len = 16, y0 = Math.floor(GRID / 2);
+    chain = [];
+    for (let i = 0; i < len; i++) chain.push({ x: i, y: y0, h: Math.random() < 0.45 });
+    energy = 0;
+  }
+
+  function start() {
+    if (running) return;
+    running = true;
+    renderFold(); updateLabel();
+    animId = requestAnimationFrame(animate);
+  }
+  function stop() { running = false; if (animId) cancelAnimationFrame(animId); }
+
+  newChain(); renderFold(); updateLabel();
+  return { setupControls, start, stop };
+})();
+
 switchTab("rd");
 </script>
 
