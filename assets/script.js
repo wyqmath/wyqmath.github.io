@@ -179,6 +179,14 @@ document.addEventListener('DOMContentLoaded', function() {
         lastUpdated.textContent = d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate());
     }
 
+    // bare-URL links (link text is itself a URL) may break at any character,
+    // so justified paragraphs fill lines instead of stretching the words before them
+    document.querySelectorAll('#layout-content a').forEach(function(a) {
+        if (/^https?:\/\//i.test((a.textContent || '').trim())) {
+            a.classList.add('url-link');
+        }
+    });
+
     // one-click citation copy on paper entries — publications page only (homepage opt-out)
     if (/publications\.html$/.test(location.pathname)) {
     const copyText = (text) => {
