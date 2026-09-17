@@ -383,7 +383,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #007bff;outline-offset:2p
 .theme-toggle:hover{transform:scale(1.1)}
 
 /* rounded profile photo */
-img[src*="wyq-small"]{border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.15);width:140px;height:auto}
+img[src*="wyq-small"]{border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.15);width:180px;height:auto}
 
 /* hanging indent so wrapped paper entries align after the first line */
 #layout-content li>p{padding-left:1.6em;text-indent:-1.6em}
@@ -450,7 +450,7 @@ ol.link-list>li>p{text-align:start}
 a.url-link{word-break:break-all}
 #layout-content a{overflow-wrap:anywhere}
 p{line-height:1.7;margin-bottom:.9em}
-h2{font-size:1.3rem;line-height:1.25;padding-top:0;border-left:4px solid #0047ab;padding-left:14px;border-bottom:none;padding-bottom:0;margin-top:2.6em;margin-bottom:1.1em;color:#1a1f27}
+h2{font-size:1.3rem;line-height:1.25;padding-top:0;border-left:4px solid #0047ab;padding-left:14px;border-bottom:none;padding-bottom:0;margin-top:3.2em;margin-bottom:1.1em;color:#1a1f27}
 :root[data-theme="dark"] h2{border-left-color:#5b9bff;color:#c9d4e3}
 /* research-interests line under the name (plain text, Barron-style) */
 .research-tags{margin:.1rem 0 1.6rem;font-size:1.02rem;color:#6c757d}
