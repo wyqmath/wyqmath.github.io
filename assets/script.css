@@ -459,11 +459,8 @@ td#layout-content{background:transparent}
     #menu-close-btn{display:none}
 }
 
-/* typography: justified text, breathing room, accent-bar headings */
-#layout-content p,#layout-content li p{text-align:justify;text-justify:inter-ideograph}
-#layout-content .imgtable p{text-align:start}
-/* bare-URL lists: justify stretches the text before an unbreakable link into gaps */
-ol.link-list>li>p{text-align:start}
+/* typography: left-aligned text avoids stretched gaps around long URLs */
+#layout-content p,#layout-content li p{text-align:start}
 #layout-content a{overflow-wrap:anywhere}
 p{line-height:1.7;margin-bottom:.9em}
 h2{font-size:1.3rem;line-height:1.25;padding-top:0;border-left:4px solid #0047ab;padding-left:14px;border-bottom:none;padding-bottom:0;margin-top:2.6em;margin-bottom:1.1em;color:#1a1f27}
