@@ -218,9 +218,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 count + (root.classList.contains('lang-zh') ? ' 篇论文' : ' publications');
         });
     };
-    document.querySelectorAll('.publication-filter').forEach(function(button) {
+    document.querySelectorAll('.publication-filter, .publication-tag').forEach(function(button) {
         button.addEventListener('click', function() {
             filterPublications(button.dataset.filter);
+            if (button.classList.contains('publication-tag')) {
+                button.closest('.publications-content').querySelector('.publication-toolbar')
+                    .scrollIntoView({behavior: 'smooth', block: 'start'});
+            }
         });
     });
 

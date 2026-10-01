@@ -594,6 +594,9 @@ td#layout-content{width:1200px;box-sizing:border-box;padding:2.5rem 200px 2.5rem
 .publication-title a:hover{color:inherit;text-decoration-color:var(--muted);border-bottom:0}
 .publications-page #layout-content .publication-authors{font-size:.94rem;line-height:1.65;text-align:left;margin:0 0 4px;color:var(--ink)}
 .publications-page #layout-content .publication-venue{font-size:.92rem;line-height:1.65;text-align:left;margin:0;color:var(--muted)}
+.publication-meta{display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--space-2) var(--space-3)}
+.publication-tag{flex:0 0 auto;max-width:100%;padding:1px 7px;border:1px solid var(--rule);border-radius:4px;background:var(--surface);color:var(--muted);font:inherit;font-size:.82rem;line-height:1.5;text-align:left;cursor:pointer}
+.publication-tag:hover{color:var(--ink);border-color:var(--muted)}
 .publication-actions{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-4);margin-top:var(--space-2);font-size:.86rem;line-height:1.5}
 .publications-page #layout-content .publication-actions a{color:var(--muted);text-decoration:none}
 .publication-actions a:hover{color:var(--ink);text-decoration:underline;border:0}
@@ -614,7 +617,7 @@ td#layout-content{width:1200px;box-sizing:border-box;padding:2.5rem 200px 2.5rem
 .project-entry .abstract-box{margin:var(--space-3) 0}
 .project-entry .abstract-box summary{display:list-item;color:var(--experience-muted);font-size:.88rem}
 .project-entry .abstract-box p{margin-top:var(--space-3)!important}
-.reviewer-groups{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);gap:var(--space-8)}
+.reviewer-groups{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:var(--space-8)}
 .reviewer-groups h4{font-size:.95rem;font-weight:600;color:var(--experience-muted);margin:0 0 var(--space-4)}
 .experience-page #layout-content .workshop-list,.experience-page #layout-content .journal-list{padding:0;list-style:none;font-size:.92rem;line-height:1.65}
 .workshop-list li{display:flex;justify-content:space-between;gap:var(--space-3)}
