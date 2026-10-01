@@ -409,13 +409,14 @@ li:nth-child(even) .paper-tldr{grid-column:1;grid-row:2}
 :root[data-theme="dark"] .paper-fig img{border:1px solid #2a2f3a;filter:invert(1) hue-rotate(180deg)}
 /* featured lists read cleaner without square markers */
 ul:has(> li .paper-fig){list-style-type:none}
-/* ===== print-sheet canvas: the content column is a fixed 940px PDF page, centered; phone fits to width, browser zoom scales ===== */
+/* ===== print-sheet canvas: a fixed 1200px page with the link column on its left, like a PDF; phone fits to width, browser zoom scales ===== */
 html{font-size:16px}
 #menu-toggle-btn{display:none}
-td#layout-menu{display:none}
-table#tlayout{width:940px;max-width:940px;margin:0 auto;border:none;border-collapse:collapse;background:transparent}
-/* wide screens: the link column docks to the viewport's left edge */
-@media (min-width:1500px){
-    td#layout-menu{display:block;position:fixed;left:0;top:0;bottom:0;width:260px;box-sizing:border-box;overflow-y:auto;scrollbar-width:none;padding:1.5rem 1rem;background:transparent;font-size:.95rem;box-shadow:none;transform:none}
-    td#layout-menu::-webkit-scrollbar{display:none}
+td#layout-menu,body.menu-open td#layout-menu{position:static;transform:none;width:260px;box-shadow:none;overflow:visible;padding:1.5rem 1rem;background:transparent;font-size:.95rem;box-sizing:border-box}
+td#layout-menu::-webkit-scrollbar{display:none}
+table#tlayout{width:1200px;max-width:1200px;margin:0 auto;border:none;border-collapse:collapse;background:transparent}
+/* very wide screens: dock the link column to the viewport's left edge and center the article column */
+@media (min-width:1480px){
+    td#layout-menu{position:fixed;left:0;top:0;bottom:0;overflow-y:auto;scrollbar-width:none}
+    table#tlayout{width:940px}
 }
