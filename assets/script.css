@@ -395,17 +395,18 @@ h2{font-size:1.45rem;line-height:1.25;padding-top:0;border-left:4px solid #0047a
     #layout-content{background:#fff !important;border:none !important}
 }
 
-/* featured paper entry: figure on top, citation and description full width below */
-.paper-fig-body{display:flow-root;padding-bottom:2.2em}
-.paper-fig{width:74%;margin:0 0 .8em auto}
-li:nth-child(even) .paper-fig{margin:0 auto .8em 0}
+/* featured paper entry: half figure, half text, side by side; alternating sides */
+.paper-fig-body{display:grid;grid-template-columns:1fr 1fr;gap:1.5em;padding-bottom:2.2em;align-items:start}
+.paper-fig{grid-column:1;grid-row:1/span 2;width:100%;margin:0}
+li:nth-child(even) .paper-fig{grid-column:2}
 .paper-fig a{display:block;border-bottom:none}
 .paper-fig img{display:block;width:100%;height:auto}
-.paper-cite{font-size:.86em;color:#6c757d;margin-bottom:.6em}
+.paper-cite{grid-column:2;grid-row:1;font-size:.86em;color:#6c757d;margin:0 0 .6em}
 :root[data-theme="dark"] .paper-cite{color:#a9b4c2}
-.paper-tldr{margin:0}
+.paper-tldr{grid-column:2;grid-row:2;margin:0}
+li:nth-child(even) .paper-cite{grid-column:1;grid-row:1}
+li:nth-child(even) .paper-tldr{grid-column:1;grid-row:2}
 :root[data-theme="dark"] .paper-fig img{border:1px solid #2a2f3a;filter:invert(1) hue-rotate(180deg)}
-@media (max-width:768px){.paper-fig{width:100%}}
 /* featured lists read cleaner without square markers */
 ul:has(> li .paper-fig){list-style-type:none}
 /* ===== single proportional canvas: everything scales with the viewport ===== */
