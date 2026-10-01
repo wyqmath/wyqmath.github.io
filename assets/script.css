@@ -753,3 +753,8 @@ td#layout-content{width:var(--page-width);box-sizing:border-box;padding:2.5rem v
 :root[data-theme="dark"] .home-page #layout-content .network-group h3,:root[data-theme="dark"] .home-page #layout-content .network-list small{color:#9ca8b8}
 :root[data-theme="dark"] .home-page #layout-content .network-list a{color:#d8dde5;text-decoration-color:#354052}
 :root[data-theme="dark"] .home-page #layout-content .network-list a:hover{color:#78d6bd;text-decoration-color:#78d6bd}
+
+/* Keep the QR preview in the homepage theme; its link opens the original image. */
+.home-page #layout-content .wechat-qr-link,.home-page #layout-content .wechat-qr-link:hover{display:inline-block;border:0;text-decoration:none;line-height:0}
+.home-page #layout-content .wechat-qr{display:block;filter:none}
+:root[data-theme="dark"] .home-page #layout-content .wechat-qr{filter:invert(1) hue-rotate(180deg)}
