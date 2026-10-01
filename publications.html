@@ -9,7 +9,7 @@
 <meta name="keywords" content="Yiquan Wang, publications, papers, AI for Science, computational biology, bioinformatics">
 <script>document.documentElement.dataset.theme=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');</script>
 <link rel="stylesheet" href="assets/spacing.css" type="text/css" />
-<link rel="stylesheet" href="assets/script.css?v=3" type="text/css" />
+<link rel="stylesheet" href="assets/script.css?v=4" type="text/css" />
 <link rel="shortcut icon" href="favicon.ico" />
 <link rel="bookmark" href="favicon.ico" type="image/x-icon" />
 <meta name="theme-color" content="#f8f9fa" media="(prefers-color-scheme: light)">
@@ -25,8 +25,10 @@
   <span></span>
 </div>
 <div id="page-overlay"></div>
-<div class="top-nav-bar">
-  <a href="/" class="top-nav-link">Home</a>
+<header class="site-header">
+<div class="site-header-inner">
+<nav class="top-nav-bar" aria-label="Main navigation">
+  <a href="index.html" class="top-nav-link">Home</a>
   <span class="top-nav-divider">|</span>
   <a href="publications.html" class="top-nav-link">Publications</a>
   <span class="top-nav-divider">|</span>
@@ -41,8 +43,10 @@
       <a href="#" data-lang="zh" class="lang-option">中文</a>
     </div>
   </div>
-  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="切换深色 / 浅色">🌙</button>
+  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="切换深色 / 浅色"><span class="tt-icon">🌙</span></button>
+</nav>
 </div>
+</header>
 
 <table summary="Table for page layout." id="tlayout">
 <tr valign="top">
@@ -69,7 +73,7 @@
     <div class="menu-item"><a href="https://zhaorui-bi.github.io/">Zhaorui Jiang</a></div>
     <div class="menu-category-title"><span class="lang-zh">机构</span><span class="lang-en" style="display:none;">Organizations</span></div>
     <div class="menu-item"><a href="https://www.xju.edu.cn/"><span class="lang-zh">新疆大学</span><span class="lang-en" style="display:none;">Xinjiang University</span></a></div>
-    <div class="menu-item"><a href="https://www.x-institute.edu.cn/"><span class="lang-zh">清华钱班零一学院</span><span class="lang-en" style="display:none;">Tsinghua University<br>Tsien Excellence in<br>Engineering Program<br> - X-Institute</span></a></div>
+    <div class="menu-item"><a href="https://www.x-institute.edu.cn/"><span class="lang-zh">清华钱班零一学院</span><span class="lang-en" style="display:none;">Tsinghua University<br>Tsien Excellence in<br>Engineering Program<br> · Shenzhen X-Institute</span></a></div>
     <div class="menu-item"><a href="https://www.szbl.ac.cn/"><span class="lang-zh">深圳湾实验室</span><span class="lang-en" style="display:none;">Shenzhen Bay Laboratory</span></a></div>
     <div class="menu-category-title nav-dup"><span class="lang-zh">主题 / 语言</span><span class="lang-en" style="display:none;">Theme / Language</span></div>
     <div class="menu-item nav-dup"><button type="button" class="theme-toggle theme-toggle-menu" aria-label="Toggle dark mode"><span class="tt-icon">🌙</span><span><span class="lang-zh">深色模式</span><span class="lang-en" style="display:none;">Dark mode</span></span></button></div>
@@ -88,117 +92,693 @@
 </p>
 
 <!-- 中文版本 -->
-<div class="lang-zh">
-<div class="content-section publication-direction">
-<h2>方向一：表征学习与生物分子机制</h2>
-<p class="research-intro">我目前的研究利用最前沿的深度学习技术来解析复杂的生物系统。我专注于通过引入新颖的归纳偏置和表征策略来突破传统生物信息学的局限。我的工作涵盖蛋白质结构预测、蛋白质设计和分子动力学，旨在为生命科学提供稳健、高通量的工具。</p>
-<ol class="citation-list">
-<li><p><b>Wang, Y.</b>, Cai, M., Ma, Y., Shi, T.*, &amp; Wei, K.* (2026). Sequence context decodes multi-state conformational heterogeneity from crystallographic B-factors. <i>Science China Life Sciences</i>, in press (earlier version: <a href="https://openreview.net/forum?id=rTO3JOgC3a">LMRL Workshop at ICLR 2026</a>). </p></li>
-<li><p><b>Wang, Y.</b>, Cai, M., Dong, Y., Ma, Y., &amp; Wei, K. (2025). <a href="https://pubs.acs.org/doi/10.1021/acs.jcim.5c01768">From Signal to Symphony: Exploring 2D Sequence Representations for Protein Function Prediction</a>. <i>Journal of Chemical Information and Modeling</i>, 65(23), 12723-12736. [<a href="pub/journal_of_chemical_information_and_modeling.pdf">PDF</a>]</p></li>
-<li><p><b>Wang, Y.†</b>, Ma, Y.†, Chang, Y., Yan, J., Zhang, J., Cai, M., &amp; Wei, K. (2025). <a href="https://www.mdpi.com/2079-7737/14/12/1665">Diffusion Models at the Drug Discovery Frontier: A Review on Generating Small Molecules versus Therapeutic Peptides</a>. <i>Biology</i>, 14(12), 1665. [<a href="pub/biology.pdf">PDF</a>]</p></li>
-<li><p><b>Wang, Y.†</b>, Cai, M.†, Ma, Y., Tellier, A.*, &amp; Wei, K.* (2026). <a href="https://link.springer.com/article/10.1186/s12864-026-13274-w">Integrating deep learning and pangenomics to recover missing heritability from wild structural variations</a>. <i>BMC Genomics</i>. </p></li>
-<li><p><b>Wang, Y.*</b>, &amp; Cai, M. (2026). <a href="https://www.sciencedirect.com/science/article/pii/S1476927126003294">Integrative transcriptomics, machine learning, and molecular docking derive a DAM-like macrophage signature for risk stratification and therapeutic nomination in glioblastoma</a>. <i>Computational Biology and Chemistry</i>. </p></li>
-<li><p><b>Wang, Y.*</b>, Cai, M., Ma, Y., Wang, X., &amp; Wei, K. (2026). <a href="https://www.biorxiv.org/content/10.64898/2026.04.07.717117v1">Protein Language Models Encode Evolutionary Grammar but Conflate Topological and Thermodynamic Phases</a>. <i>bioRxiv</i>, 2026-04. </p></li>
-<li><p>Jiang, S., Wu, S., Wang, C., Jiang, Z., Jiang, D., <b>Wang, Y.</b>, Huang, T. Y., Wang, X.*, &amp; Yuan, Y.* (2026). GPCR-Turbo: Fast and Accurate Peptide Virtual Screening for GPCRs. <i>In 2026 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)</i>. IEEE. </p></li>
-<li><p>Wang, X.†*, <b>Wang, Y.†*</b>, Huang, T. Y., Dong, Y., Deng, J., Xu, L., ..., &amp; He, R. (2025). <a href="https://ieeexplore.ieee.org/abstract/document/11356718/">Octopus Inspired Optimization (OIO): A Hierarchical Framework for Navigating Protein Fitness Landscapes</a>. <i>In 2025 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)</i> (pp. 6897-6904). IEEE. [<a href="pub/Octopus_Inspired_Optimization_OIO_A_Hierarchical_Framework_for_Navigating_Protein_Fitness_Landscapes.pdf">PDF</a>]</p></li>
-<li><p>Cai, M., Lei, H., Zhang, Y., Zou, J., Cao, W., <b>Wang, Y.*</b>, &amp; Wei, K.* (2025). <a href="https://www.frontiersin.org/journals/aging-neuroscience/articles/10.3389/fnagi.2026.1847611">APOE ε4-Associated Hippocampal Atrophy Trajectories Across the Alzheimer's Disease Continuum: A Systematic Review, Meta-Analysis, and Longitudinal Validation</a>. <i>Frontiers in Aging Neuroscience</i>. </p></li>
-<li><p><b>Wang, Y.*</b>, &amp; Huang, T. Y.* (2026). <a href="https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/advs.74610">Comment on: "GLM7 – A Novel Composite Glycolipid Index Derived from Routine Health Indicators for Enhanced Diagnosis and Prediction of Multimorbidity"</a>. <i>Advanced Science</i>. (correspondence). </p></li>
-<li><p><b>Wang, Y.*</b>, Cai, M., &amp; Huang, T. Y. (2025). <a href="https://www.jocn-journal.com/article/S0967-5868(25)00332-7/fulltext">AI for disease prediction: Performance insights and key limitations</a>. <i>Journal of Clinical Neuroscience: Official Journal of the Neurosurgical Society of Australasia</i>, 138, 111360. (correspondence). [<a href="pub/journal_of_clinical_neuroscience.pdf">PDF</a>]</p></li>
-</ol>
-</div>
-
-<div class="content-section publication-direction">
-<h2>方向二：基于数学物理的生物复杂性第一性原理</h2>
-<p class="research-intro">虽然深度学习提供了强大的近似能力，但我的终极目标是找到生物系统的解析基本真理。我正在从纯数据驱动方法转向物理启发理论，旨在利用凝聚态物理、拓扑学、流形学习和微分几何来描述蛋白质的能量景观和生命的热力学本质。</p>
-<ol class="citation-list">
-<li><p><b>Wang, Y.*</b> (2026). <a href="https://link.springer.com/article/10.1140/epje/s10189-026-00621-8">Spectral analysis of protein backbone geometry reveals abrupt helix&ndash;coil boundaries</a>. <i>The European Physical Journal E</i>. [<a href="https://arxiv.org/abs/2602.21787">arXiv</a>]</p></li>
-<li><p><b>Wang, Y.*</b> (2026). <a href="https://arxiv.org/abs/2602.16255">Piecewise integrability of the discrete Hasimoto map for analytic prediction and design of helical peptides</a>. <i>arXiv preprint arXiv:2602.16255</i>. [<a href="https://arxiv.org/abs/2602.16255">arXiv</a>]</p></li>
-<li><p><b>Wang, Y.*</b> (2026). <a href="https://www.sciencedirect.com/science/article/pii/S0167278926002587">Descriptive power and predictive limits of a discrete Hasimoto–DNLS model of protein backbone structure</a>. <i>Physica D: Nonlinear Phenomena</i>. [<a href="https://arxiv.org/abs/2602.13160">arXiv</a>]</p></li>
-</ol>
-</div>
-
-<div class="content-section publication-direction">
-<h2>方向三：跨学科探索与协同效应</h2>
-<p class="research-intro">我的研究之旅源于广泛的好奇心。我与语言学、计算机视觉、密码学和运筹学等领域的专家合作。这些多元化的经历赋予了我独特的工具箱——使我能够跨领域迁移方法论，并从正交视角解决问题。</p>
-<ol class="citation-list">
-<li><p><b>Wang, Y.</b>, Zai, J., Liu, Z., Chen, J., &amp; Sabir, E.* (2026). <a href="https://www.sciencedirect.com/science/article/abs/pii/S0020025526007425">Hamiltonian Connectivity in <i>k</i>-Ary <i>n</i>-Cubes under a Region-Based Fault Model</a>. <i>Information Sciences</i>. </p></li>
-<li><p><b>Wang, Y.*</b>, Huang, T. Y., Gao, Q., Chang, Y., &amp; Zhang, J. (2026). <a href="https://www.sciencedirect.com/science/article/pii/S1474706526002937">AI Driven Discovery of Bio Ecological Mediation in Cascading Heatwave Risks</a>. <i>Physics and Chemistry of the Earth</i>. [<a href="pub/arxiv.pdf">PDF</a>]</p></li>
-<li><p><b>Wang, Y.†*</b>, Zhang, J.†, Chang, Y.†, Yan, Z., &amp; Zhao, H.* (2026). <a href="https://doi.org/10.1142/S2301385027410172">Non-Submodular Cooperation in UAV Swarms for Active Missile Defense</a>. <i>Unmanned Systems</i>. </p></li>
-<li><p><b>Wang, Y.*</b>, Chang, Y., Zhang, J., Cai, M., Yan, J., Zhao, H.*, &amp; Alzheimer's Disease Neuroimaging Initiative. (2026). <a href="https://www.biorxiv.org/content/10.64898/2026.01.31.702997.full">Geometric Fragility in Alzheimer's Disease: Probing the Loss of Hippocampal Hierarchical Abstraction via Contrastive Point Cloud Modeling</a>. <i>In 2026 IEEE International Conference on Systems, Man, and Cybernetics (SMC)</i>. IEEE. </p></li>
-<li><p><b>Wang, Y.*</b>, Cai, M., Zhang, J., Chang, Y., &amp; Yan, J. (2026). <a href="https://www.tandfonline.com/doi/full/10.1080/29966892.2025.2591501">Adaptive Decision-Making in Multi-Stage Production: A Framework for Cost Optimization under Sampling Uncertainty</a>. <i>Applied Operations and Analytics</i>, 2(1), 1-23. [<a href="pub/AOA.pdf">PDF</a>]</p></li>
-<li><p>Zuo, J.*, Pan, Y.*, <b>Wang, Y.</b>, &amp; Yibulayin, X.* (2026). MUDT–10K: A Linguistically Grounded Dependency Treebank and Parser Benchmark for Modern Uyghur. <i>Data Intelligence</i>, in press. </p></li>
-<li><p>Zuo, J., <b>Wang, Y.</b>, &amp; Yibulayin, X. (2026). <a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2026.1732609/full">Relative-to-human Benchmark Cognitive Divergence and Semantic Comprehensibility in Chinese–Uyghur LLM Translation</a>. <i>Frontiers in Psychology</i>. </p></li>
-<li><p>Wang, X.†, <b>Wang, Y.†</b>, &amp; Huang, T. Y.† (2025). <a href="https://openreview.net/forum?id=j6ODUDw4vN">Crypto-ncRNA: Non-coding RNA (ncRNA) Based Encryption Algorithm</a>. <i>ICLR 2025 Workshop on AI for Nucleic Acids</i>. [<a href="pub/ICLR2025_AI4NA.pdf">PDF</a>]</p></li>
-<li><p>Wang, X., Wang, F., &amp; <b>Wang, Y.</b> (2025). <a href="https://openreview.net/forum?id=ca1Q9AGJD0">DIALOGUES BETWEEN ADAM AND EVE: EXPLORATION OF UNKNOWN CIVILIZATION LANGUAGE BY LLM</a>. <i>ICLR 2025 Workshop on World Models: Understanding, Modelling and Scaling</i>. </p></li>
-<li><p>Wang, X.†, <b>Wang, Y.†*</b>, &amp; Pan, J. (2025). <a href="https://openreview.net/forum?id=ZiLEUaf8ZC">Digital Art Creation and Copyright Protection in Pollock Style Using GANs, Fractal Analysis, and NFT Generation</a>. <i>The 1st Workshop on GenAI Watermarking (ICLR 2025)</i>. [<a href="pub/ICLR2025_Worldmodel.pdf">PDF</a>]</p></li>
-<li><p>Wang, X., Huang, T. Y., <b>Wang, Y.</b>, &amp; Yuan, Y. (2025). StrucTrace: Fourier Watermarking for Traceable Bio-molecular Assets. <i>npj Structural Biology</i>. </p></li>
-<li><p>Zhao, H.*, Lin, H., Yao, X., Zhang, J., Chang, Y., <b>Wang, Y.</b>, &amp; Yan, J. (2026). Bridging the Semantic Gap: Hierarchical Mid-level Interaction Graph Reasoning for Video Anomaly Recognition. <i>In 2026 IEEE International Conference on Systems, Man, and Cybernetics (SMC)</i>. IEEE. </p></li>
-<li><p>Zhao, H., Shi, W., Liu, C., &amp; <b>Wang, Y.</b> (2025). <a href="https://ieeexplore.ieee.org/abstract/document/11342475/">Boundary Box-Guided Targeted Adversarial Attacks with Semantic Perturbation</a>. <i>In 2025 IEEE International Conference on Systems, Man, and Cybernetics (SMC)</i> (pp. 1604-1609). IEEE. </p></li>
-<li><p>Zuo, J., <b>Wang, Y.</b>, Pan, Y., &amp; Yibulayin, X. (2025). <a href="https://arxiv.org/abs/2507.21536">Construction and educational application of a linguistically grounded dependency treebank for Uyghur</a>. <i>arXiv preprint arXiv:2507.21536</i>. </p></li>
-<li><p><b>Wang, Y.*</b>, Wang, J., Huang, T. Y., Yang, J., &amp; Xu, Z. (2025). <a href="https://arxiv.org/abs/2501.17711">STGCN-LSTM for Olympic Medal Prediction: Dynamic Power Modeling and Causal Policy Optimization</a>. <i>arXiv preprint arXiv:2501.17711</i>. </p></li>
-<li><p>Luo, Z.†, Wang, X.†, <b>Wang, Y.†</b>, Zhang, H., &amp; Li, Z. (2024). <a href="https://arxiv.org/abs/2410.10658">A personalized MOOC learning group and course recommendation method based on graph neural network and social network analysis</a>. <i>arXiv preprint arXiv:2410.10658</i>. </p></li>
-<li><p><b>Wang, Y.*</b>, Zhang, J., &amp; Chang, Y. (2024). <a href="https://iopscience.iop.org/article/10.1088/1742-6596/2905/1/012003">A probability prediction model for flood disasters based on Multi-layer Perceptron</a>. <i>Journal of Physics: Conference Series</i>, 2905(1), 012003. [<a href="pub/JPCS.pdf">PDF</a>]</p></li>
-<li><p>Wang, J., &amp; <b>Wang, Y.*</b> (2024). <a href="https://ieeexplore.ieee.org/abstract/document/10762174/">Multi-stage Crop Planting Strategy Optimization Model Based on PSO Algorithm</a>. <i>In 2024 3rd International Conference on Electronics and Information Technology (EIT)</i> (pp. 915-919). IEEE. </p></li>
-<li><p>Wang, G., <b>Wang, Y.</b>, &amp; Li, W. (2024). <a href="https://ieeexplore.ieee.org/abstract/document/10800255/">Research on Travel Route Planning Problems Based on Greedy Algorithm</a>. <i>In 2024 4th International Conference on Electronic Information Engineering and Computer Science (EIECS)</i> (pp. 755-758). IEEE. </p></li>
-</ol>
-</div>
+<div class="lang-zh publications-content">
+<div class="publication-toolbar"><div class="publication-filters" role="group" aria-label="按研究方向筛选"><button type="button" class="publication-filter active" data-filter="all" aria-pressed="true">全部</button>
+<button type="button" class="publication-filter" data-filter="1" aria-pressed="false">表征学习与生物分子机制</button>
+<button type="button" class="publication-filter" data-filter="2" aria-pressed="false">数学物理与生物复杂性</button>
+<button type="button" class="publication-filter" data-filter="3" aria-pressed="false">跨学科探索</button></div>
+<p class="publication-count" aria-live="polite">33 篇论文</p></div>
+<section class="content-section publication-year" data-year="2026"><h2>2026</h2><ul class="publication-list">
+<li class="publication-entry" data-paper-id="paper-01" data-direction="1" data-year="2026">
+<article>
+<h3 class="publication-title">Sequence context decodes multi-state conformational heterogeneity from crystallographic B-factors</h3>
+<p class="publication-authors"><b>Wang, Y.</b>, Cai, M., Ma, Y., Shi, T.*, &amp; Wei, K.*</p>
+<p class="publication-venue"><i>Science China Life Sciences</i>, in press · 2026</p>
+<div class="publication-actions"><a href="https://openreview.net/forum?id=rTO3JOgC3a">LMRL Workshop at ICLR 2026 · 早期版本</a>
+<button class="copy-cite" type="button" data-copy-label="复制引用" aria-live="polite">复制引用</button></div>
+<span class="citation-text" hidden>Wang, Y., Cai, M., Ma, Y., Shi, T.*, &amp; Wei, K.* (2026). Sequence context decodes multi-state conformational heterogeneity from crystallographic B-factors. Science China Life Sciences, in press (earlier version: LMRL Workshop at ICLR 2026).</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-04" data-direction="1" data-year="2026">
+<article>
+<h3 class="publication-title"><a href="https://link.springer.com/article/10.1186/s12864-026-13274-w">Integrating deep learning and pangenomics to recover missing heritability from wild structural variations</a></h3>
+<p class="publication-authors"><b>Wang, Y.†</b>, Cai, M.†, Ma, Y., Tellier, A.*, &amp; Wei, K.*</p>
+<p class="publication-venue"><i>BMC Genomics</i> · 2026</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="复制引用" aria-live="polite">复制引用</button></div>
+<span class="citation-text" hidden>Wang, Y.†, Cai, M.†, Ma, Y., Tellier, A.*, &amp; Wei, K.* (2026). Integrating deep learning and pangenomics to recover missing heritability from wild structural variations. BMC Genomics.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-05" data-direction="1" data-year="2026">
+<article>
+<h3 class="publication-title"><a href="https://www.sciencedirect.com/science/article/pii/S1476927126003294">Integrative transcriptomics, machine learning, and molecular docking derive a DAM-like macrophage signature for risk stratification and therapeutic nomination in glioblastoma</a></h3>
+<p class="publication-authors"><b>Wang, Y.*</b>, &amp; Cai, M.</p>
+<p class="publication-venue"><i>Computational Biology and Chemistry</i> · 2026</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="复制引用" aria-live="polite">复制引用</button></div>
+<span class="citation-text" hidden>Wang, Y.*, &amp; Cai, M. (2026). Integrative transcriptomics, machine learning, and molecular docking derive a DAM-like macrophage signature for risk stratification and therapeutic nomination in glioblastoma. Computational Biology and Chemistry.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-06" data-direction="1" data-year="2026">
+<article>
+<h3 class="publication-title"><a href="https://www.biorxiv.org/content/10.64898/2026.04.07.717117v1">Protein Language Models Encode Evolutionary Grammar but Conflate Topological and Thermodynamic Phases</a></h3>
+<p class="publication-authors"><b>Wang, Y.*</b>, Cai, M., Ma, Y., Wang, X., &amp; Wei, K.</p>
+<p class="publication-venue"><i>bioRxiv</i>, 2026-04 · 2026</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="复制引用" aria-live="polite">复制引用</button></div>
+<span class="citation-text" hidden>Wang, Y.*, Cai, M., Ma, Y., Wang, X., &amp; Wei, K. (2026). Protein Language Models Encode Evolutionary Grammar but Conflate Topological and Thermodynamic Phases. bioRxiv, 2026-04.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-07" data-direction="1" data-year="2026">
+<article>
+<h3 class="publication-title">GPCR-Turbo: Fast and Accurate Peptide Virtual Screening for GPCRs</h3>
+<p class="publication-authors">Jiang, S., Wu, S., Wang, C., Jiang, Z., Jiang, D., <b>Wang, Y.</b>, Huang, T. Y., Wang, X.*, &amp; Yuan, Y.*</p>
+<p class="publication-venue"><i>In 2026 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)</i>, IEEE · 2026</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="复制引用" aria-live="polite">复制引用</button></div>
+<span class="citation-text" hidden>Jiang, S., Wu, S., Wang, C., Jiang, Z., Jiang, D., Wang, Y., Huang, T. Y., Wang, X.*, &amp; Yuan, Y.* (2026). GPCR-Turbo: Fast and Accurate Peptide Virtual Screening for GPCRs. In 2026 IEEE International Conference on Bioinformatics and Biomedicine (BIBM). IEEE.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-09" data-direction="1" data-year="2026">
+<article>
+<h3 class="publication-title"><a href="https://www.frontiersin.org/journals/aging-neuroscience/articles/10.3389/fnagi.2026.1847611">APOE ε4-Associated Hippocampal Atrophy Trajectories Across the Alzheimer&#x27;s Disease Continuum: A Systematic Review, Meta-Analysis, and Longitudinal Validation</a></h3>
+<p class="publication-authors">Cai, M., Lei, H., Zhang, Y., Zou, J., Cao, W., <b>Wang, Y.*</b>, &amp; Wei, K.*</p>
+<p class="publication-venue"><i>Frontiers in Aging Neuroscience</i> · 2026</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="复制引用" aria-live="polite">复制引用</button></div>
+<span class="citation-text" hidden>Cai, M., Lei, H., Zhang, Y., Zou, J., Cao, W., Wang, Y.*, &amp; Wei, K.* (2026). APOE ε4-Associated Hippocampal Atrophy Trajectories Across the Alzheimer&#x27;s Disease Continuum: A Systematic Review, Meta-Analysis, and Longitudinal Validation. Frontiers in Aging Neuroscience.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-10" data-direction="1" data-year="2026">
+<article>
+<h3 class="publication-title"><a href="https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/advs.74610">Comment on: &quot;GLM7 – A Novel Composite Glycolipid Index Derived from Routine Health Indicators for Enhanced Diagnosis and Prediction of Multimorbidity&quot;</a></h3>
+<p class="publication-authors"><b>Wang, Y.*</b>, &amp; Huang, T. Y.*</p>
+<p class="publication-venue"><i>Advanced Science</i>, (correspondence) · 2026</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="复制引用" aria-live="polite">复制引用</button></div>
+<span class="citation-text" hidden>Wang, Y.*, &amp; Huang, T. Y.* (2026). Comment on: &quot;GLM7 – A Novel Composite Glycolipid Index Derived from Routine Health Indicators for Enhanced Diagnosis and Prediction of Multimorbidity&quot;. Advanced Science. (correspondence).</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-12" data-direction="2" data-year="2026">
+<article>
+<h3 class="publication-title"><a href="https://link.springer.com/article/10.1140/epje/s10189-026-00621-8">Spectral analysis of protein backbone geometry reveals abrupt helix–coil boundaries</a></h3>
+<p class="publication-authors"><b>Wang, Y.*</b></p>
+<p class="publication-venue"><i>The European Physical Journal E</i> · 2026</p>
+<div class="publication-actions"><a href="https://arxiv.org/abs/2602.21787">arXiv</a>
+<button class="copy-cite" type="button" data-copy-label="复制引用" aria-live="polite">复制引用</button></div>
+<span class="citation-text" hidden>Wang, Y.* (2026). Spectral analysis of protein backbone geometry reveals abrupt helix–coil boundaries. The European Physical Journal E.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-13" data-direction="2" data-year="2026">
+<article>
+<h3 class="publication-title"><a href="https://arxiv.org/abs/2602.16255">Piecewise integrability of the discrete Hasimoto map for analytic prediction and design of helical peptides</a></h3>
+<p class="publication-authors"><b>Wang, Y.*</b></p>
+<p class="publication-venue"><i>arXiv preprint arXiv:2602.16255</i> · 2026</p>
+<div class="publication-actions"><a href="https://arxiv.org/abs/2602.16255">arXiv</a>
+<button class="copy-cite" type="button" data-copy-label="复制引用" aria-live="polite">复制引用</button></div>
+<span class="citation-text" hidden>Wang, Y.* (2026). Piecewise integrability of the discrete Hasimoto map for analytic prediction and design of helical peptides. arXiv preprint arXiv:2602.16255.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-14" data-direction="2" data-year="2026">
+<article>
+<h3 class="publication-title"><a href="https://www.sciencedirect.com/science/article/pii/S0167278926002587">Descriptive power and predictive limits of a discrete Hasimoto–DNLS model of protein backbone structure</a></h3>
+<p class="publication-authors"><b>Wang, Y.*</b></p>
+<p class="publication-venue"><i>Physica D: Nonlinear Phenomena</i> · 2026</p>
+<div class="publication-actions"><a href="https://arxiv.org/abs/2602.13160">arXiv</a>
+<button class="copy-cite" type="button" data-copy-label="复制引用" aria-live="polite">复制引用</button></div>
+<span class="citation-text" hidden>Wang, Y.* (2026). Descriptive power and predictive limits of a discrete Hasimoto–DNLS model of protein backbone structure. Physica D: Nonlinear Phenomena.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-15" data-direction="3" data-year="2026">
+<article>
+<h3 class="publication-title"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0020025526007425">Hamiltonian Connectivity in <i>k</i>-Ary <i>n</i>-Cubes under a Region-Based Fault Model</a></h3>
+<p class="publication-authors"><b>Wang, Y.</b>, Zai, J., Liu, Z., Chen, J., &amp; Sabir, E.*</p>
+<p class="publication-venue"><i>Information Sciences</i> · 2026</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="复制引用" aria-live="polite">复制引用</button></div>
+<span class="citation-text" hidden>Wang, Y., Zai, J., Liu, Z., Chen, J., &amp; Sabir, E.* (2026). Hamiltonian Connectivity in k-Ary n-Cubes under a Region-Based Fault Model. Information Sciences.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-16" data-direction="3" data-year="2026">
+<article>
+<h3 class="publication-title"><a href="https://www.sciencedirect.com/science/article/pii/S1474706526002937">AI Driven Discovery of Bio Ecological Mediation in Cascading Heatwave Risks</a></h3>
+<p class="publication-authors"><b>Wang, Y.*</b>, Huang, T. Y., Gao, Q., Chang, Y., &amp; Zhang, J.</p>
+<p class="publication-venue"><i>Physics and Chemistry of the Earth</i> · 2026</p>
+<div class="publication-actions"><a href="pub/arxiv.pdf">早期稿件 PDF</a>
+<button class="copy-cite" type="button" data-copy-label="复制引用" aria-live="polite">复制引用</button></div>
+<span class="citation-text" hidden>Wang, Y.*, Huang, T. Y., Gao, Q., Chang, Y., &amp; Zhang, J. (2026). AI Driven Discovery of Bio Ecological Mediation in Cascading Heatwave Risks. Physics and Chemistry of the Earth.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-17" data-direction="3" data-year="2026">
+<article>
+<h3 class="publication-title"><a href="https://doi.org/10.1142/S2301385027410172">Non-Submodular Cooperation in UAV Swarms for Active Missile Defense</a></h3>
+<p class="publication-authors"><b>Wang, Y.†*</b>, Zhang, J.†, Chang, Y.†, Yan, Z., &amp; Zhao, H.*</p>
+<p class="publication-venue"><i>Unmanned Systems</i> · 2026</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="复制引用" aria-live="polite">复制引用</button></div>
+<span class="citation-text" hidden>Wang, Y.†*, Zhang, J.†, Chang, Y.†, Yan, Z., &amp; Zhao, H.* (2026). Non-Submodular Cooperation in UAV Swarms for Active Missile Defense. Unmanned Systems.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-18" data-direction="3" data-year="2026">
+<article>
+<h3 class="publication-title"><a href="https://www.biorxiv.org/content/10.64898/2026.01.31.702997.full">Geometric Fragility in Alzheimer&#x27;s Disease: Probing the Loss of Hippocampal Hierarchical Abstraction via Contrastive Point Cloud Modeling</a></h3>
+<p class="publication-authors"><b>Wang, Y.*</b>, Chang, Y., Zhang, J., Cai, M., Yan, J., Zhao, H.*, &amp; Alzheimer's Disease Neuroimaging Initiative.</p>
+<p class="publication-venue"><i>In 2026 IEEE International Conference on Systems, Man, and Cybernetics (SMC)</i>, IEEE · 2026</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="复制引用" aria-live="polite">复制引用</button></div>
+<span class="citation-text" hidden>Wang, Y.*, Chang, Y., Zhang, J., Cai, M., Yan, J., Zhao, H.*, &amp; Alzheimer&#x27;s Disease Neuroimaging Initiative. (2026). Geometric Fragility in Alzheimer&#x27;s Disease: Probing the Loss of Hippocampal Hierarchical Abstraction via Contrastive Point Cloud Modeling. In 2026 IEEE International Conference on Systems, Man, and Cybernetics (SMC). IEEE.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-19" data-direction="3" data-year="2026">
+<article>
+<h3 class="publication-title"><a href="https://www.tandfonline.com/doi/full/10.1080/29966892.2025.2591501">Adaptive Decision-Making in Multi-Stage Production: A Framework for Cost Optimization under Sampling Uncertainty</a></h3>
+<p class="publication-authors"><b>Wang, Y.*</b>, Cai, M., Zhang, J., Chang, Y., &amp; Yan, J.</p>
+<p class="publication-venue"><i>Applied Operations and Analytics</i>, 2(1), 1-23 · 2026</p>
+<div class="publication-actions"><a href="pub/AOA.pdf">PDF</a>
+<button class="copy-cite" type="button" data-copy-label="复制引用" aria-live="polite">复制引用</button></div>
+<span class="citation-text" hidden>Wang, Y.*, Cai, M., Zhang, J., Chang, Y., &amp; Yan, J. (2026). Adaptive Decision-Making in Multi-Stage Production: A Framework for Cost Optimization under Sampling Uncertainty. Applied Operations and Analytics, 2(1), 1-23.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-20" data-direction="3" data-year="2026">
+<article>
+<h3 class="publication-title">MUDT–10K: A Linguistically Grounded Dependency Treebank and Parser Benchmark for Modern Uyghur</h3>
+<p class="publication-authors">Zuo, J.*, Pan, Y.*, <b>Wang, Y.</b>, &amp; Yibulayin, X.*</p>
+<p class="publication-venue"><i>Data Intelligence</i>, in press · 2026</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="复制引用" aria-live="polite">复制引用</button></div>
+<span class="citation-text" hidden>Zuo, J.*, Pan, Y.*, Wang, Y., &amp; Yibulayin, X.* (2026). MUDT–10K: A Linguistically Grounded Dependency Treebank and Parser Benchmark for Modern Uyghur. Data Intelligence, in press.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-21" data-direction="3" data-year="2026">
+<article>
+<h3 class="publication-title"><a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2026.1732609/full">Relative-to-human Benchmark Cognitive Divergence and Semantic Comprehensibility in Chinese–Uyghur LLM Translation</a></h3>
+<p class="publication-authors">Zuo, J., <b>Wang, Y.</b>, &amp; Yibulayin, X.</p>
+<p class="publication-venue"><i>Frontiers in Psychology</i> · 2026</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="复制引用" aria-live="polite">复制引用</button></div>
+<span class="citation-text" hidden>Zuo, J., Wang, Y., &amp; Yibulayin, X. (2026). Relative-to-human Benchmark Cognitive Divergence and Semantic Comprehensibility in Chinese–Uyghur LLM Translation. Frontiers in Psychology.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-25" data-direction="3" data-year="2026">
+<article>
+<h3 class="publication-title"><a href="https://pypi.org/project/structrace/">StrucTrace: A Universal Fourier Watermark for Traceable Biomolecular Structures</a></h3>
+<p class="publication-authors">Wang, X.†, Wang, C.†, Huang, T.-Y., <b>Wang, Y.</b>, Jiang, S., &amp; Yuan, Y.*</p>
+<p class="publication-venue"><i>npj structural biology</i>, accepted · 2026</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="复制引用" aria-live="polite">复制引用</button></div>
+<span class="citation-text" hidden>Wang, X.†, Wang, C.†, Huang, T.-Y., Wang, Y., Jiang, S., &amp; Yuan, Y.* (2026). StrucTrace: A Universal Fourier Watermark for Traceable Biomolecular Structures. npj structural biology, accepted.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-26" data-direction="3" data-year="2026">
+<article>
+<h3 class="publication-title">Bridging the Semantic Gap: Hierarchical Mid-level Interaction Graph Reasoning for Video Anomaly Recognition</h3>
+<p class="publication-authors">Zhao, H.*, Lin, H., Yao, X., Zhang, J., Chang, Y., <b>Wang, Y.</b>, &amp; Yan, J.</p>
+<p class="publication-venue"><i>In 2026 IEEE International Conference on Systems, Man, and Cybernetics (SMC)</i>, IEEE · 2026</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="复制引用" aria-live="polite">复制引用</button></div>
+<span class="citation-text" hidden>Zhao, H.*, Lin, H., Yao, X., Zhang, J., Chang, Y., Wang, Y., &amp; Yan, J. (2026). Bridging the Semantic Gap: Hierarchical Mid-level Interaction Graph Reasoning for Video Anomaly Recognition. In 2026 IEEE International Conference on Systems, Man, and Cybernetics (SMC). IEEE.</span>
+</article>
+</li>
+</ul></section>
+<section class="content-section publication-year" data-year="2025"><h2>2025</h2><ul class="publication-list">
+<li class="publication-entry" data-paper-id="paper-02" data-direction="1" data-year="2025">
+<article>
+<h3 class="publication-title"><a href="https://pubs.acs.org/doi/10.1021/acs.jcim.5c01768">From Signal to Symphony: Exploring 2D Sequence Representations for Protein Function Prediction</a></h3>
+<p class="publication-authors"><b>Wang, Y.</b>, Cai, M., Dong, Y., Ma, Y., &amp; Wei, K.</p>
+<p class="publication-venue"><i>Journal of Chemical Information and Modeling</i>, 65(23), 12723-12736 · 2025</p>
+<div class="publication-actions"><a href="pub/journal_of_chemical_information_and_modeling.pdf">PDF</a>
+<button class="copy-cite" type="button" data-copy-label="复制引用" aria-live="polite">复制引用</button></div>
+<span class="citation-text" hidden>Wang, Y., Cai, M., Dong, Y., Ma, Y., &amp; Wei, K. (2025). From Signal to Symphony: Exploring 2D Sequence Representations for Protein Function Prediction. Journal of Chemical Information and Modeling, 65(23), 12723-12736.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-03" data-direction="1" data-year="2025">
+<article>
+<h3 class="publication-title"><a href="https://www.mdpi.com/2079-7737/14/12/1665">Diffusion Models at the Drug Discovery Frontier: A Review on Generating Small Molecules versus Therapeutic Peptides</a></h3>
+<p class="publication-authors"><b>Wang, Y.†</b>, Ma, Y.†, Chang, Y., Yan, J., Zhang, J., Cai, M., &amp; Wei, K.</p>
+<p class="publication-venue"><i>Biology</i>, 14(12), 1665 · 2025</p>
+<div class="publication-actions"><a href="pub/biology.pdf">PDF</a>
+<button class="copy-cite" type="button" data-copy-label="复制引用" aria-live="polite">复制引用</button></div>
+<span class="citation-text" hidden>Wang, Y.†, Ma, Y.†, Chang, Y., Yan, J., Zhang, J., Cai, M., &amp; Wei, K. (2025). Diffusion Models at the Drug Discovery Frontier: A Review on Generating Small Molecules versus Therapeutic Peptides. Biology, 14(12), 1665.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-08" data-direction="1" data-year="2025">
+<article>
+<h3 class="publication-title"><a href="https://ieeexplore.ieee.org/abstract/document/11356718/">Octopus Inspired Optimization (OIO): A Hierarchical Framework for Navigating Protein Fitness Landscapes</a></h3>
+<p class="publication-authors">Wang, X.†*, <b>Wang, Y.†*</b>, Huang, T. Y., Dong, Y., Deng, J., Xu, L., ..., &amp; He, R.</p>
+<p class="publication-venue"><i>In 2025 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)</i>, (pp. 6897-6904). IEEE · 2025</p>
+<div class="publication-actions"><a href="pub/Octopus_Inspired_Optimization_OIO_A_Hierarchical_Framework_for_Navigating_Protein_Fitness_Landscapes.pdf">PDF</a>
+<button class="copy-cite" type="button" data-copy-label="复制引用" aria-live="polite">复制引用</button></div>
+<span class="citation-text" hidden>Wang, X.†*, Wang, Y.†*, Huang, T. Y., Dong, Y., Deng, J., Xu, L., ..., &amp; He, R. (2025). Octopus Inspired Optimization (OIO): A Hierarchical Framework for Navigating Protein Fitness Landscapes. In 2025 IEEE International Conference on Bioinformatics and Biomedicine (BIBM) (pp. 6897-6904). IEEE.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-11" data-direction="1" data-year="2025">
+<article>
+<h3 class="publication-title"><a href="https://www.jocn-journal.com/article/S0967-5868(25)00332-7/fulltext">AI for disease prediction: Performance insights and key limitations</a></h3>
+<p class="publication-authors"><b>Wang, Y.*</b>, Cai, M., &amp; Huang, T. Y.</p>
+<p class="publication-venue"><i>Journal of Clinical Neuroscience: Official Journal of the Neurosurgical Society of Australasia</i>, 138, 111360. (correspondence) · 2025</p>
+<div class="publication-actions"><a href="pub/journal_of_clinical_neuroscience.pdf">PDF</a>
+<button class="copy-cite" type="button" data-copy-label="复制引用" aria-live="polite">复制引用</button></div>
+<span class="citation-text" hidden>Wang, Y.*, Cai, M., &amp; Huang, T. Y. (2025). AI for disease prediction: Performance insights and key limitations. Journal of Clinical Neuroscience: Official Journal of the Neurosurgical Society of Australasia, 138, 111360. (correspondence).</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-22" data-direction="3" data-year="2025">
+<article>
+<h3 class="publication-title"><a href="https://openreview.net/forum?id=j6ODUDw4vN">Crypto-ncRNA: Non-coding RNA (ncRNA) Based Encryption Algorithm</a></h3>
+<p class="publication-authors">Wang, X.†, <b>Wang, Y.†</b>, &amp; Huang, T. Y.†</p>
+<p class="publication-venue"><i>ICLR 2025 Workshop on AI for Nucleic Acids</i> · 2025</p>
+<div class="publication-actions"><a href="pub/ICLR2025_AI4NA.pdf">PDF</a>
+<button class="copy-cite" type="button" data-copy-label="复制引用" aria-live="polite">复制引用</button></div>
+<span class="citation-text" hidden>Wang, X.†, Wang, Y.†, &amp; Huang, T. Y.† (2025). Crypto-ncRNA: Non-coding RNA (ncRNA) Based Encryption Algorithm. ICLR 2025 Workshop on AI for Nucleic Acids.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-23" data-direction="3" data-year="2025">
+<article>
+<h3 class="publication-title"><a href="https://openreview.net/forum?id=ca1Q9AGJD0">DIALOGUES BETWEEN ADAM AND EVE: EXPLORATION OF UNKNOWN CIVILIZATION LANGUAGE BY LLM</a></h3>
+<p class="publication-authors">Wang, X., Wang, F., &amp; <b>Wang, Y.</b></p>
+<p class="publication-venue"><i>ICLR 2025 Workshop on World Models: Understanding, Modelling and Scaling</i> · 2025</p>
+<div class="publication-actions"><a href="pub/ICLR2025_Worldmodel.pdf">PDF</a>
+<button class="copy-cite" type="button" data-copy-label="复制引用" aria-live="polite">复制引用</button></div>
+<span class="citation-text" hidden>Wang, X., Wang, F., &amp; Wang, Y. (2025). DIALOGUES BETWEEN ADAM AND EVE: EXPLORATION OF UNKNOWN CIVILIZATION LANGUAGE BY LLM. ICLR 2025 Workshop on World Models: Understanding, Modelling and Scaling.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-24" data-direction="3" data-year="2025">
+<article>
+<h3 class="publication-title"><a href="https://openreview.net/forum?id=ZiLEUaf8ZC">Digital Art Creation and Copyright Protection in Pollock Style Using GANs, Fractal Analysis, and NFT Generation</a></h3>
+<p class="publication-authors">Wang, X.†, <b>Wang, Y.†*</b>, &amp; Pan, J.</p>
+<p class="publication-venue"><i>The 1st Workshop on GenAI Watermarking (ICLR 2025)</i> · 2025</p>
+<div class="publication-actions"><a href="https://openreview.net/pdf?id=ZiLEUaf8ZC">PDF</a>
+<button class="copy-cite" type="button" data-copy-label="复制引用" aria-live="polite">复制引用</button></div>
+<span class="citation-text" hidden>Wang, X.†, Wang, Y.†*, &amp; Pan, J. (2025). Digital Art Creation and Copyright Protection in Pollock Style Using GANs, Fractal Analysis, and NFT Generation. The 1st Workshop on GenAI Watermarking (ICLR 2025).</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-27" data-direction="3" data-year="2025">
+<article>
+<h3 class="publication-title"><a href="https://ieeexplore.ieee.org/abstract/document/11342475/">Boundary Box-Guided Targeted Adversarial Attacks with Semantic Perturbation</a></h3>
+<p class="publication-authors">Zhao, H., Shi, W., Liu, C., &amp; <b>Wang, Y.</b></p>
+<p class="publication-venue"><i>In 2025 IEEE International Conference on Systems, Man, and Cybernetics (SMC)</i>, (pp. 1604-1609). IEEE · 2025</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="复制引用" aria-live="polite">复制引用</button></div>
+<span class="citation-text" hidden>Zhao, H., Shi, W., Liu, C., &amp; Wang, Y. (2025). Boundary Box-Guided Targeted Adversarial Attacks with Semantic Perturbation. In 2025 IEEE International Conference on Systems, Man, and Cybernetics (SMC) (pp. 1604-1609). IEEE.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-28" data-direction="3" data-year="2025">
+<article>
+<h3 class="publication-title"><a href="https://arxiv.org/abs/2507.21536">Construction and educational application of a linguistically grounded dependency treebank for Uyghur</a></h3>
+<p class="publication-authors">Zuo, J., <b>Wang, Y.</b>, Pan, Y., &amp; Yibulayin, X.</p>
+<p class="publication-venue"><i>arXiv preprint arXiv:2507.21536</i> · 2025</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="复制引用" aria-live="polite">复制引用</button></div>
+<span class="citation-text" hidden>Zuo, J., Wang, Y., Pan, Y., &amp; Yibulayin, X. (2025). Construction and educational application of a linguistically grounded dependency treebank for Uyghur. arXiv preprint arXiv:2507.21536.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-29" data-direction="3" data-year="2025">
+<article>
+<h3 class="publication-title"><a href="https://arxiv.org/abs/2501.17711">STGCN-LSTM for Olympic Medal Prediction: Dynamic Power Modeling and Causal Policy Optimization</a></h3>
+<p class="publication-authors"><b>Wang, Y.*</b>, Wang, J., Huang, T. Y., Yang, J., &amp; Xu, Z.</p>
+<p class="publication-venue"><i>arXiv preprint arXiv:2501.17711</i> · 2025</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="复制引用" aria-live="polite">复制引用</button></div>
+<span class="citation-text" hidden>Wang, Y.*, Wang, J., Huang, T. Y., Yang, J., &amp; Xu, Z. (2025). STGCN-LSTM for Olympic Medal Prediction: Dynamic Power Modeling and Causal Policy Optimization. arXiv preprint arXiv:2501.17711.</span>
+</article>
+</li>
+</ul></section>
+<section class="content-section publication-year" data-year="2024"><h2>2024</h2><ul class="publication-list">
+<li class="publication-entry" data-paper-id="paper-30" data-direction="3" data-year="2024">
+<article>
+<h3 class="publication-title"><a href="https://arxiv.org/abs/2410.10658">A personalized MOOC learning group and course recommendation method based on graph neural network and social network analysis</a></h3>
+<p class="publication-authors">Luo, Z.†, Wang, X.†, <b>Wang, Y.†</b>, Zhang, H., &amp; Li, Z.</p>
+<p class="publication-venue"><i>arXiv preprint arXiv:2410.10658</i> · 2024</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="复制引用" aria-live="polite">复制引用</button></div>
+<span class="citation-text" hidden>Luo, Z.†, Wang, X.†, Wang, Y.†, Zhang, H., &amp; Li, Z. (2024). A personalized MOOC learning group and course recommendation method based on graph neural network and social network analysis. arXiv preprint arXiv:2410.10658.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-31" data-direction="3" data-year="2024">
+<article>
+<h3 class="publication-title"><a href="https://iopscience.iop.org/article/10.1088/1742-6596/2905/1/012003">A probability prediction model for flood disasters based on Multi-layer Perceptron</a></h3>
+<p class="publication-authors"><b>Wang, Y.*</b>, Zhang, J., &amp; Chang, Y.</p>
+<p class="publication-venue"><i>Journal of Physics: Conference Series</i>, 2905(1), 012003 · 2024</p>
+<div class="publication-actions"><a href="pub/JPCS.pdf">PDF</a>
+<button class="copy-cite" type="button" data-copy-label="复制引用" aria-live="polite">复制引用</button></div>
+<span class="citation-text" hidden>Wang, Y.*, Zhang, J., &amp; Chang, Y. (2024). A probability prediction model for flood disasters based on Multi-layer Perceptron. Journal of Physics: Conference Series, 2905(1), 012003.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-32" data-direction="3" data-year="2024">
+<article>
+<h3 class="publication-title"><a href="https://ieeexplore.ieee.org/abstract/document/10762174/">Multi-stage Crop Planting Strategy Optimization Model Based on PSO Algorithm</a></h3>
+<p class="publication-authors">Wang, J., &amp; <b>Wang, Y.*</b></p>
+<p class="publication-venue"><i>In 2024 3rd International Conference on Electronics and Information Technology (EIT)</i>, (pp. 915-919). IEEE · 2024</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="复制引用" aria-live="polite">复制引用</button></div>
+<span class="citation-text" hidden>Wang, J., &amp; Wang, Y.* (2024). Multi-stage Crop Planting Strategy Optimization Model Based on PSO Algorithm. In 2024 3rd International Conference on Electronics and Information Technology (EIT) (pp. 915-919). IEEE.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-33" data-direction="3" data-year="2024">
+<article>
+<h3 class="publication-title"><a href="https://ieeexplore.ieee.org/abstract/document/10800255/">Research on Travel Route Planning Problems Based on Greedy Algorithm</a></h3>
+<p class="publication-authors">Wang, G., <b>Wang, Y.</b>, &amp; Li, W.</p>
+<p class="publication-venue"><i>In 2024 4th International Conference on Electronic Information Engineering and Computer Science (EIECS)</i>, (pp. 755-758). IEEE · 2024</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="复制引用" aria-live="polite">复制引用</button></div>
+<span class="citation-text" hidden>Wang, G., Wang, Y., &amp; Li, W. (2024). Research on Travel Route Planning Problems Based on Greedy Algorithm. In 2024 4th International Conference on Electronic Information Engineering and Computer Science (EIECS) (pp. 755-758). IEEE.</span>
+</article>
+</li>
+</ul></section>
 </div>
 
 <!-- 英文版本 -->
-<div class="lang-en" style="display:none;">
-<div class="content-section publication-direction">
-<h2>Direction 1: Representation Learning &amp; Biomolecular Mechanisms</h2>
-<p class="research-intro">My current research leverages state-of-the-art Deep Learning techniques to decipher complex biological systems. I focus on overcoming the limitations of traditional bioinformatics by introducing novel inductive biases and representation strategies. My work spans protein structure prediction, protein design, and molecular dynamics, aiming to provide robust, high-throughput tools for the life sciences.</p>
-<ol class="citation-list">
-<li><p><b>Wang, Y.</b>, Cai, M., Ma, Y., Shi, T.*, &amp; Wei, K.* (2026). Sequence context decodes multi-state conformational heterogeneity from crystallographic B-factors. <i>Science China Life Sciences</i>, in press (earlier version: <a href="https://openreview.net/forum?id=rTO3JOgC3a">LMRL Workshop at ICLR 2026</a>). </p></li>
-<li><p><b>Wang, Y.</b>, Cai, M., Dong, Y., Ma, Y., &amp; Wei, K. (2025). <a href="https://pubs.acs.org/doi/10.1021/acs.jcim.5c01768">From Signal to Symphony: Exploring 2D Sequence Representations for Protein Function Prediction</a>. <i>Journal of Chemical Information and Modeling</i>, 65(23), 12723-12736. [<a href="pub/journal_of_chemical_information_and_modeling.pdf">PDF</a>]</p></li>
-<li><p><b>Wang, Y.†</b>, Ma, Y.†, Chang, Y., Yan, J., Zhang, J., Cai, M., &amp; Wei, K. (2025). <a href="https://www.mdpi.com/2079-7737/14/12/1665">Diffusion Models at the Drug Discovery Frontier: A Review on Generating Small Molecules versus Therapeutic Peptides</a>. <i>Biology</i>, 14(12), 1665. [<a href="pub/biology.pdf">PDF</a>]</p></li>
-<li><p><b>Wang, Y.†</b>, Cai, M.†, Ma, Y., Tellier, A.*, &amp; Wei, K.* (2026). <a href="https://link.springer.com/article/10.1186/s12864-026-13274-w">Integrating deep learning and pangenomics to recover missing heritability from wild structural variations</a>. <i>BMC Genomics</i>. </p></li>
-<li><p><b>Wang, Y.*</b>, &amp; Cai, M. (2026). <a href="https://www.sciencedirect.com/science/article/pii/S1476927126003294">Integrative transcriptomics, machine learning, and molecular docking derive a DAM-like macrophage signature for risk stratification and therapeutic nomination in glioblastoma</a>. <i>Computational Biology and Chemistry</i>. </p></li>
-<li><p><b>Wang, Y.*</b>, Cai, M., Ma, Y., Wang, X., &amp; Wei, K. (2026). <a href="https://www.biorxiv.org/content/10.64898/2026.04.07.717117v1">Protein Language Models Encode Evolutionary Grammar but Conflate Topological and Thermodynamic Phases</a>. <i>bioRxiv</i>, 2026-04. </p></li>
-<li><p>Jiang, S., Wu, S., Wang, C., Jiang, Z., Jiang, D., <b>Wang, Y.</b>, Huang, T. Y., Wang, X.*, &amp; Yuan, Y.* (2026). GPCR-Turbo: Fast and Accurate Peptide Virtual Screening for GPCRs. <i>In 2026 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)</i>. IEEE. </p></li>
-<li><p>Wang, X.†*, <b>Wang, Y.†*</b>, Huang, T. Y., Dong, Y., Deng, J., Xu, L., ..., &amp; He, R. (2025). <a href="https://ieeexplore.ieee.org/abstract/document/11356718/">Octopus Inspired Optimization (OIO): A Hierarchical Framework for Navigating Protein Fitness Landscapes</a>. <i>In 2025 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)</i> (pp. 6897-6904). IEEE. [<a href="pub/Octopus_Inspired_Optimization_OIO_A_Hierarchical_Framework_for_Navigating_Protein_Fitness_Landscapes.pdf">PDF</a>]</p></li>
-<li><p>Cai, M., Lei, H., Zhang, Y., Zou, J., Cao, W., <b>Wang, Y.*</b>, &amp; Wei, K.* (2025). <a href="https://www.frontiersin.org/journals/aging-neuroscience/articles/10.3389/fnagi.2026.1847611">APOE ε4-Associated Hippocampal Atrophy Trajectories Across the Alzheimer's Disease Continuum: A Systematic Review, Meta-Analysis, and Longitudinal Validation</a>. <i>Frontiers in Aging Neuroscience</i>. </p></li>
-<li><p><b>Wang, Y.*</b>, &amp; Huang, T. Y.* (2026). <a href="https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/advs.74610">Comment on: "GLM7 – A Novel Composite Glycolipid Index Derived from Routine Health Indicators for Enhanced Diagnosis and Prediction of Multimorbidity"</a>. <i>Advanced Science</i>. (correspondence). </p></li>
-<li><p><b>Wang, Y.*</b>, Cai, M., &amp; Huang, T. Y. (2025). <a href="https://www.jocn-journal.com/article/S0967-5868(25)00332-7/fulltext">AI for disease prediction: Performance insights and key limitations</a>. <i>Journal of Clinical Neuroscience: Official Journal of the Neurosurgical Society of Australasia</i>, 138, 111360. (correspondence). [<a href="pub/journal_of_clinical_neuroscience.pdf">PDF</a>]</p></li>
-</ol>
-</div>
-
-<div class="content-section publication-direction">
-<h2>Direction 2: First-Principles of Biological Complexity Based on Mathematical Physics</h2>
-<p class="research-intro">While Deep Learning provides powerful approximations, my ultimate goal is to find the analytical ground truths of biological systems. I am transitioning from purely data-driven approaches to physics-informed theories. I aim to use Condensed Matter Physics, Topology, Manifold Learning, and Differential Geometry to describe the energy landscapes of proteins and the thermodynamic essence of life.</p>
-<ol class="citation-list">
-<li><p><b>Wang, Y.*</b> (2026). <a href="https://link.springer.com/article/10.1140/epje/s10189-026-00621-8">Spectral analysis of protein backbone geometry reveals abrupt helix&ndash;coil boundaries</a>. <i>The European Physical Journal E</i>. [<a href="https://arxiv.org/abs/2602.21787">arXiv</a>]</p></li>
-<li><p><b>Wang, Y.*</b> (2026). <a href="https://arxiv.org/abs/2602.16255">Piecewise integrability of the discrete Hasimoto map for analytic prediction and design of helical peptides</a>. <i>arXiv preprint arXiv:2602.16255</i>. [<a href="https://arxiv.org/abs/2602.16255">arXiv</a>]</p></li>
-<li><p><b>Wang, Y.*</b> (2026). <a href="https://www.sciencedirect.com/science/article/pii/S0167278926002587">Descriptive power and predictive limits of a discrete Hasimoto–DNLS model of protein backbone structure</a>. <i>Physica D: Nonlinear Phenomena</i>. [<a href="https://arxiv.org/abs/2602.13160">arXiv</a>]</p></li>
-</ol>
-</div>
-
-<div class="content-section publication-direction">
-<h2>Direction 3: Interdisciplinary Explorations &amp; Collaborative Synergies</h2>
-<p class="research-intro">My research journey is fueled by broad curiosity. I have collaborated with experts in linguistics, computer vision, cryptography, and operations research. These diverse experiences have equipped me with a unique toolkit—allowing me to transfer methodologies and tackle problems from orthogonal perspectives.</p>
-<ol class="citation-list">
-<li><p><b>Wang, Y.</b>, Zai, J., Liu, Z., Chen, J., &amp; Sabir, E.* (2026). <a href="https://www.sciencedirect.com/science/article/abs/pii/S0020025526007425">Hamiltonian Connectivity in <i>k</i>-Ary <i>n</i>-Cubes under a Region-Based Fault Model</a>. <i>Information Sciences</i>. </p></li>
-<li><p><b>Wang, Y.*</b>, Huang, T. Y., Gao, Q., Chang, Y., &amp; Zhang, J. (2026). <a href="https://www.sciencedirect.com/science/article/pii/S1474706526002937">AI Driven Discovery of Bio Ecological Mediation in Cascading Heatwave Risks</a>. <i>Physics and Chemistry of the Earth</i>. [<a href="pub/arxiv.pdf">PDF</a>]</p></li>
-<li><p><b>Wang, Y.†*</b>, Zhang, J.†, Chang, Y.†, Yan, Z., &amp; Zhao, H.* (2026). <a href="https://doi.org/10.1142/S2301385027410172">Non-Submodular Cooperation in UAV Swarms for Active Missile Defense</a>. <i>Unmanned Systems</i>. </p></li>
-<li><p><b>Wang, Y.*</b>, Chang, Y., Zhang, J., Cai, M., Yan, J., Zhao, H.*, &amp; Alzheimer's Disease Neuroimaging Initiative. (2026). <a href="https://www.biorxiv.org/content/10.64898/2026.01.31.702997.full">Geometric Fragility in Alzheimer's Disease: Probing the Loss of Hippocampal Hierarchical Abstraction via Contrastive Point Cloud Modeling</a>. <i>In 2026 IEEE International Conference on Systems, Man, and Cybernetics (SMC)</i>. IEEE. </p></li>
-<li><p><b>Wang, Y.*</b>, Cai, M., Zhang, J., Chang, Y., &amp; Yan, J. (2026). <a href="https://www.tandfonline.com/doi/full/10.1080/29966892.2025.2591501">Adaptive Decision-Making in Multi-Stage Production: A Framework for Cost Optimization under Sampling Uncertainty</a>. <i>Applied Operations and Analytics</i>, 2(1), 1-23. [<a href="pub/AOA.pdf">PDF</a>]</p></li>
-<li><p>Zuo, J.*, Pan, Y.*, <b>Wang, Y.</b>, &amp; Yibulayin, X.* (2026). MUDT–10K: A Linguistically Grounded Dependency Treebank and Parser Benchmark for Modern Uyghur. <i>Data Intelligence</i>, in press. </p></li>
-<li><p>Zuo, J., <b>Wang, Y.</b>, &amp; Yibulayin, X. (2026). <a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2026.1732609/full">Relative-to-human Benchmark Cognitive Divergence and Semantic Comprehensibility in Chinese–Uyghur LLM Translation</a>. <i>Frontiers in Psychology</i>. </p></li>
-<li><p>Wang, X.†, <b>Wang, Y.†</b>, &amp; Huang, T. Y.† (2025). <a href="https://openreview.net/forum?id=j6ODUDw4vN">Crypto-ncRNA: Non-coding RNA (ncRNA) Based Encryption Algorithm</a>. <i>ICLR 2025 Workshop on AI for Nucleic Acids</i>.[<a href="pub/ICLR2025_AI4NA.pdf">PDF</a>]</p></li>
-<li><p>Wang, X., Wang, F., &amp; <b>Wang, Y.</b> (2025). <a href="https://openreview.net/forum?id=ca1Q9AGJD0">DIALOGUES BETWEEN ADAM AND EVE: EXPLORATION OF UNKNOWN CIVILIZATION LANGUAGE BY LLM</a>. <i>ICLR 2025 Workshop on World Models: Understanding, Modelling and Scaling</i>. </p></li>
-<li><p>Wang, X.†, <b>Wang, Y.†*</b>, &amp; Pan, J. (2025). <a href="https://openreview.net/forum?id=ZiLEUaf8ZC">Digital Art Creation and Copyright Protection in Pollock Style Using GANs, Fractal Analysis, and NFT Generation</a>. <i>The 1st Workshop on GenAI Watermarking (ICLR 2025)</i>. [<a href="pub/ICLR2025_Worldmodel.pdf">PDF</a>]</p></li>
-<li><p>Wang, X., Huang, T. Y., <b>Wang, Y.</b>, &amp; Yuan, Y. (2025). StrucTrace: Fourier Watermarking for Traceable Bio-molecular Assets. <i>npj Structural Biology</i>. </p></li>
-<li><p>Zhao, H.*, Lin, H., Yao, X., Zhang, J., Chang, Y., <b>Wang, Y.</b>, &amp; Yan, J. (2026). Bridging the Semantic Gap: Hierarchical Mid-level Interaction Graph Reasoning for Video Anomaly Recognition. <i>In 2026 IEEE International Conference on Systems, Man, and Cybernetics (SMC)</i>. IEEE. </p></li>
-<li><p>Zhao, H., Shi, W., Liu, C., &amp; <b>Wang, Y.</b> (2025). <a href="https://ieeexplore.ieee.org/abstract/document/11342475/">Boundary Box-Guided Targeted Adversarial Attacks with Semantic Perturbation</a>. <i>In 2025 IEEE International Conference on Systems, Man, and Cybernetics (SMC)</i> (pp. 1604-1609). IEEE. </p></li>
-<li><p>Zuo, J., <b>Wang, Y.</b>, Pan, Y., &amp; Yibulayin, X. (2025). <a href="https://arxiv.org/abs/2507.21536">Construction and educational application of a linguistically grounded dependency treebank for Uyghur</a>. <i>arXiv preprint arXiv:2507.21536</i>. </p></li>
-<li><p><b>Wang, Y.*</b>, Wang, J., Huang, T. Y., Yang, J., &amp; Xu, Z. (2025). <a href="https://arxiv.org/abs/2501.17711">STGCN-LSTM for Olympic Medal Prediction: Dynamic Power Modeling and Causal Policy Optimization</a>. <i>arXiv preprint arXiv:2501.17711</i>. </p></li>
-<li><p>Luo, Z.†, Wang, X.†, <b>Wang, Y.†</b>, Zhang, H., &amp; Li, Z. (2024). <a href="https://arxiv.org/abs/2410.10658">A personalized MOOC learning group and course recommendation method based on graph neural network and social network analysis</a>. <i>arXiv preprint arXiv:2410.10658</i>. </p></li>
-<li><p><b>Wang, Y.*</b>, Zhang, J., &amp; Chang, Y. (2024). <a href="https://iopscience.iop.org/article/10.1088/1742-6596/2905/1/012003">A probability prediction model for flood disasters based on Multi-layer Perceptron</a>. <i>Journal of Physics: Conference Series</i>, 2905(1), 012003. [<a href="pub/JPCS.pdf">PDF</a>]</p></li>
-<li><p>Wang, J., &amp; <b>Wang, Y.*</b> (2024). <a href="https://ieeexplore.ieee.org/abstract/document/10762174/">Multi-stage Crop Planting Strategy Optimization Model Based on PSO Algorithm</a>. <i>In 2024 3rd International Conference on Electronics and Information Technology (EIT)</i> (pp. 915-919). IEEE. </p></li>
-<li><p>Wang, G., <b>Wang, Y.</b>, &amp; Li, W. (2024). <a href="https://ieeexplore.ieee.org/abstract/document/10800255/">Research on Travel Route Planning Problems Based on Greedy Algorithm</a>. <i>In 2024 4th International Conference on Electronic Information Engineering and Computer Science (EIECS)</i> (pp. 755-758). IEEE. </p></li>
-</ol>
-</div>
+<div class="lang-en publications-content">
+<div class="publication-toolbar"><div class="publication-filters" role="group" aria-label="Filter by research area"><button type="button" class="publication-filter active" data-filter="all" aria-pressed="true">All</button>
+<button type="button" class="publication-filter" data-filter="1" aria-pressed="false">Representation learning & biomolecular mechanisms</button>
+<button type="button" class="publication-filter" data-filter="2" aria-pressed="false">Mathematical physics & biological complexity</button>
+<button type="button" class="publication-filter" data-filter="3" aria-pressed="false">Interdisciplinary explorations</button></div>
+<p class="publication-count" aria-live="polite">33 publications</p></div>
+<section class="content-section publication-year" data-year="2026"><h2>2026</h2><ul class="publication-list">
+<li class="publication-entry" data-paper-id="paper-01" data-direction="1" data-year="2026">
+<article>
+<h3 class="publication-title">Sequence context decodes multi-state conformational heterogeneity from crystallographic B-factors</h3>
+<p class="publication-authors"><b>Wang, Y.</b>, Cai, M., Ma, Y., Shi, T.*, &amp; Wei, K.*</p>
+<p class="publication-venue"><i>Science China Life Sciences</i>, in press · 2026</p>
+<div class="publication-actions"><a href="https://openreview.net/forum?id=rTO3JOgC3a">LMRL Workshop at ICLR 2026 · earlier version</a>
+<button class="copy-cite" type="button" data-copy-label="Copy citation" aria-live="polite">Copy citation</button></div>
+<span class="citation-text" hidden>Wang, Y., Cai, M., Ma, Y., Shi, T.*, &amp; Wei, K.* (2026). Sequence context decodes multi-state conformational heterogeneity from crystallographic B-factors. Science China Life Sciences, in press (earlier version: LMRL Workshop at ICLR 2026).</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-04" data-direction="1" data-year="2026">
+<article>
+<h3 class="publication-title"><a href="https://link.springer.com/article/10.1186/s12864-026-13274-w">Integrating deep learning and pangenomics to recover missing heritability from wild structural variations</a></h3>
+<p class="publication-authors"><b>Wang, Y.†</b>, Cai, M.†, Ma, Y., Tellier, A.*, &amp; Wei, K.*</p>
+<p class="publication-venue"><i>BMC Genomics</i> · 2026</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="Copy citation" aria-live="polite">Copy citation</button></div>
+<span class="citation-text" hidden>Wang, Y.†, Cai, M.†, Ma, Y., Tellier, A.*, &amp; Wei, K.* (2026). Integrating deep learning and pangenomics to recover missing heritability from wild structural variations. BMC Genomics.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-05" data-direction="1" data-year="2026">
+<article>
+<h3 class="publication-title"><a href="https://www.sciencedirect.com/science/article/pii/S1476927126003294">Integrative transcriptomics, machine learning, and molecular docking derive a DAM-like macrophage signature for risk stratification and therapeutic nomination in glioblastoma</a></h3>
+<p class="publication-authors"><b>Wang, Y.*</b>, &amp; Cai, M.</p>
+<p class="publication-venue"><i>Computational Biology and Chemistry</i> · 2026</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="Copy citation" aria-live="polite">Copy citation</button></div>
+<span class="citation-text" hidden>Wang, Y.*, &amp; Cai, M. (2026). Integrative transcriptomics, machine learning, and molecular docking derive a DAM-like macrophage signature for risk stratification and therapeutic nomination in glioblastoma. Computational Biology and Chemistry.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-06" data-direction="1" data-year="2026">
+<article>
+<h3 class="publication-title"><a href="https://www.biorxiv.org/content/10.64898/2026.04.07.717117v1">Protein Language Models Encode Evolutionary Grammar but Conflate Topological and Thermodynamic Phases</a></h3>
+<p class="publication-authors"><b>Wang, Y.*</b>, Cai, M., Ma, Y., Wang, X., &amp; Wei, K.</p>
+<p class="publication-venue"><i>bioRxiv</i>, 2026-04 · 2026</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="Copy citation" aria-live="polite">Copy citation</button></div>
+<span class="citation-text" hidden>Wang, Y.*, Cai, M., Ma, Y., Wang, X., &amp; Wei, K. (2026). Protein Language Models Encode Evolutionary Grammar but Conflate Topological and Thermodynamic Phases. bioRxiv, 2026-04.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-07" data-direction="1" data-year="2026">
+<article>
+<h3 class="publication-title">GPCR-Turbo: Fast and Accurate Peptide Virtual Screening for GPCRs</h3>
+<p class="publication-authors">Jiang, S., Wu, S., Wang, C., Jiang, Z., Jiang, D., <b>Wang, Y.</b>, Huang, T. Y., Wang, X.*, &amp; Yuan, Y.*</p>
+<p class="publication-venue"><i>In 2026 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)</i>, IEEE · 2026</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="Copy citation" aria-live="polite">Copy citation</button></div>
+<span class="citation-text" hidden>Jiang, S., Wu, S., Wang, C., Jiang, Z., Jiang, D., Wang, Y., Huang, T. Y., Wang, X.*, &amp; Yuan, Y.* (2026). GPCR-Turbo: Fast and Accurate Peptide Virtual Screening for GPCRs. In 2026 IEEE International Conference on Bioinformatics and Biomedicine (BIBM). IEEE.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-09" data-direction="1" data-year="2026">
+<article>
+<h3 class="publication-title"><a href="https://www.frontiersin.org/journals/aging-neuroscience/articles/10.3389/fnagi.2026.1847611">APOE ε4-Associated Hippocampal Atrophy Trajectories Across the Alzheimer&#x27;s Disease Continuum: A Systematic Review, Meta-Analysis, and Longitudinal Validation</a></h3>
+<p class="publication-authors">Cai, M., Lei, H., Zhang, Y., Zou, J., Cao, W., <b>Wang, Y.*</b>, &amp; Wei, K.*</p>
+<p class="publication-venue"><i>Frontiers in Aging Neuroscience</i> · 2026</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="Copy citation" aria-live="polite">Copy citation</button></div>
+<span class="citation-text" hidden>Cai, M., Lei, H., Zhang, Y., Zou, J., Cao, W., Wang, Y.*, &amp; Wei, K.* (2026). APOE ε4-Associated Hippocampal Atrophy Trajectories Across the Alzheimer&#x27;s Disease Continuum: A Systematic Review, Meta-Analysis, and Longitudinal Validation. Frontiers in Aging Neuroscience.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-10" data-direction="1" data-year="2026">
+<article>
+<h3 class="publication-title"><a href="https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/advs.74610">Comment on: &quot;GLM7 – A Novel Composite Glycolipid Index Derived from Routine Health Indicators for Enhanced Diagnosis and Prediction of Multimorbidity&quot;</a></h3>
+<p class="publication-authors"><b>Wang, Y.*</b>, &amp; Huang, T. Y.*</p>
+<p class="publication-venue"><i>Advanced Science</i>, (correspondence) · 2026</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="Copy citation" aria-live="polite">Copy citation</button></div>
+<span class="citation-text" hidden>Wang, Y.*, &amp; Huang, T. Y.* (2026). Comment on: &quot;GLM7 – A Novel Composite Glycolipid Index Derived from Routine Health Indicators for Enhanced Diagnosis and Prediction of Multimorbidity&quot;. Advanced Science. (correspondence).</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-12" data-direction="2" data-year="2026">
+<article>
+<h3 class="publication-title"><a href="https://link.springer.com/article/10.1140/epje/s10189-026-00621-8">Spectral analysis of protein backbone geometry reveals abrupt helix–coil boundaries</a></h3>
+<p class="publication-authors"><b>Wang, Y.*</b></p>
+<p class="publication-venue"><i>The European Physical Journal E</i> · 2026</p>
+<div class="publication-actions"><a href="https://arxiv.org/abs/2602.21787">arXiv</a>
+<button class="copy-cite" type="button" data-copy-label="Copy citation" aria-live="polite">Copy citation</button></div>
+<span class="citation-text" hidden>Wang, Y.* (2026). Spectral analysis of protein backbone geometry reveals abrupt helix–coil boundaries. The European Physical Journal E.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-13" data-direction="2" data-year="2026">
+<article>
+<h3 class="publication-title"><a href="https://arxiv.org/abs/2602.16255">Piecewise integrability of the discrete Hasimoto map for analytic prediction and design of helical peptides</a></h3>
+<p class="publication-authors"><b>Wang, Y.*</b></p>
+<p class="publication-venue"><i>arXiv preprint arXiv:2602.16255</i> · 2026</p>
+<div class="publication-actions"><a href="https://arxiv.org/abs/2602.16255">arXiv</a>
+<button class="copy-cite" type="button" data-copy-label="Copy citation" aria-live="polite">Copy citation</button></div>
+<span class="citation-text" hidden>Wang, Y.* (2026). Piecewise integrability of the discrete Hasimoto map for analytic prediction and design of helical peptides. arXiv preprint arXiv:2602.16255.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-14" data-direction="2" data-year="2026">
+<article>
+<h3 class="publication-title"><a href="https://www.sciencedirect.com/science/article/pii/S0167278926002587">Descriptive power and predictive limits of a discrete Hasimoto–DNLS model of protein backbone structure</a></h3>
+<p class="publication-authors"><b>Wang, Y.*</b></p>
+<p class="publication-venue"><i>Physica D: Nonlinear Phenomena</i> · 2026</p>
+<div class="publication-actions"><a href="https://arxiv.org/abs/2602.13160">arXiv</a>
+<button class="copy-cite" type="button" data-copy-label="Copy citation" aria-live="polite">Copy citation</button></div>
+<span class="citation-text" hidden>Wang, Y.* (2026). Descriptive power and predictive limits of a discrete Hasimoto–DNLS model of protein backbone structure. Physica D: Nonlinear Phenomena.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-15" data-direction="3" data-year="2026">
+<article>
+<h3 class="publication-title"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0020025526007425">Hamiltonian Connectivity in <i>k</i>-Ary <i>n</i>-Cubes under a Region-Based Fault Model</a></h3>
+<p class="publication-authors"><b>Wang, Y.</b>, Zai, J., Liu, Z., Chen, J., &amp; Sabir, E.*</p>
+<p class="publication-venue"><i>Information Sciences</i> · 2026</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="Copy citation" aria-live="polite">Copy citation</button></div>
+<span class="citation-text" hidden>Wang, Y., Zai, J., Liu, Z., Chen, J., &amp; Sabir, E.* (2026). Hamiltonian Connectivity in k-Ary n-Cubes under a Region-Based Fault Model. Information Sciences.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-16" data-direction="3" data-year="2026">
+<article>
+<h3 class="publication-title"><a href="https://www.sciencedirect.com/science/article/pii/S1474706526002937">AI Driven Discovery of Bio Ecological Mediation in Cascading Heatwave Risks</a></h3>
+<p class="publication-authors"><b>Wang, Y.*</b>, Huang, T. Y., Gao, Q., Chang, Y., &amp; Zhang, J.</p>
+<p class="publication-venue"><i>Physics and Chemistry of the Earth</i> · 2026</p>
+<div class="publication-actions"><a href="pub/arxiv.pdf">Earlier manuscript PDF</a>
+<button class="copy-cite" type="button" data-copy-label="Copy citation" aria-live="polite">Copy citation</button></div>
+<span class="citation-text" hidden>Wang, Y.*, Huang, T. Y., Gao, Q., Chang, Y., &amp; Zhang, J. (2026). AI Driven Discovery of Bio Ecological Mediation in Cascading Heatwave Risks. Physics and Chemistry of the Earth.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-17" data-direction="3" data-year="2026">
+<article>
+<h3 class="publication-title"><a href="https://doi.org/10.1142/S2301385027410172">Non-Submodular Cooperation in UAV Swarms for Active Missile Defense</a></h3>
+<p class="publication-authors"><b>Wang, Y.†*</b>, Zhang, J.†, Chang, Y.†, Yan, Z., &amp; Zhao, H.*</p>
+<p class="publication-venue"><i>Unmanned Systems</i> · 2026</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="Copy citation" aria-live="polite">Copy citation</button></div>
+<span class="citation-text" hidden>Wang, Y.†*, Zhang, J.†, Chang, Y.†, Yan, Z., &amp; Zhao, H.* (2026). Non-Submodular Cooperation in UAV Swarms for Active Missile Defense. Unmanned Systems.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-18" data-direction="3" data-year="2026">
+<article>
+<h3 class="publication-title"><a href="https://www.biorxiv.org/content/10.64898/2026.01.31.702997.full">Geometric Fragility in Alzheimer&#x27;s Disease: Probing the Loss of Hippocampal Hierarchical Abstraction via Contrastive Point Cloud Modeling</a></h3>
+<p class="publication-authors"><b>Wang, Y.*</b>, Chang, Y., Zhang, J., Cai, M., Yan, J., Zhao, H.*, &amp; Alzheimer's Disease Neuroimaging Initiative.</p>
+<p class="publication-venue"><i>In 2026 IEEE International Conference on Systems, Man, and Cybernetics (SMC)</i>, IEEE · 2026</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="Copy citation" aria-live="polite">Copy citation</button></div>
+<span class="citation-text" hidden>Wang, Y.*, Chang, Y., Zhang, J., Cai, M., Yan, J., Zhao, H.*, &amp; Alzheimer&#x27;s Disease Neuroimaging Initiative. (2026). Geometric Fragility in Alzheimer&#x27;s Disease: Probing the Loss of Hippocampal Hierarchical Abstraction via Contrastive Point Cloud Modeling. In 2026 IEEE International Conference on Systems, Man, and Cybernetics (SMC). IEEE.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-19" data-direction="3" data-year="2026">
+<article>
+<h3 class="publication-title"><a href="https://www.tandfonline.com/doi/full/10.1080/29966892.2025.2591501">Adaptive Decision-Making in Multi-Stage Production: A Framework for Cost Optimization under Sampling Uncertainty</a></h3>
+<p class="publication-authors"><b>Wang, Y.*</b>, Cai, M., Zhang, J., Chang, Y., &amp; Yan, J.</p>
+<p class="publication-venue"><i>Applied Operations and Analytics</i>, 2(1), 1-23 · 2026</p>
+<div class="publication-actions"><a href="pub/AOA.pdf">PDF</a>
+<button class="copy-cite" type="button" data-copy-label="Copy citation" aria-live="polite">Copy citation</button></div>
+<span class="citation-text" hidden>Wang, Y.*, Cai, M., Zhang, J., Chang, Y., &amp; Yan, J. (2026). Adaptive Decision-Making in Multi-Stage Production: A Framework for Cost Optimization under Sampling Uncertainty. Applied Operations and Analytics, 2(1), 1-23.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-20" data-direction="3" data-year="2026">
+<article>
+<h3 class="publication-title">MUDT–10K: A Linguistically Grounded Dependency Treebank and Parser Benchmark for Modern Uyghur</h3>
+<p class="publication-authors">Zuo, J.*, Pan, Y.*, <b>Wang, Y.</b>, &amp; Yibulayin, X.*</p>
+<p class="publication-venue"><i>Data Intelligence</i>, in press · 2026</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="Copy citation" aria-live="polite">Copy citation</button></div>
+<span class="citation-text" hidden>Zuo, J.*, Pan, Y.*, Wang, Y., &amp; Yibulayin, X.* (2026). MUDT–10K: A Linguistically Grounded Dependency Treebank and Parser Benchmark for Modern Uyghur. Data Intelligence, in press.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-21" data-direction="3" data-year="2026">
+<article>
+<h3 class="publication-title"><a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2026.1732609/full">Relative-to-human Benchmark Cognitive Divergence and Semantic Comprehensibility in Chinese–Uyghur LLM Translation</a></h3>
+<p class="publication-authors">Zuo, J., <b>Wang, Y.</b>, &amp; Yibulayin, X.</p>
+<p class="publication-venue"><i>Frontiers in Psychology</i> · 2026</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="Copy citation" aria-live="polite">Copy citation</button></div>
+<span class="citation-text" hidden>Zuo, J., Wang, Y., &amp; Yibulayin, X. (2026). Relative-to-human Benchmark Cognitive Divergence and Semantic Comprehensibility in Chinese–Uyghur LLM Translation. Frontiers in Psychology.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-25" data-direction="3" data-year="2026">
+<article>
+<h3 class="publication-title"><a href="https://pypi.org/project/structrace/">StrucTrace: A Universal Fourier Watermark for Traceable Biomolecular Structures</a></h3>
+<p class="publication-authors">Wang, X.†, Wang, C.†, Huang, T.-Y., <b>Wang, Y.</b>, Jiang, S., &amp; Yuan, Y.*</p>
+<p class="publication-venue"><i>npj structural biology</i>, accepted · 2026</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="Copy citation" aria-live="polite">Copy citation</button></div>
+<span class="citation-text" hidden>Wang, X.†, Wang, C.†, Huang, T.-Y., Wang, Y., Jiang, S., &amp; Yuan, Y.* (2026). StrucTrace: A Universal Fourier Watermark for Traceable Biomolecular Structures. npj structural biology, accepted.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-26" data-direction="3" data-year="2026">
+<article>
+<h3 class="publication-title">Bridging the Semantic Gap: Hierarchical Mid-level Interaction Graph Reasoning for Video Anomaly Recognition</h3>
+<p class="publication-authors">Zhao, H.*, Lin, H., Yao, X., Zhang, J., Chang, Y., <b>Wang, Y.</b>, &amp; Yan, J.</p>
+<p class="publication-venue"><i>In 2026 IEEE International Conference on Systems, Man, and Cybernetics (SMC)</i>, IEEE · 2026</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="Copy citation" aria-live="polite">Copy citation</button></div>
+<span class="citation-text" hidden>Zhao, H.*, Lin, H., Yao, X., Zhang, J., Chang, Y., Wang, Y., &amp; Yan, J. (2026). Bridging the Semantic Gap: Hierarchical Mid-level Interaction Graph Reasoning for Video Anomaly Recognition. In 2026 IEEE International Conference on Systems, Man, and Cybernetics (SMC). IEEE.</span>
+</article>
+</li>
+</ul></section>
+<section class="content-section publication-year" data-year="2025"><h2>2025</h2><ul class="publication-list">
+<li class="publication-entry" data-paper-id="paper-02" data-direction="1" data-year="2025">
+<article>
+<h3 class="publication-title"><a href="https://pubs.acs.org/doi/10.1021/acs.jcim.5c01768">From Signal to Symphony: Exploring 2D Sequence Representations for Protein Function Prediction</a></h3>
+<p class="publication-authors"><b>Wang, Y.</b>, Cai, M., Dong, Y., Ma, Y., &amp; Wei, K.</p>
+<p class="publication-venue"><i>Journal of Chemical Information and Modeling</i>, 65(23), 12723-12736 · 2025</p>
+<div class="publication-actions"><a href="pub/journal_of_chemical_information_and_modeling.pdf">PDF</a>
+<button class="copy-cite" type="button" data-copy-label="Copy citation" aria-live="polite">Copy citation</button></div>
+<span class="citation-text" hidden>Wang, Y., Cai, M., Dong, Y., Ma, Y., &amp; Wei, K. (2025). From Signal to Symphony: Exploring 2D Sequence Representations for Protein Function Prediction. Journal of Chemical Information and Modeling, 65(23), 12723-12736.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-03" data-direction="1" data-year="2025">
+<article>
+<h3 class="publication-title"><a href="https://www.mdpi.com/2079-7737/14/12/1665">Diffusion Models at the Drug Discovery Frontier: A Review on Generating Small Molecules versus Therapeutic Peptides</a></h3>
+<p class="publication-authors"><b>Wang, Y.†</b>, Ma, Y.†, Chang, Y., Yan, J., Zhang, J., Cai, M., &amp; Wei, K.</p>
+<p class="publication-venue"><i>Biology</i>, 14(12), 1665 · 2025</p>
+<div class="publication-actions"><a href="pub/biology.pdf">PDF</a>
+<button class="copy-cite" type="button" data-copy-label="Copy citation" aria-live="polite">Copy citation</button></div>
+<span class="citation-text" hidden>Wang, Y.†, Ma, Y.†, Chang, Y., Yan, J., Zhang, J., Cai, M., &amp; Wei, K. (2025). Diffusion Models at the Drug Discovery Frontier: A Review on Generating Small Molecules versus Therapeutic Peptides. Biology, 14(12), 1665.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-08" data-direction="1" data-year="2025">
+<article>
+<h3 class="publication-title"><a href="https://ieeexplore.ieee.org/abstract/document/11356718/">Octopus Inspired Optimization (OIO): A Hierarchical Framework for Navigating Protein Fitness Landscapes</a></h3>
+<p class="publication-authors">Wang, X.†*, <b>Wang, Y.†*</b>, Huang, T. Y., Dong, Y., Deng, J., Xu, L., ..., &amp; He, R.</p>
+<p class="publication-venue"><i>In 2025 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)</i>, (pp. 6897-6904). IEEE · 2025</p>
+<div class="publication-actions"><a href="pub/Octopus_Inspired_Optimization_OIO_A_Hierarchical_Framework_for_Navigating_Protein_Fitness_Landscapes.pdf">PDF</a>
+<button class="copy-cite" type="button" data-copy-label="Copy citation" aria-live="polite">Copy citation</button></div>
+<span class="citation-text" hidden>Wang, X.†*, Wang, Y.†*, Huang, T. Y., Dong, Y., Deng, J., Xu, L., ..., &amp; He, R. (2025). Octopus Inspired Optimization (OIO): A Hierarchical Framework for Navigating Protein Fitness Landscapes. In 2025 IEEE International Conference on Bioinformatics and Biomedicine (BIBM) (pp. 6897-6904). IEEE.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-11" data-direction="1" data-year="2025">
+<article>
+<h3 class="publication-title"><a href="https://www.jocn-journal.com/article/S0967-5868(25)00332-7/fulltext">AI for disease prediction: Performance insights and key limitations</a></h3>
+<p class="publication-authors"><b>Wang, Y.*</b>, Cai, M., &amp; Huang, T. Y.</p>
+<p class="publication-venue"><i>Journal of Clinical Neuroscience: Official Journal of the Neurosurgical Society of Australasia</i>, 138, 111360. (correspondence) · 2025</p>
+<div class="publication-actions"><a href="pub/journal_of_clinical_neuroscience.pdf">PDF</a>
+<button class="copy-cite" type="button" data-copy-label="Copy citation" aria-live="polite">Copy citation</button></div>
+<span class="citation-text" hidden>Wang, Y.*, Cai, M., &amp; Huang, T. Y. (2025). AI for disease prediction: Performance insights and key limitations. Journal of Clinical Neuroscience: Official Journal of the Neurosurgical Society of Australasia, 138, 111360. (correspondence).</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-22" data-direction="3" data-year="2025">
+<article>
+<h3 class="publication-title"><a href="https://openreview.net/forum?id=j6ODUDw4vN">Crypto-ncRNA: Non-coding RNA (ncRNA) Based Encryption Algorithm</a></h3>
+<p class="publication-authors">Wang, X.†, <b>Wang, Y.†</b>, &amp; Huang, T. Y.†</p>
+<p class="publication-venue"><i>ICLR 2025 Workshop on AI for Nucleic Acids</i> · 2025</p>
+<div class="publication-actions"><a href="pub/ICLR2025_AI4NA.pdf">PDF</a>
+<button class="copy-cite" type="button" data-copy-label="Copy citation" aria-live="polite">Copy citation</button></div>
+<span class="citation-text" hidden>Wang, X.†, Wang, Y.†, &amp; Huang, T. Y.† (2025). Crypto-ncRNA: Non-coding RNA (ncRNA) Based Encryption Algorithm. ICLR 2025 Workshop on AI for Nucleic Acids.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-23" data-direction="3" data-year="2025">
+<article>
+<h3 class="publication-title"><a href="https://openreview.net/forum?id=ca1Q9AGJD0">DIALOGUES BETWEEN ADAM AND EVE: EXPLORATION OF UNKNOWN CIVILIZATION LANGUAGE BY LLM</a></h3>
+<p class="publication-authors">Wang, X., Wang, F., &amp; <b>Wang, Y.</b></p>
+<p class="publication-venue"><i>ICLR 2025 Workshop on World Models: Understanding, Modelling and Scaling</i> · 2025</p>
+<div class="publication-actions"><a href="pub/ICLR2025_Worldmodel.pdf">PDF</a>
+<button class="copy-cite" type="button" data-copy-label="Copy citation" aria-live="polite">Copy citation</button></div>
+<span class="citation-text" hidden>Wang, X., Wang, F., &amp; Wang, Y. (2025). DIALOGUES BETWEEN ADAM AND EVE: EXPLORATION OF UNKNOWN CIVILIZATION LANGUAGE BY LLM. ICLR 2025 Workshop on World Models: Understanding, Modelling and Scaling.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-24" data-direction="3" data-year="2025">
+<article>
+<h3 class="publication-title"><a href="https://openreview.net/forum?id=ZiLEUaf8ZC">Digital Art Creation and Copyright Protection in Pollock Style Using GANs, Fractal Analysis, and NFT Generation</a></h3>
+<p class="publication-authors">Wang, X.†, <b>Wang, Y.†*</b>, &amp; Pan, J.</p>
+<p class="publication-venue"><i>The 1st Workshop on GenAI Watermarking (ICLR 2025)</i> · 2025</p>
+<div class="publication-actions"><a href="https://openreview.net/pdf?id=ZiLEUaf8ZC">PDF</a>
+<button class="copy-cite" type="button" data-copy-label="Copy citation" aria-live="polite">Copy citation</button></div>
+<span class="citation-text" hidden>Wang, X.†, Wang, Y.†*, &amp; Pan, J. (2025). Digital Art Creation and Copyright Protection in Pollock Style Using GANs, Fractal Analysis, and NFT Generation. The 1st Workshop on GenAI Watermarking (ICLR 2025).</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-27" data-direction="3" data-year="2025">
+<article>
+<h3 class="publication-title"><a href="https://ieeexplore.ieee.org/abstract/document/11342475/">Boundary Box-Guided Targeted Adversarial Attacks with Semantic Perturbation</a></h3>
+<p class="publication-authors">Zhao, H., Shi, W., Liu, C., &amp; <b>Wang, Y.</b></p>
+<p class="publication-venue"><i>In 2025 IEEE International Conference on Systems, Man, and Cybernetics (SMC)</i>, (pp. 1604-1609). IEEE · 2025</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="Copy citation" aria-live="polite">Copy citation</button></div>
+<span class="citation-text" hidden>Zhao, H., Shi, W., Liu, C., &amp; Wang, Y. (2025). Boundary Box-Guided Targeted Adversarial Attacks with Semantic Perturbation. In 2025 IEEE International Conference on Systems, Man, and Cybernetics (SMC) (pp. 1604-1609). IEEE.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-28" data-direction="3" data-year="2025">
+<article>
+<h3 class="publication-title"><a href="https://arxiv.org/abs/2507.21536">Construction and educational application of a linguistically grounded dependency treebank for Uyghur</a></h3>
+<p class="publication-authors">Zuo, J., <b>Wang, Y.</b>, Pan, Y., &amp; Yibulayin, X.</p>
+<p class="publication-venue"><i>arXiv preprint arXiv:2507.21536</i> · 2025</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="Copy citation" aria-live="polite">Copy citation</button></div>
+<span class="citation-text" hidden>Zuo, J., Wang, Y., Pan, Y., &amp; Yibulayin, X. (2025). Construction and educational application of a linguistically grounded dependency treebank for Uyghur. arXiv preprint arXiv:2507.21536.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-29" data-direction="3" data-year="2025">
+<article>
+<h3 class="publication-title"><a href="https://arxiv.org/abs/2501.17711">STGCN-LSTM for Olympic Medal Prediction: Dynamic Power Modeling and Causal Policy Optimization</a></h3>
+<p class="publication-authors"><b>Wang, Y.*</b>, Wang, J., Huang, T. Y., Yang, J., &amp; Xu, Z.</p>
+<p class="publication-venue"><i>arXiv preprint arXiv:2501.17711</i> · 2025</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="Copy citation" aria-live="polite">Copy citation</button></div>
+<span class="citation-text" hidden>Wang, Y.*, Wang, J., Huang, T. Y., Yang, J., &amp; Xu, Z. (2025). STGCN-LSTM for Olympic Medal Prediction: Dynamic Power Modeling and Causal Policy Optimization. arXiv preprint arXiv:2501.17711.</span>
+</article>
+</li>
+</ul></section>
+<section class="content-section publication-year" data-year="2024"><h2>2024</h2><ul class="publication-list">
+<li class="publication-entry" data-paper-id="paper-30" data-direction="3" data-year="2024">
+<article>
+<h3 class="publication-title"><a href="https://arxiv.org/abs/2410.10658">A personalized MOOC learning group and course recommendation method based on graph neural network and social network analysis</a></h3>
+<p class="publication-authors">Luo, Z.†, Wang, X.†, <b>Wang, Y.†</b>, Zhang, H., &amp; Li, Z.</p>
+<p class="publication-venue"><i>arXiv preprint arXiv:2410.10658</i> · 2024</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="Copy citation" aria-live="polite">Copy citation</button></div>
+<span class="citation-text" hidden>Luo, Z.†, Wang, X.†, Wang, Y.†, Zhang, H., &amp; Li, Z. (2024). A personalized MOOC learning group and course recommendation method based on graph neural network and social network analysis. arXiv preprint arXiv:2410.10658.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-31" data-direction="3" data-year="2024">
+<article>
+<h3 class="publication-title"><a href="https://iopscience.iop.org/article/10.1088/1742-6596/2905/1/012003">A probability prediction model for flood disasters based on Multi-layer Perceptron</a></h3>
+<p class="publication-authors"><b>Wang, Y.*</b>, Zhang, J., &amp; Chang, Y.</p>
+<p class="publication-venue"><i>Journal of Physics: Conference Series</i>, 2905(1), 012003 · 2024</p>
+<div class="publication-actions"><a href="pub/JPCS.pdf">PDF</a>
+<button class="copy-cite" type="button" data-copy-label="Copy citation" aria-live="polite">Copy citation</button></div>
+<span class="citation-text" hidden>Wang, Y.*, Zhang, J., &amp; Chang, Y. (2024). A probability prediction model for flood disasters based on Multi-layer Perceptron. Journal of Physics: Conference Series, 2905(1), 012003.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-32" data-direction="3" data-year="2024">
+<article>
+<h3 class="publication-title"><a href="https://ieeexplore.ieee.org/abstract/document/10762174/">Multi-stage Crop Planting Strategy Optimization Model Based on PSO Algorithm</a></h3>
+<p class="publication-authors">Wang, J., &amp; <b>Wang, Y.*</b></p>
+<p class="publication-venue"><i>In 2024 3rd International Conference on Electronics and Information Technology (EIT)</i>, (pp. 915-919). IEEE · 2024</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="Copy citation" aria-live="polite">Copy citation</button></div>
+<span class="citation-text" hidden>Wang, J., &amp; Wang, Y.* (2024). Multi-stage Crop Planting Strategy Optimization Model Based on PSO Algorithm. In 2024 3rd International Conference on Electronics and Information Technology (EIT) (pp. 915-919). IEEE.</span>
+</article>
+</li>
+<li class="publication-entry" data-paper-id="paper-33" data-direction="3" data-year="2024">
+<article>
+<h3 class="publication-title"><a href="https://ieeexplore.ieee.org/abstract/document/10800255/">Research on Travel Route Planning Problems Based on Greedy Algorithm</a></h3>
+<p class="publication-authors">Wang, G., <b>Wang, Y.</b>, &amp; Li, W.</p>
+<p class="publication-venue"><i>In 2024 4th International Conference on Electronic Information Engineering and Computer Science (EIECS)</i>, (pp. 755-758). IEEE · 2024</p>
+<div class="publication-actions">
+<button class="copy-cite" type="button" data-copy-label="Copy citation" aria-live="polite">Copy citation</button></div>
+<span class="citation-text" hidden>Wang, G., Wang, Y., &amp; Li, W. (2024). Research on Travel Route Planning Problems Based on Greedy Algorithm. In 2024 4th International Conference on Electronic Information Engineering and Computer Science (EIECS) (pp. 755-758). IEEE.</span>
+</article>
+</li>
+</ul></section>
 </div>
 
 <div id="footer"><div id="footer-text">Last updated: <span id="last-updated"></span></div></div>
@@ -207,7 +787,7 @@
 </tr>
 </table>
 
-<script src="assets/script.js" defer></script>
+<script src="assets/script.js?v=4" defer></script>
 
 </body>
 </html>

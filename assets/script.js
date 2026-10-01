@@ -110,6 +110,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     initializeLanguage();
+    document.querySelectorAll('.top-nav-bar a[href]').forEach(function(link) {
+        const target = link.getAttribute('href');
+        if (target === location.pathname.split('/').pop() || (isHomepage && target === 'index.html')) {
+            link.classList.add('top-nav-active');
+            link.setAttribute('aria-current', 'page');
+        }
+    });
 
     if (langToggle && langDropdownMenu) {
         langToggle.addEventListener('click', function(e) {
@@ -161,8 +168,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // collapse long project abstracts into native <details> (homepage only;
-    // the Experience page shows every abstract fully expanded)
+    // Legacy homepage abstracts use native details; Experience supplies its own markup.
     if (isHomepage) document.querySelectorAll('#layout-content li > p').forEach(function(p) {
         const txt = (p.textContent || '').trim();
         if (!(txt.startsWith('摘要：') || txt.startsWith('摘要:') || txt.startsWith('Abstract:'))) return;
@@ -191,8 +197,33 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // one-click citation copy on paper entries — publications page only (homepage opt-out)
+    // Year groups remain static HTML; filters only change visibility.
     if (/publications\.html$/.test(location.pathname)) {
+    const filterPublications = (filter) => {
+        document.querySelectorAll('.publications-content').forEach(function(root) {
+            let count = 0;
+            root.querySelectorAll('.publication-entry').forEach(function(entry) {
+                entry.hidden = filter !== 'all' && entry.dataset.direction !== filter;
+                if (!entry.hidden) count++;
+            });
+            root.querySelectorAll('.publication-year').forEach(function(year) {
+                year.hidden = !year.querySelector('.publication-entry:not([hidden])');
+            });
+            root.querySelectorAll('.publication-filter').forEach(function(button) {
+                const active = button.dataset.filter === filter;
+                button.classList.toggle('active', active);
+                button.setAttribute('aria-pressed', String(active));
+            });
+            root.querySelector('.publication-count').textContent =
+                count + (root.classList.contains('lang-zh') ? ' 篇论文' : ' publications');
+        });
+    };
+    document.querySelectorAll('.publication-filter').forEach(function(button) {
+        button.addEventListener('click', function() {
+            filterPublications(button.dataset.filter);
+        });
+    });
+
     const copyText = (text) => {
         if (navigator.clipboard && window.isSecureContext) {
             return navigator.clipboard.writeText(text);
@@ -214,27 +245,24 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     };
 
-    document.querySelectorAll('#layout-content li > p').forEach(function(p) {
-        if (!p.querySelector('i') || p.querySelector('.copy-cite')) return;
-        const btn = document.createElement('button');
-        btn.className = 'copy-cite';
-        btn.type = 'button';
-        btn.title = 'Copy citation';
-        btn.setAttribute('aria-label', 'Copy citation');
-        btn.textContent = '⧉';
+    document.querySelectorAll('.publication-entry .copy-cite').forEach(function(btn) {
         btn.addEventListener('click', function(ev) {
             ev.stopPropagation();
-            const clone = p.cloneNode(true);
-            clone.querySelectorAll('.copy-cite').forEach(function(b) { b.remove(); });
-            const text = clone.innerText.replace(/\s+/g, ' ').trim();
+            const citation = btn.closest('.publication-entry').querySelector('.citation-text');
+            const text = citation.textContent.replace(/\s+/g, ' ').trim();
+            const isChinese = btn.closest('.publications-content').classList.contains('lang-zh');
             copyText(text).then(function() {
-                btn.textContent = '✓';
-                setTimeout(function() { btn.textContent = '⧉'; }, 1200);
+                clearTimeout(btn.copyFeedbackTimer);
+                btn.textContent = isChinese ? '已复制' : 'Copied';
+                btn.classList.add('copied');
+                btn.copyFeedbackTimer = setTimeout(function() {
+                    btn.textContent = btn.dataset.copyLabel;
+                    btn.classList.remove('copied');
+                }, 1800);
             }).catch(function() {
-                btn.textContent = '✗';
+                btn.textContent = isChinese ? '复制失败，请重试' : 'Copy failed — retry';
             });
         });
-        p.appendChild(btn);
     });
     }
   });

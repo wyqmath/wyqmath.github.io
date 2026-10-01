@@ -25,7 +25,7 @@ body {
 
 /* Top Bar */
 .top-bar {
-  position: fixed;
+  position: static;
   top: 0;
   left: 0;
   right: 0;
@@ -48,6 +48,7 @@ body {
 
 .top-bar-right {
   display: flex;
+  align-items: center;
   gap: 10px;
 }
 
@@ -82,7 +83,7 @@ body {
 /* Layout */
 .container {
   display: flex;
-  margin-top: 56px;
+  margin-top: 0;
   height: calc(100vh - 56px);
 }
 
@@ -358,8 +359,9 @@ canvas {
 <div class="top-bar">
   <h1>Fun Zone</h1>
   <div class="top-bar-right">
+    <button class="fun-theme-toggle" id="fun-theme-toggle" type="button" aria-label="Switch to dark mode" title="切换深色 / 浅色">🌙</button>
     <button class="top-btn export-btn" id="export-btn">📸 Export</button>
-    <a href="/" class="top-btn">🏠 Home</a>
+    <a href="index.html" class="top-btn">🏠 Home</a>
   </div>
 </div>
 
@@ -2490,6 +2492,35 @@ switchTab("fold");
   var d = new Date(document.lastModified);
   var p = function(n) { return (n < 10 ? '0' : '') + n; };
   document.getElementById('last-updated').textContent = d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate());
+})();
+</script>
+<style>
+.fun-theme-toggle{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid #e1e8ed;border-radius:50%;padding:0;background:#fff;color:#2c3e50;font-size:15px;cursor:pointer}
+.fun-theme-toggle:hover{background:#eef1f5}
+.fun-theme-toggle:focus-visible{outline:2px solid #0047ab;outline-offset:3px}
+:root[data-theme="dark"] .fun-theme-toggle{background:#262c37;border-color:#3a404c;color:#d8dde5}
+</style>
+<script>
+(() => {
+  const button = document.getElementById('fun-theme-toggle');
+  const system = matchMedia('(prefers-color-scheme: dark)');
+  const apply = theme => {
+    document.documentElement.dataset.theme = theme;
+    button.textContent = theme === 'dark' ? '☀️' : '🌙';
+    button.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    document.querySelectorAll('meta[name="theme-color"]').forEach(meta => {
+      meta.content = theme === 'dark' ? '#000000' : '#f5f7fa';
+    });
+  };
+  apply(localStorage.getItem('theme') || (system.matches ? 'dark' : 'light'));
+  button.addEventListener('click', () => {
+    const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('theme', next);
+    apply(next);
+  });
+  system.addEventListener('change', event => {
+    if (!localStorage.getItem('theme')) apply(event.matches ? 'dark' : 'light');
+  });
 })();
 </script>
 </body>
