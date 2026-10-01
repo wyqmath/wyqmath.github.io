@@ -415,3 +415,117 @@ html{font-size:14px}
 td#layout-menu,body.menu-open td#layout-menu{position:absolute;left:0;top:0;transform:none;width:200px;box-shadow:none;overflow:visible;padding:1.5rem .75rem;background:transparent;font-size:.95rem;box-sizing:border-box}
 table#tlayout{width:1200px;max-width:1200px;margin:0 auto;border:none;border-collapse:collapse;background:transparent;table-layout:fixed}
 td#layout-content{width:1200px;box-sizing:border-box;padding:2.5rem 200px 2.5rem 200px}
+
+/* Education: institution and dates first, with separate roles and research details. */
+.education-list{
+    --education-heading:#1a1f27;
+    --education-secondary:#59636e;
+    --education-rule:#e6e9ed;
+    --education-link:#0070df;
+    container-type:inline-size;
+}
+.education-entry{
+    display:grid;
+    grid-template-columns:84px minmax(0,1fr);
+    column-gap:18px;
+    padding:22px 0;
+}
+.education-entry:first-child{padding-top:0}
+.education-entry:last-child{padding-bottom:0}
+.education-entry+.education-entry{border-top:1px solid var(--education-rule)}
+.education-mark{display:flex;justify-content:center;align-items:flex-start;padding-top:2px}
+#layout-content .education-list .education-logo{
+    display:block;
+    width:auto;
+    height:auto !important;
+    max-width:84px;
+    max-height:38px;
+    object-fit:contain;
+    margin:0;
+}
+.education-mark img[src*="szbl-logo"]{margin-top:4px !important}
+#layout-content .education-mark img[src*="szbl-logo-mark"]{filter:none}
+#layout-content .education-list .education-logo-dark{display:none}
+:root[data-theme="dark"] #layout-content .education-list .education-logo-light{display:none}
+:root[data-theme="dark"] #layout-content .education-list .education-logo-dark{display:block}
+.education-content{min-width:0}
+.education-header{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    gap:6px 14px;
+    align-items:baseline;
+    margin-bottom:6px;
+}
+#layout-content .education-header h3{
+    margin:0;
+    padding:0;
+    border:none;
+    color:var(--education-heading);
+    font-size:1.14rem;
+    line-height:1.45;
+    font-weight:700;
+}
+.education-date{
+    color:var(--education-secondary);
+    font-size:.86rem;
+    line-height:1.5;
+    white-space:nowrap;
+    font-variant-numeric:tabular-nums;
+}
+#layout-content .education-list p{
+    margin:5px 0 0;
+    padding:0;
+    text-indent:0;
+    text-align:left;
+    font-size:1rem;
+    line-height:1.65;
+    overflow-wrap:break-word;
+}
+#layout-content .education-list .education-role{
+    margin-top:0;
+    color:var(--education-heading);
+    font-weight:600;
+}
+.education-unit{color:var(--education-secondary)}
+.education-mentors{margin-top:10px}
+#layout-content .education-mentors p{margin-top:3px}
+#layout-content .education-list a{color:var(--education-link);overflow-wrap:break-word}
+#layout-content .education-header a{color:inherit;font-weight:inherit}
+#layout-content .education-unit a{
+    color:inherit;
+    text-decoration:underline;
+    text-decoration-color:var(--education-rule);
+    text-underline-offset:3px;
+}
+#layout-content .education-list a:hover{color:var(--education-link);border-bottom:none}
+#layout-content .education-program-link{font-size:.93rem}
+.education-details{margin-top:10px}
+.education-details summary{
+    width:fit-content;
+    color:var(--education-link);
+    font-size:.93rem;
+    line-height:1.65;
+    cursor:pointer;
+}
+#layout-content .education-details p{color:var(--education-secondary);font-size:.93rem}
+:root[data-theme="dark"] .education-list{
+    --education-heading:#c9d4e3;
+    --education-secondary:#a9b2be;
+    --education-rule:#2a2f3a;
+    --education-link:#83b9ff;
+}
+@container (max-width:560px){
+    .education-entry{grid-template-columns:60px minmax(0,1fr);column-gap:12px}
+    #layout-content .education-list .education-logo{max-width:60px;max-height:32px}
+    .education-header{grid-template-columns:minmax(0,1fr);gap:4px}
+}
+@container (max-width:420px){
+    .education-entry{row-gap:4px}
+    .education-content{display:contents}
+    .education-mark{grid-column:1;grid-row:1}
+    .education-header{grid-column:2;grid-row:1}
+    .education-entry p,.education-mentors,.education-details{grid-column:1/-1}
+}
+@media (pointer:coarse){
+    .education-details summary{min-height:44px}
+}

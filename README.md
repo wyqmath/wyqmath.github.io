@@ -20,3 +20,5 @@
 ```
 
 部署：push 到 GitHub 后由 Vercel 自动发布。
+
+部署环境：项目根目录的 `package.json` 将 Node.js 固定为 `24.x`。Vercel 控制台的 Settings → Build and Deployment → Node.js Version 也可同步选择 `24.x`；版本设置会在新的部署中生效。
