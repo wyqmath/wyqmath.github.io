@@ -410,7 +410,7 @@ li:nth-child(even) .paper-tldr{grid-column:1;grid-row:2}
 /* featured lists read cleaner without square markers */
 ul:has(> li .paper-fig){list-style-type:none}
 /* ===== one printed page for every device: a fixed 1200px sheet — links in the left margin, article centered on the sheet — scaled to fit phones and tablets, exactly like a PDF ===== */
-html{font-size:16px}
+html{font-size:14px}
 #menu-toggle-btn{display:none}
 td#layout-menu,body.menu-open td#layout-menu{position:static;transform:none;width:200px;box-shadow:none;overflow:visible;padding:1.5rem .75rem;background:transparent;font-size:.95rem;box-sizing:border-box}
 td#layout-menu::-webkit-scrollbar{display:none}
