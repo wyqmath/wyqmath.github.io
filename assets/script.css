@@ -467,7 +467,7 @@ h2{font-size:1.3rem;line-height:1.25;padding-top:0;border-left:4px solid #0047ab
 
 /* featured paper entry: description-led, citation secondary, figure prominent */
 .paper-fig-body{display:flow-root;padding-bottom:2.2em}
-.paper-fig{float:right;width:min(400px,52%);margin:.2em 0 .6em 1.5em}
+.paper-fig{float:right;width:74%;margin:.2em 0 .6em 1.5em}
 li:nth-child(even) .paper-fig{float:left;margin:.2em 1.5em .6em 0}
 .paper-fig a{display:block;border-bottom:none}
 .paper-fig img{display:block;width:100%;height:auto}
@@ -478,7 +478,8 @@ li:nth-child(even) .paper-fig{float:left;margin:.2em 1.5em .6em 0}
 @media (max-width:768px){li .paper-fig,li:nth-child(even) .paper-fig{float:none;width:100%;max-width:100%;margin:0 0 .6em}}
 /* featured lists read cleaner without square markers */
 ul:has(> li .paper-fig){list-style-type:none}
-/* ultra-wide displays: pin the sidebar to the viewport's left edge and let the content column center freely */
-@media (min-width:1760px){
-    td#layout-menu{position:fixed;left:0;top:0;bottom:0;width:260px;overflow-y:auto}
+/* proportional desktop layout: sidebar pinned to the left edge at ~16% of the viewport, content centered at ~62% */
+@media (min-width:1100px){
+    td#layout-menu{position:fixed;left:0;top:0;bottom:0;width:clamp(200px,16%,320px);box-sizing:border-box;overflow-y:auto}
+    table#tlayout{width:clamp(560px,62%,1500px)}
 }
