@@ -224,45 +224,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    const copyText = (text) => {
-        if (navigator.clipboard && window.isSecureContext) {
-            return navigator.clipboard.writeText(text);
-        }
-        return new Promise((resolve, reject) => {
-            const ta = document.createElement('textarea');
-            ta.value = text;
-            ta.style.position = 'fixed';
-            ta.style.opacity = '0';
-            document.body.appendChild(ta);
-            ta.select();
-            try {
-                document.execCommand('copy') ? resolve() : reject(new Error('copy failed'));
-            } catch (e) {
-                reject(e);
-            } finally {
-                ta.remove();
-            }
-        });
-    };
-
-    document.querySelectorAll('.publication-entry .copy-cite').forEach(function(btn) {
-        btn.addEventListener('click', function(ev) {
-            ev.stopPropagation();
-            const citation = btn.closest('.publication-entry').querySelector('.citation-text');
-            const text = citation.textContent.replace(/\s+/g, ' ').trim();
-            const isChinese = btn.closest('.publications-content').classList.contains('lang-zh');
-            copyText(text).then(function() {
-                clearTimeout(btn.copyFeedbackTimer);
-                btn.textContent = isChinese ? '已复制' : 'Copied';
-                btn.classList.add('copied');
-                btn.copyFeedbackTimer = setTimeout(function() {
-                    btn.textContent = btn.dataset.copyLabel;
-                    btn.classList.remove('copied');
-                }, 1800);
-            }).catch(function() {
-                btn.textContent = isChinese ? '复制失败，请重试' : 'Copy failed — retry';
-            });
-        });
-    });
     }
   });

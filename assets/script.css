@@ -307,8 +307,6 @@ a:focus-visible,button:focus-visible{outline:2px solid #007bff;outline-offset:2p
 
     :root[data-theme="dark"] .theme-toggle{background-color:#262c37;border-color:#2a2f3a}
     :root[data-theme="dark"] img[src*="wyq-small"]{box-shadow:0 4px 14px rgba(0,0,0,.45)}
-    :root[data-theme="dark"] .copy-cite{background:#262c37;border-color:#2a2f3a;color:#c3cad4}
-    :root[data-theme="dark"] .copy-cite:hover{background:#007bff;border-color:#007bff;color:#fff}
     :root[data-theme="dark"] div#footer{border-top-color:#2a2f3a}
 
 /* theme toggle button */
@@ -320,10 +318,6 @@ img[src*="wyq-small"]{border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.15);w
 
 /* hanging indent so wrapped paper entries align after the first line */
 #layout-content li>p{padding-left:1.6em;text-indent:-1.6em}
-
-/* per-entry citation copy button (injected by assets/script.js) */
-.copy-cite{margin-left:8px;border:1px solid #e9ecef;background:#f8f9fa;color:#495057;border-radius:6px;width:26px;height:22px;padding:0;cursor:pointer;font-size:12px;line-height:1;vertical-align:middle;transition:all .15s ease}
-.copy-cite:hover{background:#007bff;border-color:#007bff;color:#fff}
 
 /* collapsible boxes (project abstracts, reviewer list) */
 details.collapse-box,details.abstract-box{margin:.3em 0}
@@ -603,8 +597,6 @@ td#layout-content{width:1200px;box-sizing:border-box;padding:2.5rem 200px 2.5rem
 .publication-actions{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-4);margin-top:var(--space-2);font-size:.86rem;line-height:1.5}
 .publications-page #layout-content .publication-actions a{color:var(--muted);text-decoration:none}
 .publication-actions a:hover{color:var(--ink);text-decoration:underline;border:0}
-.publications-page #layout-content .publication-actions .copy-cite{position:static;display:inline-flex;opacity:1;width:auto;height:auto;white-space:nowrap;margin:0;padding:0;background:none;border:0;border-radius:0;box-shadow:none;color:var(--muted);font:inherit;cursor:pointer;line-height:inherit}
-.publications-page #layout-content .publication-actions .copy-cite:hover,.publications-page #layout-content .publication-actions .copy-cite.copied{background:none;border:0;color:var(--ink);text-decoration:underline}
 .publication-entry[hidden],.publication-year[hidden]{display:none!important}
 
 /* Experience: text columns replace numbered headings and nested bullets. */
