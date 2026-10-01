@@ -107,6 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('details.abstract-box > summary').forEach(function(s) {
             s.textContent = lang === 'zh' ? '\u6458\u8981' : 'Abstract';
         });
+        document.dispatchEvent(new Event('languagechange'));
     }
 
     initializeLanguage();
@@ -197,36 +198,176 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Year groups remain static HTML; filters only change visibility.
+    // Search and category filters preserve the publication order within each year.
     if (/publications\.html$/.test(location.pathname)) {
-    const filterPublications = (filter) => {
-        document.querySelectorAll('.publications-content').forEach(function(root) {
-            let count = 0;
-            root.querySelectorAll('.publication-entry').forEach(function(entry) {
-                entry.hidden = filter !== 'all' && entry.dataset.direction !== filter;
-                if (!entry.hidden) count++;
-            });
-            root.querySelectorAll('.publication-year').forEach(function(year) {
-                year.hidden = !year.querySelector('.publication-entry:not([hidden])');
-            });
-            root.querySelectorAll('.publication-filter').forEach(function(button) {
-                const active = button.dataset.filter === filter;
-                button.classList.toggle('active', active);
-                button.setAttribute('aria-pressed', String(active));
-            });
-            root.querySelector('.publication-count').textContent =
-                count + (root.classList.contains('lang-zh') ? ' 篇论文' : ' publications');
-        });
-    };
-    document.querySelectorAll('.publication-filter, .publication-tag').forEach(function(button) {
-        button.addEventListener('click', function() {
-            filterPublications(button.dataset.filter);
-            if (button.classList.contains('publication-tag')) {
-                button.closest('.publications-content').querySelector('.publication-toolbar')
-                    .scrollIntoView({behavior: 'smooth', block: 'start'});
-            }
-        });
-    });
+        const normalizeTitle = (text) => text.normalize('NFKD').toLowerCase()
+            .replace(/\p{M}/gu, '').replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
 
+        // Adjacent transpositions count as one edit, e.g. "protien" -> "protein".
+        const withinEditDistance = (query, word, limit) => {
+            if (Math.abs(query.length - word.length) > limit) return false;
+            let previous = Array.from({length: word.length + 1}, (_, i) => i);
+            let beforePrevious;
+            for (let i = 1; i <= query.length; i++) {
+                const row = [i];
+                for (let j = 1; j <= word.length; j++) {
+                    row[j] = Math.min(
+                        row[j - 1] + 1,
+                        previous[j] + 1,
+                        previous[j - 1] + (query[i - 1] === word[j - 1] ? 0 : 1)
+                    );
+                    if (i > 1 && j > 1 && query[i - 1] === word[j - 2] &&
+                        query[i - 2] === word[j - 1]) {
+                        row[j] = Math.min(row[j], beforePrevious[j - 2] + 1);
+                    }
+                }
+                beforePrevious = previous;
+                previous = row;
+            }
+            return previous[word.length] <= limit;
+        };
+
+        const titleMatches = (record, query, tokens) => {
+            if (!query || record.title.includes(query)) return true;
+            return tokens.every(token => {
+                if (record.title.includes(token)) return true;
+                if (token.length < 4) return false;
+                const limit = token.length >= 8 ? 2 : 1;
+                return record.words.some(word => withinEditDistance(token, word, limit));
+            });
+        };
+
+        const views = Array.from(document.querySelectorAll('.publications-content'), root => ({
+            root,
+            input: root.querySelector('.publication-search-input'),
+            clear: root.querySelector('.publication-search-clear'),
+            count: root.querySelector('.publication-count'),
+            empty: root.querySelector('.publication-empty'),
+            nav: root.querySelector('.publication-year-nav'),
+            years: Array.from(root.querySelectorAll('.publication-year')),
+            links: Array.from(root.querySelectorAll('.publication-year-link')),
+            records: Array.from(root.querySelectorAll('.publication-entry'), entry => {
+                const title = normalizeTitle(entry.querySelector('.publication-title').textContent);
+                return {entry, title, words: title.split(' ')};
+            })
+        }));
+        const state = {filter: 'all', query: ''};
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        let yearUpdatePending = false;
+
+        const updateCurrentYear = () => {
+            yearUpdatePending = false;
+            const view = views.find(view => view.root.getClientRects().length);
+            if (!view) return;
+            const years = view.years.filter(year => !year.hidden);
+            if (!years.length) return;
+            const readingLine = Math.min(window.innerHeight * 0.25, 160);
+            let current = years[0];
+            years.forEach(year => {
+                if (year.getBoundingClientRect().top <= readingLine) current = year;
+            });
+            if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2) {
+                current = years[years.length - 1];
+            }
+            view.links.forEach(link => {
+                const active = link.dataset.year === current.dataset.year;
+                link.classList.toggle('active', active);
+                if (active) link.setAttribute('aria-current', 'location');
+                else link.removeAttribute('aria-current');
+            });
+        };
+
+        const scheduleYearUpdate = () => {
+            if (yearUpdatePending) return;
+            yearUpdatePending = true;
+            window.requestAnimationFrame(updateCurrentYear);
+        };
+
+        const updateResults = () => {
+            const query = normalizeTitle(state.query);
+            const tokens = query.split(' ').filter(Boolean);
+            views.forEach(view => {
+                let count = 0;
+                const yearCounts = {};
+                view.records.forEach(record => {
+                    const entry = record.entry;
+                    entry.hidden = (state.filter !== 'all' && entry.dataset.direction !== state.filter) ||
+                        !titleMatches(record, query, tokens);
+                    if (!entry.hidden) {
+                        count++;
+                        yearCounts[entry.dataset.year] = (yearCounts[entry.dataset.year] || 0) + 1;
+                    }
+                });
+                view.years.forEach(year => { year.hidden = !yearCounts[year.dataset.year]; });
+                view.links.forEach(link => {
+                    const total = yearCounts[link.dataset.year] || 0;
+                    link.parentElement.hidden = !total;
+                    link.querySelector('.publication-year-count').textContent = total;
+                    link.setAttribute('aria-label', view.root.classList.contains('lang-zh')
+                        ? link.dataset.year + ' 年，' + total + ' 篇论文'
+                        : link.dataset.year + ', ' + total + ' publications');
+                });
+                view.root.querySelectorAll('.publication-filter').forEach(button => {
+                    const active = button.dataset.filter === state.filter;
+                    button.classList.toggle('active', active);
+                    button.setAttribute('aria-pressed', String(active));
+                });
+                const filtered = query || state.filter !== 'all';
+                const zh = view.root.classList.contains('lang-zh');
+                view.count.textContent = zh
+                    ? (filtered ? count + ' / ' + view.records.length : count) + ' 篇论文'
+                    : (filtered ? count + ' of ' + view.records.length : count) + ' publications';
+                if (view.input.value !== state.query) view.input.value = state.query;
+                view.clear.hidden = !state.query;
+                view.empty.hidden = count > 0;
+                view.nav.hidden = count === 0;
+            });
+            scheduleYearUpdate();
+        };
+
+        views.forEach(view => {
+            view.root.querySelectorAll('.publication-filter').forEach(button => {
+                button.addEventListener('click', () => {
+                    state.filter = button.dataset.filter;
+                    updateResults();
+                });
+            });
+            const search = () => {
+                state.query = view.input.value;
+                updateResults();
+            };
+            view.input.addEventListener('input', event => {
+                if (!event.isComposing) search();
+            });
+            view.input.addEventListener('compositionend', search);
+            view.clear.addEventListener('click', () => {
+                state.query = '';
+                updateResults();
+                view.input.focus();
+            });
+            view.root.querySelector('.publication-reset').addEventListener('click', () => {
+                state.query = '';
+                state.filter = 'all';
+                updateResults();
+                view.input.focus();
+            });
+            view.links.forEach(link => {
+                link.addEventListener('click', event => {
+                    event.preventDefault();
+                    const year = view.years.find(year => year.dataset.year === link.dataset.year);
+                    if (!year || year.hidden) return;
+                    year.focus({preventScroll: true});
+                    year.scrollIntoView({
+                        behavior: reducedMotion.matches ? 'instant' : 'smooth',
+                        block: 'start'
+                    });
+                    scheduleYearUpdate();
+                });
+            });
+        });
+        window.addEventListener('scroll', scheduleYearUpdate, {passive: true});
+        window.addEventListener('resize', scheduleYearUpdate);
+        document.addEventListener('languagechange', scheduleYearUpdate);
+        updateResults();
     }
   });
