@@ -11,7 +11,7 @@ The site uses plain HTML, CSS, and JavaScript. No application build step is requ
 | Page | Content |
 | --- | --- |
 | `index.html` | Personal profile, education and visiting student appointments, featured research, personal profile links, mentors and collaborators, and institutions. |
-| `publications.html` | Publications grouped by year, title search, research area filters, and a year navigation rail. |
+| `publications.html` | Publications grouped by year, title search, research area and authorship filters, and a year navigation rail. |
 | `experience.html` | Research projects, reviewer service, learning experiences, internships, awards, and other activities. |
 | `funzone.html` | Interactive mathematics and science demonstrations. |
 
@@ -42,11 +42,12 @@ Personal profile links appear below the contact details on the homepage, using t
 - Papers are grouped by year, from newest to oldest. Searching and filtering preserve their order within each year.
 - The left year navigation shows the number of visible papers in each year, jumps to that year's section, and highlights the current reading position.
 - Title search accepts partial keywords and multiple keywords. It ignores case, punctuation, and diacritics, and tolerates small spelling errors, including adjacent letter swaps.
-- Search applies to paper titles only, and can be combined with a research area filter.
+- Search applies to paper titles only, and can be combined with research area and authorship filters.
 - The buttons above the list filter by Computational biology, Mathematical physics & biological complexity, or Interdisciplinary explorations.
 - Colored category tags beside individual papers are descriptive labels. They do not filter results or trigger scrolling.
+- Author role buttons select all papers, papers where Yiquan Wang is the first or a co-first author, or papers where he is a corresponding author (including co-corresponding authors). A paper can qualify for both role filters.
 - Years with no matching papers are hidden. An empty result includes an option to clear the search and display all papers.
-- Search text and the selected filter are retained when switching between English and Chinese.
+- Search text and both selected filters are retained when switching between English and Chinese.
 
 ## Repository Structure
 
@@ -59,7 +60,7 @@ Personal profile links appear below the contact details on the homepage, using t
 ├── assets/
 │   ├── spacing.css     # Shared spacing values
 │   ├── script.css      # Academic page styles and typography
-│   ├── script.js       # Language, theme, title search, filters, and year navigation
+│   ├── script.js       # Language, theme, title search, area/role filters, and year navigation
 │   └── ...             # Additional site assets, including the social sharing image
 ├── figures/            # Research figures
 ├── photos/             # Profile photo and institution logos
@@ -93,6 +94,7 @@ If an existing browser tab still displays an older layout after a change, reload
 3. Use the same `data-paper-id` for a paper in both language versions. Preserve the `.publication-title`, `.publication-authors`, `.publication-venue`, and `.publication-tag` elements.
 4. When adding a year, add its section and navigation link to both language versions. Use distinct section IDs for each language, and point the corresponding year links to those IDs. Visible counts are recalculated by JavaScript.
 5. Keep individual paper tags as `<span>` elements. Filtering belongs to the toolbar buttons.
+   Set `data-author-roles` on each publication entry to a space-separated list of the applicable roles: `first`, `co-first`, and `corresponding`. An empty value means no listed role. Keep these values identical in both language versions and verify them against the manuscript's author notes or an explicit author confirmation; do not interpret a symbol without checking its meaning in that paper.
 6. Make shared design changes in `assets/script.css` and `assets/spacing.css`. Increment the relevant asset version in all three academic HTML files when changing shared CSS or JavaScript.
 7. Preview the affected pages in both languages and themes before publishing.
 

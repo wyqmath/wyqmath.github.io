@@ -248,10 +248,11 @@ document.addEventListener('DOMContentLoaded', function() {
             links: Array.from(root.querySelectorAll('.publication-year-link')),
             records: Array.from(root.querySelectorAll('.publication-entry'), entry => {
                 const title = normalizeTitle(entry.querySelector('.publication-title').textContent);
-                return {entry, title, words: title.split(' ')};
+                const roles = (entry.dataset.authorRoles || '').split(/\s+/).filter(Boolean);
+                return {entry, title, words: title.split(' '), roles};
             })
         }));
-        const state = {filter: 'all', query: ''};
+        const state = {filter: 'all', role: 'all', query: ''};
         const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
         let yearUpdatePending = false;
 
@@ -291,8 +292,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 const yearCounts = {};
                 view.records.forEach(record => {
                     const entry = record.entry;
+                    const matchesRole = state.role === 'all' ||
+                        (state.role === 'first'
+                            ? record.roles.includes('first') || record.roles.includes('co-first')
+                            : record.roles.includes('corresponding'));
                     entry.hidden = (state.filter !== 'all' && entry.dataset.direction !== state.filter) ||
-                        !titleMatches(record, query, tokens);
+                        !matchesRole || !titleMatches(record, query, tokens);
                     if (!entry.hidden) {
                         count++;
                         yearCounts[entry.dataset.year] = (yearCounts[entry.dataset.year] || 0) + 1;
@@ -312,7 +317,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     button.classList.toggle('active', active);
                     button.setAttribute('aria-pressed', String(active));
                 });
-                const filtered = query || state.filter !== 'all';
+                view.root.querySelectorAll('.publication-role-filter').forEach(button => {
+                    const active = button.dataset.role === state.role;
+                    button.classList.toggle('active', active);
+                    button.setAttribute('aria-pressed', String(active));
+                });
+                const filtered = query || state.filter !== 'all' || state.role !== 'all';
                 const zh = view.root.classList.contains('lang-zh');
                 view.count.textContent = zh
                     ? (filtered ? count + ' / ' + view.records.length : count) + ' 篇论文'
@@ -332,6 +342,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     updateResults();
                 });
             });
+            view.root.querySelectorAll('.publication-role-filter').forEach(button => {
+                button.addEventListener('click', () => {
+                    state.role = button.dataset.role;
+                    updateResults();
+                });
+            });
             const search = () => {
                 state.query = view.input.value;
                 updateResults();
@@ -348,6 +364,7 @@ document.addEventListener('DOMContentLoaded', function() {
             view.root.querySelector('.publication-reset').addEventListener('click', () => {
                 state.query = '';
                 state.filter = 'all';
+                state.role = 'all';
                 updateResults();
                 view.input.focus();
             });
