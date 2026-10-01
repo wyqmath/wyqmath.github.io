@@ -77,11 +77,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let currentLang = 'en';
 
+    // the hardcoded titles below describe the homepage only; subpages keep their own <title>
+    const isHomepage = location.pathname === '/' || location.pathname.endsWith('/index.html');
+
     function initializeLanguage() {
         zhElements.forEach(el => el.style.display = 'none');
         enElements.forEach(el => el.style.display = '');
         document.documentElement.lang = 'en';
-        document.title = 'Yiquan Wang (王一权) | AI for Science Researcher';
+        if (isHomepage) document.title = 'Yiquan Wang (王一权) | AI for Science Researcher';
     }
 
     function setLanguage(lang) {
@@ -89,12 +92,12 @@ document.addEventListener('DOMContentLoaded', function() {
             zhElements.forEach(el => el.style.setProperty('display', 'block', 'important'));
             enElements.forEach(el => el.style.setProperty('display', 'none', 'important'));
             document.documentElement.lang = 'zh-CN';
-            document.title = '王一权 (Yiquan Wang) | AI for Science 研究者';
+            if (isHomepage) document.title = '王一权 (Yiquan Wang) | AI for Science 研究者';
         } else {
             zhElements.forEach(el => el.style.setProperty('display', 'none', 'important'));
             enElements.forEach(el => el.style.setProperty('display', 'block', 'important'));
             document.documentElement.lang = 'en';
-            document.title = 'Yiquan Wang (王一权) | AI for Science Researcher';
+            if (isHomepage) document.title = 'Yiquan Wang (王一权) | AI for Science Researcher';
         }
         currentLang = lang;
         langOptions.forEach(opt => {
@@ -158,8 +161,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // collapse long project abstracts into native <details>
-    document.querySelectorAll('#layout-content li > p').forEach(function(p) {
+    // collapse long project abstracts into native <details> (homepage only;
+    // the Experience page shows every abstract fully expanded)
+    if (isHomepage) document.querySelectorAll('#layout-content li > p').forEach(function(p) {
         const txt = (p.textContent || '').trim();
         if (!(txt.startsWith('摘要：') || txt.startsWith('摘要:') || txt.startsWith('Abstract:'))) return;
         const details = document.createElement('details');
