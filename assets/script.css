@@ -581,7 +581,7 @@ td#layout-content{width:var(--page-width);box-sizing:border-box;padding:2.5rem v
 :root[data-theme="dark"] .site-header .top-nav-link:hover{color:#f1f3f5!important}
 .keep-together{white-space:nowrap}
 .academic-page #layout-content li>p{padding-left:0;text-indent:0}
-.home-page #layout-content .paper-tldr,
+.home-page #layout-content .paper-tldr{text-align:justify;text-justify:auto}
 .experience-page #layout-content p{text-align:left}
 
 /* Publications: year, title, authors, venue, and quiet actions. */
