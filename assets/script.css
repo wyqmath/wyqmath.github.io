@@ -409,17 +409,9 @@ li:nth-child(even) .paper-tldr{grid-column:1;grid-row:2}
 :root[data-theme="dark"] .paper-fig img{border:1px solid #2a2f3a;filter:invert(1) hue-rotate(180deg)}
 /* featured lists read cleaner without square markers */
 ul:has(> li .paper-fig){list-style-type:none}
-/* ===== single proportional canvas: everything scales with the viewport ===== */
-html{font-size:1.25vw}
-body{font-size:1rem}
+/* ===== print-sheet canvas: a fixed 1200px page, like a PDF; phone fits it to screen, browser zoom scales it ===== */
+html{font-size:16px}
 #menu-toggle-btn{display:none}
-td#layout-menu,body.menu-open td#layout-menu{position:fixed;left:0;top:0;bottom:0;transform:none;width:16vw;box-sizing:border-box;overflow-y:auto;scrollbar-width:none;box-shadow:none;padding:1.5rem 1rem;background:transparent;font-size:.95rem}
+td#layout-menu,body.menu-open td#layout-menu{position:static;transform:none;width:260px;box-shadow:none;overflow:visible;padding:1.5rem 1rem;background:transparent;font-size:.95rem;box-sizing:border-box}
 td#layout-menu::-webkit-scrollbar{display:none}
-table#tlayout{width:62%;margin:0 auto;border:none;border-collapse:collapse;background:transparent}
-/* fixed-size artifacts become viewport-proportional */
-img[src*="wyq-small"]{width:15.6vw;height:auto}
-.menu-icon{width:1.4vw;height:1.4vw;margin-right:.75em}
-.education-logo{height:2.35vw !important;width:auto}
-img[src*="wechat-biomath"]{width:16.4vw;height:auto}
-.theme-toggle{width:2.5vw;height:2.5vw;font-size:1.17vw}
-.copy-cite{width:2vw;height:1.7vw;font-size:.95vw}
+table#tlayout{width:1200px;max-width:1200px;margin:0 auto;border:none;border-collapse:collapse;background:transparent}
