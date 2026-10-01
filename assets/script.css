@@ -412,7 +412,6 @@ ul:has(> li .paper-fig){list-style-type:none}
 /* ===== one printed page for every device: a fixed 1200px sheet — links in the left margin, article centered on the sheet — scaled to fit phones and tablets, exactly like a PDF ===== */
 html{font-size:14px}
 #menu-toggle-btn{display:none}
-td#layout-menu,body.menu-open td#layout-menu{position:fixed;left:0;top:0;bottom:0;transform:none;width:200px;box-shadow:none;overflow-y:auto;scrollbar-width:none;padding:1.5rem .75rem;background:transparent;font-size:.95rem;box-sizing:border-box}
-td#layout-menu::-webkit-scrollbar{display:none}
+td#layout-menu,body.menu-open td#layout-menu{position:absolute;left:0;top:0;transform:none;width:200px;box-shadow:none;overflow:visible;padding:1.5rem .75rem;background:transparent;font-size:.95rem;box-sizing:border-box}
 table#tlayout{width:1200px;max-width:1200px;margin:0 auto;border:none;border-collapse:collapse;background:transparent;table-layout:fixed}
 td#layout-content{width:1200px;box-sizing:border-box;padding:2.5rem 200px 2.5rem 200px}
