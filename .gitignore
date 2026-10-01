@@ -1,3 +1,5 @@
 .claude/
 .mimosa/
 preview/
+figures/*.png
+figures/*.jpg

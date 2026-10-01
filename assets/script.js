@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function() {
             s.textContent = theme === 'dark' ? '☀️' : '🌙';
         });
         document.querySelectorAll('meta[name="theme-color"]').forEach(function(m) {
-            m.setAttribute('content', theme === 'dark' ? '#1d2129' : '#f8f9fa');
+            m.setAttribute('content', theme === 'dark' ? '#000000' : '#f8f9fa');
         });
     };
 

@@ -332,11 +332,11 @@ a:focus-visible,button:focus-visible{outline:2px solid #007bff;outline-offset:2p
     :root[data-theme="dark"] a:focus-visible,:root[data-theme="dark"] button:focus-visible{outline-color:#6ab0ff}
     :root[data-theme="dark"] #layout-menu::-webkit-scrollbar-thumb{background:#3a404c}
 
-    :root[data-theme="dark"] body{background-color:#1d2129;color:#d8dde5}
+    :root[data-theme="dark"] body{background-color:#000000;color:#d8dde5}
     :root[data-theme="dark"] #layout-content{background:transparent}
-    :root[data-theme="dark"] #layout-menu{background-color:#1d2129;box-shadow:none}
-    :root[data-theme="dark"] .top-nav-bar{background-color:#1d2129;border-color:#2a2f3a;box-shadow:0 2px 8px rgba(0,0,0,.4)}
-    :root[data-theme="dark"] #menu-toggle-btn{background-color:#1d2129;box-shadow:0 4px 12px rgba(0,0,0,.5)}
+    :root[data-theme="dark"] #layout-menu{background-color:#000000;box-shadow:none}
+    :root[data-theme="dark"] .top-nav-bar{background-color:#000000;border-color:#2a2f3a;box-shadow:0 2px 8px rgba(0,0,0,.4)}
+    :root[data-theme="dark"] #menu-toggle-btn{background-color:#000000;box-shadow:0 4px 12px rgba(0,0,0,.5)}
     :root[data-theme="dark"] #menu-toggle-btn span{background-color:#d8dde5}
     :root[data-theme="dark"] #menu-close-btn{color:#8a93a1}
     :root[data-theme="dark"] #menu-close-btn:hover{color:#e9ecef}
@@ -358,7 +358,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #007bff;outline-offset:2p
     :root[data-theme="dark"] #menu-items .menu-item a.current{background-color:#007bff;color:#fff}
     :root[data-theme="dark"] .menu-category-title{color:#8a93a1}
 
-    :root[data-theme="dark"] .lang-dropdown-menu{background-color:#1d2129;border-color:#2a2f3a}
+    :root[data-theme="dark"] .lang-dropdown-menu{background-color:#000000;border-color:#2a2f3a}
     :root[data-theme="dark"] .lang-option{color:#c3cad4 !important}
     :root[data-theme="dark"] .lang-option:hover{background-color:#262c37;color:#e9ecef !important}
     :root[data-theme="dark"] .lang-option.active{color:#6ab0ff !important;background-color:#16273e}
@@ -464,3 +464,13 @@ h2{font-size:1.3rem;line-height:1.25;padding-top:0;border-left:4px solid #0047ab
     body{background:#fff !important;color:#000 !important}
     #layout-content{background:#fff !important;border:none !important}
 }
+
+/* featured paper entry: citation + plain-language note + figure */
+.paper-fig-body{display:flow-root}
+.paper-fig{float:right;width:min(300px,45%);margin:.2em 0 .6em 1.2em}
+.paper-fig a{display:block;border-bottom:none}
+.paper-fig img{display:block;width:100%;height:auto}
+.paper-tldr{font-size:.92em;color:#555;margin:.35em 0 0}
+:root[data-theme="dark"] .paper-tldr{color:#a9b4c2}
+:root[data-theme="dark"] .paper-fig img{border:1px solid #2a2f3a}
+@media (max-width:768px){.paper-fig{float:none;width:100%;max-width:100%;margin:0 0 .6em}}
