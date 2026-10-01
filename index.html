@@ -24,7 +24,8 @@
 <meta name="twitter:image" content="https://wyqmath.cn/assets/og-image.jpg">
 <meta name="keywords" content="Yiquan Wang, wyqmath, 王一权, AI for Science, Deep Learning, Representation Learning, Computational Biology, Bioinformatics, Protein Design, Molecular Dynamics, 3D Genome Folding, Virtual Cells, Mathematical Physics, 表征学习, 深度学习, 计算生物学, 生物信息学, 蛋白质设计, 分子动力学, 三维基因组, 虚拟细胞, 数学物理">
 <script>document.documentElement.dataset.theme=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');</script>
-<link rel="stylesheet" href="assets/script.css" type="text/css" />
+<link rel="stylesheet" href="assets/spacing.css" type="text/css" />
+<link rel="stylesheet" href="assets/script.css?v=3" type="text/css" />
 <link rel="shortcut icon" href="favicon.ico" />
 <link rel="bookmark" href="favicon.ico" type="image/x-icon" />
 <meta name="theme-color" content="#f8f9fa" media="(prefers-color-scheme: light)">
@@ -69,7 +70,7 @@
 }
 </script>
 </head>
-<body>
+<body class="academic-page home-page">
 <div id="menu-toggle-btn">
   <span></span>
   <span></span>
@@ -156,11 +157,15 @@
 </td></tr></table>
 
 <div class="lang-zh">
+<div class="content-section">
 <h2>个人简介</h2>
 <p>王一权是<a href="https://www.xju.edu.cn/">新疆大学</a>数学与应用数学专业（国家理科基地班）的本科生，同时也是<a href="https://www.tsinghua.edu.cn/">清华大学</a><a href="https://www.teep.cnmm.tsinghua.edu.cn/">钱学森班</a>与<a href="https://www.x-institute.edu.cn/">深圳零一学院</a>的联合培养零一学者。他的研究方向为科学智能（AI for Science），致力于解码生命系统的复杂性。</p>
 <p>他的科研之路始于数学建模。本科早期，他在建模竞赛与科研项目中广泛探索，从图论到 AI 驱动的热浪灾害风险分析，论文列表里的跨领域条目正是那段旅程留下的脚印。数学建模训练了他把真实系统抽象为模型的直觉，也让他逐渐看清了自己真正的热情所在。蛋白质是研究生命系统的合适小模型，Anfinsen 法则指出氨基酸序列决定三维结构，问题定义清晰，序列、结构与功能注释数据完备，天然适合表征学习，加之个人兴趣，他将蛋白质确立为核心研究对象。如果说蛋白质是理解生命系统的小模型，基因组就是这套系统更完整的蓝图，博士生阶段他的研究将聚焦基因组，同时继续推进蛋白质组的工作。</p>
 <p>在此基础上，他建立了两个独立而互补的研究方向：其一是数据驱动的<b>表征学习与生物分子机制</b>，利用深度学习解析复杂生物系统，研究涵盖蛋白质结构预测、蛋白质功能预测、蛋白质设计、分子动力学、多组学以及分子机制等多个生命科学问题；其二是<b>基于数学物理的生物复杂性第一性原理</b>，运用凝聚态物理、拓扑学、流形学习与微分几何推导生物系统的解析真理，独立于AI近似之外。他的核心愿景是将这两大方向融合，结合物理的归纳偏置与深度学习的表达能力，攻克一系列前沿科学难题，包括内在无序蛋白质（IDP）动态系综生成、液-液相分离（LLPS）与三维基因组折叠、靶向"不可成药"靶点的理性设计以及虚拟细胞的构建。通过这些突破，他最终旨在攻克复杂人类疾病，并走向对生命本质的根本理解。</p>
 <p>研究成果发表于《Journal of Chemical Information and Modeling》《Physica D: Nonlinear Phenomena》《Information Sciences》等期刊，在IEEE BIBM、IEEE SMC等计算机主会上发表，并在ICLR、ICML、AAAI等会议的研讨会（workshop）中展示。欢迎就共同感兴趣的课题交流讨论。</p>
+</div>
+
+<div class="content-section">
 <h2>教育经历</h2>
 <div class="education-list">
   <div class="education-entry">
@@ -171,7 +176,7 @@
         <span class="education-date">2023.09–2027.06</span>
       </div>
       <p class="education-role">本科 · 数学与应用数学专业</p>
-      <p class="education-unit">数学与系统科学学院（数学物理研究所）</p>
+      <p class="education-unit"><a href="https://math.xju.edu.cn/">数学与系统科学学院（数学物理研究所）</a></p>
       <p class="education-unit">国家理科数学基地</p>
       <div class="education-mentors">
         <p><b>师承</b></p>
@@ -232,32 +237,44 @@
     </div>
   </div>
 </div>
-<h2>研究经历</h2>
-<h3>代表性论文 (Featured Papers)</h3>
+</div>
 
-<p><b>方向一：表征学习与生物分子机制 (Representation Learning &amp; Biomolecular Mechanisms)</b></p>
-<p style="font-size:0.92em;color:#555;">我目前的研究利用最前沿的深度学习技术来解析复杂的生物系统。我专注于通过引入新颖的归纳偏置和表征策略来突破传统生物信息学的局限。我的工作涵盖蛋白质结构预测、蛋白质设计和分子动力学，旨在为生命科学提供稳健、高通量的工具。</p>
-<ul>
+<div class="content-section research-section">
+<h2>研究经历</h2>
+<h3 class="featured-heading">代表性论文 (Featured Papers)</h3>
+
+<div class="research-direction">
+<h4 class="research-direction-title">方向一：表征学习与生物分子机制 (Representation Learning &amp; Biomolecular Mechanisms)</h4>
+<p class="research-intro" style="font-size:0.92em;color:#555;">我目前的研究利用最前沿的深度学习技术来解析复杂的生物系统。我专注于通过引入新颖的归纳偏置和表征策略来突破传统生物信息学的局限。我的工作涵盖蛋白质结构预测、蛋白质设计和分子动力学，旨在为生命科学提供稳健、高通量的工具。</p>
+<ul class="featured-papers">
 <li><div class="paper-fig-body"><div class="paper-fig"><a href="https://openreview.net/forum?id=rTO3JOgC3a" target="_blank"><img src="figures/d1-scls.webp" alt="BFC 模型流程与 B 因子（灰）对系综 RMSF（粉）的结构叠照" width="640" height="389" loading="lazy"></a></div><p class="paper-cite"><b>Wang, Y.</b>, Cai, M., et al. (2026). Sequence context decodes multi-state conformational heterogeneity from crystallographic B-factors. <i>Science China Life Sciences</i>, in press (earlier version: <a href="https://openreview.net/forum?id=rTO3JOgC3a">LMRL Workshop at ICLR 2026</a>). </p><p class="paper-tldr">晶体学 B 因子是最容易获得的蛋白质构象数据，但其中的构象异质性常被晶格堆积噪声掩盖。这个工作展示了如何直接从静态 B 因子解码多态构象异质性，校正晶体堆积假象，恢复与分子动力学系综一致的构象图景，让海量已有晶体结构直接用于溶液态的构象研究。</p></div></li>
 <li><div class="paper-fig-body"><div class="paper-fig"><a href="https://pubs.acs.org/doi/10.1021/acs.jcim.5c01768" target="_blank"><img src="figures/d1-jcim.webp" alt="从氨基酸序列生成的乐谱与蛋白质结构对比（Villin 与 T4 溶菌酶）" width="640" height="360" loading="lazy"></a></div><p class="paper-cite"><b>Wang, Y.</b>, Cai, M., et al. (2025). <a href="https://pubs.acs.org/doi/10.1021/acs.jcim.5c01768">From Signal to Symphony: Exploring 2D Sequence Representations for Protein Function Prediction</a>. <i>Journal of Chemical Information and Modeling</i>. [<a href="pub/journal_of_chemical_information_and_modeling.pdf">PDF</a>]</p><p class="paper-tldr">这篇工作把氨基酸序列翻译成乐谱，疏水性变成音高、分子量变成节奏，一维序列由此变成二维乐谱图像，再由深度学习从图像中学会预测蛋白质功能。分析发现这个“变谱”的表征变换本身就贡献了大部分判别力。</p></div></li>
 </ul>
+</div>
 
-<p><b>方向二：基于数学物理的生物复杂性第一性原理 (First-Principles of Biological Complexity)</b></p>
-<p style="font-size:0.92em;color:#555;">虽然深度学习提供了强大的近似能力，但我的终极目标是找到生物系统的解析基本真理。我正在从纯数据驱动方法转向物理启发理论，旨在利用凝聚态物理、拓扑学、流形学习和微分几何来描述蛋白质的能量景观和生命的热力学本质。</p>
-<ul>
+<div class="research-direction">
+<h4 class="research-direction-title">方向二：基于数学物理的生物复杂性第一性原理 (First-Principles of Biological Complexity)</h4>
+<p class="research-intro" style="font-size:0.92em;color:#555;">虽然深度学习提供了强大的近似能力，但我的终极目标是找到生物系统的解析基本真理。我正在从纯数据驱动方法转向物理启发理论，旨在利用凝聚态物理、拓扑学、流形学习和微分几何来描述蛋白质的能量景观和生命的热力学本质。</p>
+<ul class="featured-papers">
 <li><div class="paper-fig-body"><div class="paper-fig"><a href="https://www.sciencedirect.com/science/article/pii/S0167278926002587" target="_blank"><img src="figures/d2-physica-d.webp" alt="四种结构类型代表性蛋白的有效势轮廓，势函数平台与螺旋、折叠片区段逐段对应" width="640" height="242" loading="lazy"></a></div><p class="paper-cite"><b>Wang, Y.</b> (2026). <a href="https://www.sciencedirect.com/science/article/pii/S0167278926002587">Descriptive power and predictive limits of a discrete Hasimoto–DNLS model of protein backbone structure</a>. <i>Physica D: Nonlinear Phenomena</i>. [<a href="https://arxiv.org/abs/2602.13160">arXiv</a>]</p><p class="paper-tldr">这篇工作系统检验了离散 Hasimoto–DNLS 模型对蛋白质骨架结构的描述力与预测边界。有效势轮廓与二级结构区段逐段对应，统计进一步表明势函数编码的是折叠类型而非序列本身；分析也划清了模型的适用边界，指出哪些结构仅靠实部势即可刻画、哪些场合虚部势必不可少。</p></div></li>
 <li><div class="paper-fig-body"><div class="paper-fig"><a href="https://link.springer.com/article/10.1140/epje/s10189-026-00621-8" target="_blank"><img src="figures/d2-epje.webp" alt="离散 Hasimoto 映射将蛋白质骨架几何投影为一维信号，螺旋呈现低熵平台，边界为突变" width="640" height="458" loading="lazy"></a></div><p class="paper-cite"><b>Wang, Y.</b> (2026). <a href="https://link.springer.com/article/10.1140/epje/s10189-026-00621-8">Spectral analysis of protein backbone geometry reveals abrupt helix&ndash;coil boundaries</a>. <i>The European Physical Journal E</i>. [<a href="https://arxiv.org/abs/2602.21787">arXiv</a>]</p><p class="paper-tldr">这篇工作把离散 Hasimoto 映射用作数学显微镜，将蛋白质骨架的三维几何（曲率与扭角）投影为一维有效势信号，螺旋区呈现低熵平台，无序卷曲呈现高熵涨落。对近两千条蛋白质链的谱分析显示，螺旋与线圈之间的边界是残基级的一级相变式突变，为折叠相变提供了来自骨架几何的直接证据。</p></div></li>
 </ul>
+</div>
 
-<p><b>方向三：跨学科探索与协同效应 (Interdisciplinary Explorations &amp; Collaborative Synergies)</b></p>
-<p style="font-size:0.92em;color:#555;">我的研究之旅源于广泛的好奇心。我与语言学、计算机视觉、密码学和运筹学等领域的专家合作。这些多元化的经历赋予了我独特的工具箱——使我能够跨领域迁移方法论，并从正交视角解决问题。</p>
-<ul>
+<div class="research-direction">
+<h4 class="research-direction-title">方向三：跨学科探索与协同效应 (Interdisciplinary Explorations &amp; Collaborative Synergies)</h4>
+<p class="research-intro" style="font-size:0.92em;color:#555;">我的研究之旅源于广泛的好奇心。我与语言学、计算机视觉、密码学和运筹学等领域的专家合作。这些多元化的经历赋予了我独特的工具箱——使我能够跨领域迁移方法论，并从正交视角解决问题。</p>
+<ul class="featured-papers">
 <li><div class="paper-fig-body"><div class="paper-fig"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0020025526007425" target="_blank"><img src="figures/d3-infosi.webp" alt="递归路径拼接机制的三维示意，三个子立方通过桥接节点拼出哈密顿路径" width="640" height="364" loading="lazy"></a></div><p class="paper-cite"><b>Wang, Y.</b>, Zai, J., Liu, Z., Chen, J., &amp; Sabir, E.* (2026). <a href="https://www.sciencedirect.com/science/article/abs/pii/S0020025526007425">Hamiltonian Connectivity in <i>k</i>-Ary <i>n</i>-Cubes under a Region-Based Fault Model</a>. <i>Information Sciences</i>. </p><p class="paper-tldr">这篇工作研究互连网络在故障环境下的可靠性，提出区域故障模型（RBF），证明了 k 元 n 方体在成片故障下仍保持哈密顿连通的充分条件。与既有模型相比，该模型的容错能力高出数个数量级，为大规模并行系统的路由与容错设计提供了更贴近实际的理论保证。</p></div></li>
 <li><div class="paper-fig-body"><div class="paper-fig"><a href="https://www.sciencedirect.com/science/article/pii/S1474706526002937" target="_blank"><img src="figures/d3-heatwave.webp" alt="HeDA 多智能体框架将 8365 篇文献重组为四层系统性风险拓扑" width="640" height="304" loading="lazy"></a></div><p class="paper-cite"><b>Wang, Y.*</b>, et al. (2026). <a href="https://www.sciencedirect.com/science/article/pii/S1474706526002937">AI Driven Discovery of Bio Ecological Mediation in Cascading Heatwave Risks</a>. <i>Physics and Chemistry of the Earth</i>. </p><p class="paper-tldr">这篇工作构建了自主多智能体框架 HeDA，把 8365 篇碎片化文献重组为含 34933 个节点、42890 条边的四层风险拓扑（物理、生物、社会、经济）。拓扑分析显示，热浪的破坏极少直通经济损失，而是约八倍地优先经由生物系统中介传导，厘清了农业产量与人体健康等生态瓶颈对系统性风险的放大作用。</p></div></li>
 </ul>
+</div>
 
 <p><a href="publications.html">查看全部论文列表</a> | <a href="https://scholar.google.com/citations?user=ULP3e1cAAAAJ">Google Scholar主页</a></p>
 <p>完整科研项目、研学、实习、竞赛与审稿经历，见 <a href="experience.html">经历页（Experience）</a>。</p>
+</div>
+
+<div class="content-section">
 <h2>微信公众号</h2>
 <table class="imgtable"><tr><td>
 <img src="photos/wechat-biomath-small.jpg" alt="biomath 微信公众号二维码" width="215" height="215" loading="lazy" style="image-rendering: pixelated;" />
@@ -277,13 +294,18 @@
 <a href="cv/cv.pdf">简历下载</a>.<br />
 </p>
 </div>
+</div>
 
 <div class="lang-en" style="display:none;">
+<div class="content-section">
 <h2>Personal Profile</h2>
 <p>Yiquan Wang is an undergraduate student in Mathematics and Applied Mathematics at the National Base for Research and Teaching Talents at <a href="https://www.xju.edu.cn/">Xinjiang University</a>, and a joint-training scholar in the <a href="https://www.teep.cnmm.tsinghua.edu.cn/">Tsien Excellence in Engineering Program</a> at <a href="https://www.tsinghua.edu.cn/">Tsinghua University</a> &amp; <a href="https://www.x-institute.edu.cn/">Shenzhen X-Institute</a>. His research focuses on AI for Science, driven by an enduring pursuit to decode the complexity of living systems.</p>
 <p>His research journey began with mathematical modeling. In his early undergraduate years, he explored widely through modeling competitions and research training programs, working on graph theory and AI-driven heatwave risk analysis, directions that left their footprints across the interdisciplinary entries in his publication list. Mathematical modeling trained him to abstract real-world systems into models, and gradually revealed where his true passion lay. Proteins are a suitable small model for studying living systems. Anfinsen's dogma states that the amino acid sequence determines the three-dimensional structure, which makes the problem well-posed, and sequence, structure, and functional annotation data are abundantly available, a natural fit for representation learning; together with his personal interest, this led him to settle on proteins as his core research object. If proteins are the small model for understanding living systems, the genome is the blueprint of the same system in full. In his PhD stage, his research will focus on genomics while continuing his work on proteomics.</p>
 <p>He has since established two distinct yet complementary research directions. The first centers on data-driven <b>Representation Learning and Biomolecular Mechanisms</b>, applying deep learning to a broad range of life science problems spanning protein structure prediction, protein function prediction, protein design, molecular dynamics, multi-omics, and molecular mechanisms. The second pursues <b>First-Principles of Biological Complexity Based on Mathematical Physics</b>, deriving analytical ground truths of biological systems through condensed matter physics, topology, manifold learning, and differential geometry, independent of AI approximations. His overarching goal is to synergize these two directions, combining the inductive biases of physics with the expressive power of deep learning to tackle a constellation of formidable open problems, including Intrinsically Disordered Protein (IDP) dynamic ensemble generation, Liquid-Liquid Phase Separation (LLPS) and 3D genome folding, rational design for "undruggable" targets, and the construction of Virtual Cells. Through these advances, he ultimately aims to confront complex human diseases and move closer to a fundamental understanding of life itself.</p>
 <p>His work has been published in journals including the <i>Journal of Chemical Information and Modeling</i>, <i>Physica D: Nonlinear Phenomena</i>, and <i>Information Sciences</i>, presented at main conferences including IEEE BIBM and IEEE SMC, and presented at workshops of ICLR, ICML, and AAAI. Discussions and collaborations on topics of shared interest are always welcome.</p>
+</div>
+
+<div class="content-section">
 <h2>Education</h2>
 <div class="education-list">
   <div class="education-entry">
@@ -294,7 +316,7 @@
         <span class="education-date">2023.09–2027.06</span>
       </div>
       <p class="education-role">Undergraduate · Mathematics and Applied Mathematics</p>
-      <p class="education-unit">College of Mathematics and System Sciences (Institute of Mathematics and Physics)</p>
+      <p class="education-unit"><a href="https://math.xju.edu.cn/">College of Mathematics and System Sciences (Institute of Mathematics and Physics)</a></p>
       <p class="education-unit">National Mathematics Base</p>
       <div class="education-mentors">
         <p><b>Mentorship</b></p>
@@ -355,32 +377,44 @@
     </div>
   </div>
 </div>
-<h2>Research Experience</h2>
-<h3>Featured Papers</h3>
+</div>
 
-<p><b>Direction 1: Representation Learning &amp; Biomolecular Mechanisms</b></p>
-<p style="font-size:0.92em;color:#555;">My current research leverages state-of-the-art Deep Learning techniques to decipher complex biological systems. I focus on overcoming the limitations of traditional bioinformatics by introducing novel inductive biases and representation strategies. My work spans protein structure prediction, protein design, and molecular dynamics, aiming to provide robust, high-throughput tools for the life sciences.</p>
-<ul>
+<div class="content-section research-section">
+<h2>Research Experience</h2>
+<h3 class="featured-heading">Featured Papers</h3>
+
+<div class="research-direction">
+<h4 class="research-direction-title">Direction 1: Representation Learning &amp; Biomolecular Mechanisms</h4>
+<p class="research-intro" style="font-size:0.92em;color:#555;">My current research leverages state-of-the-art Deep Learning techniques to decipher complex biological systems. I focus on overcoming the limitations of traditional bioinformatics by introducing novel inductive biases and representation strategies. My work spans protein structure prediction, protein design, and molecular dynamics, aiming to provide robust, high-throughput tools for the life sciences.</p>
+<ul class="featured-papers">
 <li><div class="paper-fig-body"><div class="paper-fig"><a href="https://openreview.net/forum?id=rTO3JOgC3a" target="_blank"><img src="figures/d1-scls.webp" alt="BFC workflow with the structural superposition of B-factors (grey) versus ensemble RMSF (pink)" width="640" height="389" loading="lazy"></a></div><p class="paper-cite"><b>Wang, Y.</b>, Cai, M., et al. (2026). Sequence context decodes multi-state conformational heterogeneity from crystallographic B-factors. <i>Science China Life Sciences</i>, in press (earlier version: <a href="https://openreview.net/forum?id=rTO3JOgC3a">LMRL Workshop at ICLR 2026</a>). </p><p class="paper-tldr">Crystallographic B-factors are the most abundant source of protein conformational data, yet the conformational heterogeneity they contain is often masked by crystal-packing noise. This work shows how to decode multi-state conformational heterogeneity directly from static B-factors, correcting crystal-packing artifacts and recovering conformational pictures consistent with molecular dynamics ensembles, so that the vast archive of crystal structures can directly inform solution-state studies.</p></div></li>
 <li><div class="paper-fig-body"><div class="paper-fig"><a href="https://pubs.acs.org/doi/10.1021/acs.jcim.5c01768" target="_blank"><img src="figures/d1-jcim.webp" alt="Musical scores generated from amino acid sequences, alongside the protein structures of Villin and T4 lysozyme" width="640" height="360" loading="lazy"></a></div><p class="paper-cite"><b>Wang, Y.</b>, Cai, M., et al. (2025). <a href="https://pubs.acs.org/doi/10.1021/acs.jcim.5c01768">From Signal to Symphony: Exploring 2D Sequence Representations for Protein Function Prediction</a>. <i>Journal of Chemical Information and Modeling</i>. [<a href="pub/journal_of_chemical_information_and_modeling.pdf">PDF</a>]</p><p class="paper-tldr">This work translates amino acid sequences into musical scores, mapping hydrophobicity to pitch and molecular weight to rhythm, so that a one-dimensional sequence becomes a two-dimensional score image from which deep learning models learn to predict protein function. Analyses suggest that this transformation itself contributes much of the discriminative power.</p></div></li>
 </ul>
+</div>
 
-<p><b>Direction 2: First-Principles of Biological Complexity Based on Mathematical Physics</b></p>
-<p style="font-size:0.92em;color:#555;">While Deep Learning provides powerful approximations, my ultimate goal is to find the analytical ground truths of biological systems. I am transitioning from purely data-driven approaches to physics-informed theories. I aim to use Condensed Matter Physics, Topology, Manifold Learning, and Differential Geometry to describe the energy landscapes of proteins and the thermodynamic essence of life.</p>
-<ul>
+<div class="research-direction">
+<h4 class="research-direction-title">Direction 2: First-Principles of Biological Complexity Based on Mathematical Physics</h4>
+<p class="research-intro" style="font-size:0.92em;color:#555;">While Deep Learning provides powerful approximations, my ultimate goal is to find the analytical ground truths of biological systems. I am transitioning from purely data-driven approaches to physics-informed theories. I aim to use Condensed Matter Physics, Topology, Manifold Learning, and Differential Geometry to describe the energy landscapes of proteins and the thermodynamic essence of life.</p>
+<ul class="featured-papers">
 <li><div class="paper-fig-body"><div class="paper-fig"><a href="https://www.sciencedirect.com/science/article/pii/S0167278926002587" target="_blank"><img src="figures/d2-physica-d.webp" alt="Effective-potential profiles of representative proteins across four structural classes, plateaus tracking helix and sheet segments" width="640" height="242" loading="lazy"></a></div><p class="paper-cite"><b>Wang, Y.</b> (2026). <a href="https://www.sciencedirect.com/science/article/pii/S0167278926002587">Descriptive power and predictive limits of a discrete Hasimoto–DNLS model of protein backbone structure</a>. <i>Physica D: Nonlinear Phenomena</i>. [<a href="https://arxiv.org/abs/2602.13160">arXiv</a>]</p><p class="paper-tldr">This work systematically examines the descriptive power and predictive limits of the discrete Hasimoto–DNLS model for protein backbone structure. Effective-potential profiles align segment by segment with secondary structure, and the statistics show that the potential encodes fold type rather than sequence. The analysis also delimits where the real potential suffices and where the imaginary part becomes necessary.</p></div></li>
 <li><div class="paper-fig-body"><div class="paper-fig"><a href="https://link.springer.com/article/10.1140/epje/s10189-026-00621-8" target="_blank"><img src="figures/d2-epje.webp" alt="The discrete Hasimoto map projects protein backbone geometry into a one-dimensional signal with low-entropy helical plateaus and abrupt boundaries" width="640" height="458" loading="lazy"></a></div><p class="paper-cite"><b>Wang, Y.</b> (2026). <a href="https://link.springer.com/article/10.1140/epje/s10189-026-00621-8">Spectral analysis of protein backbone geometry reveals abrupt helix&ndash;coil boundaries</a>. <i>The European Physical Journal E</i>. [<a href="https://arxiv.org/abs/2602.21787">arXiv</a>]</p><p class="paper-tldr">This work uses the discrete Hasimoto map as a mathematical microscope, projecting the three-dimensional backbone geometry of proteins (bond angles and torsions) into a one-dimensional effective-potential signal, where helices appear as low-entropy plateaus and random coils as high-entropy fluctuations. Spectral analysis across nearly two thousand protein chains shows that the boundary between helix and coil is an abrupt, first-order-like transition at the single-residue scale, providing direct geometric evidence for folding transitions.</p></div></li>
 </ul>
+</div>
 
-<p><b>Direction 3: Interdisciplinary Explorations &amp; Collaborative Synergies</b></p>
-<p style="font-size:0.92em;color:#555;">My research journey is fueled by broad curiosity. I have collaborated with experts in linguistics, computer vision, cryptography, and operations research. These diverse experiences have equipped me with a unique toolkit—allowing me to transfer methodologies and tackle problems from orthogonal perspectives.</p>
-<ul>
+<div class="research-direction">
+<h4 class="research-direction-title">Direction 3: Interdisciplinary Explorations &amp; Collaborative Synergies</h4>
+<p class="research-intro" style="font-size:0.92em;color:#555;">My research journey is fueled by broad curiosity. I have collaborated with experts in linguistics, computer vision, cryptography, and operations research. These diverse experiences have equipped me with a unique toolkit—allowing me to transfer methodologies and tackle problems from orthogonal perspectives.</p>
+<ul class="featured-papers">
 <li><div class="paper-fig-body"><div class="paper-fig"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0020025526007425" target="_blank"><img src="figures/d3-infosi.webp" alt="3D illustration of the recursive path stitching mechanism, bridging subcubes into a Hamiltonian path" width="640" height="364" loading="lazy"></a></div><p class="paper-cite"><b>Wang, Y.</b>, Zai, J., Liu, Z., Chen, J., &amp; Sabir, E.* (2026). <a href="https://www.sciencedirect.com/science/article/abs/pii/S0020025526007425">Hamiltonian Connectivity in <i>k</i>-Ary <i>n</i>-Cubes under a Region-Based Fault Model</a>. <i>Information Sciences</i>. </p><p class="paper-tldr">This work studies the reliability of interconnection networks under faults and proposes the region-based fault (RBF) model, proving sufficient conditions under which k-ary n-cubes remain Hamiltonian-connected despite large clustered fault sets. The model tolerates orders of magnitude more faults than prior art, offering theoretical guarantees that better match real-world parallel systems.</p></div></li>
 <li><div class="paper-fig-body"><div class="paper-fig"><a href="https://www.sciencedirect.com/science/article/pii/S1474706526002937" target="_blank"><img src="figures/d3-heatwave.webp" alt="The HeDA multi-agent framework reorganizes 8365 publications into a four-layer systemic risk topology" width="640" height="304" loading="lazy"></a></div><p class="paper-cite"><b>Wang, Y.*</b>, et al. (2026). <a href="https://www.sciencedirect.com/science/article/pii/S1474706526002937">AI Driven Discovery of Bio Ecological Mediation in Cascading Heatwave Risks</a>. <i>Physics and Chemistry of the Earth</i>. </p><p class="paper-tldr">This work builds HeDA, an autonomous multi-agent framework that reorganizes 8365 fragmented publications into a four-layer risk topology (physical, biological, social, economic) with 34,933 nodes and 42,890 edges. Topological analysis shows that heatwave damage rarely translates directly into economic loss; instead it propagates about eight times more often through biological mediators, pinpointing agricultural yield and human health as amplifying bottlenecks of systemic risk.</p></div></li>
 </ul>
+</div>
 
 <p><a href="publications.html">View full publication list</a> | <a href="https://scholar.google.com/citations?user=ULP3e1cAAAAJ">Google Scholar Profile</a></p>
 <p>The full record of research projects, study programs, internships, competitions, and reviewing lives on the <a href="experience.html">Experience page</a>.</p>
+</div>
+
+<div class="content-section">
 <h2>WeChat Official Account</h2>
 <table class="imgtable"><tr><td>
 <img src="photos/wechat-biomath-small.jpg" alt="biomath WeChat Official Account QR Code" width="215" height="215" loading="lazy" style="image-rendering: pixelated;" />
@@ -399,6 +433,7 @@ Exploring the frontiers of AI for Science and Computational Biology: from protei
 <p><br/>
 <a href="cv/cv.pdf">Curriculum Vitae Download</a>.<br />
 </p>
+</div>
 </div>
 
 <div id="footer"><div id="footer-text">Last updated: <span id="last-updated"></span></div></div>
