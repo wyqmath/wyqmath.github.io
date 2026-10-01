@@ -468,9 +468,16 @@ h2{font-size:1.3rem;line-height:1.25;padding-top:0;border-left:4px solid #0047ab
 /* featured paper entry: citation + plain-language note + figure */
 .paper-fig-body{display:flow-root}
 .paper-fig{float:right;width:min(300px,45%);margin:.2em 0 .6em 1.2em}
+li:nth-child(even) .paper-fig{float:left;margin:.2em 1.2em .6em 0}
 .paper-fig a{display:block;border-bottom:none}
 .paper-fig img{display:block;width:100%;height:auto}
 .paper-tldr{font-size:.92em;color:#555;margin:.35em 0 0}
 :root[data-theme="dark"] .paper-tldr{color:#a9b4c2}
 :root[data-theme="dark"] .paper-fig img{border:1px solid #2a2f3a;filter:invert(1) hue-rotate(180deg)}
-@media (max-width:768px){.paper-fig{float:none;width:100%;max-width:100%;margin:0 0 .6em}}
+@media (max-width:768px){li .paper-fig,li:nth-child(even) .paper-fig{float:none;width:100%;max-width:100%;margin:0 0 .6em}}
+/* featured lists read cleaner without square markers */
+ul:has(> li .paper-fig){list-style-type:none}
+/* ultra-wide displays: pin the sidebar to the viewport's left edge and let the content column center freely */
+@media (min-width:1760px){
+    td#layout-menu{position:fixed;left:0;top:0;bottom:0;width:260px;overflow-y:auto}
+}
