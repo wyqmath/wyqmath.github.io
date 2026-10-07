@@ -182,14 +182,6 @@ document.addEventListener('DOMContentLoaded', function() {
         details.appendChild(p);
     });
 
-    // footer: last-updated stamp from the page's modification time
-    const lastUpdated = document.getElementById('last-updated');
-    if (lastUpdated) {
-        const d = new Date(document.lastModified);
-        const p = function(n) { return (n < 10 ? '0' : '') + n; };
-        lastUpdated.textContent = d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate());
-    }
-
     // bare-URL links (link text is itself a URL) may break at any character,
     // so justified paragraphs fill lines instead of stretching the words before them
     document.querySelectorAll('#layout-content a').forEach(function(a) {

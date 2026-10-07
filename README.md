@@ -64,7 +64,7 @@ Personal profile links appear below the contact details on the homepage, using t
 │   └── ...             # Additional site assets, including the social sharing image
 ├── figures/            # Research figures
 ├── photos/             # Profile photo and institution logos
-├── pub/                # Publication and patent PDFs
+├── pub/                # Paper PDF backups retained in Git; no website download links
 ├── cv/                 # LaTeX CV and academic card source files
 ├── package.json        # Deployment runtime declaration: Node.js 24.x
 ├── favicon.ico
@@ -89,14 +89,15 @@ If an existing browser tab still displays an older layout after a change, reload
 
 ## Updating Content
 
-1. Edit the relevant HTML page and keep its English and Chinese versions in sync.
+1. Edit the relevant HTML page and keep its English and Chinese versions in sync. Set that page's `#last-updated` date to the date of its content change. Each page records its own content date; deployments and HTTP modification headers do not update it.
 2. For publications, place each entry in the appropriate `.publication-year` section and keep its `data-year` consistent with that section. Use `data-direction="1"`, `"2"`, or `"3"` for the three research areas.
 3. Use the same `data-paper-id` for a paper in both language versions. Preserve the `.publication-title`, `.publication-authors`, `.publication-venue`, and `.publication-tag` elements.
 4. When adding a year, add its section and navigation link to both language versions. Use distinct section IDs for each language, and point the corresponding year links to those IDs. Visible counts are recalculated by JavaScript.
 5. Keep individual paper tags as `<span>` elements. Filtering belongs to the toolbar buttons.
    Set `data-author-roles` on each publication entry to a space-separated list of the applicable roles: `first`, `co-first`, and `corresponding`. An empty value means no listed role. Keep these values identical in both language versions and verify them against the manuscript's author notes or an explicit author confirmation; do not interpret a symbol without checking its meaning in that paper.
 6. Make shared design changes in `assets/script.css` and `assets/spacing.css`. Increment the relevant asset version in all three academic HTML files when changing shared CSS or JavaScript.
-7. Preview the affected pages in both languages and themes before publishing.
+7. Link to publisher pages and verified arXiv, bioRxiv, or medRxiv abstract pages. Keep each paper's current title, authors, and venue when adding earlier-version links. Paper PDF backups may remain in GitHub, but the website must not show paper PDF buttons or link directly to those files. Keep the CV download on the homepage.
+8. Preview the affected pages in both languages and themes before publishing.
 
 Journal reviewer entries on the Experience page are listed alphabetically. Journals appear on the left and conference workshops on the right. Project abstracts use expandable sections.
 
