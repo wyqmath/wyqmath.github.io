@@ -96,7 +96,7 @@ If an existing browser tab still displays an older layout after a change, reload
 5. Keep individual paper tags as `<span>` elements. Filtering belongs to the toolbar buttons.
    Set `data-author-roles` on each publication entry to a space-separated list of the applicable roles: `first`, `co-first`, and `corresponding`. An empty value means no listed role. Keep these values identical in both language versions and verify them against the manuscript's author notes or an explicit author confirmation; do not interpret a symbol without checking its meaning in that paper.
 6. Make shared design changes in `assets/script.css` and `assets/spacing.css`. Increment the relevant asset version in all three academic HTML files when changing shared CSS or JavaScript.
-7. Link to publisher pages and verified arXiv, bioRxiv, or medRxiv abstract pages. Keep each paper's current title, authors, and venue when adding earlier-version links. Paper PDF backups may remain in GitHub, but the website must not show paper PDF buttons or link directly to those files. Keep the CV download on the homepage.
+7. Link to publisher pages and verified arXiv, bioRxiv, or medRxiv abstract pages. Keep each paper's current title, authors, and venue when adding supplementary links. Use only the platform or workshop name as each link label. Paper PDF backups may remain in GitHub, but the website must not show paper PDF buttons or link directly to those files. Keep the CV download on the homepage.
 8. Preview the affected pages in both languages and themes before publishing.
 
 Journal reviewer entries on the Experience page are listed alphabetically. Journals appear on the left and conference workshops on the right. Project abstracts use expandable sections.
