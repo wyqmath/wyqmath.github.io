@@ -99,7 +99,7 @@ If an existing browser tab still displays an older layout after a change, reload
 7. Link to publisher pages and verified arXiv, bioRxiv, or medRxiv abstract pages. Keep each paper's current title, authors, and venue when adding supplementary links. Use only the platform or workshop name as each link label. Paper PDF backups may remain in GitHub, but the website must not show paper PDF buttons or link directly to those files. Keep the CV download on the homepage.
 8. Preview the affected pages in both languages and themes before publishing.
 
-Journal reviewer entries on the Experience page are listed alphabetically. Journals appear on the left and conference workshops on the right. Project abstracts use expandable sections.
+Journal reviewer entries on the Experience page are listed alphabetically. Journals appear on the left, with conferences and workshops on the right. Project abstracts use expandable sections.
 
 ## Deployment
 
