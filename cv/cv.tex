@@ -1,218 +1,244 @@
-\documentclass[10pt]{article}
-\usepackage{graphicx}
-\usepackage{helvet}
-\renewcommand{\familydefault}{\sfdefault}
-
-\setlength{\parindent}{0pt}
-\usepackage{hyperref}
-\usepackage{enumitem}
-\usepackage[utf8]{inputenc} 
+\RequirePackage{fix-cm}
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
-\usepackage[left=1.06cm,top=1.1cm,right=1.06cm,bottom=0.49cm]{geometry}
-
-\usepackage{multicol}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[left=16mm,right=16mm,top=15mm,bottom=16mm,footskip=18pt]{geometry}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{needspace}
 \usepackage{xcolor}
-\definecolor{mylinkcolor}{RGB}{0,71,171}
+\usepackage{fancyhdr}
+\usepackage{iftex}
+\ifPDFTeX
+  \input{glyphtounicode}
+  \pdfgentounicode=1
+\fi
+\usepackage[hidelinks]{hyperref}
 \hypersetup{
-	colorlinks=false,
-	hidelinks,
+  pdftitle={Yiquan Wang - Curriculum Vitae},
+  pdfauthor={Yiquan Wang},
+  pdfsubject={Academic curriculum vitae},
+  pdfkeywords={computational biology, representation learning, mathematical physics}
 }
 
+\setlength{\parindent}{0pt}
 \setlength{\parskip}{0pt}
-% Tighter centered section-title blocks
-\let\oldcenter\center
-\let\oldendcenter\endcenter
-\renewenvironment{center}{\setlength{\topsep}{1pt}\setlength{\partopsep}{0pt}\oldcenter}{\oldendcenter}
+\setlength{\emergencystretch}{1em}
+\raggedbottom
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[L]{\footnotesize\color{gray}Yiquan Wang}
+\fancyfoot[R]{\footnotesize\color{gray}\thepage}
+
+\newcommand{\cvsection}[1]{%
+  \par\addvspace{9pt}\Needspace{46pt}%
+  {\centering\bfseries\fontsize{12}{14.5}\selectfont #1\par}%
+  \nobreak\vspace{5pt}}
+\newcommand{\direction}[1]{%
+  \par\addvspace{8pt}\Needspace{48pt}%
+  {\bfseries #1\par}\nobreak\vspace{3pt}}
+\newcommand{\entry}[3]{%
+  \Needspace{42pt}%
+  \begin{tabularx}{\linewidth}{@{}>{\bfseries\raggedright\arraybackslash}X@{\hspace{14pt}}r@{}}#1 & #2\end{tabularx}\par
+  #3\par\vspace{5pt}}
+\newcommand{\cofirst}{\textsuperscript{\textdagger}}
+\newcommand{\corr}{\textsuperscript{*}}
+\newcommand{\me}{\textbf{Wang, Y.}}
+\newcommand{\publication}[5]{%
+  \item \begin{minipage}[t]{\linewidth}\raggedright
+  #1 (#2).
+  \if\relax\detokenize{#3}\relax #4\else\href{#3}{#4}\fi.
+  \textit{#5}.
+  \end{minipage}}
+\newenvironment{papers}[1][]{%
+  \begin{enumerate}[label={[\arabic*]},leftmargin=18pt,labelsep=4pt,
+    topsep=2pt,itemsep=8pt,parsep=0pt,partopsep=0pt,#1]}{\end{enumerate}}
+\newlength{\datedlinegap}
+\setlength{\datedlinegap}{5pt}
+\newcommand{\datedline}[2]{%
+  \Needspace{28pt}%
+  \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X@{\hspace{14pt}}r@{}}#1 & #2\end{tabularx}\par\vspace{\datedlinegap}}
+\newcommand{\serviceitem}[2]{%
+  \Needspace{32pt}\textbf{#1:} #2\par\vspace{8pt}}
 
 \begin{document}
-	\begin{center}
-		\textbf{\Large Yiquan Wang}\\
-		\textbullet \ +86-19537838515 \textbullet \ \textcolor{mylinkcolor}{\href{mailto:ethan@stu.xju.edu.cn}{ethan@stu.xju.edu.cn}} \textbullet \ \textcolor{mylinkcolor}{\href{https://wyqmath.cn/}{Homepage}} \textbullet \ \textcolor{mylinkcolor}{\href{https://github.com/wyqmath}{GitHub}} \textbullet \ \textcolor{mylinkcolor}{\href{https://scholar.google.com/citations?user=ULP3e1cAAAAJ}{Google Scholar}} \textbullet \ \textcolor{mylinkcolor}{\href{https://orcid.org/0000-0003-1417-5752}{ORCID}} \textbullet \ \textcolor{mylinkcolor}{\href{https://openreview.net/profile?id=~Yiquan_Wang3}{OpenReview}} \\
-		\textbullet \ Member of IEEE Biometrics Council, Chinese Chemical Society \& Biophysical Society of China \\
-		\hrulefill
-	\end{center}
-	
-	\vspace{1pt}
-	
-	\begin{center}
-		\textbf{\large Education}
-	\end{center}
-	\textbf{\textcolor{black}{\href{https://math.xju.edu.cn/}{National Base for Mathematical Research and Teaching Talents}}, \textcolor{black}{\href{https://www.xju.edu.cn/}{Xinjiang University}}} \hfill Urumqi, Xinjiang \\
-	{\small \textit{B.S. in Mathematics and Applied Mathematics} --- Mentored by \textcolor{mylinkcolor}{\href{https://phy.xju.edu.cn/info/1032/1356.htm}{Yan-Hong Qin}} \& \textcolor{mylinkcolor}{\href{https://sky.xju.edu.cn/info/1152/3017.htm}{Kai Wei}}} \hfill 2023.09 – 2027.06
+\fontsize{10.5}{13.3}\selectfont
+\begin{center}
+  {\fontsize{20}{23}\selectfont\textbf{Yiquan Wang}}\par\vspace{4pt}
+  +86-19537838515 \enspace\textbullet\enspace
+  \href{mailto:ethan@stu.xju.edu.cn}{ethan@stu.xju.edu.cn} \enspace\textbullet\enspace
+  \href{https://wyqmath.cn/}{wyqmath.cn}\par
+  \href{https://github.com/wyqmath}{GitHub} \enspace\textbullet\enspace
+  \href{https://scholar.google.com/citations?user=ULP3e1cAAAAJ}{Google Scholar} \enspace\textbullet\enspace
+  \href{https://orcid.org/0000-0003-1417-5752}{ORCID} \enspace\textbullet\enspace
+  \href{https://openreview.net/profile?id=~Yiquan_Wang3}{OpenReview}
+\end{center}
+\vspace{-5pt}
 
-	\vspace{4pt}
+\cvsection{Education \& Research Training}
+\entry{Xinjiang University}{2023.09--Present}{
+B.S. in Mathematics and Applied Mathematics, National Mathematics Base; expected graduation: 2027.06.\par
+Mentors: \href{https://phy.xju.edu.cn/info/1032/1356.htm}{Yan-Hong Qin} and
+\href{https://sky.xju.edu.cn/info/1152/3017.htm}{Kai Wei}.}
+\entry{Tsinghua University \& Shenzhen X-Institute}{2024.06--Present}{
+Joint Training, Zero One Scholar; expected completion: 2027.06.\par
+Tsien Excellence in Engineering Program.}
+\entry{Shenzhen Bay Laboratory}{2026.07--Present}{
+Visiting Student, \href{https://www.szbl.ac.cn/research/group/Kai-Huang.htm}{Kai Huang Research Group};
+Institute of Systems and Physical Biology.}
+\entry{Shenzhen Bay Laboratory}{2025.07--2025.09}{
+Visiting Student, \href{https://www.szbl.ac.cn/research/group/Wen-Yuan.htm}{Wen Yuan Research Group};
+Institute of Neurological and Psychiatric Disorders.}
 
-	\textbf{\textcolor{black}{\href{https://www.teep.cnmm.tsinghua.edu.cn/}{Tsien Excellence in Engineering Program}}, \textcolor{black}{\href{https://www.tsinghua.edu.cn/}{Tsinghua University}} \& \textcolor{black}{\href{https://www.x-institute.edu.cn/}{Shenzhen X-Institute}}} \hfill Shenzhen, Guangdong \\
-	{\small \textit{Joint Program, X Scholar} --- Representation learning for protein function and dynamics} \hfill 2024.06 – 2027.06
+\cvsection{Professional Experience}
+\entry{Tsinghua University}{2025.07--Present}{
+Intern, Beijing Frontier Research Center for Biological Structure. Supervisors: Yafei Yuan and Tong Wang.\par
+Protein and polypeptide design research; developed the
+\href{https://www.frcbs.tsinghua.edu.cn/cpdb/}{Polypeptide Structure Database},
+\href{https://www.fbs.frcbs.tsinghua.edu.cn/competition/2025Peptide/}{Peptide Design Competition website},
+and \href{https://wanggroup.ai/}{Tong Wang Research Group website}.}
+\entry{Institute of Software, Chinese Academy of Sciences\newline \& Huawei MindSpore Community}{2024.09--2025.03}{
+Open Source Intern. Implemented VGG19-based Pollock-style generation with fractal and turbulent feature extraction.}
 
-	\vspace{4pt}
+\cvsection{Research Projects}
+\datedline{Application of Artificial Intelligence in Whole Genome Selection Breeding}{2025.12--2026.12}
+\datedline{Urban Big Data, Multimodal Fusion and Spatial Intelligence Analysis}{2025.11--2026.11}
+\datedline{Conditional Diffusion Model on Copy Number Variation for Alzheimer's Disease Risk Assessment}{2025.05--2026.12}
+\datedline{HeDA: An Intelligent Agent System for Heatwave Risk Discovery through Automated Knowledge Graph Construction and Multi-layer Risk Propagation Analysis}{2024.11--2025.09}
+\datedline{From Signal to Symphony: Exploring 2D Sequence Representations for Protein Function Prediction}{2024.08--2025.10}
+\datedline{Research on the Generation Cyclability of Cartesian Product Graphs and Related Problems}{2024.03--2025.06}
 
-	\textbf{\textcolor{black}{\href{https://szbl.ac.cn/research/institutes/INPD.htm}{Institute of Neurological and Psychiatric Disorders}}, \textcolor{black}{\href{https://www.szbl.ac.cn/}{Shenzhen Bay Laboratory}}} \hfill Shenzhen, Guangdong \\
-	{\small \textit{Visiting Student, \textcolor{mylinkcolor}{\href{https://www.szbl.ac.cn/research/group/Wen-Yuan.htm}{Wen Yuan's Research Group}}} --- Single-cell bioinformatics for neurobiology studies} \hfill 2025.07 – 2025.09
+\cvsection{Conferences \& Additional Training}
+\datedline{\href{https://www.chemsoc.org.cn/meeting/35th/}{35th Chinese Chemical Society Congress}, Chongqing, China}{2026.04}
+\datedline{Summer Camp, Tsinghua University--Peking University Center for Life Sciences}{2025.07}
+\datedline{AI Winter School, Brown University Department of Physics}{2025.01}
+\datedline{Artificial Intelligence and Technology Ethics Training Course, Chinese Association for Artificial Intelligence}{2024.09--2024.12}
+\datedline{Summer School of Mathematical Logic, Fudan University}{2024.08}
+\datedline{Discussion Class, National Tianyuan Mathematics Central Center, Wuhan University}{2024.03--2024.06}
 
-	\vspace{4pt}
+\newpage
+\cvsection{Selected Publications}
+\textit{\cofirst\ Co-first author; \corr\ corresponding author.}
+\hfill\href{https://wyqmath.cn/publications.html}{Full publication list}
 
-	\textbf{\textcolor{black}{\href{https://en.szbl.ac.cn/research/institutes/ISPB.htm}{Institute of Systems and Physical Biology}}, \textcolor{black}{\href{https://www.szbl.ac.cn/}{Shenzhen Bay Laboratory}}} \hfill Shenzhen, Guangdong \\
-	{\small \textit{Visiting Student, \textcolor{mylinkcolor}{\href{https://www.szbl.ac.cn/research/group/Kai-Huang.htm}{Kai Huang's Research Group}}} --- IDP, LLPS \& genome folding, undruggable-target design} \hfill Starting 2026.07
+\direction{1. Representation Learning \& Biomolecular Mechanisms}
+\begin{papers}[series=pubs]
+\publication{\me, Cai, M., Ma, Y., Shi, T.\corr, \& Wei, K.\corr}{2026}
+{https://link.springer.com/article/10.1007/s11427-026-3568-6}
+{\textbf{Sequence context decodes multi-state conformational heterogeneity from crystallographic B-factors}}
+{Science China Life Sciences}
 
-	\vspace{5pt}
+\publication{\me\corr\ \& Wei, K.\corr}{2026}
+{https://link.springer.com/article/10.1007/s00894-026-07014-w}
+{Contrasting binding architectures underlying the asymmetric M327I resistance of menin inhibitors}
+{Journal of Molecular Modeling}
 
-	\begin{center}
-		\textbf{\large Selected Publications}
-	\end{center}
-	{\small \textit{Name in bold; $\dagger$ co-first author; * corresponding author.}}
+\publication{\me\corr}{2026}
+{https://doi.org/10.1039/D6DD00416D}
+{Comment on \textquotedblleft Protein language visualizer: a repository for homology exploration with language model embeddings\textquotedblright}
+{Digital Discovery}
 
-	\textbf{Direction 1: Representation Learning \& Biomolecular Mechanisms}
-	\begin{enumerate}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*, label={[\arabic*]}]
-		\item \textbf{Wang, Y.}, et al. (2026). \textcolor{black}{Sequence context decodes multi-state conformational heterogeneity from crystallographic B-factors}. \textit{Science China Life Sciences}, in press (earlier version: \href{https://openreview.net/forum?id=rTO3JOgC3a}{LMRL Workshop at ICLR 2026}).
-		\item \textbf{Wang, Y.}, et al. (2025). \textcolor{black}{\href{https://pubs.acs.org/doi/10.1021/acs.jcim.5c01768}{From Signal to Symphony: Exploring 2D Sequence Representations for Protein Function Prediction}}. \textit{Journal of Chemical Information and Modeling}.
-		\item \textbf{Wang, Y.†}, et al. (2025). \textcolor{black}{\href{https://www.mdpi.com/2079-7737/14/12/1665}{Diffusion Models at the Drug Discovery Frontier: A Review on Generating Small Molecules versus Therapeutic Peptides}}. \textit{Biology}.
-		\item \textbf{Wang, Y.†}, et al. (2026). \textcolor{black}{\href{https://link.springer.com/article/10.1186/s12864-026-13274-w}{Integrating deep learning and pangenomics to recover missing heritability from wild structural variations}}. \textit{BMC Genomics}.
-		\item \textbf{Wang, Y.*}, et al. (2026). \textcolor{black}{\href{https://www.sciencedirect.com/science/article/pii/S1476927126003294}{Integrative transcriptomics, machine learning, and molecular docking derive a DAM-like macrophage signature for risk stratification and therapeutic nomination in glioblastoma}}. \textit{Computational Biology and Chemistry}.
-		\item Wang, X.†*, \textbf{Wang, Y.†*}, et al. (2025). \textcolor{black}{\href{https://ieeexplore.ieee.org/abstract/document/11356718/}{Octopus Inspired Optimization (OIO): A Hierarchical Framework for Navigating Protein Fitness Landscapes}}. \textit{In 2025 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)}. IEEE.
-		\item \textbf{Wang, Y.*}, et al. (2026). \textcolor{black}{\href{https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/advs.74610}{Comment on: ``GLM7 – A Novel Composite Glycolipid Index Derived from Routine Health Indicators for Enhanced Diagnosis and Prediction of Multimorbidity''}}. \textit{Advanced Science}. (correspondence).
-		\item \textbf{Wang, Y.*}, et al. (2025). \textcolor{black}{\href{https://www.jocn-journal.com/article/S0967-5868(25)00332-7/fulltext}{AI for disease prediction: Performance insights and key limitations}}. \textit{Journal of Clinical Neuroscience}. (correspondence).
-	\end{enumerate}
+\publication{\me\cofirst, Cai, M.\cofirst, Ma, Y., Tellier, A.\corr, \& Wei, K.\corr}{2026}
+{https://link.springer.com/article/10.1186/s12864-026-13274-w}
+{Integrating deep learning and pangenomics to recover missing heritability from wild structural variations}
+{BMC Genomics}
 
-	\vspace{3pt}
+\publication{\me\corr\ \& Cai, M.}{2026}
+{https://www.sciencedirect.com/science/article/pii/S1476927126003294}
+{Integrative transcriptomics, machine learning, and molecular docking derive a DAM-like macrophage signature for risk stratification and therapeutic nomination in glioblastoma}
+{Computational Biology and Chemistry}
 
-	\textbf{Direction 2: First-Principles of Biological Complexity Based on Mathematical Physics}
-	\begin{enumerate}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*, label={[\arabic*]}, resume]
-		\item \textbf{Wang, Y.*} (2026). \textcolor{black}{\href{https://link.springer.com/article/10.1140/epje/s10189-026-00621-8}{Spectral analysis of protein backbone geometry reveals abrupt helix--coil boundaries}}. \textit{The European Physical Journal E}.		\item \textbf{Wang, Y.*} (2026). \textcolor{black}{\href{https://www.sciencedirect.com/science/article/pii/S0167278926002587}{Descriptive power and predictive limits of a discrete Hasimoto--DNLS model of protein backbone structure}}. \textit{Physica D: Nonlinear Phenomena}.
-	\end{enumerate}
+\publication{\me\corr\ \& Huang, T. Y.\corr}{2026}
+{https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/advs.74610}
+{Comment on: \textquotedblleft GLM7 -- A Novel Composite Glycolipid Index Derived from Routine Health Indicators for Enhanced Diagnosis and Prediction of Multimorbidity\textquotedblright}
+{Advanced Science}
 
-	\vspace{3pt}
+\publication{\me, Cai, M., Dong, Y., Ma, Y., \& Wei, K.\corr}{2025}
+{https://pubs.acs.org/doi/10.1021/acs.jcim.5c01768}
+{\textbf{From Signal to Symphony: Exploring 2D Sequence Representations for Protein Function Prediction}}
+{Journal of Chemical Information and Modeling}
 
-	\textbf{Direction 3: Interdisciplinary Explorations \& Collaborative Synergies}
-	\begin{enumerate}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*, label={[\arabic*]}, resume]
-		\item \textbf{Wang, Y.}, et al. (2026). \textcolor{black}{\href{https://www.sciencedirect.com/science/article/abs/pii/S0020025526007425}{Hamiltonian Connectivity in $k$-Ary $n$-Cubes under a Region-Based Fault Model}}. \textit{Information Sciences}.
-		\item \textbf{Wang, Y.*}, et al. (2026). \textcolor{black}{\href{https://www.sciencedirect.com/science/article/pii/S1474706526002937}{AI Driven Discovery of Bio Ecological Mediation in Cascading Heatwave Risks}}. \textit{Physics and Chemistry of the Earth}.
-		\item \textbf{Wang, Y.*}, et al. (2026). \textcolor{black}{\href{https://www.biorxiv.org/content/10.64898/2026.01.31.702997.full}{Geometric Fragility in Alzheimer's Disease: Probing the Loss of Hippocampal Hierarchical Abstraction via Contrastive Point Cloud Modeling}}. \textit{In 2026 IEEE International Conference on Systems, Man, and Cybernetics (SMC)}. IEEE.
-	\end{enumerate}
+\publication{\me\cofirst, Ma, Y.\cofirst, Chang, Y., Yan, J., Zhang, J., Cai, M., \& Wei, K.\corr}{2025}
+{https://www.mdpi.com/2079-7737/14/12/1665}
+{Diffusion Models at the Drug Discovery Frontier: A Review on Generating Small Molecules versus Therapeutic Peptides}
+{Biology}
 
-	\vspace{5pt}
+\publication{Wang, X.\cofirst\corr, \me\cofirst\corr, Huang, T. Y., Dong, Y., Deng, J., Xu, L., Li, X., \& He, R.}{2025}
+{https://ieeexplore.ieee.org/abstract/document/11356718/}
+{Octopus Inspired Optimization (OIO): A Hierarchical Framework for Navigating Protein Fitness Landscapes}
+{2025 IEEE International Conference on Bioinformatics and Biomedicine}
+\end{papers}
 
-	\begin{center}
-		\textbf{\large Research Projects}
-	\end{center}
-	\textbf{Tsinghua University Tsien Excellence in Engineering Program ESRT} \hfill 2024.08-2025.10
-	\begin{itemize}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*]
-		\item \textbf{Project:} From Signal to Symphony: Exploring 2D Sequence Representations for Protein Function Prediction.
-		\item {\small Motivated by an intuition that protein structure mirrors music---catalytic sites resembling melodic climaxes and $\beta$-sheets resembling calmer passages---I encoded amino acid sequences as 2D spectrograms (protein sonification) for function prediction. Ablations across an 18{,}000-sequence/12-class benchmark showed the 1D$\to$2D representational structure itself, rather than explicit biophysical priors, was the key driver of performance, matching ESM-2 and ProtBERT and reaching 90.44\% on the external CARE benchmark.}
-		\item {\small \textcolor{mylinkcolor}{\href{https://github.com/wyqmath/Symphony_of_Fate}{Project Repository}}. Supervised by Prof. \textcolor{mylinkcolor}{\href{https://scholar.google.com/citations?user=LLj__mMAAAAJ}{Kai Wei}}.}
-	\end{itemize}
+\direction{2. First-Principles of Biological Complexity Based on Mathematical Physics}
+\begin{papers}[resume=pubs]
+\publication{\me\corr}{2026}
+{https://link.springer.com/article/10.1140/epje/s10189-026-00621-8}
+{Spectral analysis of protein backbone geometry reveals abrupt helix--coil boundaries}
+{The European Physical Journal E}
 
-	\vspace{4pt}
+\publication{\me\corr}{2026}
+{https://www.sciencedirect.com/science/article/pii/S0167278926002587}
+{\textbf{Descriptive power and predictive limits of a discrete Hasimoto--DNLS model of protein backbone structure}}
+{Physica D: Nonlinear Phenomena}
+\end{papers}
 
-	\textbf{Chinese Academy of Sciences (CAS) Innovation Practice Training Program} \hfill 2024.11 -- 2025.09
-	\begin{itemize}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*]
-		\item \textbf{Project:} A Knowledge Graph-based Q\&A System for Heatwave Disaster Adaptation.
-		\item {\small Built HeDA, an autonomous synthesis agent that constructs a knowledge graph (34{,}933 entities, 42{,}890 relations) from 8{,}365 publications to map compound-heatwave cascading risks. On a temporally held-out multi-hop benchmark, graph augmentation improved accuracy by 8.1--9.8\% over standalone foundation models; topological analysis surfaced a bio-ecological mediation effect, where biological systems act as the primary structural mediators transforming physical hazards into systemic socioeconomic losses.}
-		\item {\small \textcolor{mylinkcolor}{\href{https://github.com/wyqmath/heatwave}{Project Repository}}. Supervised by Researcher \textcolor{mylinkcolor}{\href{https://scholar.google.com/citations?user=OQDwnVUAAAAJ}{Yong Ge}}.}
-	\end{itemize}
+\direction{3. Interdisciplinary Explorations \& Collaborative Synergies}
+\begin{papers}[resume=pubs]
+\publication{\me, Zai, J., Liu, Z., Chen, J., \& Sabir, E.\corr}{2026}
+{https://www.sciencedirect.com/science/article/abs/pii/S0020025526007425}
+{Hamiltonian Connectivity in \textit{k}-Ary \textit{n}-Cubes under a Region-Based Fault Model}
+{Information Sciences}
 
-	\vspace{4pt}
+\publication{\me\corr, Huang, T. Y., Gao, Q., Chang, Y., \& Zhang, J.}{2026}
+{https://www.sciencedirect.com/science/article/pii/S1474706526002937}
+{AI Driven Discovery of Bio Ecological Mediation in Cascading Heatwave Risks}
+{Physics and Chemistry of the Earth, Parts A/B/C}
 
-	\textbf{Provincial Undergraduate Innovation Training Program} \hfill 2024.03 -- 2025.06
-	\begin{itemize}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*]
-		\item \textbf{Project:} Research on the Generation Cyclability of Cartesian Product Graphs and Related Problems.
-		\item {\small Studied Hamiltonicity of the $k$-ary $n$-cube $Q_n^k$, a classical graph-theoretic interconnection topology. Motivated by the fact that real-world faults are spatially clustered rather than independent, I introduced the Region-Based Fault (RBF) model characterizing faults as connected subgraphs, and gave a constructive proof that $Q_n^k$ remains Hamiltonian-connected for odd $k \geq 3$, $n \geq 2$ under RBF conditions, via an adaptive graph-decomposition argument robust well beyond its theoretical guarantees.}
-		\item {\small \textcolor{mylinkcolor}{\href{https://github.com/wyqmath/Hamiltonian_Path}{Project Repository}}. Supervised by Prof. \textcolor{mylinkcolor}{\href{https://orcid.org/0000-0003-1456-4539}{Eminjan Sabir}}.}
-	\end{itemize}
+\publication{\me\corr, Chang, Y., Zhang, J., Cai, M., Yan, J., \& Zhao, H.\corr,
+for the Alzheimer's Disease Neuroimaging Initiative}{2026, accepted}
+{}
+{Geometric Fragility in Alzheimer's Disease: Probing the Loss of Hippocampal Hierarchical Abstraction via Contrastive Point Cloud Modeling}
+{2026 IEEE International Conference on Systems, Man, and Cybernetics}
+\end{papers}
 
-	\vspace{4pt}
+\newpage
+\setlength{\datedlinegap}{8pt}
+\cvsection{Awards \& Honors}
+\datedline{China Undergraduate Life Science Contest: National Second Prize}{2026}
+\datedline{\textquotedblleft Challenge Cup\textquotedblright\ China College Students' Extracurricular Academic Science and Technology Works Competition: Autonomous Region Second Prize}{2026}
+\datedline{China College Students' E-Commerce \textquotedblleft Innovation, Creativity and Entrepreneurship\textquotedblright\ Challenge: Autonomous Region Second Prize}{2026}
+\datedline{UN Global Leadership and ESG Programme / X-Institute Shenzhen \textquotedblleft AI for the Young and the Elderly\textquotedblright\ Challenge: Best Innovation Award}{2026}
+\datedline{China College Student Self-improvement Star}{2025}
+\datedline{Contemporary Undergraduate Mathematical Contest in Modeling: National Second Prize}{2025}
+\datedline{Smart Chemical City Challenge (Xinjiang Station): Second Prize}{2025}
+\datedline{SynBio Challenges: Two Silver Awards}{2025}
+\datedline{X-Fusion \textquotedblleft Global Innovator Fusion Conference\textquotedblright: Best Poster Award}{2025}
+\datedline{Mathematical Contest in Modeling: Honorable Mention}{2025}
+\datedline{Alibaba Cloud Tianchi University Student Competition: National Finals, 17th Place}{2024}
+\datedline{Asia-Pacific Mathematical Modeling Competition: National Third Prize}{2024}
 
-	\textbf{National Undergraduate Innovation Program} \hfill 2025.05 -- 2026.12
-	\begin{itemize}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*]
-		\item \textbf{Project:} Conditional Diffusion Model on Copy Number Variation for Alzheimer's Disease Risk Assessment.
-	\end{itemize}
-
-	\vspace{4pt}
-
-	\textbf{Tsinghua University Tsien Excellence in Engineering Program ORIC} \hfill 2025.12 -- 2026.12
-	\begin{itemize}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*]
-		\item \textbf{Project:} Application of Artificial Intelligence in Whole Genome Selection Breeding.
-	\end{itemize}
-
-	\vspace{4pt}
-
-	\textbf{Chinese Academy of Sciences (CAS) Innovation Practice Training Program} \hfill 2025.11 -- 2026.11
-	\begin{itemize}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*]
-		\item \textbf{Project:} Urban Big Data, Multimodal Fusion and Spatial Intelligence Analysis (Second Author).
-	\end{itemize}
-
-	\vspace{5pt}
-	
-	\begin{center}
-		\textbf{\large Professional Experience}
-	\end{center}
-	\textbf{Beijing Frontier Research Center for Biological Structure, Tsinghua University} \hfill Beijing, China
-	
-	\textit{Intern} \hfill 2025.07 – Present
-	\begin{itemize}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*]
-		\item Developed the \textcolor{mylinkcolor}{\href{https://www.fbs.frcbs.tsinghua.edu.cn/competition/2025Peptide/}{Peptide Design Competition Website}}, the \textcolor{mylinkcolor}{\href{https://www.frcbs.tsinghua.edu.cn/cpdb/}{Polypeptide Structure Database}} and engaged in protein and polypeptide design research. Supervised by Prof. Yafei Yuan and Prof. \textcolor{mylinkcolor}{\href{https://wanggroup.ai/}{Tong Wang}}.
-	\end{itemize}
-	
-	\vspace{4pt}
-	
-	\textbf{Institute of Software, CAS \& Huawei Mindspore Community} \hfill Remote
-	
-	\textit{Intern} \hfill 2024.09 – 2025.03
-	\begin{itemize}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*]
-		\item Implemented a VGG19-based model for Pollock-style art generation, focusing on fractal and turbulent feature extraction and the creation of NFT-based digital labels. Featured on \href{https://mp.weixin.qq.com/s/_N5oLsa0etJTxEOKRTt_4w}{Huawei's official Wechat}.
-	\end{itemize}
-	
-	\vspace{4pt}
-
-	\vspace{5pt}
-
-	\begin{center}
-		\textbf{\large Awards \& Honors}
-	\end{center}
-	\begin{itemize}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*]
-		\item \textbf{China Undergraduate Life Science Contest}: National Second Prize \hfill 2026
-		\item \textbf{``Challenge Cup'' China College Students' Extracurricular Academic Science and Technology Works Competition}:\\
-		Autonomous Region Second Prize \hfill 2026
-		\item \textbf{China College Students' E-Commerce ``Innovation, Creativity and Entrepreneurship'' Challenge}:\\
-		Autonomous Region Second Prize \hfill 2026
-		\item \textbf{China College Student Self-improvement Star} \hfill 2025
-		\item \textbf{UN Global Leadership and ESG Programme $\times$ X-Institute Shenzhen "AI for the Young and the Elderly" Challenge}:\\
-		Best Innovation Award \hfill 2026
-		\item \textbf{Smart Chemical City Challenge (Xinjiang Station)}: Second Prize \hfill 2025
-		\item \textbf{Contemporary Undergraduate Mathematical Contest in Modeling (CUMCM)}: National Second Prize \hfill 2025
-		\item \textbf{SynBio Challenges}: Silver Award $\times$ 2 \hfill 2025
-		\item \textbf{2025 X-Fusion "Global Innovator Fusion Conference"}: Best Poster Award \hfill 2025
-		\item \textbf{The Mathematical Contest in Modeling (MCM)}: Honorable Mention \hfill 2025
-		\item \textbf{Alibaba Cloud Tianchi University Student Competition}: National Finals, 17th Place \hfill 2024
-		\item \textbf{APMCM Asia-Pacific Mathematical Modeling Competition}: National Third Prize \hfill 2024
-	\end{itemize}
-
-	\begin{center}
-		\textbf{\large Academic Activities}
-	\end{center}
-		\textbf{Peer Reviewer:} ICLR/ICML/NeurIPS workshops; Urban Climate; Physics and Chemistry of the Earth; Mini-Reviews in Medicinal Chemistry; Current Science; F1000Research; Frontiers in Chemistry; Frontiers in Physics; Frontiers in Aging Neuroscience; European Journal of Physics.
-
-		\textbf{Academic Engagement:}
-	\begin{itemize}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*]
-		\item Tsinghua University-Peking University Center for Life Sciences Summer Camp \hfill 2025.07
-		\item \begin{tabular}[c]{@{}p{0.8\linewidth}@{}}Shenzhen Bay Laboratory / Shenzhen Medical Academy of Research and Translation Summer Research\end{tabular} \hfill \mbox{2025.07 -- 2025.09}
-		\item Tsinghua University Tsien Excellence in Engineering Program -- Zero One Scholar \hfill 2024.06 -- 2027.06
-		\item AI Winter School, Brown University Department of Physics \hfill 2025.01
-		\item CAAI Artificial Intelligence and Technology Ethics Training Course \hfill 2024.09 -- 2024.12
-		\item Fudan University Summer School of Mathematical Logic \hfill 2024.08
-		\item Wuhan University National Tianyuan Mathematics Center Discussion Class \hfill 2024.03 -- 2024.06
-	\end{itemize}
-	
-	\vspace{5pt}
-
-	\begin{center}
-		\textbf{\large Website Development}
-	\end{center}
-	\begin{itemize}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=*]
-		\item \textbf{Peptide Design Competition, Tsinghua University} --- \textcolor{mylinkcolor}{\href{https://www.fbs.frcbs.tsinghua.edu.cn/competition/2025Peptide/}{[Link]}}
-		\item \textbf{Polypeptide Structure Database, Tsinghua University} --- \textcolor{mylinkcolor}{\href{https://www.frcbs.tsinghua.edu.cn/cpdb/}{[Link]}}
-		\item \textbf{Tong Wang (Tsinghua University) Research Group} --- \textcolor{mylinkcolor}{\href{https://wanggroup.ai/}{[Link]}}
-	\end{itemize}
+\cvsection{Academic Service}
+\serviceitem{Conference reviewer}{2026 IEEE International Conference on Systems, Man, and Cybernetics.}
+\Needspace{108pt}\textbf{Journal reviewer}\par\vspace{3pt}
+{\renewcommand{\arraystretch}{1.2}%
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X@{\hspace{18pt}}>{\raggedright\arraybackslash}X@{}}
+Current Science & Frontiers in Complex Systems \\
+Engineering Research Express & Frontiers in Immunology \\
+European Journal of Physics & Frontiers in Physics \\
+F1000Research & Mini-Reviews in Medicinal Chemistry \\
+Frontiers in Aging Neuroscience & Physics and Chemistry of the Earth, Parts A/B/C \\
+Frontiers in Bioinformatics & Physics Open \\
+Frontiers in Chemistry & Urban Climate
+\end{tabularx}\par}\vspace{5pt}
+\serviceitem{Workshop reviewer}{Workshops at the International Conference on Learning Representations,
+International Conference on Machine Learning, and Conference on Neural Information Processing Systems (2025--2026).}
+\serviceitem{Conference staff}{SMART Genome Symposium: From Structure to Function,
+Shenzhen Medical Academy of Research and Translation, Shenzhen, China, 2026.10.15--18.}
+\serviceitem{Memberships}{IEEE Biometrics Council; Chinese Chemical Society; Biophysical Society of China.}
 
 \end{document}
